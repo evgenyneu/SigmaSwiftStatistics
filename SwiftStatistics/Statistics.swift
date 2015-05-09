@@ -285,8 +285,7 @@ public struct Statistics {
   }
   
   //
-  // Calculates the Pearson product-moment correlation coefficient between two variables: x and y
-  // for a population.
+  // Calculates the Pearson product-moment correlation coefficient between two variables: x and y.
   //
   // Note:
   //
@@ -310,19 +309,20 @@ public struct Statistics {
   //
   //   let x = [1, 2, 3.5, 3.7, 8, 12]
   //   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-  //   Statistics.populationPearson(x: x, y: y) // 0.843760859352745
+  //   Statistics.pearson(x: x, y: y) // 0.843760859352745
   //
-  public static func populationPearson(#x: [Double], y: [Double]) -> Double? {
+  public static func pearson(#x: [Double], y: [Double]) -> Double? {
     if let cov = populationCovariance(x: x, y: y),
       σx = populationStandardDeviation(x),
       σy = populationStandardDeviation(y) {
+        
+      if σx == 0 || σy == 0 { return nil }
 
       return cov / (σx * σy)
     }
       
     return nil
   }
-  
 }
 
 typealias σ = Statistics
