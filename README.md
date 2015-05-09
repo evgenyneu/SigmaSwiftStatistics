@@ -2,7 +2,6 @@
 
 # σ (sigma) - statistics library for Swift
 
-This library is called `σ` (
 This library is a collection of functions that perform statistical calculations in Swift.
 
 ## Setup
