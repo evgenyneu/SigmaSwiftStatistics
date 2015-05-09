@@ -1,10 +1,10 @@
 //
-// Collection of function for statistics calculation.
+// Collection of functions for statistics calculation.
 //
 
 import Foundation
 
-struct Statistics {
+public struct Statistics {
   //
   // Computes standard deviation for the array of values.
   //
@@ -13,7 +13,7 @@ struct Statistics {
   //
   //   Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8]) // 7.918420858282849
   //
-  static func standardDeviation(values: [Double]) -> Double {
+  public static func standardDeviation(values: [Double]) -> Double {
     let count = Double(values.count)
     if count == 0 { return 0 }
     
@@ -34,7 +34,7 @@ struct Statistics {
   //
   //  Statistics.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
   //
-  static func average(values: [Double]) -> Double {
+  public static func average(values: [Double]) -> Double {
     let count = Double(values.count)
     if count == 0 { return 0 }
     return values.reduce(0, combine: +) / count
