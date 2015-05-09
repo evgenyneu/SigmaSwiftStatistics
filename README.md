@@ -42,7 +42,7 @@ Statistics.min([7, 2, 3])
 
 ### Sum
 
-Computes sun of values from the array.
+Computes sum of values from the array.
 
 ```Swift
 Statistics.sum([1, 3, 8])
