@@ -222,7 +222,7 @@ You can type a sigma letter `σ` instead of `Statistics`. For example:
 
 ```
 σ.mean([1, 2])
-σ.standardDeviationSample([1, 2])
+σ.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
 ```
 
 ## Feedback is welcome
