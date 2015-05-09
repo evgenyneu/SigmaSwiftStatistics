@@ -66,17 +66,12 @@ public struct Statistics {
   // Example
   // -------
   //
-  //  Statistics.mean([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
+  //  Statistics.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
   //
-  public static func mean(values: [Double]) -> Double? {
+  public static func average(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     return sum(values) / count
-  }
-  
-  // Alias for the mean function
-  public static func average(values: [Double]) -> Double? {
-    return mean(values)
   }
   
   //
@@ -137,7 +132,7 @@ public struct Statistics {
     let count = Double(values.count)
     if count < 2 { return nil }
     
-    if let avgerageValue = mean(values) {
+    if let avgerageValue = average(values) {
       let numerator = values.reduce(0) { total, value in
         total + pow(avgerageValue - value, 2)
       }
@@ -174,7 +169,7 @@ public struct Statistics {
     let count = Double(values.count)
     if count == 0 { return nil }
     
-    if let avgerageValue = mean(values) {
+    if let avgerageValue = average(values) {
       let numerator = values.reduce(0) { total, value in
         total + pow(avgerageValue - value, 2)
       }
@@ -220,8 +215,8 @@ public struct Statistics {
     if xCount < 2 { return nil }
     if xCount != yCount { return nil }
     
-    if let xMean = mean(x),
-      yMean = mean(y) {
+    if let xMean = average(x),
+      yMean = average(y) {
         
         var sum:Double = 0
         
@@ -272,8 +267,8 @@ public struct Statistics {
     if xCount == 0 { return nil }
     if xCount != yCount { return nil }
     
-    if let xMean = mean(x),
-      yMean = mean(y) {
+    if let xMean = average(x),
+      yMean = average(y) {
       
       var sum:Double = 0
   

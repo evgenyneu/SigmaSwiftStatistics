@@ -49,14 +49,13 @@ Statistics.sum([1, 3, 8])
 // Result: 12
 ```
 
-### Mean
+### Average
 
 Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of values in the array.
 
 **Note**:
 
   * Returns nil for an empty array.
-  * There is a convenience function `average` which is an alias for `mean`.
   * Same as AVERAGE in Microsoft Excel and Google Docs Sheets.
 
 #### Formula
@@ -68,7 +67,7 @@ Where:
   * *n* is the number of values.
 
 ```Swift
-Statistics.mean([1, 3, 8])
+Statistics.average([1, 3, 8])
 // Result: 4
 ```
 
@@ -221,7 +220,7 @@ Statistics.pearson(x: x, y: y)
 You can type a sigma letter `σ` instead of `Statistics`. For example:
 
 ```
-σ.mean([1, 2])
+σ.average([1, 2])
 σ.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
 ```
 
