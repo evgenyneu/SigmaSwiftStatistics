@@ -27,7 +27,7 @@ public struct Statistics {
   }
   
   //
-  // Computes average given an array of values.
+  // Computes numerical average of values in the array.
   //
   // Example
   // -------

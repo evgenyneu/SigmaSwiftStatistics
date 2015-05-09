@@ -377,7 +377,6 @@
 				INFOPLIST_FILE = SwiftStatisticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftStatisticsDemo.app/SwiftStatisticsDemo";
 			};
 			name = Debug;
 		};
@@ -391,7 +390,6 @@
 				INFOPLIST_FILE = SwiftStatisticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftStatisticsDemo.app/SwiftStatisticsDemo";
 			};
 			name = Release;
 		};

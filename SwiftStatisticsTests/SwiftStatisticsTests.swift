@@ -1,36 +1,31 @@
-//
-//  SwiftStatisticsTests.swift
-//  SwiftStatisticsTests
-//
-//  Created by Evgenii Neumerzhitckii on 9/05/2015.
-//  Copyright (c) 2015 Evgenii Neumerzhitckii. All rights reserved.
-//
-
 import UIKit
 import XCTest
+import SwiftStatistics
 
 class SwiftStatisticsTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+  // Average
+  // --------------
+  
+  func testAverage() {
+    let result = Statistics.average([1, 12, 19.5, -5, 3, 8])
+    XCTAssertEqual(6.416666666666667, result)
+  }
+  
+  func testAverage_whenEmpty() {
+    let result = Statistics.average([])
+    XCTAssertEqual(0, result)
+  }
+  
+  // Standard deviation
+  // --------------
+  
+  func testStandardDeviation() {
+    let result = Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
+    XCTAssertEqual(7.918420858282849, result)
+  }
+  
+  func testStandardDeviation_whenEmpty() {
+    let result = Statistics.standardDeviation([])
+    XCTAssertEqual(0, result)
+  }
 }
