@@ -1,12 +1,12 @@
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
-# Statistics library for Swift
+# σ (sigma) - statistics library for Swift
 
 This library is a collection of functions that perform statistical calculations in Swift.
 
 ## Setup
 
-Copy [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
+Simply add [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
 
 ### Setup with Carthage
 
@@ -31,3 +31,16 @@ Statistics.average([1, 12, 19.5, -5, 3, 8])
 Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
+
+### Shorter syntax
+
+You can type a sigma letter `σ` instead of `Statistics`. For example:
+
+```
+σ.average([1, 2])
+σ.standardDeviation([1, 2])
+```
+
+## Feedback is welcome
+
+If you need help or want to extend the library feel free to create an issue or submit a pull request.
