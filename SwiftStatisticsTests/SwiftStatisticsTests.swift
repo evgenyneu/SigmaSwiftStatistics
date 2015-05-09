@@ -107,4 +107,14 @@ class SwiftStatisticsTests: XCTestCase {
     let result = Statistics.populationStandardDeviation([])
     XCTAssert(result == nil)
   }
+  
+  // MARK: - Population covariance
+  
+  func testPopulationCovariance() {
+    let first = [1, 2, 3.5, 3.7, 8, 12]
+    let second = [0.5, 1, 2.1, 3.4, 3.4, 4]
+    let result = Statistics.populationCovariance(first: first, second: second)!
+    
+    XCTAssertEqual(4.1916666667, Helpers.round10(result))
+  }
 }

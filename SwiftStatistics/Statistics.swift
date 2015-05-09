@@ -179,6 +179,26 @@ public struct Statistics {
   
     return nil
   }
+  
+  public static func populationCovariance(#first: [Double], second: [Double]) -> Double? {
+    let firstCount = Double(first.count)
+    
+    if let firstMean = mean(first),
+      secondMean = mean(second) {
+      
+      var sum:Double = 0
+  
+      for (index, firstElement) in enumerate(first) {
+        let secondElement = second[index]
+        
+        sum += (firstElement - firstMean) * (secondElement - secondMean)
+      }
+        
+      return sum / firstCount
+    }
+    
+    return nil
+  }
 }
 
 typealias σ = Statistics
