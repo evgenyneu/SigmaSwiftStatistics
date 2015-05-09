@@ -169,7 +169,7 @@ between two variables: x and y.
 
   * Returns nil if arrays x and y have different number of values.
   * Returns nil for empty arrays.
-  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets CORREL.
+  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets.
 
 #### Formula
 
