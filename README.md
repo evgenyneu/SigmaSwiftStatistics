@@ -148,7 +148,7 @@ Statistics.standardDeviation(x: x, y: y)
 // Result: 4.19166666666667
 ```
 
-### Shorter syntax
+## Shorter syntax
 
 You can type a sigma letter `σ` instead of `Statistics`. For example:
 
