@@ -43,13 +43,35 @@ class SwiftStatisticsTests: XCTestCase {
   // MARK: - Mean
   
   func testMean() {
-    let result = Statistics.mean([1, 12, 19.5, -5, 3, 8])
+    let result = Statistics.mean([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(6.4166666667, Helpers.round10(result))
   }
   
   func testAverage_whenEmpty() {
     let result = Statistics.mean([])
-    XCTAssertEqual(0, result)
+    XCTAssert(result == nil)
+  }
+  
+  // MARK: - Median
+  
+  func testMedian_oddNumberOfItems() {
+    let result = Statistics.median([1, 12, 19.5, 3, -5])!
+    XCTAssertEqual(3, result)
+  }
+  
+  func testMedian_eventNumberOfItems() {
+    let result = Statistics.median([1, 12, 19.5, 3, -5, 8])!
+    XCTAssertEqual(5.5, result)
+  }
+  
+  func testMedian_oneItem() {
+    let result = Statistics.median([2])!
+    XCTAssertEqual(2, result)
+  }
+  
+  func testMedian_whenEmpty() {
+    let result = Statistics.median([])
+    XCTAssert(result == nil)
   }
   
   // MARK: - Sample standard deviation

@@ -8,6 +8,13 @@ public struct Statistics {
   //
   // Returns the maximum value in the array.
   //
+  // Note: returns nil when the array is empty.
+  //
+  // Example
+  // -------
+  //
+  //  Statistics.max([3, 10, 6]) // 10
+  //
   public static func max(values: [Double]) -> Double? {
     if values.isEmpty { return nil }
     return maxElement(values)
@@ -15,6 +22,13 @@ public struct Statistics {
   
   //
   // Returns the mimimum value in the array.
+  //
+  // Note: returns nil when the array is empty.
+  //
+  // Example
+  // -------
+  //
+  //  Statistics.min([5, 3, 10]) // 3
   //
   public static func min(values: [Double]) -> Double? {
     if values.isEmpty { return nil }
@@ -24,6 +38,11 @@ public struct Statistics {
   //
   // Computes the sum of array values
   //
+  // Example
+  // -------
+  //
+  //  Statistics.sum([1, 3, 10]) // 14
+  //
   public static func sum(values: [Double]) -> Double {
     return values.reduce(0, combine: +)
   }
@@ -31,7 +50,9 @@ public struct Statistics {
   //
   // Computes arithmetic mean of values in the array.
   //
-  // Wikipedia: http://en.wikipedia.org/wiki/Arithmetic_mean
+  // Note: returns nil when the array is empty.
+  //
+  // http://en.wikipedia.org/wiki/Arithmetic_mean
   //
   // Formula
   // -------
@@ -45,16 +66,50 @@ public struct Statistics {
   // Example
   // -------
   //
-  //  Statistics.standardDeviation.mean([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
+  //  Statistics.mean([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
   //
-  public static func mean(values: [Double]) -> Double {
+  public static func mean(values: [Double]) -> Double? {
     let count = Double(values.count)
-    if count == 0 { return 0 }
+    if count == 0 { return nil }
     return sum(values) / count
   }
   
   //
+  // Returns the center value from the array after it is sorted.
+  //
+  // Note:
+  //
+  //   - Returns nil when the array is empty.
+  //   - Returns the mean of the two middle values if there is an even number of items in the array.
+  //
+  // http://en.wikipedia.org/wiki/Median
+  //
+  // Example
+  // -------
+  //
+  //  Statistics.median([1, 12, 19.5, 3, -5]) // 3
+  //
+  public static func median(values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    let sorted = values.sorted { $0 < $1 }
+    
+    if count % 2 == 0 {
+      // Event number of items - return the mean of two middle values
+      let leftIndex = Int(count / 2 - 1)
+      let leftValue = sorted[leftIndex]
+      let rightValue = sorted[leftIndex + 1]
+      return (leftValue + rightValue) / 2
+    } else {
+      // Odd number of items - take the middle item.
+      return sorted[Int(count / 2)]
+    }
+  }
+  
+  //
   // Computes standard deviation of a population sample.
+  //
+  // Note: returns nil when the array is empty or contains a single value.
   //
   // http://en.wikipedia.org/wiki/Standard_deviation
   //
@@ -68,7 +123,6 @@ public struct Statistics {
   //     m is the sample mean.
   //     n is the sample size.
   //
-  //
   // Example
   // -------
   //
@@ -78,17 +132,21 @@ public struct Statistics {
     let count = Double(values.count)
     if count < 2 { return nil }
     
-    let avgerageValue = mean(values)
-    
-    let numerator = values.reduce(0) { total, value in
-      total + pow(avgerageValue - value, 2)
+    if let avgerageValue = mean(values) {
+      let numerator = values.reduce(0) { total, value in
+        total + pow(avgerageValue - value, 2)
+      }
+      
+      return sqrt(numerator / (count - 1))
     }
     
-    return sqrt(numerator / (count - 1))
+    return nil
   }
   
   //
   // Computes standard deviation of entire population.
+  //
+  // Note: returns nil when the array is empty.
   //
   // http://en.wikipedia.org/wiki/Standard_deviation
   //
@@ -102,7 +160,6 @@ public struct Statistics {
   //     m is the population mean.
   //     n is the population size.
   //
-  //
   // Example
   // -------
   //
@@ -112,13 +169,15 @@ public struct Statistics {
     let count = Double(values.count)
     if count == 0 { return nil }
     
-    let avgerageValue = mean(values)
-    
-    let numerator = values.reduce(0) { total, value in
-      total + pow(avgerageValue - value, 2)
+    if let avgerageValue = mean(values) {
+      let numerator = values.reduce(0) { total, value in
+        total + pow(avgerageValue - value, 2)
+      }
+      
+      return sqrt(numerator / count)
     }
-    
-    return sqrt(numerator / count)
+  
+    return nil
   }
 }
 
