@@ -58,10 +58,9 @@ Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of valu
 #### Formula
 
 > A = Σ(x) / n
-
-Where:
-
-  * *n* is the number of values.
+> Where:
+>
+>  * *n* is the number of values.
 
 ```Swift
 Statistics.mean([1, 3, 8])
