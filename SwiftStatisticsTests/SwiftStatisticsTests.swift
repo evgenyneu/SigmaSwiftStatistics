@@ -3,11 +3,36 @@ import XCTest
 import SwiftStatistics
 
 class SwiftStatisticsTests: XCTestCase {
+  
+  // MARK: - Min
+  
+  func testMin() {
+    let result = Statistics.min([4, 2.1, 8])!
+    XCTAssertEqual(2.1, result)
+  }
+  
+  func testMin_whenEmpty() {
+    let result = Statistics.min([])
+    XCTAssert(result == nil)
+  }
+  
+  // MARK: - Max
+  
+  func testMax() {
+    let result = Statistics.max([4, 15.1, 8])!
+    XCTAssertEqual(15.1, result)
+  }
+  
+  func testMax_whenEmpty() {
+    let result = Statistics.max([])
+    XCTAssert(result == nil)
+  }
+  
   // MARK: - Sum
   
   func testSum() {
-    let result = Statistics.sum([1, 3, 8])
-    XCTAssertEqual(12, result)
+    let result = Statistics.sum([1, 3.1, 8])
+    XCTAssertEqual(12.1, result)
   }
   
   func testSum_whenEmpty() {

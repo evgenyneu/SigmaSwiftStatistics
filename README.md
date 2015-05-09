@@ -18,6 +18,24 @@ github "evgenyneu/SwiftStatistics" ~> 1.0
 
 ## Usage
 
+### Max
+
+Returns the maximum value in the array. Returns nil for an empty array.
+
+```Swift
+Statistics.max([1, 8, 3])
+// Result: 8
+```
+
+### Min
+
+Returns the minimum value in the array. Returns nil for an empty array.
+
+```Swift
+Statistics.min([7, 2, 3])
+// Result: 2
+```
+
 ### Sum
 
 Computes sun of values from the array.

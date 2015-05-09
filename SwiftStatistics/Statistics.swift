@@ -6,6 +6,22 @@ import Foundation
 
 public struct Statistics {
   //
+  // Returns the maximum value in the array.
+  //
+  public static func max(values: [Double]) -> Double? {
+    if values.isEmpty { return nil }
+    return maxElement(values)
+  }
+  
+  //
+  // Returns the mimimum value in the array.
+  //
+  public static func min(values: [Double]) -> Double? {
+    if values.isEmpty { return nil }
+    return minElement(values)
+  }
+  
+  //
   // Computes the sum of array values
   //
   public static func sum(values: [Double]) -> Double {
