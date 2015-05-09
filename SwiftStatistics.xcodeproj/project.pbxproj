@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E4B00F51AFDF5E1000562EE /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B00F41AFDF5E1000562EE /* TestHelpers.swift */; };
 		7EBDACD21AFDA18A0089B815 /* SwiftStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBDACD11AFDA18A0089B815 /* SwiftStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EBDACD81AFDA18A0089B815 /* SwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SwiftStatistics.framework */; };
 		7EBDACE11AFDA18A0089B815 /* SwiftStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBDACE01AFDA18A0089B815 /* SwiftStatisticsTests.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E4B00F41AFDF5E1000562EE /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		7EBDACCD1AFDA18A0089B815 /* SwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDACD01AFDA18A0089B815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBDACD11AFDA18A0089B815 /* SwiftStatistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftStatistics.h; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E4B00F31AFDF5D4000562EE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B00F41AFDF5E1000562EE /* TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7EBDAC9A1AFDA0E20089B815 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		7EBDACDD1AFDA18A0089B815 /* SwiftStatisticsTests */ = {
 			isa = PBXGroup;
 			children = (
+				7E4B00F31AFDF5D4000562EE /* Helpers */,
 				7EBDACE01AFDA18A0089B815 /* SwiftStatisticsTests.swift */,
 				7EBDACDE1AFDA18A0089B815 /* Supporting Files */,
 			);
@@ -223,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EBDACE11AFDA18A0089B815 /* SwiftStatisticsTests.swift in Sources */,
+				7E4B00F51AFDF5E1000562EE /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
