@@ -173,7 +173,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SwiftStatisticsDemo" */;
+			buildConfigurationList = 7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SwiftStatistics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -398,7 +398,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SwiftStatisticsDemo" */ = {
+		7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SwiftStatistics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EBDACC01AFDA0E20089B815 /* Debug */,

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "7EBDACCC1AFDA18A0089B815"
                BuildableName = "SwiftStatistics.framework"
                BlueprintName = "SwiftStatistics"
-               ReferencedContainer = "container:SwiftStatisticsDemo.xcodeproj">
+               ReferencedContainer = "container:SwiftStatistics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "7EBDACCC1AFDA18A0089B815"
             BuildableName = "SwiftStatistics.framework"
             BlueprintName = "SwiftStatistics"
-            ReferencedContainer = "container:SwiftStatisticsDemo.xcodeproj">
+            ReferencedContainer = "container:SwiftStatistics.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,7 +63,7 @@
             BlueprintIdentifier = "7EBDACCC1AFDA18A0089B815"
             BuildableName = "SwiftStatistics.framework"
             BlueprintName = "SwiftStatistics"
-            ReferencedContainer = "container:SwiftStatisticsDemo.xcodeproj">
+            ReferencedContainer = "container:SwiftStatistics.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
