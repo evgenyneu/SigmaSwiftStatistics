@@ -56,6 +56,7 @@ Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of valu
 **Note**:
 
   * Returns nil for an empty array.
+  * There is a convenience function `average` which is an alias for `mean`.
   * Same as AVERAGE in Microsoft Excel and Google Docs Sheets.
 
 #### Formula

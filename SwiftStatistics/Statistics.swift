@@ -74,6 +74,11 @@ public struct Statistics {
     return sum(values) / count
   }
   
+  // Alias for the mean function
+  public static func average(values: [Double]) -> Double? {
+    return mean(values)
+  }
+  
   //
   // Returns the center value from the array after it is sorted.
   //

@@ -52,6 +52,12 @@ class SwiftStatisticsTests: XCTestCase {
     XCTAssert(result == nil)
   }
   
+  
+  func testMean_averageAlias() {
+    let result = Statistics.average([1, 12, 19.5, -5, 3, 8])!
+    XCTAssertEqual(6.4166666667, Helpers.round10(result))
+  }
+  
   // MARK: - Median
   
   func testMedian_oddNumberOfItems() {
