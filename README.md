@@ -1,6 +1,6 @@
 # Statistics library for Swift
 
-This library is a collection of functions that perform statistical calculations:
+This library is a collection of functions that perform statistical calculations in Swift.
 
 ## Setup
 
