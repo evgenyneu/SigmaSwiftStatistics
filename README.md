@@ -18,18 +18,28 @@ github "evgenyneu/SwiftStatistics" ~> 1.0
 
 ## Usage
 
-### Average
+### Mean
+
+Computes arithmetic mean of values in the array.
 
 ```Swift
-Statistics.average([1, 12, 19.5, -5, 3, 8])
-// Result: 6.416666666666667
+Statistics.mean([1, 12, 19.5, -5, 3, 8])
 ```
 
-### Standard deviation
+### Sample standard deviation
+
+Computes standard deviation of a population sample.
 
 ```Swift
-Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
-// Result: 7.918420858282849
+Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])
+```
+
+### Population standard deviation
+
+Computes standard deviation of entire population.
+
+```Swift
+Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
 ```
 
 ### Shorter syntax
@@ -37,8 +47,8 @@ Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
 You can type a sigma letter `σ` instead of `Statistics`. For example:
 
 ```
-σ.average([1, 2])
-σ.standardDeviation([1, 2])
+σ.mean([1, 2])
+σ.sampleStandardDeviation([1, 2])
 ```
 
 ## Feedback is welcome
