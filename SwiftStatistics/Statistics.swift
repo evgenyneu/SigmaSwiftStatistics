@@ -34,7 +34,7 @@ public struct Statistics {
   public static func mean(values: [Double]) -> Double {
     let count = Double(values.count)
     if count == 0 { return 0 }
-    return values.reduce(0, combine: +) / count
+    return sum(values) / count
   }
   
   //
