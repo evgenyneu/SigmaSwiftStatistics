@@ -40,3 +40,5 @@ public struct Statistics {
     return values.reduce(0, combine: +) / count
   }
 }
+
+typealias σ = Statistics
