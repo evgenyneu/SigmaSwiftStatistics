@@ -20,12 +20,17 @@ class SwiftStatisticsTests: XCTestCase {
   // --------------
   
   func testStandardDeviation() {
-    let result = Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
-    XCTAssertEqual(7.918420858282849, result)
+    let result = Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])!
+    XCTAssertEqual(8.67419544780187, result)
+  }
+  
+  func testStandardDeviation_whenOne() {
+    let result = Statistics.standardDeviation([1])
+    XCTAssert(result == nil)
   }
   
   func testStandardDeviation_whenEmpty() {
     let result = Statistics.standardDeviation([])
-    XCTAssertEqual(0, result)
+    XCTAssert(result == nil)
   }
 }

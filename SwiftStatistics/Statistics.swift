@@ -6,16 +6,27 @@ import Foundation
 
 public struct Statistics {
   //
-  // Computes standard deviation for the array of values.
+  // Computes standard deviation of a population sample selected from the array.
+  //
+  // Formula
+  // -------
+  // 
+  //   s = sqrt( Σ(x - m) / (n - 1) )
+  //
+  //   Where:
+  //
+  //     m is the sample mean
+  //     n is the sample size
+  //
   //
   // Example
   // -------
   //
-  //   Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8]) // 7.918420858282849
+  //   Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
   //
-  public static func standardDeviation(values: [Double]) -> Double {
+  public static func sampleStandardDeviation(values: [Double]) -> Double? {
     let count = Double(values.count)
-    if count == 0 { return 0 }
+    if count < 2 { return nil }
     
     let avgerageValue = average(values)
     
@@ -23,7 +34,7 @@ public struct Statistics {
       total + pow(avgerageValue - value, 2)
     }
     
-    return sqrt(numerator / count)
+    return sqrt(numerator / (count - 1))
   }
   
   //
