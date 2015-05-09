@@ -98,7 +98,7 @@ Where:
   * *n* is the population size.
 
 ```Swift
-Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])
+Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
 // Result: 8.674195447801869
 ```
 
@@ -118,7 +118,7 @@ Where:
   * *n* is the population size.
 
 ```Swift
-Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
+Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
 
@@ -144,7 +144,7 @@ Where:
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Statistics.populationCovariance(x: x, y: y)
+Statistics.covarianceSample(x: x, y: y)
 // Result: 5.03
 ```
 
@@ -171,7 +171,7 @@ Where:
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Statistics.populationCovariance(x: x, y: y)
+Statistics.covariancePopulation(x: x, y: y)
 // Result: 4.19166666666667
 ```
 

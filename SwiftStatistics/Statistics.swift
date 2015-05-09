@@ -126,9 +126,9 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
+  //   Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
   //
-  public static func sampleStandardDeviation(values: [Double]) -> Double? {
+  public static func standardDeviationSample(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 2 { return nil }
     
@@ -163,9 +163,9 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
+  //   Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
   //
-  public static func populationStandardDeviation(values: [Double]) -> Double? {
+  public static func standardDeviationPopulation(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     
@@ -206,9 +206,9 @@ public struct Statistics {
   //
   //   let x = [1, 2, 3.5, 3.7, 8, 12]
   //   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-  //   Statistics.sampleCovariance(x: x, y: y) // 5.03
+  //   Statistics.covarianceSample(x: x, y: y) // 5.03
   //
-  public static func sampleCovariance(#x: [Double], y: [Double]) -> Double? {
+  public static func covarianceSample(#x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     
@@ -258,9 +258,9 @@ public struct Statistics {
   //
   //   let x = [1, 2, 3.5, 3.7, 8, 12]
   //   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-  //   Statistics.populationCovariance(x: x, y: y) // 4.19166666666667
+  //   Statistics.covariancePopulation(x: x, y: y) // 4.19166666666667
   //
-  public static func populationCovariance(#x: [Double], y: [Double]) -> Double? {
+  public static func covariancePopulation(#x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
 
@@ -312,9 +312,9 @@ public struct Statistics {
   //   Statistics.pearson(x: x, y: y) // 0.843760859352745
   //
   public static func pearson(#x: [Double], y: [Double]) -> Double? {
-    if let cov = populationCovariance(x: x, y: y),
-      σx = populationStandardDeviation(x),
-      σy = populationStandardDeviation(y) {
+    if let cov = covariancePopulation(x: x, y: y),
+      σx = standardDeviationPopulation(x),
+      σy = standardDeviationPopulation(y) {
         
       if σx == 0 || σy == 0 { return nil }
 

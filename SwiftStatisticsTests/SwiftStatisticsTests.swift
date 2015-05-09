@@ -77,34 +77,34 @@ class SwiftStatisticsTests: XCTestCase {
   // MARK: - Sample standard deviation
   
   func testSampleStandardDeviation() {
-    let result = Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])!
+    let result = Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(8.6741954478, Helpers.round10(result))
   }
   
   func testSampleStandardDeviation_whenOne() {
-    let result = Statistics.sampleStandardDeviation([1])
+    let result = Statistics.standardDeviationSample([1])
     XCTAssert(result == nil)
   }
   
   func testSampleStandardDeviation_whenEmpty() {
-    let result = Statistics.sampleStandardDeviation([])
+    let result = Statistics.standardDeviationSample([])
     XCTAssert(result == nil)
   }
   
   // MARK: - Population standard deviation
   
   func testPopulationStandardDeviation() {
-    let result = Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])!
+    let result = Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(7.9184208583, Helpers.round10(result))
   }
   
   func testPopulationStandardDeviation_whenOne() {
-    let result = Statistics.populationStandardDeviation([1])!
+    let result = Statistics.standardDeviationPopulation([1])!
     XCTAssertEqual(0, result)
   }
   
   func testPopulationStandardDeviation_whenEmpty() {
-    let result = Statistics.populationStandardDeviation([])
+    let result = Statistics.standardDeviationPopulation([])
     XCTAssert(result == nil)
   }
   
@@ -113,7 +113,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testSampleCovariance() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-    let result = Statistics.sampleCovariance(x: x, y: y)!
+    let result = Statistics.covarianceSample(x: x, y: y)!
     
     XCTAssertEqual(5.03, Helpers.round10(result))
   }
@@ -121,7 +121,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testSampleCovariance_unequalSamples() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 4]
-    let result = Statistics.sampleCovariance(x: x, y: y)
+    let result = Statistics.covarianceSample(x: x, y: y)
     
     XCTAssert(result == nil)
   }
@@ -129,13 +129,13 @@ class SwiftStatisticsTests: XCTestCase {
   func testSampleCovariance_whenGivenSingleSetOfValues() {
     let x = [1.2]
     let y = [0.5]
-    let result = Statistics.sampleCovariance(x: x, y: y)
+    let result = Statistics.covarianceSample(x: x, y: y)
     
     XCTAssert(result == nil)
   }
   
   func testSampleCovariance_samplesAreEmpty() {
-    let result = Statistics.sampleCovariance(x: [], y: [])
+    let result = Statistics.covarianceSample(x: [], y: [])
     
     XCTAssert(result == nil)
   }
@@ -145,7 +145,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testPopulationCovariance() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-    let result = Statistics.populationCovariance(x: x, y: y)!
+    let result = Statistics.covariancePopulation(x: x, y: y)!
     
     XCTAssertEqual(4.1916666667, Helpers.round10(result))
   }
@@ -153,13 +153,13 @@ class SwiftStatisticsTests: XCTestCase {
   func testPopulationCovariance_unequalSamples() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5]
-    let result = Statistics.populationCovariance(x: x, y: y)
+    let result = Statistics.covariancePopulation(x: x, y: y)
     
     XCTAssert(result == nil)
   }
   
   func testPopulationCovariance_emptySamples() {
-    let result = Statistics.populationCovariance(x: [], y: [])
+    let result = Statistics.covariancePopulation(x: [], y: [])
     
     XCTAssert(result == nil)
   }
