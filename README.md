@@ -40,3 +40,7 @@ You can type a sigma letter `σ` instead of `Statistics`. For example:
 σ.average([1, 2])
 σ.standardDeviation([1, 2])
 ```
+
+## Feedback is welcome
+
+If you need help or want to extend the library feel free to create an issue or submit a pull request.
