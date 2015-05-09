@@ -6,6 +6,13 @@ import Foundation
 
 public struct Statistics {
   //
+  // Computes the sum of array values
+  //
+  public static func sum(values: [Double]) -> Double {
+    return values.reduce(0, combine: +)
+  }
+  
+  //
   // Computes arithmetic mean of values in the array.
   //
   // Wikipedia: http://en.wikipedia.org/wiki/Arithmetic_mean

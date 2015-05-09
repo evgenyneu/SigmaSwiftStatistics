@@ -18,6 +18,15 @@ github "evgenyneu/SwiftStatistics" ~> 1.0
 
 ## Usage
 
+### Sum
+
+Computes sun of values from the array.
+
+```Swift
+Statistics.sum([1, 3, 8])
+// Result: 12
+```
+
 ### Mean
 
 Computes arithmetic mean of values in the array.

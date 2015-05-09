@@ -3,6 +3,18 @@ import XCTest
 import SwiftStatistics
 
 class SwiftStatisticsTests: XCTestCase {
+  // MARK: - Sum
+  
+  func testSum() {
+    let result = Statistics.sum([1, 3, 8])
+    XCTAssertEqual(12, result)
+  }
+  
+  func testSum_whenEmpty() {
+    let result = Statistics.sum([])
+    XCTAssertEqual(0, result)
+  }
+  
   // MARK: - Mean
   
   func testMean() {
