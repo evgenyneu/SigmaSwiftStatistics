@@ -111,9 +111,7 @@ Computes [covariance](http://en.wikipedia.org/wiki/Covariance) between two varia
 
 Where:
 
-  * *x* is the value of the first variable.
   * *mx* is the population mean of the first variable.
-  * *y* is the value of the second variable.
   * *my* is the population mean of the second variable.
   * *n* is the total number of values.
 
