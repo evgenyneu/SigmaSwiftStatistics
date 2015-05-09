@@ -31,3 +31,12 @@ Statistics.average([1, 12, 19.5, -5, 3, 8])
 Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
+
+### Shorter syntax
+
+You can use `σ` instead of `Statistics`. For example:
+
+```
+σ.average([1, 2])
+σ.standardDeviation([1, 2])
+```
