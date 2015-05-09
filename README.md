@@ -96,6 +96,37 @@ Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
 
+### Population covariance
+
+Computes covariance between two variables: x and y.
+
+**Note**:
+
+  * Returns nil if arrays x and y have different number of values.
+  * Returns nil for empty arrays.
+
+http://en.wikipedia.org/wiki/Covariance
+
+#### Formula
+
+> cov(x,y) = Σ(x - mx)(y - my) / n
+
+Where:
+
+  * *x* is the value of the first variable.
+  * *mx* is the population mean of the first variable.
+  * *y* is the value of the second variable.
+  * *my* is the population mean of the second variable.
+  * *n* is the total number of values.
+
+
+```Swift
+let x = [1, 2, 3.5, 3.7, 8, 12]
+let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+Statistics.standardDeviation(x: x, y: y)
+// Result: 4.19166666666667
+```
+
 ### Shorter syntax
 
 You can type a sigma letter `σ` instead of `Statistics`. For example:

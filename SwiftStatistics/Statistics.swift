@@ -146,7 +146,7 @@ public struct Statistics {
   //
   // Computes standard deviation of entire population.
   //
-  // Note: Returns nil for an empty array.
+  // Note: returns nil for an empty array.
   //
   // http://en.wikipedia.org/wiki/Standard_deviation
   //
@@ -180,21 +180,55 @@ public struct Statistics {
     return nil
   }
   
-  public static func populationCovariance(#first: [Double], second: [Double]) -> Double? {
-    let firstCount = Double(first.count)
+  //
+  // Computes covariance between two variables: x and y.
+  //
+  // Note:
+  //
+  //   * Returns nil if arrays x and y have different number of values.
+  //   * Returns nil for empty arrays.
+  //
+  // http://en.wikipedia.org/wiki/Covariance
+  //
+  // Formula
+  // -------
+  //
+  //   cov(x,y) = Σ(x - mx)(y - my) / n
+  //
+  //   Where:
+  //
+  //     x is the value of the first variable.
+  //     mx is the population mean of the first variable.
+  //     y is the value of the second variable.
+  //     my is the population mean of the second variable.
+  //     n is the total number of values.
+  //
+  // Example
+  // -------
+  //
+  //   let x = [1, 2, 3.5, 3.7, 8, 12]
+  //   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+  //   Statistics.standardDeviation(x: x, y: y) // 4.19166666666667
+  //
+  public static func populationCovariance(#x: [Double], y: [Double]) -> Double? {
+    let xCount = Double(x.count)
+    let yCount = Double(y.count)
+
+    if xCount == 0 { return nil }
+    if xCount != yCount { return nil }
     
-    if let firstMean = mean(first),
-      secondMean = mean(second) {
+    if let xMean = mean(x),
+      yMean = mean(y) {
       
       var sum:Double = 0
   
-      for (index, firstElement) in enumerate(first) {
-        let secondElement = second[index]
+      for (index, xElement) in enumerate(x) {
+        let yElement = y[index]
         
-        sum += (firstElement - firstMean) * (secondElement - secondMean)
+        sum += (xElement - xMean) * (yElement - yMean)
       }
         
-      return sum / firstCount
+      return sum / xCount
     }
     
     return nil

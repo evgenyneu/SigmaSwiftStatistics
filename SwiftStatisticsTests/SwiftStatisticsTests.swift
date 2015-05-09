@@ -111,10 +111,24 @@ class SwiftStatisticsTests: XCTestCase {
   // MARK: - Population covariance
   
   func testPopulationCovariance() {
-    let first = [1, 2, 3.5, 3.7, 8, 12]
-    let second = [0.5, 1, 2.1, 3.4, 3.4, 4]
-    let result = Statistics.populationCovariance(first: first, second: second)!
+    let x = [1, 2, 3.5, 3.7, 8, 12]
+    let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+    let result = Statistics.populationCovariance(x: x, y: y)!
     
-    XCTAssertEqual(4.1916666667, Helpers.round10(result))
+    XCTAssertEqual(4.1916666667, result)
+  }
+  
+  func testPopulationCovariance_unequalSamples() {
+    let x = [1, 2, 3.5, 3.7, 8, 12]
+    let y = [0.5]
+    let result = Statistics.populationCovariance(x: x, y: y)
+    
+    XCTAssert(result == nil)
+  }
+  
+  func testPopulationCovariance_emptySamples() {
+    let result = Statistics.populationCovariance(x: [], y: [])
+    
+    XCTAssert(result == nil)
   }
 }
