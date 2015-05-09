@@ -1,6 +1,6 @@
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
-# Statistics library for Swift
+# Sigma - statistics library for Swift
 
 This library is a collection of functions that perform statistical calculations in Swift.
 
