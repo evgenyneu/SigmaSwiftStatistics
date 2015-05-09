@@ -49,7 +49,7 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   σ.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
+  //   σ.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
   //
   public static func sampleStandardDeviation(values: [Double]) -> Double? {
     let count = Double(values.count)
