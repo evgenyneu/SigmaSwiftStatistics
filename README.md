@@ -1,6 +1,20 @@
 # Statistics library for Swift
 
-This library is a collection of functions that perform statistical calculations:
+This library is a collection of functions that perform statistical calculations in Swift.
+
+## Setup
+
+Copy [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
+
+### Setup with Carthage
+
+Alternatively, you can set it up with Carthage. Add the following line to your Cartfile.
+
+```
+github "evgenyneu/SwiftStatistics" ~> 1.0
+```
+
+## Usage
 
 ### Average
 
