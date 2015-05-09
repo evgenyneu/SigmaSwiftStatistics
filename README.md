@@ -6,7 +6,7 @@ This library is a collection of functions that perform statistical calculations 
 
 ## Setup
 
-Copy [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
+Simply add [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
 
 ### Setup with Carthage
 
