@@ -51,9 +51,17 @@ Statistics.sum([1, 3, 8])
 
 ### Mean
 
-Computes arithmetic mean of values in the array.
+Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of values in the array.
 
 **Note**: returns nil for an empty array.
+
+#### Formula
+
+> A = Σ(x) / n
+
+Where:
+
+  * *n* is the number of values.
 
 ```Swift
 Statistics.mean([1, 3, 8])
@@ -62,7 +70,7 @@ Statistics.mean([1, 3, 8])
 
 ### Median
 
-Returns the center value from the array after it is sorted.
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 
 **Note**:
 
@@ -76,9 +84,18 @@ Statistics.median([1, 12, 19.5, 3, -5])
 
 ### Sample standard deviation
 
-Computes standard deviation of a population sample.
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of a population sample.
 
 **Note**: returns nil when the array is empty or contains a single value.
+
+#### Formula
+
+>  σ = sqrt( Σ(x - m) / (n - 1) )
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
 
 ```Swift
 Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])
@@ -87,9 +104,18 @@ Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])
 
 ### Population standard deviation
 
-Computes standard deviation of entire population.
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
 
 **Note**: returns nil for an empty array.
+
+#### Formula
+
+>  σ = sqrt( Σ(x - m) / n )
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
 
 ```Swift
 Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
@@ -114,7 +140,6 @@ Where:
   * *mx* is the population mean of the first variable.
   * *my* is the population mean of the second variable.
   * *n* is the total number of values.
-
 
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
