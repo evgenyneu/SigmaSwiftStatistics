@@ -53,7 +53,10 @@ Statistics.sum([1, 3, 8])
 
 Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of values in the array.
 
-**Note**: returns nil for an empty array.
+**Note**:
+
+  * Returns nil for an empty array.
+  * Same as AVERAGE in Microsoft Excel and Google Docs Sheets.
 
 #### Formula
 
@@ -76,6 +79,7 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 
  * Returns nil when the array is empty.
  * Returns the mean of the two middle values if there is an even number of items in the array.
+ * Same as MEDIAN in Microsoft Excel and Google Docs Sheets.
 
 ```Swift
 Statistics.median([1, 12, 19.5, 3, -5])
@@ -86,7 +90,10 @@ Statistics.median([1, 12, 19.5, 3, -5])
 
 Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of a population sample.
 
-**Note**: returns nil when the array is empty or contains a single value.
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
 
 #### Formula
 
@@ -106,7 +113,10 @@ Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
 
 Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
 
-**Note**: returns nil for an empty array.
+**Note**:
+
+  * Returns nil for an empty array.
+  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
 
 #### Formula
 
@@ -130,6 +140,7 @@ Note:
 
   * Returns nil if arrays x and y have different number of values.
   * Returns nil for empty arrays or arrays containing a single element.
+  * Same as COVARIANCE.S function in Microsoft Excel.
 
 #### Formula
 
@@ -157,6 +168,7 @@ between two variables: x and y.
 
   * Returns nil if arrays x and y have different number of values.
   * Returns nil for empty arrays.
+  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets CORREL.
 
 #### Formula
 
@@ -185,6 +197,7 @@ between two variables: x and y.
 
   * Returns nil if arrays x and y have different number of values.
   * Returns nil for empty arrays.
+  * Same as CORREL and PERSON functions in Microsoft Excel and Google Docs Sheets.
 
 #### Formula
 
