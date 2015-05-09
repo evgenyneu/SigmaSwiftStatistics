@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  SwiftStatisticsDemo
-//
-//  Created by Evgenii Neumerzhitckii on 9/05/2015.
-//  Copyright (c) 2015 Evgenii Neumerzhitckii. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

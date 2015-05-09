@@ -1,3 +1,7 @@
+//
+// Collection of function for statistics calculation.
+//
+
 import Foundation
 
 struct Statistics {
