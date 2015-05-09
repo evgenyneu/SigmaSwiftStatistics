@@ -163,4 +163,28 @@ class SwiftStatisticsTests: XCTestCase {
     
     XCTAssert(result == nil)
   }
+  
+  // MARK: - Pearson product-moment correlation coefficient for a population
+  // 0.843760859352745
+  func testPopulationPearson() {
+    let x = [1, 2, 3.5, 3.7, 8, 12]
+    let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+    let result = Statistics.populationPearson(x: x, y: y)!
+    
+    XCTAssertEqual(0.8437608594, Helpers.round10(result))
+  }
+  
+  func testPopulationPearson_unequalSamples() {
+    let x = [1, 2, 3.5, 3.7, 8, 12]
+    let y = [0.5]
+    let result = Statistics.populationPearson(x: x, y: y)
+    
+    XCTAssert(result == nil)
+  }
+  
+  func testPopulationPearson_emptySamples() {
+    let result = Statistics.populationPearson(x: [], y: [])
+    
+    XCTAssert(result == nil)
+  }
 }
