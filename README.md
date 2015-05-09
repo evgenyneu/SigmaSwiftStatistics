@@ -144,7 +144,7 @@ Where:
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Statistics.standardDeviation(x: x, y: y)
+Statistics.populationCovariance(x: x, y: y)
 // Result: 4.19166666666667
 ```
 

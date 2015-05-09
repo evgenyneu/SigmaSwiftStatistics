@@ -126,7 +126,7 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   Statistics.standardDeviation.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
+  //   Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
   //
   public static func sampleStandardDeviation(values: [Double]) -> Double? {
     let count = Double(values.count)
@@ -163,7 +163,7 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
+  //   Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
   //
   public static func populationStandardDeviation(values: [Double]) -> Double? {
     let count = Double(values.count)
@@ -206,7 +206,7 @@ public struct Statistics {
   //
   //   let x = [1, 2, 3.5, 3.7, 8, 12]
   //   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-  //   Statistics.standardDeviation(x: x, y: y) // 4.19166666666667
+  //   Statistics.populationCovariance(x: x, y: y) // 4.19166666666667
   //
   public static func populationCovariance(#x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
