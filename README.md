@@ -122,9 +122,36 @@ Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
 
+### Sample covariance
+
+Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
+
+Note:
+
+  * Returns nil if arrays x and y have different number of values.
+  * Returns nil for empty arrays or arrays containing a single element.
+
+#### Formula
+
+> cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+
+Where:
+
+  * *mx* is the sample mean of the first variable.
+  * *my* is the sample mean of the second variable.
+  * *n* is the total number of values.
+
+```Swift
+let x = [1, 2, 3.5, 3.7, 8, 12]
+let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+Statistics.populationCovariance(x: x, y: y)
+// Result: 5.03
+```
+
 ### Population covariance
 
-Computes [covariance](http://en.wikipedia.org/wiki/Covariance) between two variables: x and y.
+Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
+between two variables: x and y.
 
 **Note**:
 

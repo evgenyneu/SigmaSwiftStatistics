@@ -181,7 +181,59 @@ public struct Statistics {
   }
   
   //
-  // Computes covariance between two variables: x and y.
+  // Computes covariance of a population sample between two variables: x and y.
+  //
+  // Note:
+  //
+  //   * Returns nil if arrays x and y have different number of values.
+  //   * Returns nil for empty arrays or arrays containing a single element.
+  //
+  // http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance
+  //
+  // Formula
+  // -------
+  //
+  //   cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+  //
+  //   Where:
+  //
+  //     mx is the sample mean of the first variable.
+  //     my is the sample mean of the second variable.
+  //     n is the total number of values.
+  //
+  // Example
+  // -------
+  //
+  //   let x = [1, 2, 3.5, 3.7, 8, 12]
+  //   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+  //   Statistics.sampleCovariance(x: x, y: y) // 5.03
+  //
+  public static func sampleCovariance(#x: [Double], y: [Double]) -> Double? {
+    let xCount = Double(x.count)
+    let yCount = Double(y.count)
+    
+    if xCount < 2 { return nil }
+    if xCount != yCount { return nil }
+    
+    if let xMean = mean(x),
+      yMean = mean(y) {
+        
+        var sum:Double = 0
+        
+        for (index, xElement) in enumerate(x) {
+          let yElement = y[index]
+          
+          sum += (xElement - xMean) * (yElement - yMean)
+        }
+        
+        return sum / (xCount - 1)
+    }
+    
+    return nil
+  }
+  
+  //
+  // Computes covariance for entire population between two variables: x and y.
   //
   // Note:
   //
