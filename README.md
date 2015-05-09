@@ -34,7 +34,7 @@ Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
 
 ### Shorter syntax
 
-You can type sigma letter `σ` instead of `Statistics`. For example:
+You can type a sigma letter `σ` instead of `Statistics`. For example:
 
 ```
 σ.average([1, 2])
