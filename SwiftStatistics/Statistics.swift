@@ -8,7 +8,7 @@ public struct Statistics {
   //
   // Returns the maximum value in the array.
   //
-  // Note: returns nil when the array is empty.
+  // Note: returns nil for an empty array.
   //
   // Example
   // -------
@@ -23,7 +23,7 @@ public struct Statistics {
   //
   // Returns the mimimum value in the array.
   //
-  // Note: returns nil when the array is empty.
+  // Note: returns nil for an empty array.
   //
   // Example
   // -------
@@ -50,7 +50,7 @@ public struct Statistics {
   //
   // Computes arithmetic mean of values in the array.
   //
-  // Note: returns nil when the array is empty.
+  // Note: returns nil for an empty array.
   //
   // http://en.wikipedia.org/wiki/Arithmetic_mean
   //
@@ -79,7 +79,7 @@ public struct Statistics {
   //
   // Note:
   //
-  //   - Returns nil when the array is empty.
+  //   - Returns nil for an empty array.
   //   - Returns the mean of the two middle values if there is an even number of items in the array.
   //
   // http://en.wikipedia.org/wiki/Median
@@ -146,7 +146,7 @@ public struct Statistics {
   //
   // Computes standard deviation of entire population.
   //
-  // Note: returns nil when the array is empty.
+  // Note: Returns nil for an empty array.
   //
   // http://en.wikipedia.org/wiki/Standard_deviation
   //

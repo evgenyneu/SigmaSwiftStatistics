@@ -22,7 +22,7 @@ github "evgenyneu/SwiftStatistics" ~> 1.0
 
 Returns the maximum value in the array.
 
-**Note**: Returns nil for an empty array.
+**Note**: returns nil for an empty array.
 
 ```Swift
 Statistics.max([1, 8, 3])
@@ -33,7 +33,7 @@ Statistics.max([1, 8, 3])
 
 Returns the minimum value in the array.
 
-**Note**: Returns nil for an empty array.
+**Note**: returns nil for an empty array.
 
 ```Swift
 Statistics.min([7, 2, 3])
@@ -53,7 +53,7 @@ Statistics.sum([1, 3, 8])
 
 Computes arithmetic mean of values in the array.
 
-**Note**: Returns nil for an empty array.
+**Note**: returns nil for an empty array.
 
 ```Swift
 Statistics.mean([1, 3, 8])
@@ -78,7 +78,7 @@ Statistics.median([1, 12, 19.5, 3, -5])
 
 Computes standard deviation of a population sample.
 
-**Note**: Returns nil if the argument is an empty array or an array containing a single value.
+**Note**: returns nil when the array is empty or contains a single value.
 
 ```Swift
 Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])
@@ -89,7 +89,7 @@ Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])
 
 Computes standard deviation of entire population.
 
-**Note**: Returns nil if the argument is an empty array.
+**Note**: returns nil for an empty array.
 
 ```Swift
 Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
