@@ -6,7 +6,7 @@ struct Helpers {
     return round(value * divisor) / divisor
   }
   
-  static func round5(value: Double) -> Double {
-    return roundToPlaces(value, places: 5)
+  static func round10(value: Double) -> Double {
+    return roundToPlaces(value, places: 10)
   }
 }

@@ -1,12 +1,39 @@
 //
-// Collection of functions for statistics calculation.
+// Collection of functions for statistical calculation.
 //
 
 import Foundation
 
 public struct Statistics {
   //
+  // Computes arithmetic mean of values in the array.
+  //
+  // Wikipedia: http://en.wikipedia.org/wiki/Arithmetic_mean
+  //
+  // Formula
+  // -------
+  //
+  //   A = Σ(x) / n
+  //
+  //   Where:
+  //
+  //     n is the number of values.
+  //
+  // Example
+  // -------
+  //
+  //  σ.mean([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
+  //
+  public static func mean(values: [Double]) -> Double {
+    let count = Double(values.count)
+    if count == 0 { return 0 }
+    return values.reduce(0, combine: +) / count
+  }
+  
+  //
   // Computes standard deviation of a population sample.
+  //
+  // http://en.wikipedia.org/wiki/Standard_deviation
   //
   // Formula
   // -------
@@ -15,8 +42,8 @@ public struct Statistics {
   //
   //   Where:
   //
-  //     m is the sample mean
-  //     n is the sample size
+  //     m is the sample mean.
+  //     n is the sample size.
   //
   //
   // Example
@@ -28,7 +55,7 @@ public struct Statistics {
     let count = Double(values.count)
     if count < 2 { return nil }
     
-    let avgerageValue = average(values)
+    let avgerageValue = mean(values)
     
     let numerator = values.reduce(0) { total, value in
       total + pow(avgerageValue - value, 2)
@@ -40,6 +67,8 @@ public struct Statistics {
   //
   // Computes standard deviation of entire population.
   //
+  // http://en.wikipedia.org/wiki/Standard_deviation
+  //
   // Formula
   // -------
   //
@@ -47,8 +76,8 @@ public struct Statistics {
   //
   //   Where:
   //
-  //     m is the population mean
-  //     n is the population size
+  //     m is the population mean.
+  //     n is the population size.
   //
   //
   // Example
@@ -60,27 +89,13 @@ public struct Statistics {
     let count = Double(values.count)
     if count == 0 { return nil }
     
-    let avgerageValue = average(values)
+    let avgerageValue = mean(values)
     
     let numerator = values.reduce(0) { total, value in
       total + pow(avgerageValue - value, 2)
     }
     
     return sqrt(numerator / count)
-  }
-  
-  //
-  // Computes numerical average of values in the array.
-  //
-  // Example
-  // -------
-  //
-  //  Statistics.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
-  //
-  public static func average(values: [Double]) -> Double {
-    let count = Double(values.count)
-    if count == 0 { return 0 }
-    return values.reduce(0, combine: +) / count
   }
 }
 

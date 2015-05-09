@@ -3,25 +3,23 @@ import XCTest
 import SwiftStatistics
 
 class SwiftStatisticsTests: XCTestCase {
-  // Average
-  // --------------
+  // MARK: - Mean
   
-  func testAverage() {
-    let result = Statistics.average([1, 12, 19.5, -5, 3, 8])
-    XCTAssertEqual(6.416666666666667, result)
+  func testMean() {
+    let result = Statistics.mean([1, 12, 19.5, -5, 3, 8])
+    XCTAssertEqual(6.4166666667, Helpers.round10(result))
   }
   
   func testAverage_whenEmpty() {
-    let result = Statistics.average([])
+    let result = Statistics.mean([])
     XCTAssertEqual(0, result)
   }
   
-  // Sample standard deviation
-  // --------------
+  // MARK: - Sample standard deviation
   
   func testSampleStandardDeviation() {
     let result = Statistics.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8])!
-    XCTAssertEqual(8.67419, Helpers.round5(result))
+    XCTAssertEqual(8.6741954478, Helpers.round10(result))
   }
   
   func testSampleStandardDeviation_whenOne() {
@@ -34,12 +32,11 @@ class SwiftStatisticsTests: XCTestCase {
     XCTAssert(result == nil)
   }
   
-  // Population standard deviation
-  // --------------
+  // MARK: - Population standard deviation
   
   func testPopulationStandardDeviation() {
     let result = Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])!
-    XCTAssertEqual(7.91842, Helpers.round5(result))
+    XCTAssertEqual(7.9184208583, Helpers.round10(result))
   }
   
   func testPopulationStandardDeviation_whenOne() {
