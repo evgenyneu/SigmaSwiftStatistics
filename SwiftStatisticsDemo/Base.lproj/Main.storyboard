@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="σ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adi-8d-dph">
-                                <rect key="frame" x="275" y="216" width="50" height="108"/>
+                                <rect key="frame" x="275" y="196" width="50" height="108"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift statistics library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kO6-dB-utP">
-                                <rect key="frame" x="219" y="334" width="163" height="32"/>
+                                <rect key="frame" x="219" y="314" width="163" height="32"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.17647058823529413" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="adi-8d-dph" secondAttribute="centerY" constant="30" id="Br0-fl-fd3"/>
+                            <constraint firstAttribute="centerY" secondItem="adi-8d-dph" secondAttribute="centerY" constant="50" id="Br0-fl-fd3"/>
                             <constraint firstItem="kO6-dB-utP" firstAttribute="top" secondItem="adi-8d-dph" secondAttribute="bottom" constant="10" id="VD6-fC-fpu"/>
                             <constraint firstAttribute="centerX" secondItem="adi-8d-dph" secondAttribute="centerX" id="owf-8e-V2V"/>
                             <constraint firstAttribute="centerX" secondItem="kO6-dB-utP" secondAttribute="centerX" id="zBv-G6-63k"/>
