@@ -98,14 +98,12 @@ Statistics.populationStandardDeviation([1, 12, 19.5, -5, 3, 8])
 
 ### Population covariance
 
-Computes covariance between two variables: x and y.
+Computes [covariance](http://en.wikipedia.org/wiki/Covariance) between two variables: x and y.
 
 **Note**:
 
   * Returns nil if arrays x and y have different number of values.
   * Returns nil for empty arrays.
-
-http://en.wikipedia.org/wiki/Covariance
 
 #### Formula
 
