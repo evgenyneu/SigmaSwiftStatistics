@@ -6,7 +6,6 @@ This library is a collection of functions that perform statistical calculations:
 
 ```Swift
 Statistics.average([1, 12, 19.5, -5, 3, 8])
-
 // Result: 6.416666666666667
 ```
 
@@ -14,6 +13,5 @@ Statistics.average([1, 12, 19.5, -5, 3, 8])
 
 ```Swift
 Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8])
-
-// 7.918420858282849
+// Result: 7.918420858282849
 ```
