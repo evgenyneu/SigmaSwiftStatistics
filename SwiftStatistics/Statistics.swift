@@ -22,7 +22,7 @@ public struct Statistics {
   // Example
   // -------
   //
-  //  σ.mean([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
+  //  Statistics.standardDeviation.mean([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
   //
   public static func mean(values: [Double]) -> Double {
     let count = Double(values.count)
@@ -49,7 +49,7 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   σ.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
+  //   Statistics.standardDeviation.sampleStandardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
   //
   public static func sampleStandardDeviation(values: [Double]) -> Double? {
     let count = Double(values.count)
@@ -83,7 +83,7 @@ public struct Statistics {
   // Example
   // -------
   //
-  //   σ.standardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
+  //   Statistics.standardDeviation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
   //
   public static func populationStandardDeviation(values: [Double]) -> Double? {
     let count = Double(values.count)
