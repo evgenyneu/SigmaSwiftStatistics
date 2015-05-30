@@ -5,7 +5,7 @@ import Foundation
 Collection of functions for statistical calculation.
 
 */
-public struct Statistics {
+public struct Sigma {
   /**
   
   Calculates the maximum value in the array.
@@ -15,7 +15,7 @@ public struct Statistics {
 
   Example:
 
-      Statistics.max([3, 10, 6]) // 10
+      Sigma.max([3, 10, 6]) // 10
   
   */
   public static func max(values: [Double]) -> Double? {
@@ -32,7 +32,7 @@ public struct Statistics {
   
   Example:
 
-      Statistics.min([5, 3, 10]) // -> 3
+      Sigma.min([5, 3, 10]) // -> 3
 
   */
   public static func min(values: [Double]) -> Double? {
@@ -49,7 +49,7 @@ public struct Statistics {
 
   Example:
 
-      Statistics.sum([1, 3, 10]) // 14
+      Sigma.sum([1, 3, 10]) // 14
 
   */
   public static func sum(values: [Double]) -> Double {
@@ -73,7 +73,7 @@ public struct Statistics {
 
   Example
 
-      Statistics.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
+      Sigma.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
 
   */
   public static func average(values: [Double]) -> Double? {
@@ -93,7 +93,7 @@ public struct Statistics {
 
   Example
 
-      Statistics.median([1, 12, 19.5, 3, -5]) // 3
+      Sigma.median([1, 12, 19.5, 3, -5]) // 3
 
   */
   public static func median(values: [Double]) -> Double? {
@@ -134,7 +134,7 @@ public struct Statistics {
 
   Example
 
-      Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
+      Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
 
   */
   public static func standardDeviationSample(values: [Double]) -> Double? {
@@ -173,7 +173,7 @@ public struct Statistics {
 
   Example
 
-      Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
+      Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
 
   */
   public static func standardDeviationPopulation(values: [Double]) -> Double? {
@@ -217,7 +217,7 @@ public struct Statistics {
 
       let x = [1, 2, 3.5, 3.7, 8, 12]
       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-      Statistics.covarianceSample(x: x, y: y) // 5.03
+      Sigma.covarianceSample(x: x, y: y) // 5.03
 
   */
   public static func covarianceSample(#x: [Double], y: [Double]) -> Double? {
@@ -270,7 +270,7 @@ public struct Statistics {
 
       let x = [1, 2, 3.5, 3.7, 8, 12]
       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-      Statistics.covariancePopulation(x: x, y: y) // 4.19166666666667
+      Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
 
   */
   public static func covariancePopulation(#x: [Double], y: [Double]) -> Double? {
@@ -321,7 +321,7 @@ public struct Statistics {
 
       let x = [1, 2, 3.5, 3.7, 8, 12]
       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-      Statistics.pearson(x: x, y: y) // 0.843760859352745
+      Sigma.pearson(x: x, y: y) // 0.843760859352745
 
   */
   public static func pearson(#x: [Double], y: [Double]) -> Double? {
@@ -343,4 +343,4 @@ public struct Statistics {
 Collection of functions for statistical calculation.
 
 */
-public typealias σ = Statistics
+public typealias σ = Sigma

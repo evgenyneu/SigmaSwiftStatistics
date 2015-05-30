@@ -17,7 +17,7 @@ There are three ways you can add SigmaSwiftStatistics to your Xcode project.
 
 **Add source (iOS 7+)**
 
-Simply add [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
+Simply add [Sigma.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Sigma.swift) file to your project.
 
 **Setup with Carthage (iOS 8+)**
 
@@ -41,7 +41,7 @@ Returns the maximum value in the array.
 **Note**: returns nil for an empty array.
 
 ```Swift
-Statistics.max([1, 8, 3])
+Sigma.max([1, 8, 3])
 // Result: 8
 ```
 
@@ -52,7 +52,7 @@ Returns the minimum value in the array.
 **Note**: returns nil for an empty array.
 
 ```Swift
-Statistics.min([7, 2, 3])
+Sigma.min([7, 2, 3])
 // Result: 2
 ```
 
@@ -61,7 +61,7 @@ Statistics.min([7, 2, 3])
 Computes sum of values from the array.
 
 ```Swift
-Statistics.sum([1, 3, 8])
+Sigma.sum([1, 3, 8])
 // Result: 12
 ```
 
@@ -83,7 +83,7 @@ Where:
   * *n* is the number of values.
 
 ```Swift
-Statistics.average([1, 3, 8])
+Sigma.average([1, 3, 8])
 // Result: 4
 ```
 
@@ -98,7 +98,7 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
  * Same as MEDIAN in Microsoft Excel and Google Docs Sheets.
 
 ```Swift
-Statistics.median([1, 12, 19.5, 3, -5])
+Sigma.median([1, 12, 19.5, 3, -5])
 // Result: 3
 ```
 
@@ -121,7 +121,7 @@ Where:
   * *n* is the population size.
 
 ```Swift
-Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
+Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
 // Result: 8.674195447801869
 ```
 
@@ -144,7 +144,7 @@ Where:
   * *n* is the population size.
 
 ```Swift
-Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
+Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
 
@@ -171,7 +171,7 @@ Where:
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Statistics.covarianceSample(x: x, y: y)
+Sigma.covarianceSample(x: x, y: y)
 // Result: 5.03
 ```
 
@@ -199,7 +199,7 @@ Where:
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Statistics.covariancePopulation(x: x, y: y)
+Sigma.covariancePopulation(x: x, y: y)
 // Result: 4.19166666666667
 ```
 
@@ -227,7 +227,7 @@ Where:
 ```Swift
 let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Statistics.pearson(x: x, y: y)
+Sigma.pearson(x: x, y: y)
 // Result: 0.843760859352745
 ```
 

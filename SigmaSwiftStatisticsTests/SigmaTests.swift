@@ -2,110 +2,109 @@ import UIKit
 import XCTest
 import SigmaSwiftStatistics
 
-class SwiftStatisticsTests: XCTestCase {
+class SigmaTests: XCTestCase {
   
   // MARK: - Min
   
   func testMin() {
-    σ.covariancePopulation(x: [], y: [])
-    let result = Statistics.min([4, 2.1, 8])!
+    let result = Sigma.min([4, 2.1, 8])!
     XCTAssertEqual(2.1, result)
   }
   
   func testMin_whenEmpty() {
-    let result = Statistics.min([])
+    let result = Sigma.min([])
     XCTAssert(result == nil)
   }
   
   // MARK: - Max
   
   func testMax() {
-    let result = Statistics.max([4, 15.1, 8])!
+    let result = Sigma.max([4, 15.1, 8])!
     XCTAssertEqual(15.1, result)
   }
   
   func testMax_whenEmpty() {
-    let result = Statistics.max([])
+    let result = Sigma.max([])
     XCTAssert(result == nil)
   }
   
   // MARK: - Sum
   
   func testSum() {
-    let result = Statistics.sum([1, 3.1, 8])
+    let result = Sigma.sum([1, 3.1, 8])
     XCTAssertEqual(12.1, result)
   }
   
   func testSum_whenEmpty() {
-    let result = Statistics.sum([])
+    let result = Sigma.sum([])
     XCTAssertEqual(0, result)
   }
   
   // MARK: - Average
   
   func testMean() {
-    let result = Statistics.average([1, 12, 19.5, -5, 3, 8])!
+    let result = Sigma.average([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(6.4166666667, Helpers.round10(result))
   }
   
   func testAverage_whenEmpty() {
-    let result = Statistics.average([])
+    let result = Sigma.average([])
     XCTAssert(result == nil)
   }
   
   // MARK: - Median
   
   func testMedian_oddNumberOfItems() {
-    let result = Statistics.median([1, 12, 19.5, 3, -5])!
+    let result = Sigma.median([1, 12, 19.5, 3, -5])!
     XCTAssertEqual(3, result)
   }
   
   func testMedian_eventNumberOfItems() {
-    let result = Statistics.median([1, 12, 19.5, 3, -5, 8])!
+    let result = Sigma.median([1, 12, 19.5, 3, -5, 8])!
     XCTAssertEqual(5.5, result)
   }
   
   func testMedian_oneItem() {
-    let result = Statistics.median([2])!
+    let result = Sigma.median([2])!
     XCTAssertEqual(2, result)
   }
   
   func testMedian_whenEmpty() {
-    let result = Statistics.median([])
+    let result = Sigma.median([])
     XCTAssert(result == nil)
   }
   
   // MARK: - Sample standard deviation
   
   func testSampleStandardDeviation() {
-    let result = Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8])!
+    let result = Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(8.6741954478, Helpers.round10(result))
   }
   
   func testSampleStandardDeviation_whenOne() {
-    let result = Statistics.standardDeviationSample([1])
+    let result = Sigma.standardDeviationSample([1])
     XCTAssert(result == nil)
   }
   
   func testSampleStandardDeviation_whenEmpty() {
-    let result = Statistics.standardDeviationSample([])
+    let result = Sigma.standardDeviationSample([])
     XCTAssert(result == nil)
   }
   
   // MARK: - Population standard deviation
   
   func testPopulationStandardDeviation() {
-    let result = Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])!
+    let result = Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(7.9184208583, Helpers.round10(result))
   }
   
   func testPopulationStandardDeviation_whenOne() {
-    let result = Statistics.standardDeviationPopulation([1])!
+    let result = Sigma.standardDeviationPopulation([1])!
     XCTAssertEqual(0, result)
   }
   
   func testPopulationStandardDeviation_whenEmpty() {
-    let result = Statistics.standardDeviationPopulation([])
+    let result = Sigma.standardDeviationPopulation([])
     XCTAssert(result == nil)
   }
   
@@ -114,7 +113,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testSampleCovariance() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-    let result = Statistics.covarianceSample(x: x, y: y)!
+    let result = Sigma.covarianceSample(x: x, y: y)!
     
     XCTAssertEqual(5.03, Helpers.round10(result))
   }
@@ -122,7 +121,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testSampleCovariance_unequalSamples() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 4]
-    let result = Statistics.covarianceSample(x: x, y: y)
+    let result = Sigma.covarianceSample(x: x, y: y)
     
     XCTAssert(result == nil)
   }
@@ -130,13 +129,13 @@ class SwiftStatisticsTests: XCTestCase {
   func testSampleCovariance_whenGivenSingleSetOfValues() {
     let x = [1.2]
     let y = [0.5]
-    let result = Statistics.covarianceSample(x: x, y: y)
+    let result = Sigma.covarianceSample(x: x, y: y)
     
     XCTAssert(result == nil)
   }
   
   func testSampleCovariance_samplesAreEmpty() {
-    let result = Statistics.covarianceSample(x: [], y: [])
+    let result = Sigma.covarianceSample(x: [], y: [])
     
     XCTAssert(result == nil)
   }
@@ -146,7 +145,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testPopulationCovariance() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-    let result = Statistics.covariancePopulation(x: x, y: y)!
+    let result = Sigma.covariancePopulation(x: x, y: y)!
     
     XCTAssertEqual(4.1916666667, Helpers.round10(result))
   }
@@ -154,13 +153,13 @@ class SwiftStatisticsTests: XCTestCase {
   func testPopulationCovariance_unequalSamples() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5]
-    let result = Statistics.covariancePopulation(x: x, y: y)
+    let result = Sigma.covariancePopulation(x: x, y: y)
     
     XCTAssert(result == nil)
   }
   
   func testPopulationCovariance_emptySamples() {
-    let result = Statistics.covariancePopulation(x: [], y: [])
+    let result = Sigma.covariancePopulation(x: [], y: [])
     
     XCTAssert(result == nil)
   }
@@ -170,7 +169,7 @@ class SwiftStatisticsTests: XCTestCase {
   func testPearson() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-    let result = Statistics.pearson(x: x, y: y)!
+    let result = Sigma.pearson(x: x, y: y)!
     
     XCTAssertEqual(0.8437608594, Helpers.round10(result))
   }
@@ -178,13 +177,13 @@ class SwiftStatisticsTests: XCTestCase {
   func testPearson_unequalSamples() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5]
-    let result = Statistics.pearson(x: x, y: y)
+    let result = Sigma.pearson(x: x, y: y)
     
     XCTAssert(result == nil)
   }
   
   func testPearson_emptySamples() {
-    let result = Statistics.pearson(x: [], y: [])
+    let result = Sigma.pearson(x: [], y: [])
     
     XCTAssert(result == nil)
   }

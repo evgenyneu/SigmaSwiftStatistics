@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7E568F931B19667B007862B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E568F8B1B19667B007862B3 /* Info.plist */; };
-		7E568F941B19667B007862B3 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Statistics.swift */; };
+		7E568F941B19667B007862B3 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		7E568F951B19667B007862B3 /* SwiftStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E568F8D1B19667B007862B3 /* SwiftStatistics.h */; };
 		7E568F971B19667B007862B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E568F911B19667B007862B3 /* Info.plist */; };
-		7E568F991B196725007862B3 /* SwiftStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F921B19667B007862B3 /* SwiftStatisticsTests.swift */; };
+		7E568F991B196725007862B3 /* SigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F921B19667B007862B3 /* SigmaTests.swift */; };
 		7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F901B19667B007862B3 /* TestHelpers.swift */; };
+		7E6FB83F1B1968CD00D8350F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7E6FB83E1B1968CD00D8350F /* README.md */; };
 		7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,11 +29,12 @@
 
 /* Begin PBXFileReference section */
 		7E568F8B1B19667B007862B3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E568F8C1B19667B007862B3 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		7E568F8C1B19667B007862B3 /* Sigma.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sigma.swift; sourceTree = "<group>"; };
 		7E568F8D1B19667B007862B3 /* SwiftStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftStatistics.h; sourceTree = "<group>"; };
 		7E568F901B19667B007862B3 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		7E568F911B19667B007862B3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E568F921B19667B007862B3 /* SwiftStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftStatisticsTests.swift; sourceTree = "<group>"; };
+		7E568F921B19667B007862B3 /* SigmaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigmaTests.swift; sourceTree = "<group>"; };
+		7E6FB83E1B1968CD00D8350F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SigmaSwiftStatisticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -60,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				7E568F8B1B19667B007862B3 /* Info.plist */,
-				7E568F8C1B19667B007862B3 /* Statistics.swift */,
+				7E568F8C1B19667B007862B3 /* Sigma.swift */,
 				7E568F8D1B19667B007862B3 /* SwiftStatistics.h */,
 			);
 			path = SigmaSwiftStatistics;
@@ -71,7 +73,7 @@
 			children = (
 				7E568F8F1B19667B007862B3 /* Helpers */,
 				7E568F911B19667B007862B3 /* Info.plist */,
-				7E568F921B19667B007862B3 /* SwiftStatisticsTests.swift */,
+				7E568F921B19667B007862B3 /* SigmaTests.swift */,
 			);
 			path = SigmaSwiftStatisticsTests;
 			sourceTree = "<group>";
@@ -87,6 +89,7 @@
 		7EBDAC9A1AFDA0E20089B815 = {
 			isa = PBXGroup;
 			children = (
+				7E6FB83E1B1968CD00D8350F /* README.md */,
 				7E568F8A1B19667B007862B3 /* SigmaSwiftStatistics */,
 				7E568F8E1B19667B007862B3 /* SigmaSwiftStatisticsTests */,
 				7EBDACA41AFDA0E20089B815 /* Products */,
@@ -213,7 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E568F941B19667B007862B3 /* Statistics.swift in Sources */,
+				7E6FB83F1B1968CD00D8350F /* README.md in Sources */,
+				7E568F941B19667B007862B3 /* Sigma.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E568F991B196725007862B3 /* SwiftStatisticsTests.swift in Sources */,
+				7E568F991B196725007862B3 /* SigmaTests.swift in Sources */,
 				7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
