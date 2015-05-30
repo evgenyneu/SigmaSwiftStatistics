@@ -1,22 +1,38 @@
-<img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
-
 # σ (sigma) - statistics library for Swift
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/SigmaSwiftStatistics.svg?style=flat)][cocoadocs]
+[![License](https://img.shields.io/cocoapods/l/SigmaSwiftStatistics.svg?style=flat)][cocoadocs]
+[![Platform](https://img.shields.io/cocoapods/p/SigmaSwiftStatistics.svg?style=flat)][cocoadocs]
+[cocoadocs]: http://cocoadocs.org/docsets/SigmaSwiftStatistics
+[carthage]: https://github.com/Carthage/Carthage
 
 This library is a collection of functions that perform statistical calculations in Swift.
 
+<img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
+
 ## Setup
+
+There are three ways you can add SigmaSwiftStatistics to your Xcode project.
+
+**Add source (iOS 7+)**
 
 Simply add [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/master/SwiftStatistics/Statistics.swift) file to your project.
 
-### Setup with Carthage
+**Setup with Carthage (iOS 8+)**
 
-Alternatively, you can set it up with Carthage. Add the following line to your Cartfile.
+Alternatively, add `github "evgenyneu/SwiftStatistics" ~> 1.0` to your Cartfile and run `carthage update`.
 
-```
-github "evgenyneu/SwiftStatistics" ~> 1.0
-```
+**Setup with CocoaPods (iOS 8+)**
+
+If you are using CocoaPods add this text to your Podfile and run `pod install`.
+
+    use_frameworks!
+    pod 'SigmaSwiftStatistics', '~> 1.0'
 
 ## Usage
+
+Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
 
 ### Max
 
