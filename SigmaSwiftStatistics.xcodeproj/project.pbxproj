@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E568F931B19667B007862B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E568F8B1B19667B007862B3 /* Info.plist */; };
 		7E568F941B19667B007862B3 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		7E568F951B19667B007862B3 /* SwiftStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E568F8D1B19667B007862B3 /* SwiftStatistics.h */; };
-		7E568F971B19667B007862B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E568F911B19667B007862B3 /* Info.plist */; };
 		7E568F991B196725007862B3 /* SigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F921B19667B007862B3 /* SigmaTests.swift */; };
 		7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F901B19667B007862B3 /* TestHelpers.swift */; };
-		7E6FB83F1B1968CD00D8350F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7E6FB83E1B1968CD00D8350F /* README.md */; };
 		7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */; };
 /* End PBXBuildFile section */
 
@@ -197,8 +194,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E568F971B19667B007862B3 /* Info.plist in Resources */,
-				7E568F931B19667B007862B3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +211,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E6FB83F1B1968CD00D8350F /* README.md in Sources */,
 				7E568F941B19667B007862B3 /* Sigma.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
