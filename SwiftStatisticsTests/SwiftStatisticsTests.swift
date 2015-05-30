@@ -166,6 +166,7 @@ class SwiftStatisticsTests: XCTestCase {
   }
   
   // MARK: - Pearson product-moment correlation coefficient
+  
   func testPearson() {
     let x = [1, 2, 3.5, 3.7, 8, 12]
     let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
