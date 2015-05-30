@@ -7,7 +7,7 @@ class SwiftStatisticsTests: XCTestCase {
   // MARK: - Min
   
   func testMin() {
-    Statistics.average([1,2,3])
+    Statistics.standardDeviationSample([1,2])
     let result = Statistics.min([4, 2.1, 8])!
     XCTAssertEqual(2.1, result)
   }

@@ -82,21 +82,20 @@ public struct Statistics {
     return sum(values) / count
   }
   
-  //
-  // Returns the center value from the array after it is sorted.
-  //
-  // Note:
-  //
-  //   - Returns nil for an empty array.
-  //   - Returns the mean of the two middle values if there is an even number of items in the array.
-  //
-  // http://en.wikipedia.org/wiki/Median
-  //
-  // Example
-  // -------
-  //
-  //  Statistics.median([1, 12, 19.5, 3, -5]) // 3
-  //
+  /**
+  
+  Returns the center value from the array after it is sorted.
+  
+  http://en.wikipedia.org/wiki/Median
+  
+  :param: values Array of decimal numbers.
+  :returns: The median value from the array. Returns nil for an empty array. Returns the mean of the two middle values if there is an even number of items in the array.
+
+  Example
+
+      Statistics.median([1, 12, 19.5, 3, -5]) // 3
+
+  */
   public static func median(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
@@ -114,28 +113,30 @@ public struct Statistics {
     }
   }
   
-  //
-  // Computes standard deviation of a population sample.
-  //
-  // Note: returns nil when the array is empty or contains a single value.
-  //
-  // http://en.wikipedia.org/wiki/Standard_deviation
-  //
-  // Formula
-  // -------
-  // 
-  //   s = sqrt( Σ(x - m) / (n - 1) )
-  //
-  //   Where:
-  //
-  //     m is the sample mean.
-  //     n is the sample size.
-  //
-  // Example
-  // -------
-  //
-  //   Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
-  //
+  /**
+  
+  Computes standard deviation of a population sample.
+  
+  http://en.wikipedia.org/wiki/Standard_deviation
+
+  :param: values Array of decimal numbers.
+  :returns: Standard deviation of a population sample. Returns nil when the array is empty or contains a single value.
+
+  Formula
+
+      s = sqrt( Σ(x - m) / (n - 1) )
+
+  Where:
+
+  m is the sample mean.
+
+  n is the sample size.
+
+  Example
+
+      Statistics.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
+
+  */
   public static func standardDeviationSample(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 2 { return nil }
