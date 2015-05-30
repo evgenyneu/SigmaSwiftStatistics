@@ -7,7 +7,7 @@ class SwiftStatisticsTests: XCTestCase {
   // MARK: - Min
   
   func testMin() {
-    Statistics.standardDeviationPopulation([])
+    σ.covariancePopulation(x: [], y: [])
     let result = Statistics.min([4, 2.1, 8])!
     XCTAssertEqual(2.1, result)
   }
