@@ -13,7 +13,7 @@ This library is a collection of functions that perform statistical calculations 
 
 ## Setup
 
-There are three ways you can add SigmaSwiftStatistics to your Xcode project.
+There are three ways you can add Sigma to your Xcode project.
 
 **Add source (iOS 7+)**
 
@@ -246,4 +246,4 @@ If you need help or want to extend the library feel free to create an issue or s
 
 ## License
 
-SigmaSwiftStatistics is released under the [MIT License](LICENSE).
+Sigma is released under the [MIT License](LICENSE).
