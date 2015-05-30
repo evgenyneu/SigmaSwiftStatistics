@@ -227,3 +227,7 @@ You can type a sigma letter `σ` instead of `Statistics`. For example:
 ## Feedback is welcome
 
 If you need help or want to extend the library feel free to create an issue or submit a pull request.
+
+## License
+
+SigmaSwiftStatistics is released under the [MIT License](LICENSE).
