@@ -30,7 +30,7 @@ public struct Statistics {
   :param: values Array of decimal numbers.
   :returns: The mimimum value in the array. Returns nil for an empty array.
   
-  Example
+  Example:
 
       Statistics.min([5, 3, 10]) // -> 3
 
@@ -40,39 +40,42 @@ public struct Statistics {
     return minElement(values)
   }
   
-  //
-  // Computes the sum of array values
-  //
-  // Example
-  // -------
-  //
-  //  Statistics.sum([1, 3, 10]) // 14
-  //
+  /**
+
+  Computes the sum of array values.
+  
+  :param: values Array of decimal numbers.
+  :returns: The sum of array values.
+
+  Example:
+
+      Statistics.sum([1, 3, 10]) // 14
+
+  */
   public static func sum(values: [Double]) -> Double {
     return values.reduce(0, combine: +)
   }
   
-  //
-  // Computes arithmetic mean of values in the array.
-  //
-  // Note: returns nil for an empty array.
-  //
-  // http://en.wikipedia.org/wiki/Arithmetic_mean
-  //
-  // Formula
-  // -------
-  //
-  //   A = Σ(x) / n
-  //
-  //   Where:
-  //
-  //     n is the number of values.
-  //
-  // Example
-  // -------
-  //
-  //  Statistics.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
-  //
+  /**
+  
+  Computes arithmetic mean of values in the array.
+  
+  http://en.wikipedia.org/wiki/Arithmetic_mean
+  
+  :param: values Array of decimal numbers.
+  :returns: Arithmetic mean of values in the array. Returns nil for an empty array.
+
+  Formula
+
+      A = Σ(x) / n
+  
+  Where n is the number of values.
+
+  Example
+
+      Statistics.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
+
+  */
   public static func average(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
