@@ -1,35 +1,40 @@
-//
-// Collection of functions for statistical calculation.
-//
-
 import Foundation
 
+/**
+
+Collection of functions for statistical calculation.
+
+*/
 public struct Statistics {
-  //
-  // Returns the maximum value in the array.
-  //
-  // Note: returns nil for an empty array.
-  //
-  // Example
-  // -------
-  //
-  //  Statistics.max([3, 10, 6]) // 10
-  //
+  /**
+  
+  Calculates the maximum value in the array.
+
+  :param: values Array of decimal numbers.
+  :returns: The maximum value in the array. Returns nil for an empty array.
+
+  Example:
+
+      Statistics.max([3, 10, 6]) // 10
+  
+  */
   public static func max(values: [Double]) -> Double? {
     if values.isEmpty { return nil }
     return maxElement(values)
   }
   
-  //
-  // Returns the mimimum value in the array.
-  //
-  // Note: returns nil for an empty array.
-  //
-  // Example
-  // -------
-  //
-  //  Statistics.min([5, 3, 10]) // 3
-  //
+  /**
+  
+  Calculates the mimimum value in the array.
+
+  :param: values Array of decimal numbers.
+  :returns: The mimimum value in the array. Returns nil for an empty array.
+  
+  Example
+
+      Statistics.min([5, 3, 10]) // -> 3
+
+  */
   public static func min(values: [Double]) -> Double? {
     if values.isEmpty { return nil }
     return minElement(values)
