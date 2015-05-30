@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import SwiftStatistics
+import SigmaSwiftStatistics
 
 class SwiftStatisticsTests: XCTestCase {
   

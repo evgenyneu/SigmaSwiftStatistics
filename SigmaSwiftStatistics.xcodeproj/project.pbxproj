@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E4B00F51AFDF5E1000562EE /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B00F41AFDF5E1000562EE /* TestHelpers.swift */; };
 		7EBDACD21AFDA18A0089B815 /* SwiftStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBDACD11AFDA18A0089B815 /* SwiftStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7EBDACD81AFDA18A0089B815 /* SwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SwiftStatistics.framework */; };
+		7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */; };
 		7EBDACE11AFDA18A0089B815 /* SwiftStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBDACE01AFDA18A0089B815 /* SwiftStatisticsTests.swift */; };
 		7EBDACEE1AFDA1DA0089B815 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBDACED1AFDA1DA0089B815 /* Statistics.swift */; };
 /* End PBXBuildFile section */
@@ -26,10 +26,10 @@
 
 /* Begin PBXFileReference section */
 		7E4B00F41AFDF5E1000562EE /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
-		7EBDACCD1AFDA18A0089B815 /* SwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDACD01AFDA18A0089B815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBDACD11AFDA18A0089B815 /* SwiftStatistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftStatistics.h; sourceTree = "<group>"; };
-		7EBDACD71AFDA18A0089B815 /* SwiftStatisticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStatisticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SigmaSwiftStatisticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDACDF1AFDA18A0089B815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBDACE01AFDA18A0089B815 /* SwiftStatisticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStatisticsTests.swift; sourceTree = "<group>"; };
 		7EBDACED1AFDA1DA0089B815 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EBDACD81AFDA18A0089B815 /* SwiftStatistics.framework in Frameworks */,
+				7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +74,8 @@
 		7EBDACA41AFDA0E20089B815 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7EBDACCD1AFDA18A0089B815 /* SwiftStatistics.framework */,
-				7EBDACD71AFDA18A0089B815 /* SwiftStatisticsTests.xctest */,
+				7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */,
+				7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,9 +130,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7EBDACCC1AFDA18A0089B815 /* SwiftStatistics */ = {
+		7EBDACCC1AFDA18A0089B815 /* SigmaSwiftStatistics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7EBDACE61AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SwiftStatistics" */;
+			buildConfigurationList = 7EBDACE61AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SigmaSwiftStatistics" */;
 			buildPhases = (
 				7EBDACC81AFDA18A0089B815 /* Sources */,
 				7EBDACC91AFDA18A0089B815 /* Frameworks */,
@@ -143,14 +143,14 @@
 			);
 			dependencies = (
 			);
-			name = SwiftStatistics;
+			name = SigmaSwiftStatistics;
 			productName = SwiftStatistics;
-			productReference = 7EBDACCD1AFDA18A0089B815 /* SwiftStatistics.framework */;
+			productReference = 7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7EBDACD61AFDA18A0089B815 /* SwiftStatisticsTests */ = {
+		7EBDACD61AFDA18A0089B815 /* SigmaSwiftStatisticsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7EBDACEA1AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SwiftStatisticsTests" */;
+			buildConfigurationList = 7EBDACEA1AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SigmaSwiftStatisticsTests" */;
 			buildPhases = (
 				7EBDACD31AFDA18A0089B815 /* Sources */,
 				7EBDACD41AFDA18A0089B815 /* Frameworks */,
@@ -161,9 +161,9 @@
 			dependencies = (
 				7EBDACDA1AFDA18A0089B815 /* PBXTargetDependency */,
 			);
-			name = SwiftStatisticsTests;
+			name = SigmaSwiftStatisticsTests;
 			productName = SwiftStatisticsTests;
-			productReference = 7EBDACD71AFDA18A0089B815 /* SwiftStatisticsTests.xctest */;
+			productReference = 7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +184,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SwiftStatistics" */;
+			buildConfigurationList = 7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SigmaSwiftStatistics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -197,8 +197,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7EBDACCC1AFDA18A0089B815 /* SwiftStatistics */,
-				7EBDACD61AFDA18A0089B815 /* SwiftStatisticsTests */,
+				7EBDACCC1AFDA18A0089B815 /* SigmaSwiftStatistics */,
+				7EBDACD61AFDA18A0089B815 /* SigmaSwiftStatisticsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,7 +243,7 @@
 /* Begin PBXTargetDependency section */
 		7EBDACDA1AFDA18A0089B815 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7EBDACCC1AFDA18A0089B815 /* SwiftStatistics */;
+			target = 7EBDACCC1AFDA18A0089B815 /* SigmaSwiftStatistics */;
 			targetProxy = 7EBDACD91AFDA18A0089B815 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -348,7 +348,7 @@
 				INFOPLIST_FILE = SwiftStatistics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SigmaSwiftStatistics;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -368,7 +368,7 @@
 				INFOPLIST_FILE = SwiftStatistics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SigmaSwiftStatistics;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -388,7 +388,7 @@
 				);
 				INFOPLIST_FILE = SwiftStatisticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SigmaSwiftStatisticsTests;
 			};
 			name = Debug;
 		};
@@ -401,14 +401,14 @@
 				);
 				INFOPLIST_FILE = SwiftStatisticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SigmaSwiftStatisticsTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SwiftStatistics" */ = {
+		7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SigmaSwiftStatistics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EBDACC01AFDA0E20089B815 /* Debug */,
@@ -417,7 +417,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7EBDACE61AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SwiftStatistics" */ = {
+		7EBDACE61AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SigmaSwiftStatistics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EBDACE71AFDA18A0089B815 /* Debug */,
@@ -426,7 +426,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7EBDACEA1AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SwiftStatisticsTests" */ = {
+		7EBDACEA1AFDA18A0089B815 /* Build configuration list for PBXNativeTarget "SigmaSwiftStatisticsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EBDACEB1AFDA18A0089B815 /* Debug */,
