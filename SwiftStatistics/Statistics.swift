@@ -115,12 +115,12 @@ public struct Statistics {
   
   /**
   
-  Computes standard deviation of a population sample.
+  Computes standard deviation of a sample.
   
   http://en.wikipedia.org/wiki/Standard_deviation
 
   :param: values Array of decimal numbers.
-  :returns: Standard deviation of a population sample. Returns nil when the array is empty or contains a single value.
+  :returns: Standard deviation of a sample. Returns nil when the array is empty or contains a single value.
 
   Formula
 
@@ -152,28 +152,30 @@ public struct Statistics {
     return nil
   }
   
-  //
-  // Computes standard deviation of entire population.
-  //
-  // Note: returns nil for an empty array.
-  //
-  // http://en.wikipedia.org/wiki/Standard_deviation
-  //
-  // Formula
-  // -------
-  //
-  //   σ = sqrt( Σ(x - m) / n )
-  //
-  //   Where:
-  //
-  //     m is the population mean.
-  //     n is the population size.
-  //
-  // Example
-  // -------
-  //
-  //   Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
-  //
+  /**
+  
+  Computes standard deviation of entire population.
+  
+  http://en.wikipedia.org/wiki/Standard_deviation
+  
+  :param: values Array of decimal numbers.
+  :returns: Standard deviation of entire population. Returns nil for an empty array.
+
+  Formula
+
+      σ = sqrt( Σ(x - m) / n )
+
+  Where:
+
+  m is the population mean.
+  
+  n is the population size.
+
+  Example
+
+      Statistics.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
+
+  */
   public static func standardDeviationPopulation(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
