@@ -21,7 +21,7 @@ Simply add [Statistics.swift](https://github.com/evgenyneu/SwiftStatistics/blob/
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "evgenyneu/SwiftStatistics" ~> 1.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 1.0` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
