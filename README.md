@@ -233,7 +233,7 @@ Sigma.pearson(x: x, y: y)
 
 ## Shorter syntax
 
-You can type a sigma letter `σ` instead of `Statistics`. For example:
+You can type a sigma letter `σ` instead of `Sigma`. For example:
 
 ```
 σ.average([1, 2])
