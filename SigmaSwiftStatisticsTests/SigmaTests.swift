@@ -107,6 +107,23 @@ class SigmaTests: XCTestCase {
     let result = Sigma.standardDeviationPopulation([])
     XCTAssert(result == nil)
   }
+    
+  // MARK: - Variance
+  
+  func testVariance() {
+    let result = Sigma.variance([1, 12, 19.5, -5, 3, 8])!
+    XCTAssertEqual(75.2416666667, Helpers.round10(result))
+  }
+  
+  func testVariance_whenOne() {
+    let result = Sigma.variance([1])!
+    XCTAssertEqual(0, result)
+  }
+  
+  func testVariance_whenEmpty() {
+    let result = Sigma.variance([])
+    XCTAssert(result == nil)
+  }
   
   // MARK: - Sample covariance
   
