@@ -97,6 +97,29 @@ class SigmaTests: XCTestCase {
   }
   
   
+  // MARK: - Population variance
+  
+  func testVariancePopulation() {
+    let result = Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])!    
+    XCTAssertEqual(62.7013888889, Helpers.round10(result))
+  }
+  
+  func testVariancePopulation_whenSame() {
+    let result = Sigma.variancePopulation([3, 3])!
+    XCTAssertEqual(0, Helpers.round10(result))
+  }
+  
+  func testVariancePopulation_whenOne() {
+    let result = Sigma.variancePopulation([1])!
+    XCTAssertEqual(0, Helpers.round10(result))
+  }
+  
+  func testVariancePopulation_whenEmpty() {
+    let result = Sigma.variancePopulation([])
+    XCTAssert(result == nil)
+  }
+  
+  
   // MARK: - Sample standard deviation
   
   func testSampleStandardDeviation() {
