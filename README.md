@@ -43,7 +43,9 @@ Add `import SigmaSwiftStatistics` to your source code if you used Carthage or Co
 * [variancePopulation](#population-variance)
 * [standardDeviationSample](#sample-standard-deviation)
 * [standardDeviationPopulation](#population-standard-deviation)
-
+* [covarianceSample](#sample-covariance)
+* [covariancePopulation](#population-covariance)
+* [pearson](#pearson-correlation-coefficient)
 
 
 
