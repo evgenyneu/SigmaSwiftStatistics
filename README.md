@@ -34,6 +34,10 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
 
+
+* [max](#max)
+* [min](#min)
+
 ### Max
 
 Returns the maximum value in the array.
@@ -122,7 +126,7 @@ Where:
 
 ```Swift
 Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
-// Result: 75.2416666667
+// Result: 75.24166667
 ```
 
 
