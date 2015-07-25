@@ -39,6 +39,7 @@ Add `import SigmaSwiftStatistics` to your source code if you used Carthage or Co
 * [min](#min)
 * [sum](#sum)
 * [average](#average--mean)
+* [median](#median)
 
 ### Max
 
