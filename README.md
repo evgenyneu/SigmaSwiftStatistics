@@ -45,7 +45,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 **Setup in Xcode 7 / Swift 2.0**
 
-To use the library in Xcode 7 please read the [swift 2.0 setup instruction](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Xcode-7---Swift-2.0-Setup).
+To use the library in Xcode 7 please read the [swift 2.0 setup instruction](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Swift-2.0-Setup).
 
 
 ## Usage
