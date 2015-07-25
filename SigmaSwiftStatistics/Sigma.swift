@@ -134,7 +134,7 @@ public struct Sigma {
   
   Example
   
-      variance([1, 12, 19.5, -5, 3, 8]) // 75.2417
+      Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.2416666667
   
   */
   public static func variance(values: [Double]) -> Double? {
