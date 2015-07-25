@@ -115,7 +115,49 @@ public struct Sigma {
   
   /**
   
-  Computes standard deviation of a sample.
+  Computes variance based on a sample.
+  
+  http://en.wikipedia.org/wiki/Variance
+  
+  :param: values Array of decimal numbers.
+  :returns: Variance. Returns nil when the array is empty or contains a single value.
+  
+  Formula
+  
+      s^2 = Σ( (x - m)^2 ) / (n - 1)
+  
+  Where:
+  
+  m is the sample mean.
+  
+  n is the sample size.
+  
+  Example
+  
+      variance([1, 12, 19.5, -5, 3, 8]) // 75.2417
+  
+  */
+  public static func variance(values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    if count == 1 { return 0 }
+    
+    if let m = average(values) {
+      println(m)
+      let numerator = values.reduce(0) { total, value in
+        total + ((m - value)*(m - value))
+      }
+      
+      return numerator / (count-1)
+    }
+    
+    return nil
+  }
+  
+  
+  /**
+  
+  Computes standard deviation based on a sample.
   
   http://en.wikipedia.org/wiki/Standard_deviation
 
@@ -180,47 +222,6 @@ public struct Sigma {
       return sqrt(numerator / count)
     }
   
-    return nil
-  }
-  
-  /**
-  
-  Computes variance.
-  
-  http://en.wikipedia.org/wiki/Variance
-  
-  :param: values Array of decimal numbers.
-  :returns: Variance. Returns nil for an empty array.
-  
-  Formula
-  
-  σ = sqrt( Σ(x - m)^2 / (n-1) )
-  
-  Where:
-  
-  m is the population mean.
-  
-  n is the population size.
-  
-  Example
-  
-  variance([1, 12, 19.5, -5, 3, 8]) // 75.2417
-  
-  */
-  public static func variance(values: [Double]) -> Double? {
-    let count = Double(values.count)
-    if count == 0 { return nil }
-    if count == 1 { return 0 }
-    
-    if let m = average(values) {
-      println(m)
-      let numerator = values.reduce(0) { total, value in
-        total + ((m - value)*(m - value))
-      }
-      
-      return numerator / (count-1)
-    }
-    
     return nil
   }
   

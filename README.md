@@ -65,7 +65,7 @@ Sigma.sum([1, 3, 8])
 // Result: 12
 ```
 
-### Average
+### Average / mean
 
 Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of values in the array.
 
@@ -102,9 +102,33 @@ Sigma.median([1, 12, 19.5, 3, -5])
 // Result: 3
 ```
 
+### Sample variance
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
+
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
+
+#### Formula
+
+>  s^2 = Σ( (x - m)^2 ) / (n - 1)
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
+// Result: 75.2416666667
+```
+
+
 ### Sample standard deviation
 
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of a population sample.
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
 
 **Note**:
 
@@ -113,12 +137,12 @@ Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) o
 
 #### Formula
 
->  σ = sqrt( Σ(x - m) / (n - 1) )
+>  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
 
 Where:
 
-  * *m* is the population mean.
-  * *n* is the population size.
+  * *m* is the sample mean.
+  * *n* is the sample size.
 
 ```Swift
 Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
@@ -136,7 +160,7 @@ Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) o
 
 #### Formula
 
->  σ = sqrt( Σ(x - m) / n )
+>  σ = sqrt( Σ( (x - m)^2 ) / n )
 
 Where:
 
