@@ -306,6 +306,10 @@ You can type a sigma letter `σ` instead of `Sigma`. For example:
 
 If you need help or want to extend the library feel free to create an issue or submit a pull request.
 
+## Contributors
+
+* [Thomas Fankhauser](https://github.com/southdesign)
+
 ## License
 
 Sigma is released under the [MIT License](LICENSE).
