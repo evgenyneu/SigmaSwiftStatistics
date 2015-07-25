@@ -115,7 +115,85 @@ public struct Sigma {
   
   /**
   
-  Computes standard deviation of a sample.
+  Computes variance based on a sample.
+  
+  http://en.wikipedia.org/wiki/Variance
+  
+  :param: values Array of decimal numbers.
+  :returns: Variance based on a sample. Returns nil when the array is empty or contains a single value.
+  
+  Formula
+  
+      s^2 = Σ( (x - m)^2 ) / (n - 1)
+  
+  Where:
+  
+  m is the sample mean.
+  
+  n is the sample size.
+  
+  Example
+  
+      Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
+  
+  */
+  public static func varianceSample(values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count < 2 { return nil }
+    
+    if let avgerageValue = average(values) {
+      let numerator = values.reduce(0) { total, value in
+        total + pow(avgerageValue - value, 2)
+      }
+      
+      return numerator / (count - 1)
+    }
+    
+    return nil
+  }
+  
+  /**
+  
+  Computes variance of entire population.
+  
+  http://en.wikipedia.org/wiki/Variance
+  
+  :param: values Array of decimal numbers.
+  :returns: Population variance. Returns nil when the array is empty.
+  
+  Formula
+  
+      σ^2 = Σ( (x - m)^2 ) / n
+  
+  Where:
+  
+  m is the population mean.
+  
+  n is the population size.
+  
+  Example
+  
+      Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8]) // 62.70138889
+  
+  */
+  public static func variancePopulation(values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    
+    if let avgerageValue = average(values) {
+      let numerator = values.reduce(0) { total, value in
+        total + pow(avgerageValue - value, 2)
+      }
+      
+      return numerator / count
+    }
+    
+    return nil
+  }
+  
+  /**
+  
+  Computes standard deviation based on a sample.
   
   http://en.wikipedia.org/wiki/Standard_deviation
 
@@ -124,7 +202,7 @@ public struct Sigma {
 
   Formula
 
-      s = sqrt( Σ(x - m) / (n - 1) )
+      s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
 
   Where:
 
@@ -138,15 +216,8 @@ public struct Sigma {
 
   */
   public static func standardDeviationSample(values: [Double]) -> Double? {
-    let count = Double(values.count)
-    if count < 2 { return nil }
-    
-    if let avgerageValue = average(values) {
-      let numerator = values.reduce(0) { total, value in
-        total + pow(avgerageValue - value, 2)
-      }
-      
-      return sqrt(numerator / (count - 1))
+    if let varianceSample = varianceSample(values) {
+       return sqrt(varianceSample)
     }
     
     return nil
@@ -163,7 +234,7 @@ public struct Sigma {
 
   Formula
 
-      σ = sqrt( Σ(x - m) / n )
+      σ = sqrt( Σ( (x - m)^2 ) / n )
 
   Where:
 
@@ -177,15 +248,8 @@ public struct Sigma {
 
   */
   public static func standardDeviationPopulation(values: [Double]) -> Double? {
-    let count = Double(values.count)
-    if count == 0 { return nil }
-    
-    if let avgerageValue = average(values) {
-      let numerator = values.reduce(0) { total, value in
-        total + pow(avgerageValue - value, 2)
-      }
-      
-      return sqrt(numerator / count)
+    if let variancePopulation = variancePopulation(values) {
+      return sqrt(variancePopulation)
     }
   
     return nil
