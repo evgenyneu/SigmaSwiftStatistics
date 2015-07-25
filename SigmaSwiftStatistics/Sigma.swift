@@ -248,15 +248,8 @@ public struct Sigma {
 
   */
   public static func standardDeviationPopulation(values: [Double]) -> Double? {
-    let count = Double(values.count)
-    if count == 0 { return nil }
-    
-    if let avgerageValue = average(values) {
-      let numerator = values.reduce(0) { total, value in
-        total + pow(avgerageValue - value, 2)
-      }
-      
-      return sqrt(numerator / count)
+    if let variancePopulation = variancePopulation(values) {
+      return sqrt(variancePopulation)
     }
   
     return nil
