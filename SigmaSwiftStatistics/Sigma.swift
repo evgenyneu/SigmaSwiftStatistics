@@ -120,7 +120,7 @@ public struct Sigma {
   http://en.wikipedia.org/wiki/Variance
   
   :param: values Array of decimal numbers.
-  :returns: Variance. Returns nil when the array is empty or contains a single value.
+  :returns: Variance based on a sample. Returns nil when the array is empty or contains a single value.
   
   Formula
   
@@ -137,18 +137,16 @@ public struct Sigma {
       Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.2416666667
   
   */
-  public static func variance(values: [Double]) -> Double? {
+  public static func varianceSample(values: [Double]) -> Double? {
     let count = Double(values.count)
-    if count == 0 { return nil }
-    if count == 1 { return 0 }
+    if count < 2 { return nil }
     
-    if let m = average(values) {
-      println(m)
+    if let avgerageValue = average(values) {
       let numerator = values.reduce(0) { total, value in
-        total + ((m - value)*(m - value))
+        total + pow(avgerageValue - value, 2)
       }
       
-      return numerator / (count-1)
+      return numerator / (count - 1)
     }
     
     return nil
@@ -180,10 +178,11 @@ public struct Sigma {
 
   */
   public static func standardDeviationSample(values: [Double]) -> Double? {
-    let count = Double(values.count)
-    if count < 2 { return nil }
+    if let varianceSample = varianceSample(values) {
+       return sqrt(varianceSample)
+    }
     
-    return sqrt(variance(values)!)
+    return nil
   }
   
   /**

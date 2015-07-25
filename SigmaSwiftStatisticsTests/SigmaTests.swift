@@ -74,11 +74,39 @@ class SigmaTests: XCTestCase {
     XCTAssert(result == nil)
   }
   
+  // MARK: - Sample variance
+  
+  func testVarianceSample() {
+    let result = Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])!
+    XCTAssertEqual(75.2416666667, Helpers.round10(result))
+  }
+  
+  func testVarianceSample_whenSame() {
+    let result = Sigma.varianceSample([3, 3])!
+    XCTAssertEqual(0, Helpers.round10(result))
+  }
+  
+  func testVarianceSample_whenOne() {
+    let result = Sigma.varianceSample([1])
+    XCTAssert(result == nil)
+  }
+  
+  func testVarianceSample_whenEmpty() {
+    let result = Sigma.varianceSample([])
+    XCTAssert(result == nil)
+  }
+  
+  
   // MARK: - Sample standard deviation
   
   func testSampleStandardDeviation() {
     let result = Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])!
     XCTAssertEqual(8.6741954478, Helpers.round10(result))
+  }
+  
+  func testSampleStandardDeviation_whenSame() {
+    let result = Sigma.standardDeviationSample([3, 3])!
+    XCTAssertEqual(0, Helpers.round10(result))
   }
   
   func testSampleStandardDeviation_whenOne() {
@@ -105,23 +133,6 @@ class SigmaTests: XCTestCase {
   
   func testPopulationStandardDeviation_whenEmpty() {
     let result = Sigma.standardDeviationPopulation([])
-    XCTAssert(result == nil)
-  }
-    
-  // MARK: - Variance
-  
-  func testVariance() {
-    let result = Sigma.variance([1, 12, 19.5, -5, 3, 8])!
-    XCTAssertEqual(75.2416666667, Helpers.round10(result))
-  }
-  
-  func testVariance_whenOne() {
-    let result = Sigma.variance([1])!
-    XCTAssertEqual(0, result)
-  }
-  
-  func testVariance_whenEmpty() {
-    let result = Sigma.variance([])
     XCTAssert(result == nil)
   }
   
