@@ -126,6 +126,31 @@ Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
 ```
 
 
+### Population variance
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) of entire population.
+
+**Note**:
+
+  * Returns nil when the array is empty.
+  * Same as VAR.P or VARPA in Microsoft Excel and VARP or VARPA in Google Docs Sheets.
+
+#### Formula
+
+>  σ^2 = Σ( (x - m)^2 ) / n
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
+
+```Swift
+Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
+// Result: 62.70138889
+```
+
+
+
 ### Sample standard deviation
 
 Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
