@@ -10,8 +10,8 @@ public struct Sigma {
   
   Calculates the maximum value in the array.
 
-  :param: values Array of decimal numbers.
-  :returns: The maximum value in the array. Returns nil for an empty array.
+  - parameter values: Array of decimal numbers.
+  - returns: The maximum value in the array. Returns nil for an empty array.
 
   Example:
 
@@ -19,16 +19,19 @@ public struct Sigma {
   
   */
   public static func max(values: [Double]) -> Double? {
-    if values.isEmpty { return nil }
-    return maxElement(values)
+    if let maxValue = values.maxElement() {
+      return maxValue
+    }
+    
+    return nil
   }
   
   /**
   
   Calculates the mimimum value in the array.
 
-  :param: values Array of decimal numbers.
-  :returns: The mimimum value in the array. Returns nil for an empty array.
+  - parameter values: Array of decimal numbers.
+  - returns: The mimimum value in the array. Returns nil for an empty array.
   
   Example:
 
@@ -36,16 +39,19 @@ public struct Sigma {
 
   */
   public static func min(values: [Double]) -> Double? {
-    if values.isEmpty { return nil }
-    return minElement(values)
+    if let minValue = values.minElement() {
+      return minValue
+    }
+    
+    return nil
   }
   
   /**
 
   Computes the sum of array values.
   
-  :param: values Array of decimal numbers.
-  :returns: The sum of array values.
+  - parameter values: Array of decimal numbers.
+  - returns: The sum of array values.
 
   Example:
 
@@ -62,8 +68,8 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Arithmetic_mean
   
-  :param: values Array of decimal numbers.
-  :returns: Arithmetic mean of values in the array. Returns nil for an empty array.
+  - parameter values: Array of decimal numbers.
+  - returns: Arithmetic mean of values in the array. Returns nil for an empty array.
 
   Formula
 
@@ -88,8 +94,8 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Median
   
-  :param: values Array of decimal numbers.
-  :returns: The median value from the array. Returns nil for an empty array. Returns the mean of the two middle values if there is an even number of items in the array.
+  - parameter values: Array of decimal numbers.
+  - returns: The median value from the array. Returns nil for an empty array. Returns the mean of the two middle values if there is an even number of items in the array.
 
   Example
 
@@ -99,7 +105,7 @@ public struct Sigma {
   public static func median(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
-    let sorted = values.sorted { $0 < $1 }
+    let sorted = values.sort { $0 < $1 }
     
     if count % 2 == 0 {
       // Event number of items - return the mean of two middle values
@@ -119,8 +125,8 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Variance
   
-  :param: values Array of decimal numbers.
-  :returns: Variance based on a sample. Returns nil when the array is empty or contains a single value.
+  - parameter values: Array of decimal numbers.
+  - returns: Variance based on a sample. Returns nil when the array is empty or contains a single value.
   
   Formula
   
@@ -158,8 +164,8 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Variance
   
-  :param: values Array of decimal numbers.
-  :returns: Population variance. Returns nil when the array is empty.
+  - parameter values: Array of decimal numbers.
+  - returns: Population variance. Returns nil when the array is empty.
   
   Formula
   
@@ -197,8 +203,8 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Standard_deviation
 
-  :param: values Array of decimal numbers.
-  :returns: Standard deviation of a sample. Returns nil when the array is empty or contains a single value.
+  - parameter values: Array of decimal numbers.
+  - returns: Standard deviation of a sample. Returns nil when the array is empty or contains a single value.
 
   Formula
 
@@ -229,8 +235,8 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Standard_deviation
   
-  :param: values Array of decimal numbers.
-  :returns: Standard deviation of entire population. Returns nil for an empty array.
+  - parameter values: Array of decimal numbers.
+  - returns: Standard deviation of entire population. Returns nil for an empty array.
 
   Formula
 
@@ -261,9 +267,9 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance
   
-  :param: x Array of decimal numbers for the first variable.
-  :param: y Array of decimal numbers for the second variable.
-  :returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
+  - parameter x: Array of decimal numbers for the first variable.
+  - parameter y: Array of decimal numbers for the second variable.
+  - returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
 
   Formula
 
@@ -284,7 +290,7 @@ public struct Sigma {
       Sigma.covarianceSample(x: x, y: y) // 5.03
 
   */
-  public static func covarianceSample(#x: [Double], y: [Double]) -> Double? {
+  public static func covarianceSample(x x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     
@@ -296,7 +302,7 @@ public struct Sigma {
         
         var sum:Double = 0
         
-        for (index, xElement) in enumerate(x) {
+        for (index, xElement) in x.enumerate() {
           let yElement = y[index]
           
           sum += (xElement - xMean) * (yElement - yMean)
@@ -314,9 +320,9 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Covariance
   
-  :param: x Array of decimal numbers for the first variable.
-  :param: y Array of decimal numbers for the second variable.
-  :returns: Covariance for entire population between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
+  - parameter x: Array of decimal numbers for the first variable.
+  - parameter y: Array of decimal numbers for the second variable.
+  - returns: Covariance for entire population between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
 
   Formula
 
@@ -337,7 +343,7 @@ public struct Sigma {
       Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
 
   */
-  public static func covariancePopulation(#x: [Double], y: [Double]) -> Double? {
+  public static func covariancePopulation(x x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
 
@@ -349,7 +355,7 @@ public struct Sigma {
       
       var sum:Double = 0
   
-      for (index, xElement) in enumerate(x) {
+      for (index, xElement) in x.enumerate() {
         let yElement = y[index]
         
         sum += (xElement - xMean) * (yElement - yMean)
@@ -367,9 +373,9 @@ public struct Sigma {
   
   http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
   
-  :param: x Array of decimal numbers for the first variable.
-  :param: y Array of decimal numbers for the second variable.
-  :returns: The Pearson product-moment correlation coefficient between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
+  - parameter x: Array of decimal numbers for the first variable.
+  - parameter y: Array of decimal numbers for the second variable.
+  - returns: The Pearson product-moment correlation coefficient between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
 
   Formula
 
@@ -388,7 +394,7 @@ public struct Sigma {
       Sigma.pearson(x: x, y: y) // 0.843760859352745
 
   */
-  public static func pearson(#x: [Double], y: [Double]) -> Double? {
+  public static func pearson(x x: [Double], y: [Double]) -> Double? {
     if let cov = covariancePopulation(x: x, y: y),
       σx = standardDeviationPopulation(x),
       σy = standardDeviationPopulation(y) {
