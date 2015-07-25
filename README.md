@@ -42,6 +42,12 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
     use_frameworks!
     pod 'SigmaSwiftStatistics', '~> 1.0'
 
+
+**Setup with Xcode 7 / Swift 2.0
+
+To use the library in Xcode 7 please read the [swift 2.0 setup instruction](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Xcode-7---Swift-2.0-Setup).
+
+
 ## Usage
 
 Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
