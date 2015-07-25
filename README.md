@@ -9,6 +9,18 @@
 
 This library is a collection of functions that perform statistical calculations in Swift.
 
+* [average](#average--mean)
+* [covariancePopulation](#population-covariance)
+* [covarianceSample](#sample-covariance)
+* [max](#max)
+* [min](#min)
+* [pearson](#pearson-correlation-coefficient)
+* [standardDeviationPopulation](#population-standard-deviation)
+* [standardDeviationSample](#sample-standard-deviation)
+* [sum](#sum)
+* [variancePopulation](#population-variance)
+* [varianceSample](#sample-variance)
+
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
 ## Setup
@@ -33,20 +45,6 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 ## Usage
 
 Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
-
-
-* [max](#max)
-* [min](#min)
-* [sum](#sum)
-* [average](#average--mean)
-* [varianceSample](#sample-variance)
-* [variancePopulation](#population-variance)
-* [standardDeviationSample](#sample-standard-deviation)
-* [standardDeviationPopulation](#population-standard-deviation)
-* [covarianceSample](#sample-covariance)
-* [covariancePopulation](#population-covariance)
-* [pearson](#pearson-correlation-coefficient)
-
 
 
 ### Max
