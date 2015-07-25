@@ -12,6 +12,8 @@
 		7E568F991B196725007862B3 /* SigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F921B19667B007862B3 /* SigmaTests.swift */; };
 		7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F901B19667B007862B3 /* TestHelpers.swift */; };
 		7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */; };
+		7EC48C821B63673C002F3278 /* SigmaSwiftStatistics-Mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EC48C811B63673C002F3278 /* SigmaSwiftStatistics-Mac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EC48C961B636824002F3278 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 		7E6FB83E1B1968CD00D8350F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SigmaSwiftStatisticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EC48C7D1B63673C002F3278 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EC48C801B63673C002F3278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EC48C811B63673C002F3278 /* SigmaSwiftStatistics-Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-Mac.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +54,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EC48C791B63673C002F3278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +101,7 @@
 				7E6FB83E1B1968CD00D8350F /* README.md */,
 				7E568F8A1B19667B007862B3 /* SigmaSwiftStatistics */,
 				7E568F8E1B19667B007862B3 /* SigmaSwiftStatisticsTests */,
+				7EC48C7E1B63673C002F3278 /* SigmaSwiftStatistics-Mac */,
 				7EBDACA41AFDA0E20089B815 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,8 +111,26 @@
 			children = (
 				7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */,
 				7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */,
+				7EC48C7D1B63673C002F3278 /* SigmaSwiftStatistics.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7EC48C7E1B63673C002F3278 /* SigmaSwiftStatistics-Mac */ = {
+			isa = PBXGroup;
+			children = (
+				7EC48C811B63673C002F3278 /* SigmaSwiftStatistics-Mac.h */,
+				7EC48C7F1B63673C002F3278 /* Supporting Files */,
+			);
+			path = "SigmaSwiftStatistics-Mac";
+			sourceTree = "<group>";
+		};
+		7EC48C7F1B63673C002F3278 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EC48C801B63673C002F3278 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +141,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E568F951B19667B007862B3 /* SwiftStatistics.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EC48C7A1B63673C002F3278 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EC48C821B63673C002F3278 /* SigmaSwiftStatistics-Mac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +191,24 @@
 			productReference = 7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7EC48C7C1B63673C002F3278 /* SigmaSwiftStatistics-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EC48C941B63673C002F3278 /* Build configuration list for PBXNativeTarget "SigmaSwiftStatistics-Mac" */;
+			buildPhases = (
+				7EC48C781B63673C002F3278 /* Sources */,
+				7EC48C791B63673C002F3278 /* Frameworks */,
+				7EC48C7A1B63673C002F3278 /* Headers */,
+				7EC48C7B1B63673C002F3278 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SigmaSwiftStatistics-Mac";
+			productName = "SigmaSwiftStatistics-Mac";
+			productReference = 7EC48C7D1B63673C002F3278 /* SigmaSwiftStatistics.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,6 +224,9 @@
 					7EBDACD61AFDA18A0089B815 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 7EBDACA21AFDA0E20089B815;
+					};
+					7EC48C7C1B63673C002F3278 = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -185,6 +245,7 @@
 			targets = (
 				7EBDACCC1AFDA18A0089B815 /* SigmaSwiftStatistics */,
 				7EBDACD61AFDA18A0089B815 /* SigmaSwiftStatisticsTests */,
+				7EC48C7C1B63673C002F3278 /* SigmaSwiftStatistics-Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -198,6 +259,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7EBDACD51AFDA18A0089B815 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EC48C7B1B63673C002F3278 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +289,14 @@
 			files = (
 				7E568F991B196725007862B3 /* SigmaTests.swift in Sources */,
 				7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EC48C781B63673C002F3278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EC48C961B636824002F3278 /* Sigma.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +467,55 @@
 			};
 			name = Release;
 		};
+		7EC48C901B63673C002F3278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SigmaSwiftStatistics-Mac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = SigmaSwiftStatistics;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EC48C911B63673C002F3278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "SigmaSwiftStatistics-Mac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = SigmaSwiftStatistics;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -420,6 +545,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7EC48C941B63673C002F3278 /* Build configuration list for PBXNativeTarget "SigmaSwiftStatistics-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EC48C901B63673C002F3278 /* Debug */,
+				7EC48C911B63673C002F3278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
