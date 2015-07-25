@@ -124,7 +124,7 @@ public struct Sigma {
 
   Formula
 
-      s = sqrt( Σ(x - m) / (n - 1) )
+      s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
 
   Where:
 
@@ -155,7 +155,7 @@ public struct Sigma {
 
   Formula
 
-      σ = sqrt( Σ(x - m) / n )
+      σ = sqrt( Σ( (x - m)^2 ) / n )
 
   Where:
 
@@ -185,7 +185,7 @@ public struct Sigma {
   
   /**
   
-  Computes variance
+  Computes variance.
   
   http://en.wikipedia.org/wiki/Variance
   
