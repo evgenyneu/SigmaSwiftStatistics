@@ -29,23 +29,18 @@ There are three ways you can add Sigma to your Xcode project.
 
 **Add source (iOS 7+)**
 
-Simply add [Sigma.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/swift-2.0/SigmaSwiftStatistics/Sigma.swift) file to your project.
+Simply add [Sigma.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/master/SigmaSwiftStatistics/Sigma.swift) file to your project.
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" "swift-2.0"` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 1.1` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    pod 'SigmaSwiftStatistics', :git => 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', :branch => 'swift-2.0'
-
-
-**Setup in Xcode 7 / Swift 2.0**
-
-To use the library in Xcode 7 please read the [swift 2.0 setup instruction](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Swift-2.0-Setup).
+    pod 'SigmaSwiftStatistics', '~> 1.1'
 
 
 ## Usage
