@@ -4,6 +4,8 @@ import Foundation
 
 Collection of functions for statistical calculation.
 
+Project home: https://github.com/evgenyneu/SigmaSwiftStatistics
+
 */
 public struct Sigma {
   /**
