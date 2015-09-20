@@ -384,6 +384,7 @@
 		7E1F466A1BAE884C001E2164 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -407,6 +408,7 @@
 		7E1F466B1BAE884C001E2164 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -640,6 +642,7 @@
 				7E1F466B1BAE884C001E2164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EBDAC9E1AFDA0E20089B815 /* Build configuration list for PBXProject "SigmaSwiftStatistics" */ = {
 			isa = XCConfigurationList;

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7E1F46641BAE884C001E2164"
-               BuildableName = "SigmaSwiftStatistics-Watch.framework"
+               BuildableName = "SigmaSwiftStatistics.framework"
                BlueprintName = "SigmaSwiftStatistics-Watch"
                ReferencedContainer = "container:SigmaSwiftStatistics.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E1F46641BAE884C001E2164"
-            BuildableName = "SigmaSwiftStatistics-Watch.framework"
+            BuildableName = "SigmaSwiftStatistics.framework"
             BlueprintName = "SigmaSwiftStatistics-Watch"
             ReferencedContainer = "container:SigmaSwiftStatistics.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E1F46641BAE884C001E2164"
-            BuildableName = "SigmaSwiftStatistics-Watch.framework"
+            BuildableName = "SigmaSwiftStatistics.framework"
             BlueprintName = "SigmaSwiftStatistics-Watch"
             ReferencedContainer = "container:SigmaSwiftStatistics.xcodeproj">
          </BuildableReference>
