@@ -13,6 +13,7 @@ This library is a collection of functions that perform statistical calculations 
 * [covariancePopulation](#population-covariance)
 * [covarianceSample](#sample-covariance)
 * [max](#max)
+* [median](#median)
 * [min](#min)
 * [pearson](#pearson-correlation-coefficient)
 * [standardDeviationPopulation](#population-standard-deviation)
