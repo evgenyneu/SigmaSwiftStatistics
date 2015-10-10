@@ -43,6 +43,15 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
     use_frameworks!
     pod 'SigmaSwiftStatistics', '~> 1.1'
 
+Here is how to use the library in a *WatchKit extension* with CocoaPods.
+
+    use_frameworks!
+
+    target 'YourWatchApp Extension Target Name' do
+      platform :watchos, '2.0'
+      pod 'SigmaSwiftStatistics', '~> 1.1'
+    end
+
 
 ## Usage
 
