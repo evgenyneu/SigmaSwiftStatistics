@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name        = "SigmaSwiftStatistics"
-  s.version     = "1.1.4"
+  s.version     = "1.1.5"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/evgenyneu/SigmaSwiftStatistics"
-  s.summary     = "A collection of functions for statistical calculation written Swift for iOS and OS X."
+  s.summary     = "A collection of functions for statistical calculation written Swift for iOS, OS X and watchOS."
   s.description  = <<-DESC
                    This library is a collection of functions that perform statistical calculations: average, covariance, max, min, pearson, standard deviation, sum, variance.
                    DESC
