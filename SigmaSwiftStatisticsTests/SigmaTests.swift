@@ -59,7 +59,7 @@ class SigmaTests: XCTestCase {
     XCTAssertEqual(3, result)
   }
   
-  func testMedian_eventNumberOfItems() {
+  func testMedian_evenNumberOfItems() {
     let result = Sigma.median([1, 12, 19.5, 3, -5, 8])!
     XCTAssertEqual(5.5, result)
   }
@@ -75,12 +75,13 @@ class SigmaTests: XCTestCase {
   }
   
   // MARK: - Median Low
+  
   func testMedianLow_oddNumberOfItems() {
     let result = Sigma.medianLow([1, 12, 19.5, 3, -5])!
     XCTAssertEqual(3, result)
   }
   
-  func testMedianLow_eventNumberOfItems() {
+  func testMedianLow_evenNumberOfItems() {
     let result = Sigma.medianLow([1, 12, 19.5, 3, -5, 8])!
     XCTAssertEqual(3, result)
   }
@@ -96,12 +97,13 @@ class SigmaTests: XCTestCase {
   }
   
   //MARK: - Median High
+  
   func testMedianHigh_oddNumberOfItems() {
     let result = Sigma.medianHigh([1, 12, 19.5, 3, -5])!
     XCTAssertEqual(3, result)
   }
   
-  func testMedianHigh_eventNumberOfItems() {
+  func testMedianHigh_evenNumberOfItems() {
     let result = Sigma.medianHigh([1, 12, 19.5, 3, -5, 8])!
     XCTAssertEqual(8, result)
   }
