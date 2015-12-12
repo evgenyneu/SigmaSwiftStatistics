@@ -138,7 +138,7 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 * Returns the lower of the two middle values if there is an even number of items in the array.
 
 ```Swift
-Sigma.median([1, 12, 19.5, 10, 3, -5])
+Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
 // Result: 3
 ```
 
@@ -152,7 +152,7 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 * Returns the higher of the two middle values if there is an even number of items in the array.
 
 ```Swift
-Sigma.median([1, 12, 19.5, 10, 3, -5])
+Sigma.medianHigh([1, 12, 19.5, 10, 3, -5])
 // Result: 10
 ```
 
