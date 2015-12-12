@@ -73,13 +73,13 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: Arithmetic mean of values in the array. Returns nil for an empty array.
 
-  Formula
+  Formula:
 
       A = Σ(x) / n
   
   Where n is the number of values.
 
-  Example
+  Example:
 
       Sigma.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
 
@@ -99,7 +99,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: The median value from the array. Returns nil for an empty array. Returns the mean of the two middle values if there is an even number of items in the array.
 
-  Example
+  Example:
 
       Sigma.median([1, 12, 19.5, 3, -5]) // 3
 
@@ -130,7 +130,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: The median value from the array. Returns nil for an empty array. Returns the smaller of the two middle values if there is an even number of items in the array.
 
-  Example
+  Example:
 
       Sigma.medianLow([1, 12, 19.5, 10, 3, -5]) // 3
    
@@ -158,7 +158,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: The median value from the array. Returns nil for an empty array. Returns the greater of the two middle values if there is an even number of items in the array.
 
-  Example
+  Example:
 
       Sigma.medianHigh([1, 12, 19.5, 10, 3, -5]) // 10
    
@@ -179,7 +179,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: Variance based on a sample. Returns nil when the array is empty or contains a single value.
   
-  Formula
+  Formula:
   
       s^2 = Σ( (x - m)^2 ) / (n - 1)
   
@@ -189,7 +189,7 @@ public struct Sigma {
   
   n is the sample size.
   
-  Example
+  Example:
   
       Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
   
@@ -218,7 +218,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: Population variance. Returns nil when the array is empty.
   
-  Formula
+  Formula:
   
       σ^2 = Σ( (x - m)^2 ) / n
   
@@ -228,7 +228,7 @@ public struct Sigma {
   
   n is the population size.
   
-  Example
+  Example:
   
       Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8]) // 62.70138889
   
@@ -257,7 +257,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: Standard deviation of a sample. Returns nil when the array is empty or contains a single value.
 
-  Formula
+  Formula:
 
       s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
 
@@ -267,7 +267,7 @@ public struct Sigma {
 
   n is the sample size.
 
-  Example
+  Example:
 
       Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
 
@@ -289,7 +289,7 @@ public struct Sigma {
   - parameter values: Array of decimal numbers.
   - returns: Standard deviation of entire population. Returns nil for an empty array.
 
-  Formula
+  Formula:
 
       σ = sqrt( Σ( (x - m)^2 ) / n )
 
@@ -299,7 +299,7 @@ public struct Sigma {
   
   n is the population size.
 
-  Example
+  Example:
 
       Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
 
@@ -322,7 +322,7 @@ public struct Sigma {
   - parameter y: Array of decimal numbers for the second variable.
   - returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
 
-  Formula
+  Formula:
 
       cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
 
@@ -334,7 +334,7 @@ public struct Sigma {
   
   n is the total number of values.
 
-  Example
+  Example:
 
       let x = [1, 2, 3.5, 3.7, 8, 12]
       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
@@ -375,7 +375,7 @@ public struct Sigma {
   - parameter y: Array of decimal numbers for the second variable.
   - returns: Covariance for entire population between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
 
-  Formula
+  Formula:
 
       cov(x,y) = Σ(x - mx)(y - my) / n
 
@@ -387,7 +387,7 @@ public struct Sigma {
   
   n is the total number of values.
 
-  Example
+  Example:
 
       let x = [1, 2, 3.5, 3.7, 8, 12]
       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
@@ -428,7 +428,7 @@ public struct Sigma {
   - parameter y: Array of decimal numbers for the second variable.
   - returns: The Pearson product-moment correlation coefficient between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
 
-  Formula
+  Formula:
 
       p(x,y) = cov(x,y) / (σx * σy)
 
@@ -438,7 +438,7 @@ public struct Sigma {
 
   σx is the population standard deviation of x.
 
-  Example
+  Example:
 
       let x = [1, 2, 3.5, 3.7, 8, 12]
       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
