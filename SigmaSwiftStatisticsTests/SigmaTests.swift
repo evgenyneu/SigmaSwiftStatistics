@@ -74,6 +74,48 @@ class SigmaTests: XCTestCase {
     XCTAssert(result == nil)
   }
   
+  // MARK: - Median Low
+  func testMedianLow_oddNumberOfItems() {
+    let result = Sigma.medianLow([1, 12, 19.5, 3, -5])!
+    XCTAssertEqual(3, result)
+  }
+  
+  func testMedianLow_eventNumberOfItems() {
+    let result = Sigma.medianLow([1, 12, 19.5, 3, -5, 8])!
+    XCTAssertEqual(3, result)
+  }
+  
+  func testMedianLow_oneItem() {
+    let result = Sigma.medianLow([2])!
+    XCTAssertEqual(2, result)
+  }
+  
+  func testMedianLow_whenEmpty() {
+    let result = Sigma.medianLow([])
+    XCTAssert(result == nil)
+  }
+  
+  //MARK: - Median High
+  func testMedianHigh_oddNumberOfItems() {
+    let result = Sigma.medianHigh([1, 12, 19.5, 3, -5])!
+    XCTAssertEqual(3, result)
+  }
+  
+  func testMedianHigh_eventNumberOfItems() {
+    let result = Sigma.medianHigh([1, 12, 19.5, 3, -5, 8])!
+    XCTAssertEqual(8, result)
+  }
+  
+  func testMedianHigh_oneItem() {
+    let result = Sigma.medianHigh([2])!
+    XCTAssertEqual(2, result)
+  }
+  
+  func testMedianHigh_whenEmpty() {
+    let result = Sigma.medianHigh([])
+    XCTAssert(result == nil)
+  }
+  
   // MARK: - Sample variance
   
   func testVarianceSample() {

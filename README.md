@@ -14,6 +14,8 @@ This library is a collection of functions that perform statistical calculations 
 * [covarianceSample](#sample-covariance)
 * [max](#max)
 * [median](#median)
+* [medianLow](#medianLow)
+* [medianHigh](#medianHigh)
 * [min](#min)
 * [pearson](#pearson-correlation-coefficient)
 * [standardDeviationPopulation](#population-standard-deviation)
@@ -124,6 +126,34 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 ```Swift
 Sigma.median([1, 12, 19.5, 3, -5])
 // Result: 3
+```
+
+### Median Low
+
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
+
+**Note**:
+
+* Returns nil when the array is empty.
+* Returns the lower of the two middle values if there is an even number of items in the array.
+
+```Swift
+Sigma.median([1, 12, 19.5, 10, 3, -5])
+// Result: 3
+```
+
+### Median High
+
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
+
+**Note**:
+
+* Returns nil when the array is empty.
+* Returns the higher of the two middle values if there is an even number of items in the array.
+
+```Swift
+Sigma.median([1, 12, 19.5, 10, 3, -5])
+// Result: 10
 ```
 
 ### Sample variance
@@ -320,6 +350,7 @@ If you need help or want to extend the library feel free to create an issue or s
 ## Contributors
 
 * [Thomas Fankhauser](https://github.com/southdesign)
+* [John Clema](https://github.com/JohnClema)
 
 ## License
 
