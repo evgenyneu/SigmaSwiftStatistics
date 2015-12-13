@@ -1,4 +1,4 @@
-# σ (sigma) - statistics library for Swift
+# σ (sigma) - statistics library written in Swift
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/SigmaSwiftStatistics.svg?style=flat)][cocoadocs]
@@ -128,7 +128,7 @@ Sigma.median([1, 12, 19.5, 3, -5])
 // Result: 3
 ```
 
-### Median Low
+### Median low
 
 Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 
@@ -142,7 +142,7 @@ Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
 // Result: 3
 ```
 
-### Median High
+### Median high
 
 Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 
