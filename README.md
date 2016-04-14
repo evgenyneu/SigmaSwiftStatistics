@@ -349,6 +349,7 @@ Calculates the
 See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) document for more information.
 
 ```Swift
+// Calculate 40th percentile
 Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
 // Result: 29
 ```
