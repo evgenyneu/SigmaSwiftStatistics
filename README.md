@@ -18,6 +18,7 @@ This library is a collection of functions that perform statistical calculations 
 * [medianLow](#median-low)
 * [min](#min)
 * [pearson](#pearson-correlation-coefficient)
+* [percentileMethodOne](#pearson-correlation-coefficient)
 * [standardDeviationPopulation](#population-standard-deviation)
 * [standardDeviationSample](#sample-standard-deviation)
 * [sum](#sum)
@@ -333,6 +334,12 @@ let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
 Sigma.pearson(x: x, y: y)
 // Result: 0.843760859352745
 ```
+
+### Percentile 1
+
+Calculates the
+[Percentail](https://en.wikipedia.org/wiki/Percentile) value
+between two variables: x and y.
 
 ## Shorter syntax
 
