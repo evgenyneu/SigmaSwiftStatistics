@@ -18,7 +18,7 @@ This library is a collection of functions that perform statistical calculations 
 * [medianLow](#median-low)
 * [min](#min)
 * [pearson](#pearson-correlation-coefficient)
-* [percentileMethodOne](#pearson-correlation-coefficient)
+* [percentile1](#pearson-correlation-coefficient)
 * [standardDeviationPopulation](#population-standard-deviation)
 * [standardDeviationSample](#sample-standard-deviation)
 * [sum](#sum)
@@ -338,8 +338,9 @@ Sigma.pearson(x: x, y: y)
 ### Percentile 1
 
 Calculates the
-[Percentail](https://en.wikipedia.org/wiki/Percentile) value
-between two variables: x and y.
+[Percentile](https://en.wikipedia.org/wiki/Percentile) value
+for the series of measurements.
+
 
 ## Shorter syntax
 
