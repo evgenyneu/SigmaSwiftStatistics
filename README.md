@@ -338,7 +338,7 @@ Sigma.pearson(x: x, y: y)
 ### Percentile 1
 
 Calculates the
-[Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given percentile in the dataset.
+[Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given dataset.
 
 **Note**:
 
