@@ -18,6 +18,7 @@ This library is a collection of functions that perform statistical calculations 
 * [medianLow](#median-low)
 * [min](#min)
 * [pearson](#pearson-correlation-coefficient)
+* [percentile1](#percentile-1)
 * [standardDeviationPopulation](#population-standard-deviation)
 * [standardDeviationSample](#sample-standard-deviation)
 * [sum](#sum)
@@ -333,6 +334,26 @@ let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
 Sigma.pearson(x: x, y: y)
 // Result: 0.843760859352745
 ```
+
+### Percentile 1
+
+Calculates the
+[Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given dataset.
+
+**Note**:
+
+ * Returns nil when the `values` array is empty.
+ * Returns nil when supplied `percentile` parameter is negative or greater than 1.
+ * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE Google Docs Sheets.
+
+See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) document for more information.
+
+```Swift
+// Calculate 40th percentile
+Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
+// Result: 29
+```
+
 
 ## Shorter syntax
 
