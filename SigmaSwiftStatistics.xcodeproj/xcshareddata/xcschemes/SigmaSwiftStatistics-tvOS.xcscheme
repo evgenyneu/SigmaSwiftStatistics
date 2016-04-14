@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7EE9D0491C1CCAC500601982"
-               BuildableName = "SigmaSwiftStatistics-tvOS.framework"
+               BuildableName = "SigmaSwiftStatistics.framework"
                BlueprintName = "SigmaSwiftStatistics-tvOS"
                ReferencedContainer = "container:SigmaSwiftStatistics.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7EE9D0491C1CCAC500601982"
-            BuildableName = "SigmaSwiftStatistics-tvOS.framework"
+            BuildableName = "SigmaSwiftStatistics.framework"
             BlueprintName = "SigmaSwiftStatistics-tvOS"
             ReferencedContainer = "container:SigmaSwiftStatistics.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7EE9D0491C1CCAC500601982"
-            BuildableName = "SigmaSwiftStatistics-tvOS.framework"
+            BuildableName = "SigmaSwiftStatistics.framework"
             BlueprintName = "SigmaSwiftStatistics-tvOS"
             ReferencedContainer = "container:SigmaSwiftStatistics.xcodeproj">
          </BuildableReference>
