@@ -338,8 +338,20 @@ Sigma.pearson(x: x, y: y)
 ### Percentile 1
 
 Calculates the
-[Percentile](https://en.wikipedia.org/wiki/Percentile) value
-for the series of measurements.
+[Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given percentile in the dataset.
+
+**Note**:
+
+ * Returns nil when the `values` array is empty.
+ * Returns nil when supplied `percentile` parameter is less than 0 or greater than 1.
+ * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE Google Docs Sheets.
+
+Set the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) document for more information.
+
+```Swift
+Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
+// Result: 29
+```
 
 
 ## Shorter syntax
