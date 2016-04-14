@@ -107,7 +107,7 @@ public struct Sigma {
   public static func median(values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
-    let sorted = values.sort { $0 < $1 }
+    let sorted = sort(values)
     
     if count % 2 == 0 {
       // Even number of items - return the mean of two middle values
@@ -456,6 +456,16 @@ public struct Sigma {
     }
       
     return nil
+  }
+  
+  public static func percentile1(values values: [Double], percentile: Double) -> Double? {
+    return nil
+  }
+  
+  // MARK: - Private functionality
+  
+  private static func sort(values: [Double]) -> [Double] {
+    return values.sort { $0 < $1 }
   }
 }
 
