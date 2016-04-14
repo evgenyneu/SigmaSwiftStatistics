@@ -343,7 +343,7 @@ Calculates the
 **Note**:
 
  * Returns nil when the `values` array is empty.
- * Returns nil when supplied `percentile` parameter is less than 0 or greater than 1.
+ * Returns nil when supplied `percentile` parameter is negative or greater than 1.
  * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE Google Docs Sheets.
 
 See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) document for more information.

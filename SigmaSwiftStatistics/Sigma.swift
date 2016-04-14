@@ -459,12 +459,42 @@ public struct Sigma {
   }
   
   public static func percentile1(values values: [Double], percentile: Double) -> Double? {
-    return nil
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    
+    // 1. Sort the dataset
+    // ---------------
+    
+    let sortedValues = sort(values)
+    
+    // 2. Find the rank
+    // ---------------
+
+    let rank = percentile * (count - 1) + 1
+    
+    // 3. Get the integer and fractional part of the rank
+    // ---------------
+
+    let rankInteger = Int(floor(rank))
+    let rankFraction = Double(rank % 1)
+    
+    // 4. Find the element at rank
+    // ---------------
+
+    let elementValue = sortedValues[rankInteger - 1]
+    let elementPlusOneValue = sortedValues[rankInteger + 1 - 1]
+    
+    // 5. Calculate the percentile value
+    // ---------------
+
+    return elementValue + rankFraction * (elementPlusOneValue - elementValue)
+    
   }
   
   // MARK: - Private functionality
   
   private static func sort(values: [Double]) -> [Double] {
+    
     return values.sort { $0 < $1 }
   }
 }

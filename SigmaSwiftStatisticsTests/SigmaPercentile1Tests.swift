@@ -10,5 +10,15 @@ class SigmaPercentile1Tests: XCTestCase {
     let result = Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)!
     XCTAssertEqual(29, result)
   }
+  
+  func testPercentile1_emptyDataset() {
+    let result = Sigma.percentile1(values: [], percentile: 0.4)
+    XCTAssertNil(result)
+  }
+  
+  func testPercentile1_percentileNegative() {
+    let result = Sigma.percentile1(values: [], percentile: 0.4)
+    XCTAssertNil(result)
+  }
 }
 
