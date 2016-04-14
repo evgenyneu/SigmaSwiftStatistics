@@ -18,7 +18,7 @@ This library is a collection of functions that perform statistical calculations 
 * [medianLow](#median-low)
 * [min](#min)
 * [pearson](#pearson-correlation-coefficient)
-* [percentile1](#pearson-correlation-coefficient)
+* [percentile1](#percentile-1)
 * [standardDeviationPopulation](#population-standard-deviation)
 * [standardDeviationSample](#sample-standard-deviation)
 * [sum](#sum)
