@@ -346,7 +346,7 @@ Calculates the
  * Returns nil when supplied `percentile` parameter is negative or greater than 1.
  * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE Google Docs Sheets.
 
-See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) document for more information.
+See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) documentation for more information.
 
 ```Swift
 // Calculate 40th percentile
