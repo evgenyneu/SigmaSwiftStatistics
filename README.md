@@ -44,6 +44,7 @@ Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 1.1` to your Cart
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
+    target 'Your target name'
     pod 'SigmaSwiftStatistics', '~> 1.1'
 
 Here is how to use the library in a *WatchKit extension* with CocoaPods.
