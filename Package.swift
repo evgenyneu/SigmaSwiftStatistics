@@ -2,5 +2,9 @@ import PackageDescription
 
 let package = Package(
     name: "SigmaSwiftStatistics",
-    exclude: ["Graphics"]
+    exclude: ["Graphics"],
+    targets: [
+        Target(
+            name: "SigmaSwiftStatistics")
+    ]
 )
