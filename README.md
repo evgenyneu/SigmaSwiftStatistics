@@ -41,7 +41,7 @@ Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 2.0` to your Cart
 
 #### Setup with CocoaPods (iOS 8+)
 
-CocoaPods setup is unavailable for Swift 3.0 due to [this issue](https://github.com/CocoaPods/CocoaPods/issues/5320).
+CocoaPods setup is unavailable for Swift 3.0 due to [this issue](https://github.com/CocoaPods/CocoaPods/issues/5515).
 
 #### Legacy Swift versions
 
