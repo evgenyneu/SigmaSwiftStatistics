@@ -41,20 +41,7 @@ Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 2.0` to your Cart
 
 #### Setup with CocoaPods (iOS 8+)
 
-If you are using CocoaPods add this text to your Podfile and run `pod install`.
-
-    use_frameworks!
-    target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 2.0'
-
-Here is how to use the library in a *WatchKit extension* with CocoaPods.
-
-    use_frameworks!
-
-    target 'YourWatchApp Extension Target Name' do
-      platform :watchos, '3.0'
-      pod 'SigmaSwiftStatistics', '~> 2.0'
-    end
+CocoaPods setup is unavailable for Swift 3.0 due to [this issue](https://github.com/CocoaPods/CocoaPods/issues/5320).
 
 #### Legacy Swift versions
 
