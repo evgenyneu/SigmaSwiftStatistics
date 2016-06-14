@@ -56,6 +56,10 @@ Here is how to use the library in a *WatchKit extension* with CocoaPods.
       pod 'SigmaSwiftStatistics', '~> 1.1'
     end
 
+### Legacy Swift versions
+
+Read the setup instructions for the previous versions of the library if you use older versions of Swift.
+
 
 ## Usage
 
