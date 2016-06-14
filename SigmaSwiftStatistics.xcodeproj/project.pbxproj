@@ -318,7 +318,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Evgenii Neumerzhitckii";
 				TargetAttributes = {
 					7E1F46641BAE884C001E2164 = {
@@ -326,9 +326,11 @@
 					};
 					7EBDACCC1AFDA18A0089B815 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 					7EBDACD61AFDA18A0089B815 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = 7EBDACA21AFDA0E20089B815;
 					};
 					7EC48C7C1B63673C002F3278 = {
@@ -336,6 +338,7 @@
 					};
 					7EE9D0491C1CCAC500601982 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -470,6 +473,7 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -493,6 +497,8 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -604,6 +610,7 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -624,6 +631,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evgenii.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -640,6 +649,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evgenii.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SigmaSwiftStatisticsTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -650,6 +660,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evgenii.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SigmaSwiftStatisticsTests;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -676,6 +688,7 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -699,6 +712,8 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -720,6 +735,7 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -742,6 +758,8 @@
 				PRODUCT_NAME = SigmaSwiftStatistics;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
