@@ -20,8 +20,8 @@ public struct Sigma {
       Sigma.max([3, 10, 6]) // 10
   
   */
-  public static func max(values: [Double]) -> Double? {
-    if let maxValue = values.maxElement() {
+  public static func max(_ values: [Double]) -> Double? {
+    if let maxValue = values.max() {
       return maxValue
     }
     
@@ -40,8 +40,8 @@ public struct Sigma {
       Sigma.min([5, 3, 10]) // -> 3
 
   */
-  public static func min(values: [Double]) -> Double? {
-    if let minValue = values.minElement() {
+  public static func min(_ values: [Double]) -> Double? {
+    if let minValue = values.min() {
       return minValue
     }
     
@@ -60,7 +60,7 @@ public struct Sigma {
       Sigma.sum([1, 3, 10]) // 14
 
   */
-  public static func sum(values: [Double]) -> Double {
+  public static func sum(_ values: [Double]) -> Double {
     return values.reduce(0, combine: +)
   }
   
@@ -84,7 +84,7 @@ public struct Sigma {
       Sigma.average([1, 12, 19.5, -5, 3, 8]) // 6.416666666666667
 
   */
-  public static func average(values: [Double]) -> Double? {
+  public static func average(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     return sum(values) / count
@@ -104,12 +104,12 @@ public struct Sigma {
       Sigma.median([1, 12, 19.5, 3, -5]) // 3
 
   */
-  public static func median(values: [Double]) -> Double? {
+  public static func median(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = sort(values)
     
-    if count % 2 == 0 {
+    if count.truncatingRemainder(dividingBy: 2) == 0 {
       // Even number of items - return the mean of two middle values
       let leftIndex = Int(count / 2 - 1)
       let leftValue = sorted[leftIndex]
@@ -135,12 +135,12 @@ public struct Sigma {
       Sigma.medianLow([1, 12, 19.5, 10, 3, -5]) // 3
    
   */
-  public static func medianLow(values: [Double]) -> Double? {
+  public static func medianLow(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
-    let sorted = values.sort { $0 < $1 }
+    let sorted = values.sorted { $0 < $1 }
     
-    if count % 2 == 0 {
+    if count.truncatingRemainder(dividingBy: 2) == 0 {
       // Even number of items - return the lower of the two middle values
       return sorted[Int(count / 2) - 1]
     } else {
@@ -163,10 +163,10 @@ public struct Sigma {
       Sigma.medianHigh([1, 12, 19.5, 10, 3, -5]) // 10
    
   */
-  public static func medianHigh(values: [Double]) -> Double? {
+  public static func medianHigh(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
-    let sorted = values.sort { $0 < $1 }
+    let sorted = values.sorted { $0 < $1 }
     return sorted[Int(count / 2)]
   }
   
@@ -194,7 +194,7 @@ public struct Sigma {
       Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
   
   */
-  public static func varianceSample(values: [Double]) -> Double? {
+  public static func varianceSample(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 2 { return nil }
     
@@ -233,7 +233,7 @@ public struct Sigma {
       Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8]) // 62.70138889
   
   */
-  public static func variancePopulation(values: [Double]) -> Double? {
+  public static func variancePopulation(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     
@@ -272,7 +272,7 @@ public struct Sigma {
       Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
 
   */
-  public static func standardDeviationSample(values: [Double]) -> Double? {
+  public static func standardDeviationSample(_ values: [Double]) -> Double? {
     if let varianceSample = varianceSample(values) {
        return sqrt(varianceSample)
     }
@@ -304,7 +304,7 @@ public struct Sigma {
       Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
 
   */
-  public static func standardDeviationPopulation(values: [Double]) -> Double? {
+  public static func standardDeviationPopulation(_ values: [Double]) -> Double? {
     if let variancePopulation = variancePopulation(values) {
       return sqrt(variancePopulation)
     }
@@ -341,7 +341,7 @@ public struct Sigma {
       Sigma.covarianceSample(x: x, y: y) // 5.03
 
   */
-  public static func covarianceSample(x x: [Double], y: [Double]) -> Double? {
+  public static func covarianceSample(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     
@@ -353,7 +353,7 @@ public struct Sigma {
         
         var sum:Double = 0
         
-        for (index, xElement) in x.enumerate() {
+        for (index, xElement) in x.enumerated() {
           let yElement = y[index]
           
           sum += (xElement - xMean) * (yElement - yMean)
@@ -394,7 +394,7 @@ public struct Sigma {
       Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
 
   */
-  public static func covariancePopulation(x x: [Double], y: [Double]) -> Double? {
+  public static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
 
@@ -406,7 +406,7 @@ public struct Sigma {
       
       var sum:Double = 0
   
-      for (index, xElement) in x.enumerate() {
+      for (index, xElement) in x.enumerated() {
         let yElement = y[index]
         
         sum += (xElement - xMean) * (yElement - yMean)
@@ -445,7 +445,7 @@ public struct Sigma {
       Sigma.pearson(x: x, y: y) // 0.843760859352745
 
   */
-  public static func pearson(x x: [Double], y: [Double]) -> Double? {
+  public static func pearson(x: [Double], y: [Double]) -> Double? {
     if let cov = covariancePopulation(x: x, y: y),
       σx = standardDeviationPopulation(x),
       σy = standardDeviationPopulation(y) {
@@ -479,7 +479,7 @@ public struct Sigma {
   // Result: 29
    
   */
-  public static func percentile1(values values: [Double], percentile: Double) -> Double? {
+  public static func percentile1(values: [Double], percentile: Double) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     if percentile < 0 { return nil }
@@ -499,7 +499,7 @@ public struct Sigma {
     // ---------------
 
     let rankInteger = Int(floor(rank))
-    let rankFraction = Double(rank % 1)
+    let rankFraction = Double(rank.truncatingRemainder(dividingBy: 1))
     
     // 4. Find the element at rank
     // ---------------
@@ -518,8 +518,8 @@ public struct Sigma {
   
   // MARK: - Private functionality
   
-  private static func sort(values: [Double]) -> [Double] {
-    return values.sort { $0 < $1 }
+  private static func sort(_ values: [Double]) -> [Double] {
+    return values.sorted { $0 < $1 }
   }
 }
 
