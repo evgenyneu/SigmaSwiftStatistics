@@ -35,11 +35,11 @@ There are three ways you can add Sigma to your Xcode project.
 
 Simply add [Sigma.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/master/SigmaSwiftStatistics/Sigma.swift) file to your project.
 
-**Setup with Carthage (iOS 8+)**
+#### Setup with Carthage (iOS 8+)
 
 Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 1.1` to your Cartfile and run `carthage update`.
 
-**Setup with CocoaPods (iOS 8+)**
+#### Setup with CocoaPods (iOS 8+)
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
@@ -56,7 +56,7 @@ Here is how to use the library in a *WatchKit extension* with CocoaPods.
       pod 'SigmaSwiftStatistics', '~> 1.1'
     end
 
-### Legacy Swift versions
+#### Legacy Swift versions
 
 Read the setup instructions for the previous versions of the library if you use older versions of Swift.
 
