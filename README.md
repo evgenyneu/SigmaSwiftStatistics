@@ -56,6 +56,24 @@ Here is how to use the library in a *WatchKit extension* with CocoaPods.
       pod 'SigmaSwiftStatistics', '~> 2.0'
     end
 
+#### Setup with Swift Package Manager
+
+Add the following text to your Package.swift and run `swift build`.
+
+```Swift
+import PackageDescription
+
+let package = Package(
+    name: "YourPackageName",
+    targets: [],
+    dependencies: [
+        .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
+                 versions: Version(2,0,0)..<Version(3,0,0))
+    ]
+)
+```
+
+
 #### Legacy Swift versions
 
 Setup a [previous version](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Legacy-Swift-versions) of the library if you use an older version of Swift.

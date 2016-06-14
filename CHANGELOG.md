@@ -1,5 +1,9 @@
 # SigmaSwiftStatistics version history
 
+## 2.0.6 (2016-06-15)
+
+* Added support for Swift Package Manager
+
 
 ## 2.0.0 (2016-06-14)
 
