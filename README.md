@@ -27,7 +27,7 @@ This library is a collection of functions that perform statistical calculations 
 
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
-## Setup
+## Setup (Swift 3.0)
 
 There are three ways you can add Sigma to your Xcode project.
 
@@ -74,7 +74,7 @@ let package = Package(
 ```
 
 
-#### Legacy Swift versions
+### Legacy Swift versions
 
 Setup a [previous version](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Legacy-Swift-versions) of the library if you use an older version of Swift.
 
