@@ -58,7 +58,7 @@ Here is how to use the library in a *WatchKit extension* with CocoaPods.
 
 #### Setup with Swift Package Manager
 
-Add the following text to your Package.swift and run `swift build`.
+Add the following text to your Package.swift file and run `swift build`.
 
 ```Swift
 import PackageDescription
