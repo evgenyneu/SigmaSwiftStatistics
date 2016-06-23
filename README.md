@@ -7,7 +7,7 @@
 [cocoadocs]: http://cocoadocs.org/docsets/SigmaSwiftStatistics
 [carthage]: https://github.com/Carthage/Carthage
 
-This library is a collection of functions that perform statistical calculations in Swift.
+This library is a collection of functions that perform statistical calculations in Swift. It can be used with any platform that runs Swift.
 
 * [average](#average--mean)
 * [covariancePopulation](#population-covariance)
@@ -29,7 +29,7 @@ This library is a collection of functions that perform statistical calculations 
 
 ## Setup (Swift 3.0)
 
-There are three ways you can add Sigma to your Xcode project.
+There are four ways you can add Sigma to your project.
 
 **Add source (iOS 7+)**
 
