@@ -7,7 +7,7 @@
 [cocoadocs]: http://cocoadocs.org/docsets/SigmaSwiftStatistics
 [carthage]: https://github.com/Carthage/Carthage
 
-This library is a collection of functions that perform statistical calculations in Swift.
+This library is a collection of functions that perform statistical calculations in Swift. It can in Swift apps on both Apple devices and open source Swift programs on other platforms.
 
 * [average](#average--mean)
 * [covariancePopulation](#population-covariance)
