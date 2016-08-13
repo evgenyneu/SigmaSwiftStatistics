@@ -37,7 +37,7 @@ Simply add [Sigma.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 2.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 3.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -45,16 +45,8 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 2.0'
+    pod 'SigmaSwiftStatistics', git: 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', tag: '3.0.0'
 
-Here is how to use the library in a *WatchKit extension* with CocoaPods.
-
-    use_frameworks!
-
-    target 'YourWatchApp Extension Target Name' do
-      platform :watchos, '3.0'
-      pod 'SigmaSwiftStatistics', '~> 2.0'
-    end
 
 #### Setup with Swift Package Manager
 
@@ -68,7 +60,7 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(2,0,0)..<Version(3,0,0))
+                 versions: Version(3,0,0)..<Version(4,0,0))
     ]
 )
 ```
