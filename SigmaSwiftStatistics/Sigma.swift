@@ -61,7 +61,7 @@ public struct Sigma {
 
   */
   public static func sum(_ values: [Double]) -> Double {
-    return values.reduce(0, combine: +)
+    return values.reduce(0, +)
   }
   
   /**
@@ -349,7 +349,7 @@ public struct Sigma {
     if xCount != yCount { return nil }
     
     if let xMean = average(x),
-      yMean = average(y) {
+      let yMean = average(y) {
         
         var sum:Double = 0
         
@@ -402,7 +402,7 @@ public struct Sigma {
     if xCount != yCount { return nil }
     
     if let xMean = average(x),
-      yMean = average(y) {
+      let yMean = average(y) {
       
       var sum:Double = 0
   
@@ -447,8 +447,8 @@ public struct Sigma {
   */
   public static func pearson(x: [Double], y: [Double]) -> Double? {
     if let cov = covariancePopulation(x: x, y: y),
-      σx = standardDeviationPopulation(x),
-      σy = standardDeviationPopulation(y) {
+      let σx = standardDeviationPopulation(x),
+      let σy = standardDeviationPopulation(y) {
         
       if σx == 0 || σy == 0 { return nil }
 
