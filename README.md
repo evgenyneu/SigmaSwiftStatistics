@@ -45,7 +45,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', git: 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', tag: '3.0.0'
+    pod 'SigmaSwiftStatistics', '~> 3.0'
 
 
 #### Setup with Swift Package Manager
