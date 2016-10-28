@@ -2,7 +2,7 @@ import UIKit
 import XCTest
 import SigmaSwiftStatistics
 
-class SigmaNormalProbabilityTests: XCTestCase {
+class NormalTests: XCTestCase {
   func testProbabilityDensity_μZero_σOne() {
     XCTAssertEqual(0.3989422804014327, Sigma.normalDensity(x: 0))
     XCTAssertEqual(0.2419707245191434, Helpers.round16(Sigma.normalDensity(x: 1)!))
