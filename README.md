@@ -212,6 +212,17 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 * Returns nil when the array is empty.
 * Returns the lower of the two middle values if there is an even number of items in the array.
 
+
+#### Formula
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/normal/Graphics/formulas/normal_density.png' width='50' alt='Nodemal density function'>
+
+Where:
+
+  * *cov* is the population covariance.
+  * *σ* is the population standard deviation.
+
+
 ```Swift
 Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21)
 // Result: 0.1111004887053895
