@@ -186,19 +186,6 @@ Sigma.median([1, 12, 19.5, 3, -5])
 // Result: 3
 ```
 
-### Median low
-
-Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
-
-**Note**:
-
-* Returns nil when the array is empty.
-* Returns the lower of the two middle values if there is an even number of items in the array.
-
-```Swift
-Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
-// Result: 3
-```
 
 ### Median high
 
@@ -214,6 +201,21 @@ Sigma.medianHigh([1, 12, 19.5, 10, 3, -5])
 // Result: 10
 ```
 
+
+
+### Median low
+
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
+
+**Note**:
+
+* Returns nil when the array is empty.
+* Returns the lower of the two middle values if there is an even number of items in the array.
+
+```Swift
+Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
+// Result: 3
+```
 
 
 ### Min
