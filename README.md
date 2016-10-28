@@ -280,7 +280,7 @@ Sigma.normalDensity(x: 0, μ: 0, σ: 1)
 
 ### Normal quantile
 
-Returns the quantile function for the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) (the inverse of normal distribution).
+Returns the quantile function for the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) (the inverse of normal distribution). The `p` argument is the probability, or the area under the normal curve to the left of the returned value.
 
 **Note**:
 
