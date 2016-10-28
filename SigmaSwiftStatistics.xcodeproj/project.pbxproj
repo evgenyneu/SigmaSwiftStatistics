@@ -203,8 +203,8 @@
 		7EBDAC9A1AFDA0E20089B815 = {
 			isa = PBXGroup;
 			children = (
-				7E8B27881DC36B6E0002C52F /* Distrib */,
 				7E6FB83E1B1968CD00D8350F /* README.md */,
+				7E8B27881DC36B6E0002C52F /* Distrib */,
 				7E568F8A1B19667B007862B3 /* SigmaSwiftStatistics */,
 				7E568F8E1B19667B007862B3 /* SigmaSwiftStatisticsTests */,
 				7EC48C7E1B63673C002F3278 /* SigmaSwiftStatistics-Mac */,
