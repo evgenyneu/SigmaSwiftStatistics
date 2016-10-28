@@ -4,37 +4,26 @@ public extension Sigma {
   
   /**
    
-   Returns the value of the normal density function.
+   Returns the normal distribution for the given values of x, μ and σ. The returned value is the area under the normal curve to the left of the value x.
    
    https://en.wikipedia.org/wiki/Normal_distribution
    
-   - parameter x: The input value of the normal density function.
+   - parameter x: The input value.
    
    - parameter μ: The mean. Default: 0.
    
    - parameter σ: The standard deviation. Default: 1.
    
-   - returns: The value of the normal density function. Returns nil if σ is zero.
-   
-   Formula (LaTeX):
-   
-   \frac{1}{\sqrt{2 \sigma^2 \pi}} e^{ - \frac{(x - \mu)^2}{2 \sigma^2} }
-   
-   Where:
-   
-   x is the input value of the normal density function.
-   
-   μ is the mean.
-   
-   σ is the standard deviation.
+   - returns: The value of the normal distribution. The returned value is the area under the normal curve to the left of the value x. Returns nil if σ is zero or negative.
    
    
    Example:
    
-   Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21) // 0.1111004887053895
+       Sigma.normalDistribution(x: -1, μ: 10, σ: 1) // 0.1586552539314570
    
    */
-  func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double {
+  public static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+    if σ <= 0 { return nil }
     let z = (x - μ) / σ
     return  0.5 * erfc(-z * M_SQRT1_2)
   }

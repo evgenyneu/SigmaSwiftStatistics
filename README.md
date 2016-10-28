@@ -17,7 +17,8 @@ This library is a collection of functions that perform statistical calculations 
 * [medianHigh](#median-high)
 * [medianLow](#median-low)
 * [min](#min)
-* [normalDensity](#normal-distribution-density)
+* [normalDistribution](#normal-distribution)
+* [normalDensity](#normal-density)
 * [pearson](#pearson-correlation-coefficient)
 * [percentile1](#percentile-1)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
@@ -231,7 +232,24 @@ Sigma.min([7, 2, 3])
 ```
 
 
-### Normal distribution density
+
+### Normal distribution
+
+Returns the [normal distribution(https://en.wikipedia.org/wiki/Normal_distribution) for the given values of `x`, `μ` and `σ`. The returned value is the area under the normal curve to the left of the value `x`. Returns density of the for the given values of `x`, `μ` and `σ`.
+
+**Note**:
+
+  * Returns nil if σ is zero or negative.
+  * Defaults: `μ = 0`, `σ = 1`.
+  * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST function in Google Docs sheet with `cumulative` argument equal to `true`.
+
+```Swift
+Sigma.normalDistribution(x: -1, μ: 10, σ: 1)
+// Result: 0.1586552539314570
+```
+
+
+### Normal density
 
 Returns density of the [normal function](https://en.wikipedia.org/wiki/Normal_distribution) for the given values of `x`, `μ` and `σ`.
 
