@@ -215,7 +215,7 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 
 #### Formula
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/normal/Graphics/formulas/normal_density.png' width='50' alt='Nodemal density function'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/normal/Graphics/formulas/normal_density.png' width='150' alt='Nodemal density function'>
 
 Where:
 
