@@ -255,7 +255,7 @@ Where:
 
 ```Swift
 Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21)
-// Result: 0.1111004887053895
+// Result: 0.11110048870538948
 ```
 
 
