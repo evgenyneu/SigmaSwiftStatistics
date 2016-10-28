@@ -82,7 +82,7 @@ public extension Sigma {
    
    Example:
    
-       Sigma.normalQuantile(probability: 0.025, μ: 0, σ: 1) // -1.9599639845400538
+       Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1) // -1.9599639845400538
    
   */
   public static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {

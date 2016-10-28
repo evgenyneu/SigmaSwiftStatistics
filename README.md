@@ -290,7 +290,7 @@ Returns the quantile function for the [normal distribution](https://en.wikipedia
   * Same as NORM.INV, NORM.S.INV and NORMINV Excel functions and NORMINV, NORMSINV function in Google Docs sheet.
 
 ```Swift
-Sigma.normalQuantile(probability: 0.025, μ: 0, σ: 1)
+Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1)
 // -1.9599639845400538
 ```
 
