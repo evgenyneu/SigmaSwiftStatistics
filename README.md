@@ -243,7 +243,7 @@ Returns the value of the [normal density function](https://en.wikipedia.org/wiki
 
 #### Formula
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/normal/Graphics/formulas/normal_density.png' width='150' alt='Nodemal density function'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/master/Graphics/formulas/normal_density.png' width='150' alt='Nodemal density function'>
 
 Where:
 
