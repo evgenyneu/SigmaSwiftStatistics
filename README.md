@@ -244,7 +244,7 @@ Returns the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribut
   * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST function in Google Docs sheet with `cumulative` argument equal to `true`.
 
 ```Swift
-Sigma.normalDistribution(x: -1, μ: 10, σ: 1)
+Sigma.normalDistribution(x: -1, μ: 0, σ: 1)
 // Result: 0.1586552539314570
 ```
 
@@ -272,8 +272,8 @@ Where:
 
 
 ```Swift
-Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21)
-// Result: 0.11110048870538948
+Sigma.normalDensity(x: 0, μ: 0, σ: 1)
+// Result: 0.3989422804014327
 ```
 
 
