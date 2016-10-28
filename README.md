@@ -235,7 +235,7 @@ Sigma.min([7, 2, 3])
 
 ### Normal distribution
 
-Returns the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) for the given values of `x`, `μ` and `σ`. The returned value is the area under the normal curve to the left of the value `x`. Returns density of the for the given values of `x`, `μ` and `σ`.
+Returns the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) for the given values of `x`, `μ` and `σ`. The returned value is the area under the normal curve to the left of the value `x`.
 
 **Note**:
 
