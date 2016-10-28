@@ -2,6 +2,7 @@ import XCTest
 import SigmaSwiftStatistics
 
 class CovarianceTests: XCTestCase {
+  
   // MARK: - Sample covariance
   
   func testSampleCovariance() {
