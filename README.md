@@ -34,7 +34,7 @@ There are four ways you can add Sigma to your project.
 
 **Add source (iOS 7+)**
 
-Simply add [Sigma.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/master/SigmaSwiftStatistics/Sigma.swift) file to your project.
+Simply add [SigmaDistrib.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/master/Distrib/SigmaDistrib.swift) file to your project.
 
 #### Setup with Carthage (iOS 8+)
 
