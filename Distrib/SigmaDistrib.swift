@@ -242,14 +242,14 @@ public extension Sigma {
    
    Example:
    
-       Sigma.normalDistribution(x: -1, μ: 10, σ: 1) // 0.1586552539314570
+       Sigma.normalDistribution(x: -1, μ: 0, σ: 1) // 0.1586552539314570
    
    */
-  public static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double {
+  public static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+    if σ <= 0 { return nil }
     let z = (x - μ) / σ
     return  0.5 * erfc(-z * M_SQRT1_2)
   }
-  
   
   /**
 
@@ -280,12 +280,82 @@ public extension Sigma {
 
   Example:
 
-      Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21) // 0.1111004887053895
+      Sigma.normalDensity(x: 0, μ: 0, σ: 1) // 0.3989422804014327
 
   */
   public static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {
     if σ <= 0 { return nil }
     return (1 / sqrt(2 * pow(σ,2) * M_PI)) * pow(M_E, (-( pow(x - μ, 2) / (2 * pow(σ, 2)) )))
+  }
+  
+  /**
+   
+   Returns the inverse of the normal distribution for the given values of probability, μ and σ.
+   
+   https://en.wikipedia.org/wiki/Normal_distribution
+   
+   - parameter probability: The probability which is equal to the area under the normal curve to the left of the returned value.
+   
+   - parameter μ: The mean. Default: 0.
+   
+   - parameter σ: The standard deviation. Default: 1.
+   
+   - returns: Returns the inverse of the normal cumulative distribution. Returns nil if σ is zero or negative. Returns nil if probability is zero or negative. Returns nil if probability is greater or equal to one.
+   
+   
+   Example:
+   
+   Sigma.normalQuantile(probability: -1, μ: 0, σ: 1) // 0.1586552539314570
+   
+  */
+  public static func normalQuantile(probability: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+    guard let inverse = erfinv(y: 2 * probability - 1) else { return nil }
+    return  μ + σ * sqrt(2) * inverse
+  }
+  
+  // MARK: - Protected functionality
+  
+  /*
+   
+   Function to calculate inverse error function.  Rational approximation
+   is used to generate an initial approximation, which is then improved to
+   full accuracy by two steps of Newton's method.  Code is a direct
+   translation of the erfinv m file in matlab version 2.0.
+   
+   Author:  Gary L. Pavlis, Indiana University
+   Date:  February 1996
+   
+   Source: https://github.com/antelopeusersgroup/antelope_contrib/blob/master/lib/location/libgenloc/erfinv.c
+   */
+  static func erfinv(y: Double) -> Double? {
+    if abs(y) >= 1 { return nil }
+    
+    let center = 0.7
+    var x: Double = 0
+    
+    /* coefficients in rational expansion */
+    let a = [ 0.886226899, -1.645349621,  0.914624893, -0.140543331]
+    let b = [-2.118377725,  1.442710462, -0.329097515,  0.012229801]
+    let c = [-1.970840454, -1.624906493,  3.429567803,  1.641345311]
+    let d = [ 3.543889200,  1.637067800]
+    
+    if abs(y) <= center {
+      let z = pow(y, 2)
+      let num = (((a[3] * z + a[2]) * z + a[1]) * z) + a[0]
+      let den = ((((b[3] * z + b[2]) * z + b[1]) * z + b[0]) * z + 1.0)
+      x = y * num / den
+    }
+    else {
+      let z = pow(-log((1.0 - abs(y)) / 2),0.5)
+      let num = ((c[3] * z + c[2]) * z + c[1]) * z + c[0]
+      let den = (d[1] * z + d[0]) * z + 1
+      x = copysign(1, y) * num / den
+    }
+    
+    /* Two steps of Newton-Raphson correction */
+    x = x - (erf(x) - y) / (2.0 / sqrt(M_PI) * exp(-x * x))
+    x = x - (erf(x) - y) / (2.0 / sqrt(M_PI) * exp(-x * x))
+    return x
   }
 }
 
