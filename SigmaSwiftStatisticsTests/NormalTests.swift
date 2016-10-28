@@ -55,39 +55,51 @@ class NormalTests: XCTestCase {
   // MARK: - Normal Quantile
   
   func testNormalQuantile_μZero_σOne() {
-    XCTAssertEqual(-1.9599639845400538, Sigma.normalQuantile(probability: 0.025))
-    XCTAssertEqual(-1.6448536269514726, Sigma.normalQuantile(probability: 0.05))
-    XCTAssertEqual(-1.2815515655446008, Sigma.normalQuantile(probability: 0.1))
-    XCTAssertEqual(-0.52440051270804066, Sigma.normalQuantile(probability: 0.3))
-    XCTAssertEqual(-2.506628274566559724e-06, Sigma.normalQuantile(probability: 0.499999))
-    XCTAssertEqual(0, Sigma.normalQuantile(probability: 0.5))
-    XCTAssertEqual(2.5066282733116487548e-07, Sigma.normalQuantile(probability: 0.5000001))
-    XCTAssertEqual(0.841621233572914406, Sigma.normalQuantile(probability: 0.8))
-    XCTAssertEqual(1.959963984540053605, Sigma.normalQuantile(probability: 0.975))
+    XCTAssertEqual(-1.9599639845400538, Sigma.normalQuantile(p: 0.025))
+    XCTAssertEqual(-1.6448536269514726, Sigma.normalQuantile(p: 0.05))
+    XCTAssertEqual(-1.2815515655446008, Sigma.normalQuantile(p: 0.1))
+    XCTAssertEqual(-0.52440051270804066, Sigma.normalQuantile(p: 0.3))
+    XCTAssertEqual(-2.506628274566559724e-06, Sigma.normalQuantile(p: 0.499999))
+    XCTAssertEqual(0, Sigma.normalQuantile(p: 0.5))
+    XCTAssertEqual(2.5066282733116487548e-07, Sigma.normalQuantile(p: 0.5000001))
+    XCTAssertEqual(0.841621233572914406, Sigma.normalQuantile(p: 0.8))
+    XCTAssertEqual(1.959963984540053605, Sigma.normalQuantile(p: 0.975))
   }
   
   func testNormalQuantile_μZero_σOne_close_to_boundaries() {
-    XCTAssertEqual(-3.71901648545567997, Sigma.normalQuantile(probability: 0.0001))
-    XCTAssertEqual(-10.4204522008030977, Sigma.normalQuantile(probability: 1e-25))
-    XCTAssertEqual(-14.9333375347884889, Sigma.normalQuantile(probability: 1e-50))
+    XCTAssertEqual(-3.71901648545567997, Sigma.normalQuantile(p: 0.0001))
+    XCTAssertEqual(-10.4204522008030977, Sigma.normalQuantile(p: 1e-25))
+    XCTAssertEqual(-14.9333375347884889, Sigma.normalQuantile(p: 1e-50))
     
-    XCTAssertEqual(3.719016485455708398, Sigma.normalQuantile(probability: 0.9999))
-    XCTAssertEqual(8.209536151601385611, Sigma.normalQuantile(probability: 0.9999999999999999))
+    XCTAssertEqual(3.719016485455708398, Sigma.normalQuantile(p: 0.9999))
+    XCTAssertEqual(8.209536151601385611, Sigma.normalQuantile(p: 0.9999999999999999))
   }
   
   func testNormalQuantile_μZero_σOne_probabilityZero() {
-    XCTAssertEqual(-Double.infinity, Sigma.normalQuantile(probability: 0))
+    XCTAssertEqual(-Double.infinity, Sigma.normalQuantile(p: 0))
   }
   
   func testNormalQuantile_μZero_σOne_probabilityOne() {
-    XCTAssertEqual(Double.infinity, Sigma.normalQuantile(probability: 1))
+    XCTAssertEqual(Double.infinity, Sigma.normalQuantile(p: 1))
   }
   
   func testNormalQuantile_μZero_σOne_probabilityLessThenZero() {
-    XCTAssertNil(Sigma.normalQuantile(probability: -1))
+    XCTAssertNil(Sigma.normalQuantile(p: -1))
   }
   
   func testNormalQuantile_μZero_σOne_probabilityGreaterThanOne() {
-    XCTAssertNil(Sigma.normalQuantile(probability: 1.2))
+    XCTAssertNil(Sigma.normalQuantile(p: 1.2))
+  }
+  
+  func testNormalQuantile_μσNonDefault() {
+    XCTAssertEqual(1.9142201769251021, Sigma.normalQuantile(p: 0.412, μ: 2.0123, σ: 0.441))
+  }
+  
+  func testNormalQuantile_μσNonDefault_σIsZero() {
+    XCTAssertNil(Sigma.normalQuantile(p: 0.412, μ: 2.0123, σ: 0))
+  }
+  
+  func testNormalQuantile_μσNonDefault_σIsNegative() {
+    XCTAssertNil(Sigma.normalQuantile(p: 0.412, μ: 2.0123, σ: -0.3))
   }
 }

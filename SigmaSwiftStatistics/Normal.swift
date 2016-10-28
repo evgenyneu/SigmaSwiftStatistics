@@ -71,7 +71,7 @@ public extension Sigma {
    
    https://en.wikipedia.org/wiki/Normal_distribution
    
-   - parameter probability: The probability which is equal to the area under the normal curve to the left of the returned value.
+   - parameter p: The probability (area under the normal curve to the left of the returned value).
    
    - parameter μ: The mean. Default: 0.
    
@@ -85,8 +85,8 @@ public extension Sigma {
        Sigma.normalQuantile(probability: 0.025, μ: 0, σ: 1) // -1.9599639845400538
    
   */
-  public static func normalQuantile(probability: Double, μ: Double = 0, σ: Double = 1) -> Double? {
-    return qnorm(p: probability, mu: μ, sigma: σ)
+  public static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+    return qnorm(p: p, mu: μ, sigma: σ)
   }
   
   // MARK: - Protected functionality
@@ -136,7 +136,7 @@ public extension Sigma {
   
   /**
    
-   Computer the quantile function for the normal distribution.
+   Computes the quantile function for the normal distribution.
    
    Adapted from: https://svn.r-project.org/R/trunk/src/nmath/qnorm.c
    
