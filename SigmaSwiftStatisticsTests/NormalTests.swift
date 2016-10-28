@@ -22,4 +22,8 @@ class NormalTests: XCTestCase {
   func testProbabilityDensity_σIsZero() {
     XCTAssertNil(Sigma.normalDensity(x: 2e-12, μ: 0.0000000014, σ: 0))
   }
+  
+  func testProbabilityDensity_σIsNigative() {
+    XCTAssertNil(Sigma.normalDensity(x: 2e-12, μ: 0.0000000014, σ: -2))
+  }
 }

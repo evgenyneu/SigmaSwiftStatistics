@@ -237,7 +237,7 @@ Returns density of the [normal function](https://en.wikipedia.org/wiki/Normal_di
 
 **Note**:
 
-  * Returns nil if σ is zero.
+  * Returns nil if σ is zero or negative.
   * Defaults: `μ = 0`, `σ = 1`.
   * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST function in Google Docs sheet with `cumulative` argument equal to `false`.
 
