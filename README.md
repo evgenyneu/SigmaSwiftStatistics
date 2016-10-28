@@ -277,6 +277,25 @@ Sigma.normalDensity(x: 0, μ: 0, σ: 1)
 ```
 
 
+### Normal quantile
+
+Returns the quantile function for the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) (the inverse of normal distribution).
+
+**Note**:
+
+  * Returns nil if σ is zero or negative.
+  * Returns nil if p is negative or greater than one.
+  * Returns `-Double.infinity` if p is zero, and `Double.infinity` if p is one.
+  * Defaults: `μ = 0`, `σ = 1`.
+  * Same as NORM.INV, NORM.S.INV and NORMINV Excel functions and NORMINV, NORMSINV function in Google Docs sheet.
+
+```Swift
+Sigma.normalQuantile(probability: 0.025, μ: 0, σ: 1)
+// -1.9599639845400538
+```
+
+
+
 ### Pearson correlation coefficient
 
 Calculates the
