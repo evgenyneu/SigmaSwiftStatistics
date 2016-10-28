@@ -3,6 +3,7 @@
 ## 4.0.0 (2016-10-28)
 
 * Added `normalDensity` function.
+* Removed `σ` alias for `Sigma` class
 
 
 ## 3.0.0 (2016-08-13)
