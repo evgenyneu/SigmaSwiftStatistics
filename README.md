@@ -19,6 +19,7 @@ This library is a collection of functions that perform statistical calculations 
 * [min](#min)
 * [normalDistribution](#normal-distribution)
 * [normalDensity](#normal-density)
+* [normalQuantile](#normal-quantile)
 * [pearson](#pearson-correlation-coefficient)
 * [percentile1](#percentile-1)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
