@@ -74,7 +74,7 @@ Setup a [previous version](https://github.com/evgenyneu/SigmaSwiftStatistics/wik
 
 ## Usage
 
-Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
+Add `import SigmaSwiftStatistics` to your source code unless you used the file setup method.
 
 
 ### Average / mean
