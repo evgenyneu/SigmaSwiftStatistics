@@ -38,7 +38,7 @@ Simply add [Sigma.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 3.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 4.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -46,7 +46,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 3.0'
+    pod 'SigmaSwiftStatistics', '~> 4.0'
 
 
 #### Setup with Swift Package Manager
