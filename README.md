@@ -61,7 +61,7 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(3,0,0)..<Version(4,0,0))
+                 versions: Version(4,0,0)..<Version(5,0,0))
     ]
 )
 ```
