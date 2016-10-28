@@ -1,5 +1,10 @@
 # SigmaSwiftStatistics version history
 
+## 4.0.0 (2016-10-28)
+
+* Added `normalDensity` function.
+
+
 ## 3.0.0 (2016-08-13)
 
 * Updated to Xcode 8 beta 5.
