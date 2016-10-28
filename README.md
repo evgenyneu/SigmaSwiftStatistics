@@ -213,8 +213,8 @@ Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
 * Returns the lower of the two middle values if there is an even number of items in the array.
 
 ```Swift
-Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
-// Result: 3
+Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21)
+// Result: 0.1111004887053895
 ```
 
 
@@ -234,7 +234,9 @@ Sigma.min([7, 2, 3])
 
 Returns the value of the [normal density function](https://en.wikipedia.org/wiki/Normal_distribution).
 
-**Note**: Returns nil if σ is zero.
+**Note**:
+  * Returns nil if σ is zero.
+  * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST in Google Docs sheet with `cumulative` argument equal to `false`.
 
 ```Swift
 Sigma.min([7, 2, 3])

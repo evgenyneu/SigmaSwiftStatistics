@@ -30,7 +30,7 @@ public extension Sigma {
 
   Example:
 
-      Sigma.normalDensity(x: 0) // 0.3989422804014327
+      Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21) // 0.1111004887053895
 
   */
   public static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {

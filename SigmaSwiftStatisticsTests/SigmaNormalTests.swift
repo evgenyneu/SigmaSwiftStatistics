@@ -11,6 +11,9 @@ class SigmaNormalProbabilityTests: XCTestCase {
   }
   
   func testProbabilityDensity_μσNonDefault() {
+    XCTAssertEqual(0.1111004887053895,
+                   Helpers.round16(Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21)!))
+    
     XCTAssertEqual(0.4070839591779069,
                    Sigma.normalDensity(x: 2e-12, μ: 0.0000000014, σ: 0.980000001)!)
 
