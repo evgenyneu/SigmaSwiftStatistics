@@ -1,8 +1,8 @@
 # SigmaSwiftStatistics version history
 
-## 4.0.0 (2016-10-28)
+## 4.0.2 (2016-10-28)
 
-* Added `normalDensity` function.
+* Added `normalDistribution`, `normalQuantile` and `normalDensity`  functions.
 * Removed `σ` alias for `Sigma` class.
 
 
