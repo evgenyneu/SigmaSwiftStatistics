@@ -99,7 +99,7 @@ Sigma.average([1, 3, 8])
 ```
 
 
-### Covariance (sample)
+### Covariance of a sample
 
 Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
 
@@ -128,7 +128,7 @@ Sigma.covarianceSample(x: x, y: y)
 
 
 
-### Covariance (population)
+### Covariance of a population
 
 Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
 between two variables: x and y.
