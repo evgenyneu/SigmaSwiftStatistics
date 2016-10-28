@@ -10,20 +10,21 @@
 This library is a collection of functions that perform statistical calculations in Swift. It can be used in Swift apps for Apple devices and in open source Swift programs on other platforms.
 
 * [average](#average--mean)
-* [covariancePopulation](#population-covariance)
-* [covarianceSample](#sample-covariance)
+* [covariancePopulation](#covariance-of-a-population)
+* [covarianceSample](#covariance-of-a-sample)
 * [max](#max)
 * [median](#median)
 * [medianHigh](#median-high)
 * [medianLow](#median-low)
 * [min](#min)
+* [normalDensity](#normal-distribution-density)
 * [pearson](#pearson-correlation-coefficient)
 * [percentile1](#percentile-1)
-* [standardDeviationPopulation](#population-standard-deviation)
-* [standardDeviationSample](#sample-standard-deviation)
+* [standardDeviationPopulation](#standard-deviation-of-a-population)
+* [standardDeviationSample](#standard-deviation-of-a-sample)
 * [sum](#sum)
-* [variancePopulation](#population-variance)
-* [varianceSample](#sample-variance)
+* [variancePopulation](#variance-of-a-population)
+* [varianceSample](#variance-of-a-sample)
 
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
@@ -76,37 +77,6 @@ Setup a [previous version](https://github.com/evgenyneu/SigmaSwiftStatistics/wik
 Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
 
 
-### Max
-
-Returns the maximum value in the array.
-
-**Note**: returns nil for an empty array.
-
-```Swift
-Sigma.max([1, 8, 3])
-// Result: 8
-```
-
-### Min
-
-Returns the minimum value in the array.
-
-**Note**: returns nil for an empty array.
-
-```Swift
-Sigma.min([7, 2, 3])
-// Result: 2
-```
-
-### Sum
-
-Computes sum of values from the array.
-
-```Swift
-Sigma.sum([1, 3, 8])
-// Result: 12
-```
-
 ### Average / mean
 
 Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of values in the array.
@@ -129,145 +99,8 @@ Sigma.average([1, 3, 8])
 // Result: 4
 ```
 
-### Median
 
-Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
-
-**Note**:
-
- * Returns nil when the array is empty.
- * Returns the mean of the two middle values if there is an even number of items in the array.
- * Same as MEDIAN in Microsoft Excel and Google Docs Sheets.
-
-```Swift
-Sigma.median([1, 12, 19.5, 3, -5])
-// Result: 3
-```
-
-### Median low
-
-Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
-
-**Note**:
-
-* Returns nil when the array is empty.
-* Returns the lower of the two middle values if there is an even number of items in the array.
-
-```Swift
-Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
-// Result: 3
-```
-
-### Median high
-
-Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
-
-**Note**:
-
-* Returns nil when the array is empty.
-* Returns the higher of the two middle values if there is an even number of items in the array.
-
-```Swift
-Sigma.medianHigh([1, 12, 19.5, 10, 3, -5])
-// Result: 10
-```
-
-### Sample variance
-
-Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
-
-**Note**:
-
-  * Returns nil when the array is empty or contains a single value.
-  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
-
-#### Formula
-
->  s^2 = Σ( (x - m)^2 ) / (n - 1)
-
-Where:
-
-  * *m* is the sample mean.
-  * *n* is the sample size.
-
-```Swift
-Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
-// Result: 75.24166667
-```
-
-
-### Population variance
-
-Computes [variance](http://en.wikipedia.org/wiki/Variance) of entire population.
-
-**Note**:
-
-  * Returns nil when the array is empty.
-  * Same as VAR.P or VARPA in Microsoft Excel and VARP or VARPA in Google Docs Sheets.
-
-#### Formula
-
->  σ^2 = Σ( (x - m)^2 ) / n
-
-Where:
-
-  * *m* is the population mean.
-  * *n* is the population size.
-
-```Swift
-Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
-// Result: 62.70138889
-```
-
-
-
-### Sample standard deviation
-
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
-
-**Note**:
-
-  * Returns nil when the array is empty or contains a single value.
-  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
-
-#### Formula
-
->  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
-
-Where:
-
-  * *m* is the sample mean.
-  * *n* is the sample size.
-
-```Swift
-Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
-// Result: 8.674195447801869
-```
-
-### Population standard deviation
-
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
-
-**Note**:
-
-  * Returns nil for an empty array.
-  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
-
-#### Formula
-
->  σ = sqrt( Σ( (x - m)^2 ) / n )
-
-Where:
-
-  * *m* is the population mean.
-  * *n* is the population size.
-
-```Swift
-Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
-// Result: 7.918420858282849
-```
-
-### Sample covariance
+### Covariance of a sample
 
 Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
 
@@ -294,7 +127,9 @@ Sigma.covarianceSample(x: x, y: y)
 // Result: 5.03
 ```
 
-### Population covariance
+
+
+### Covariance of a population
 
 Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
 between two variables: x and y.
@@ -321,6 +156,107 @@ let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
 Sigma.covariancePopulation(x: x, y: y)
 // Result: 4.19166666666667
 ```
+
+
+
+
+### Max
+
+Returns the maximum value in the array.
+
+**Note**: returns nil for an empty array.
+
+```Swift
+Sigma.max([1, 8, 3])
+// Result: 8
+```
+
+
+### Median
+
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
+
+**Note**:
+
+ * Returns nil when the array is empty.
+ * Returns the mean of the two middle values if there is an even number of items in the array.
+ * Same as MEDIAN in Microsoft Excel and Google Docs Sheets.
+
+```Swift
+Sigma.median([1, 12, 19.5, 3, -5])
+// Result: 3
+```
+
+
+### Median high
+
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
+
+**Note**:
+
+* Returns nil when the array is empty.
+* Returns the higher of the two middle values if there is an even number of items in the array.
+
+```Swift
+Sigma.medianHigh([1, 12, 19.5, 10, 3, -5])
+// Result: 10
+```
+
+
+
+### Median low
+
+Returns the [median value](http://en.wikipedia.org/wiki/Median) from the array.
+
+**Note**:
+
+* Returns nil when the array is empty.
+* Returns the lower of the two middle values if there is an even number of items in the array.
+
+```Swift
+Sigma.medianLow([1, 12, 19.5, 10, 3, -5])
+// Result: 3
+```
+
+
+### Min
+
+Returns the minimum value in the array.
+
+**Note**: returns nil for an empty array.
+
+```Swift
+Sigma.min([7, 2, 3])
+// Result: 2
+```
+
+
+### Normal distribution density
+
+Returns the value of the [normal density function](https://en.wikipedia.org/wiki/Normal_distribution).
+
+**Note**:
+
+  * Returns nil if σ is zero.
+  * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST function in Google Docs sheet with `cumulative` argument equal to `false`.
+
+
+#### Formula
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/normal/Graphics/formulas/normal_density.png' width='150' alt='Nodemal density function'>
+
+Where:
+
+  * *x* is the input value of the normal density function.
+  * *μ* is the mean.
+  * *σ* is the standard deviation.
+
+
+```Swift
+Sigma.normalDensity(x: 13.92, μ: 12.4, σ: 3.21)
+// Result: 0.1111004887053895
+```
+
 
 ### Pearson correlation coefficient
 
@@ -350,6 +286,8 @@ Sigma.pearson(x: x, y: y)
 // Result: 0.843760859352745
 ```
 
+
+
 ### Percentile 1
 
 Calculates the
@@ -370,14 +308,115 @@ Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
 ```
 
 
-## Shorter syntax
+### Standard deviation of a sample
 
-You can type a sigma letter `σ` instead of `Sigma`. For example:
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
 
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
+
+#### Formula
+
+>  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
+// Result: 8.674195447801869
 ```
-σ.average([1, 2])
-σ.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
+
+
+
+### Standard deviation of a population
+
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
+
+**Note**:
+
+  * Returns nil for an empty array.
+  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
+
+#### Formula
+
+>  σ = sqrt( Σ( (x - m)^2 ) / n )
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
+
+```Swift
+Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
+// Result: 7.918420858282849
 ```
+
+
+
+### Sum
+
+Computes sum of values from the array.
+
+```Swift
+Sigma.sum([1, 3, 8])
+// Result: 12
+```
+
+
+
+### Variance of a sample
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
+
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
+
+#### Formula
+
+>  s^2 = Σ( (x - m)^2 ) / (n - 1)
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
+// Result: 75.24166667
+```
+
+
+### Variance of a population
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) of entire population.
+
+**Note**:
+
+  * Returns nil when the array is empty.
+  * Same as VAR.P or VARPA in Microsoft Excel and VARP or VARPA in Google Docs Sheets.
+
+#### Formula
+
+>  σ^2 = Σ( (x - m)^2 ) / n
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
+
+```Swift
+Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
+// Result: 62.70138889
+```
+
+
 
 ## Feedback is welcome
 

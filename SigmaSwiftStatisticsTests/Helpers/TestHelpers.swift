@@ -9,4 +9,8 @@ struct Helpers {
   static func round10(_ value: Double) -> Double {
     return roundToPlaces(value, places: 10)
   }
+  
+  static func round16(_ value: Double) -> Double {
+    return roundToPlaces(value, places: 16)
+  }
 }
