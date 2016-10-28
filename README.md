@@ -287,7 +287,7 @@ Returns the quantile function for the [normal distribution](https://en.wikipedia
   * Returns nil if p is negative or greater than one.
   * Returns `-Double.infinity` if p is zero, and `Double.infinity` if p is one.
   * Defaults: `μ = 0`, `σ = 1`.
-  * Same as NORM.INV, NORM.S.INV and NORMINV Excel functions and NORMINV, NORMSINV function in Google Docs sheet.
+  * Same as NORM.INV, NORM.S.INV and NORMINV Excel functions and NORMINV, NORMSINV Google Docs sheet functions.
 
 ```Swift
 Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1)
