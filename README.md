@@ -233,7 +233,7 @@ Sigma.min([7, 2, 3])
 
 ### Normal distribution density
 
-Returns the value of the [normal density function](https://en.wikipedia.org/wiki/Normal_distribution) for the given values of `x`, `μ` and `σ`.
+Returns density of the [normal function](https://en.wikipedia.org/wiki/Normal_distribution) for the given values of `x`, `μ` and `σ`.
 
 **Note**:
 
