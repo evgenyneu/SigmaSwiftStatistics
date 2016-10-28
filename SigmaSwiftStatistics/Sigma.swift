@@ -516,16 +516,10 @@ public struct Sigma {
     
   }
   
+  
   // MARK: - Private functionality
   
   private static func sort(_ values: [Double]) -> [Double] {
     return values.sorted { $0 < $1 }
   }
 }
-
-/**
-
-Collection of functions for statistical calculation.
-
-*/
-public typealias σ = Sigma

@@ -76,37 +76,6 @@ Setup a [previous version](https://github.com/evgenyneu/SigmaSwiftStatistics/wik
 Add `import SigmaSwiftStatistics` to your source code if you used Carthage or CocoaPods setup methods.
 
 
-### Max
-
-Returns the maximum value in the array.
-
-**Note**: returns nil for an empty array.
-
-```Swift
-Sigma.max([1, 8, 3])
-// Result: 8
-```
-
-### Min
-
-Returns the minimum value in the array.
-
-**Note**: returns nil for an empty array.
-
-```Swift
-Sigma.min([7, 2, 3])
-// Result: 2
-```
-
-### Sum
-
-Computes sum of values from the array.
-
-```Swift
-Sigma.sum([1, 3, 8])
-// Result: 12
-```
-
 ### Average / mean
 
 Computes [arithmetic mean](http://en.wikipedia.org/wiki/Arithmetic_mean) of values in the array.
@@ -128,6 +97,79 @@ Where:
 Sigma.average([1, 3, 8])
 // Result: 4
 ```
+
+
+### Covariance (sample)
+
+Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
+
+Note:
+
+  * Returns nil if arrays x and y have different number of values.
+  * Returns nil for empty arrays or arrays containing a single element.
+  * Same as COVARIANCE.S function in Microsoft Excel.
+
+#### Formula
+
+> cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+
+Where:
+
+  * *mx* is the sample mean of the first variable.
+  * *my* is the sample mean of the second variable.
+  * *n* is the total number of values.
+
+```Swift
+let x = [1, 2, 3.5, 3.7, 8, 12]
+let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+Sigma.covarianceSample(x: x, y: y)
+// Result: 5.03
+```
+
+
+
+### Covariance (population)
+
+Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
+between two variables: x and y.
+
+**Note**:
+
+  * Returns nil if arrays x and y have different number of values.
+  * Returns nil for empty arrays.
+  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets.
+
+#### Formula
+
+> cov(x,y) = Σ(x - mx)(y - my) / n
+
+Where:
+
+  * *mx* is the population mean of the first variable.
+  * *my* is the population mean of the second variable.
+  * *n* is the total number of values.
+
+```Swift
+let x = [1, 2, 3.5, 3.7, 8, 12]
+let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+Sigma.covariancePopulation(x: x, y: y)
+// Result: 4.19166666666667
+```
+
+
+
+
+### Max
+
+Returns the maximum value in the array.
+
+**Note**: returns nil for an empty array.
+
+```Swift
+Sigma.max([1, 8, 3])
+// Result: 8
+```
+
 
 ### Median
 
@@ -172,155 +214,31 @@ Sigma.medianHigh([1, 12, 19.5, 10, 3, -5])
 // Result: 10
 ```
 
-### Sample variance
 
-Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
 
-**Note**:
+### Min
 
-  * Returns nil when the array is empty or contains a single value.
-  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
+Returns the minimum value in the array.
 
-#### Formula
-
->  s^2 = Σ( (x - m)^2 ) / (n - 1)
-
-Where:
-
-  * *m* is the sample mean.
-  * *n* is the sample size.
+**Note**: returns nil for an empty array.
 
 ```Swift
-Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
-// Result: 75.24166667
+Sigma.min([7, 2, 3])
+// Result: 2
 ```
 
 
-### Population variance
+### Normal distribution density
 
-Computes [variance](http://en.wikipedia.org/wiki/Variance) of entire population.
+Returns the value of the normal density function.
 
-**Note**:
-
-  * Returns nil when the array is empty.
-  * Same as VAR.P or VARPA in Microsoft Excel and VARP or VARPA in Google Docs Sheets.
-
-#### Formula
-
->  σ^2 = Σ( (x - m)^2 ) / n
-
-Where:
-
-  * *m* is the population mean.
-  * *n* is the population size.
+**Note**: Returns nil if σ is zero.
 
 ```Swift
-Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
-// Result: 62.70138889
+Sigma.min([7, 2, 3])
+// Result: 2
 ```
 
-
-
-### Sample standard deviation
-
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
-
-**Note**:
-
-  * Returns nil when the array is empty or contains a single value.
-  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
-
-#### Formula
-
->  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
-
-Where:
-
-  * *m* is the sample mean.
-  * *n* is the sample size.
-
-```Swift
-Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
-// Result: 8.674195447801869
-```
-
-### Population standard deviation
-
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
-
-**Note**:
-
-  * Returns nil for an empty array.
-  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
-
-#### Formula
-
->  σ = sqrt( Σ( (x - m)^2 ) / n )
-
-Where:
-
-  * *m* is the population mean.
-  * *n* is the population size.
-
-```Swift
-Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
-// Result: 7.918420858282849
-```
-
-### Sample covariance
-
-Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
-
-Note:
-
-  * Returns nil if arrays x and y have different number of values.
-  * Returns nil for empty arrays or arrays containing a single element.
-  * Same as COVARIANCE.S function in Microsoft Excel.
-
-#### Formula
-
-> cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
-
-Where:
-
-  * *mx* is the sample mean of the first variable.
-  * *my* is the sample mean of the second variable.
-  * *n* is the total number of values.
-
-```Swift
-let x = [1, 2, 3.5, 3.7, 8, 12]
-let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Sigma.covarianceSample(x: x, y: y)
-// Result: 5.03
-```
-
-### Population covariance
-
-Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
-between two variables: x and y.
-
-**Note**:
-
-  * Returns nil if arrays x and y have different number of values.
-  * Returns nil for empty arrays.
-  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets.
-
-#### Formula
-
-> cov(x,y) = Σ(x - mx)(y - my) / n
-
-Where:
-
-  * *mx* is the population mean of the first variable.
-  * *my* is the population mean of the second variable.
-  * *n* is the total number of values.
-
-```Swift
-let x = [1, 2, 3.5, 3.7, 8, 12]
-let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Sigma.covariancePopulation(x: x, y: y)
-// Result: 4.19166666666667
-```
 
 ### Pearson correlation coefficient
 
@@ -350,6 +268,8 @@ Sigma.pearson(x: x, y: y)
 // Result: 0.843760859352745
 ```
 
+
+
 ### Percentile 1
 
 Calculates the
@@ -370,14 +290,115 @@ Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
 ```
 
 
-## Shorter syntax
+### Standard deviation of a sample
 
-You can type a sigma letter `σ` instead of `Sigma`. For example:
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
 
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
+
+#### Formula
+
+>  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
+// Result: 8.674195447801869
 ```
-σ.average([1, 2])
-σ.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
+
+
+
+### Standard deviation of a population
+
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
+
+**Note**:
+
+  * Returns nil for an empty array.
+  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
+
+#### Formula
+
+>  σ = sqrt( Σ( (x - m)^2 ) / n )
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
+
+```Swift
+Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
+// Result: 7.918420858282849
 ```
+
+
+
+### Sum
+
+Computes sum of values from the array.
+
+```Swift
+Sigma.sum([1, 3, 8])
+// Result: 12
+```
+
+
+
+### Variance of a sample
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
+
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
+
+#### Formula
+
+>  s^2 = Σ( (x - m)^2 ) / (n - 1)
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
+// Result: 75.24166667
+```
+
+
+### Variance of a population
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) of entire population.
+
+**Note**:
+
+  * Returns nil when the array is empty.
+  * Same as VAR.P or VARPA in Microsoft Excel and VARP or VARPA in Google Docs Sheets.
+
+#### Formula
+
+>  σ^2 = Σ( (x - m)^2 ) / n
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
+
+```Swift
+Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
+// Result: 62.70138889
+```
+
+
 
 ## Feedback is welcome
 
