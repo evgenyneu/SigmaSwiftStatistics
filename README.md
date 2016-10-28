@@ -10,8 +10,8 @@
 This library is a collection of functions that perform statistical calculations in Swift. It can be used in Swift apps for Apple devices and in open source Swift programs on other platforms.
 
 * [average](#average--mean)
-* [covariancePopulation](#population-covariance)
-* [covarianceSample](#sample-covariance)
+* [covariancePopulation](#covariance-of-a-population)
+* [covarianceSample](#covariance-of-a-sample)
 * [max](#max)
 * [median](#median)
 * [medianHigh](#median-high)
