@@ -17,6 +17,7 @@ This library is a collection of functions that perform statistical calculations 
 * [medianHigh](#median-high)
 * [medianLow](#median-low)
 * [min](#min)
+* [normalDensity](#normal-distribution-density)
 * [pearson](#pearson-correlation-coefficient)
 * [percentile1](#percentile-1)
 * [standardDeviationPopulation](#population-standard-deviation)
@@ -237,7 +238,7 @@ Returns the value of the [normal density function](https://en.wikipedia.org/wiki
 **Note**:
 
   * Returns nil if σ is zero.
-  * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST in Google Docs sheet with `cumulative` argument equal to `false`.
+  * Same as NORM.S.DIST, NORM.DIST and NORMDIST Excel functions and NORMDIST function in Google Docs sheet with `cumulative` argument equal to `false`.
 
 
 #### Formula
