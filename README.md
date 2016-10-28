@@ -23,8 +23,8 @@ This library is a collection of functions that perform statistical calculations 
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
 * [standardDeviationSample](#standard-deviation-of-a-sample)
 * [sum](#sum)
-* [variancePopulation](#population-variance)
-* [varianceSample](#sample-variance)
+* [variancePopulation](#variance-of-a-population)
+* [varianceSample](#variance-of-a-sample)
 
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
