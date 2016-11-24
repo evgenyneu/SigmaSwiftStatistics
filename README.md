@@ -397,6 +397,7 @@ Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
 
 
 
+
 ### Sum
 
 Computes sum of values from the array.
