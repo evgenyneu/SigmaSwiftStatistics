@@ -9,6 +9,59 @@
 
 // ----------------------------
 //
+// CoefficientVariation.swift
+//
+// ----------------------------
+
+//
+//  CoefficientVariation.swift
+//
+//  Created by Alan James Salmoni on 21/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+import Foundation
+
+public extension Sigma {
+    /**
+     
+     Computes coefficient of variation based on a sample.
+     
+     https://en.wikipedia.org/wiki/Coefficient_of_variation
+     
+     - parameter values: Array of decimal numbers.
+     - returns: Coefficient of variation of a sample. Returns nil when the array is empty or contains a single value.
+     
+     Formula:
+     
+     s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
+     
+     Where:
+     
+     m is the sample mean.
+     
+     n is the sample size.
+     
+     Example:
+     
+     Sigma.coefficient_variation([1, 12, 19.5, -5, 3, 8]) // 1.3518226671899016
+     
+     */
+    public static func coefficient_variation(_ values: [Double]) -> Double? {
+        if values.count > 0 {
+            let sampleStdDev = Sigma.standardDeviationSample(values)
+            let average_val = average(values)
+            return sampleStdDev! / average_val!
+        }
+        else {
+            return nil
+        }
+    }
+}
+
+
+// ----------------------------
+//
 // Covariance.swift
 //
 // ----------------------------
@@ -217,6 +270,67 @@ public extension Sigma {
 
 // ----------------------------
 //
+// Moment.swift
+//
+// ----------------------------
+
+//
+//  Moment.swift
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+    /**
+     
+     Computes a specified moment based on a sample.
+     
+     https://en.wikipedia.org/wiki/Moment_(mathematics)
+     
+     - parameter values: Array of decimal numbers, dimension
+     - returns: Moment based on a sample. Returns nil when the array is empty or contains a single value.
+     
+     Formula:
+     
+     [XXXX]
+     
+     Where:
+     
+     m is the required dimension.
+     
+     n is the sample size.
+     
+     Example:
+     
+     Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
+     
+     */
+
+    public static func moment(_ values: [Double], m: Int ) -> Double? {
+        let average_val = average(values)
+        let count = Double(values.count)
+        var total: Double = 0
+        var delta: Double = 0
+        if values.count > 0 {
+            for value in values {
+                delta = pow((value - average_val!), Double(m))
+                total += delta
+            }
+            return total / count
+        }
+        else {
+            return nil
+        }
+    }
+}
+
+
+// ----------------------------
+//
 // Normal.swift
 //
 // ----------------------------
@@ -300,12 +414,12 @@ public extension Sigma {
    
    - parameter σ: The standard deviation. Default: 1.
    
-   - returns: the quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
+   - returns: The quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
    
    
    Example:
    
-       Sigma.normalQuantile(probability: 0.025, μ: 0, σ: 1) // -1.9599639845400538
+       Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1) // -1.9599639845400538
    
   */
   public static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
@@ -369,7 +483,7 @@ public extension Sigma {
    
    - parameter σ: The standard deviation.
    
-   - returns: the quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
+   - returns: The quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
    
   */
   static func qnorm(p: Double, mu: Double, sigma: Double) -> Double? {
@@ -565,6 +679,129 @@ public extension Sigma {
 
 // ----------------------------
 //
+// Quantiles.swift
+//
+// ----------------------------
+
+//
+//  Quantiles.swift
+//
+//  Created by Alan James Salmoni on 21/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+import Foundation
+
+func QDef(data: [Double], k: Int, alpha: Double) -> Double {
+    /* Unsure if return is a double or an array? */
+    let qdef = ((1.0 - alpha)*data[k-1])+(alpha*data[k])
+    return qdef
+}
+
+func Q1(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let k = Int((alpha * Double(count)))
+    let g = (alpha * Double(count)) - Double(k)
+    var new_alpha = 1.0
+    if g == 0.0 {
+        new_alpha = 0.0
+    }
+    let Q = QDef(data: data, k: k, alpha: new_alpha)
+    return Q
+}
+
+func Q2(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let k = Int(alpha * Double(count))
+    let g = (alpha * Double(count)) - Double(k)
+    var new_alpha = 1.0
+    if g == 0.0 {
+        new_alpha = 0.5
+    }
+    let Q = QDef(data: data, k: k, alpha: new_alpha)
+    return Q
+}
+
+func Q3(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = -0.5
+    let k = Int((alpha * Double(count)) + m)
+    let g = (alpha * Double(count)) + m - Double(k)
+    var new_alpha = 1.0
+    /* if g == 0.0 && k.truncatingRemainder(dividingBy: 2.0) != 0.0 { */
+    if g == 0.0 && k % 2 != 0 {
+        new_alpha = 0.0
+    }
+    let Q = QDef(data: data, k: k, alpha: new_alpha)
+    return Q
+}
+
+func Q4(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = 0.0
+    let k = Int((alpha * Double(count)) + m)
+    let alpha = (alpha * Double(count)) + m - Double(k)
+    let Q = QDef(data: data, k: k, alpha: alpha)
+    return Q
+}
+
+func Q5(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = 0.5
+    let k = Int((alpha * Double(count)) + m)
+    let alpha = (alpha * Double(count)) + m - Double(k)
+    let Q = QDef(data: data, k: k, alpha: alpha)
+    return Q
+}
+
+func Q6(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = alpha
+    let k = Int((alpha * Double(count)) + m)
+    let alpha = (alpha * Double(count)) + m - Double(k)
+    let Q = QDef(data: data, k: k, alpha: alpha)
+    return Q
+}
+
+func Q7(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = 1.0 - alpha
+    let k = Int((alpha * Double(count)) + m)
+    let alpha = (alpha * Double(count)) + m - Double(k)
+    let Q = QDef(data: data, k: k, alpha: alpha)
+    return Q
+}
+
+func Q8(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = (alpha + 1.0) / 3.0
+    let k = Int((alpha * Double(count)) + m)
+    let alpha = (alpha * Double(count)) + m - Double(k)
+    let Q = QDef(data: data, k: k, alpha: alpha)
+    return Q
+}
+
+func Q9(data: [Double], alpha: Double) -> Double {
+    let data = data.sorted(by: <)
+    let count = data.count
+    let m = (0.25 * alpha) + (3.0 / 8.0)
+    let k = Int((alpha * Double(count)) + m)
+    let alpha = (alpha * Double(count)) + m - Double(k)
+    let Q = QDef(data: data, k: k, alpha: alpha)
+    return Q
+}
+
+
+// ----------------------------
+//
 // Sigma.swift
 //
 // ----------------------------
@@ -671,6 +908,103 @@ public struct Sigma {
 
 // ----------------------------
 //
+// SkewnessKurtosis.swift
+//
+// ----------------------------
+
+//
+//  SkewnessKurtosis.swift
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+    /**
+     
+     Computes skewness of a series of numbers.
+     
+     https://en.wikipedia.org/wiki/Skewness
+     
+     - parameter values: Array of decimal numbers.
+     - returns: Skewness based on a sample. Returns nil when the array is empty or contains a single value.
+     
+     Formula:
+     
+     [XXXX]
+     
+     Where:
+     
+     m is the sample mean.
+     
+     n is the sample size.
+     
+     Example:
+     
+     Sigma.skewness([1, 12, 19.5, -5, 3, 8]) // 0.24527910822935245
+     
+     */
+
+    public static func skewness(_ values: [Double]) -> Double? {
+        if values.count > 1 {
+            let moment3 = moment(values, m: 3)
+            let moment2 = moment(values, m: 2)
+            return moment3! / (moment2! * sqrt(moment2!))
+        }
+        else if values.count == 1 {
+            return 0.0
+        }
+        else {
+            return nil
+        }
+    }
+    
+    
+    /**
+     
+     Computes kurtosis of a series of numbers.
+     
+     https://en.wikipedia.org/wiki/Kurtosis
+     
+     - parameter values: Array of decimal numbers.
+     - returns: Kurtosis. Returns nil when the array is empty.
+     
+     Formula:
+     
+     [XXXX]
+     
+     Where:
+     
+     m is the population mean.
+     
+     n is the population size.
+     
+     Example:
+     
+     Sigma.kurtosis([1, 12, 19.5, -5, 3, 8]) // 2.0460654088343166
+     
+     */
+    public static func kurtosis(_ values: [Double]) -> Double? {
+        if values.count > 1 {
+            let moment4 = moment(values, m: 4)
+            let moment2 = moment(values, m: 2)
+            return (moment4! / moment2!) - 3.0
+        }
+        else if values.count == 1 {
+            return 0.0
+        }
+        else {
+            return nil
+        }
+    }
+}
+
+
+// ----------------------------
+//
 // StandardDeviation.swift
 //
 // ----------------------------
@@ -741,6 +1075,59 @@ public extension Sigma {
     
     return nil
   }
+}
+
+
+// ----------------------------
+//
+// StandardError.swift
+//
+// ----------------------------
+
+//
+//  StandardError.swift
+//
+//  Created by Alan James Salmoni on 18/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+    /**
+     
+     Computes standard error based on a sample.
+     
+     http://en.wikipedia.org/wiki/Standard_error
+     
+     - parameter values: Array of decimal numbers.
+     - returns: Standard error of a sample. Returns nil when the array is empty or contains a single value.
+     
+     Formula:
+     
+     SE = sqrt( Σ( (x - m)^2 ) / (n - 1) ) / sqrt(n)
+     
+     Where:
+     
+     m is the sample mean.
+     
+     n is the sample size.
+     
+     Example:
+     
+     Sigma.standardError([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
+     
+     */
+    public static func standardError(_ values: [Double]) -> Double? {
+        let count = Double(values.count)
+        if count != 0 {
+            return standardDeviationSample(values)! / sqrt(count)
+        }
+        
+        return nil
+    }
+    
 }
 
 

@@ -53,6 +53,11 @@
 		7EC48C961B636824002F3278 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		7EE9D04D1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9D0521C1CCAE900601982 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
+		E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
+		E7B9FED71E10713700520306 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED21E10713700520306 /* Moment.swift */; };
+		E7B9FED81E10713700520306 /* Quantiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED31E10713700520306 /* Quantiles.swift */; };
+		E7B9FED91E10713700520306 /* SkewnessKurtosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED41E10713700520306 /* SkewnessKurtosis.swift */; };
+		E7B9FEDA1E10713700520306 /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED51E10713700520306 /* StandardError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +104,11 @@
 		7EE9D04A1C1CCAC500601982 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-tvOS.h"; sourceTree = "<group>"; };
 		7EE9D04E1C1CCAC500601982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7B9FED11E10713700520306 /* CoefficientVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoefficientVariation.swift; sourceTree = "<group>"; };
+		E7B9FED21E10713700520306 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		E7B9FED31E10713700520306 /* Quantiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quantiles.swift; sourceTree = "<group>"; };
+		E7B9FED41E10713700520306 /* SkewnessKurtosis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkewnessKurtosis.swift; sourceTree = "<group>"; };
+		E7B9FED51E10713700520306 /* StandardError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,14 +163,19 @@
 		7E568F8A1B19667B007862B3 /* SigmaSwiftStatistics */ = {
 			isa = PBXGroup;
 			children = (
+				E7B9FED11E10713700520306 /* CoefficientVariation.swift */,
 				7E568F8B1B19667B007862B3 /* Info.plist */,
 				7E8B278D1DC36CC30002C52F /* Covariance.swift */,
 				7E8B278B1DC36BD40002C52F /* Median.swift */,
+				E7B9FED21E10713700520306 /* Moment.swift */,
 				7E11CD251DC3496300FDEDB7 /* Normal.swift */,
 				7E8B27A41DC36E920002C52F /* Pearson.swift */,
 				7E8B279F1DC36E420002C52F /* Percentile.swift */,
+				E7B9FED31E10713700520306 /* Quantiles.swift */,
 				7E568F8C1B19667B007862B3 /* Sigma.swift */,
+				E7B9FED41E10713700520306 /* SkewnessKurtosis.swift */,
 				7E8B278F1DC36D150002C52F /* StandardDeviation.swift */,
+				E7B9FED51E10713700520306 /* StandardError.swift */,
 				7E8B27911DC36DD60002C52F /* Variance.swift */,
 				7E568F8D1B19667B007862B3 /* SwiftStatistics.h */,
 			);
@@ -518,6 +533,11 @@
 				7E8B27A51DC36E920002C52F /* Pearson.swift in Sources */,
 				7E8B27921DC36DD60002C52F /* Variance.swift in Sources */,
 				7E8B27901DC36D150002C52F /* StandardDeviation.swift in Sources */,
+				E7B9FEDA1E10713700520306 /* StandardError.swift in Sources */,
+				E7B9FED71E10713700520306 /* Moment.swift in Sources */,
+				E7B9FED91E10713700520306 /* SkewnessKurtosis.swift in Sources */,
+				E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */,
+				E7B9FED81E10713700520306 /* Quantiles.swift in Sources */,
 				7E8B278E1DC36CC30002C52F /* Covariance.swift in Sources */,
 				7E8B278C1DC36BD40002C52F /* Median.swift in Sources */,
 				7E8B27A01DC36E420002C52F /* Percentile.swift in Sources */,
