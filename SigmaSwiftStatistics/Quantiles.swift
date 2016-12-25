@@ -14,46 +14,48 @@ func QDef(data: [Double], k: Int, alpha: Double) -> Double {
 }
 
 func Q1(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
-    let k = Int((alpha * Double(count)) + 0.5)
-    let alpha = (alpha * Double(count)) - Double(k) + 0.5
-    let Q = QDef(data: data, k: k, alpha: alpha)
+    let k = Int((alpha * Double(count)))
+    let g = (alpha * Double(count)) - Double(k)
+    var new_alpha = 1.0
+    if g == 0.0 {
+        new_alpha = 0.0
+    }
+    let Q = QDef(data: data, k: k, alpha: new_alpha)
     return Q
 }
 
 func Q2(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
-    let g = alpha * Double(count)
-    let k = Int(g)
+    let k = Int(alpha * Double(count))
+    let g = (alpha * Double(count)) - Double(k)
+    var new_alpha = 1.0
     if g == 0.0 {
-        let alpha = 0.5
+        new_alpha = 0.5
     }
-    else {
-        let alpha = 1.0
-    }
-    let Q = QDef(data: data, k: k, alpha: alpha)
+    let Q = QDef(data: data, k: k, alpha: new_alpha)
     return Q
 }
 
 func Q3(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = -0.5
     let k = Int((alpha * Double(count)) + m)
     let g = (alpha * Double(count)) + m - Double(k)
-    var alpha = 1.0
+    var new_alpha = 1.0
     /* if g == 0.0 && k.truncatingRemainder(dividingBy: 2.0) != 0.0 { */
     if g == 0.0 && k % 2 != 0 {
-        alpha = 0.0
+        new_alpha = 0.0
     }
-    let Q = QDef(data: data, k: k, alpha: alpha)
+    let Q = QDef(data: data, k: k, alpha: new_alpha)
     return Q
 }
 
 func Q4(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = 0.0
     let k = Int((alpha * Double(count)) + m)
@@ -63,7 +65,7 @@ func Q4(data: [Double], alpha: Double) -> Double {
 }
 
 func Q5(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = 0.5
     let k = Int((alpha * Double(count)) + m)
@@ -73,7 +75,7 @@ func Q5(data: [Double], alpha: Double) -> Double {
 }
 
 func Q6(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = alpha
     let k = Int((alpha * Double(count)) + m)
@@ -83,7 +85,7 @@ func Q6(data: [Double], alpha: Double) -> Double {
 }
 
 func Q7(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = 1.0 - alpha
     let k = Int((alpha * Double(count)) + m)
@@ -93,7 +95,7 @@ func Q7(data: [Double], alpha: Double) -> Double {
 }
 
 func Q8(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = (alpha + 1.0) / 3.0
     let k = Int((alpha * Double(count)) + m)
@@ -103,7 +105,7 @@ func Q8(data: [Double], alpha: Double) -> Double {
 }
 
 func Q9(data: [Double], alpha: Double) -> Double {
-    let data = data.sorted(by: >)
+    let data = data.sorted(by: <)
     let count = data.count
     let m = (0.25 * alpha) + (3.0 / 8.0)
     let k = Int((alpha * Double(count)) + m)
