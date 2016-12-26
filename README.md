@@ -307,7 +307,7 @@ between two variables: x and y.
 
   * Returns nil if arrays x and y have different number of values.
   * Returns nil for empty arrays.
-  * Same as CORREL and PERSON functions in Microsoft Excel and Google Docs Sheets.
+  * Same as CORREL and PEARSON functions in Microsoft Excel and Google Docs Sheets.
 
 #### Formula
 
