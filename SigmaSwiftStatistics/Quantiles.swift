@@ -152,5 +152,31 @@ public extension Sigma {
         let Q = QDef(data: data, k: k, alpha: alpha)
         return Q
     }
+
+    public func Quantile(data: [Double], alpha: Double, qtype: Int = 7) -> Double? {
+        /* 
+        A function to call quantiles. Users can specify which type of quantile they wish to use.
+        Quantile number 7 is the default as per R.
+        */
+        let count = data.count
+        if count < 4 {
+            return nil
+        }
+        if alpha < 0.0 || alpha > 1.0 {
+            return nil
+        }
+        switch qtype {
+            case 1: return Q1(data: data, alpha: alpha)
+            case 2: return Q2(data: data, alpha: alpha)
+            case 3: return Q3(data: data, alpha: alpha)
+            case 4: return Q4(data: data, alpha: alpha)
+            case 5: return Q5(data: data, alpha: alpha)
+            case 6: return Q6(data: data, alpha: alpha)
+            case 7: return Q7(data: data, alpha: alpha)
+            case 8: return Q8(data: data, alpha: alpha)
+            case 9: return Q9(data: data, alpha: alpha)
+            default: return nil
+        }
+    }
 }
 
