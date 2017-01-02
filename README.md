@@ -462,6 +462,10 @@ Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
 
 If you need help or want to extend the library feel free to create an issue or submit a pull request.
 
+> Help will always be given at Hogwarts to those who ask for it.
+
+-- J.K. Rowling, Harry Potter and the Deathly Hallows
+
 ## Contributors
 
 * [Thomas Fankhauser](https://github.com/southdesign)
