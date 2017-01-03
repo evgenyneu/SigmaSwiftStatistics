@@ -22,6 +22,7 @@ This library is a collection of functions that perform statistical calculations 
 * [normalQuantile](#normal-quantile)
 * [pearson](#pearson-correlation-coefficient)
 * [percentile1](#percentile-1)
+* [skewnessA](#skewness-a)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
 * [standardDeviationSample](#standard-deviation-of-a-sample)
 * [sum](#sum)
@@ -345,6 +346,25 @@ See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/
 Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
 // Result: 29
 ```
+
+
+### Skewness A
+
+Returns the skewness of the dataset. The skewness is a measure of asymmetry of a distribution around its mean. Symmetrical distributions have skewness close to zero. Distributions with longer tails to the right have positive skewness. Longer left tail is indicated by the negative skewness.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 3 values.
+  * Returns nil if the values in the dataset are the same.
+  * Same as SKEW in Microsoft Excel and Google Docs Sheets.
+
+#### Formula
+
+```Swift
+Sigma.skewnessA([4, 2.1, 8, 21, 1])
+// Result: 1.6994131524
+```
+
 
 
 ### Standard deviation of a sample
