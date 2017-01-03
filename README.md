@@ -361,7 +361,7 @@ Returns the skewness of the dataset. The skewness is a measure of asymmetry of a
 #### Formula
 
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/skewness_a.png' width='400' alt='Skewness formula'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/skewness_a.png' width='450' alt='Skewness formula'>
 
 
 ```Swift
