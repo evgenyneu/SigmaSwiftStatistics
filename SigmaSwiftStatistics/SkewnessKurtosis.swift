@@ -9,6 +9,25 @@
 import Foundation
 
 public extension Sigma {
+  /**
+   
+  Returns the skewness of the dataset. The skewness is a measure of asymmetry of a distribution around its mean. Symmetrical distributions have skewness close to zero. Distributions with longer tails to the right have positive skewness. Longer left tail is indicated by the negative skewness. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
+   
+  https://en.wikipedia.org/wiki/Skewness
+   
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Skewness based on a sample. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+   
+  Formula (LaTeX):
+   
+      \frac{n}{(n-1)(n-2)}\sum_{i=1}^{n} \frac{(x_i - \bar{x})^3}{s^3}
+   
+  Example:
+   
+      Sigma.skewnessA([4, 2.1, 8, 21, 1]) // 1.6994131524
+   
+  */
   public static func skewnessA(_ values: [Double]) -> Double? {
     let count: Double = Double(values.count)
     if values.count < 3 { return nil }
@@ -43,7 +62,6 @@ public extension Sigma {
    Sigma.skewness([1, 12, 19.5, -5, 3, 8]) // 0.24527910822935245
    
    */
-
   public static func skewnessB(_ values: [Double]) -> Double? {
 //        if values.count > 1 {
 //            let moment3 = moment(values, m: 3)
