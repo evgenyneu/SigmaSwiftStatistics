@@ -11,12 +11,12 @@ import Foundation
 public extension Sigma {
   public static func skewnessA(_ values: [Double]) -> Double? {
     let count: Double = Double(values.count)
-
     if values.count < 3 { return nil }
     guard let moment3 = moment(values, m: 3) else { return nil }
     guard let stdDev = standardDeviationSample(values) else { return nil }
     if stdDev == 0 { return nil }
-    return moment3 / pow(stdDev, 3) * count * count / ((count - 1) * (count - 2))
+  
+    return pow(count, 2) / ((count - 1) * (count - 2)) * moment3 / pow(stdDev, 3)
   }
   
   /**

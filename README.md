@@ -355,7 +355,7 @@ Returns the skewness of the dataset. The skewness is a measure of asymmetry of a
 **Note**:
 
   * Returns nil if the dataset contains less than 3 values.
-  * Returns nil if the values in the dataset are the same.
+  * Returns nil if all the values in the dataset are the same.
   * Same as SKEW in Microsoft Excel and Google Docs Sheets.
 
 #### Formula

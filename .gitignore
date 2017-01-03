@@ -17,3 +17,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 .DS_Store
+
+# LaTeX
+#
+
+*.log
+*.aux
