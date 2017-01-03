@@ -988,7 +988,7 @@ public extension Sigma {
      
      */
 
-    public static func skewness(_ values: [Double]) -> Double? {
+    public static func skewnessPopulation(_ values: [Double]) -> Double? {
         if values.count > 1 {
             let moment3 = moment(values, m: 3)
             let moment2 = moment(values, m: 2)
