@@ -23,6 +23,7 @@ This library is a collection of functions that perform statistical calculations 
 * [pearson](#pearson-correlation-coefficient)
 * [percentile1](#percentile-1)
 * [skewnessA](#skewness-a)
+* [skewnessB](#skewness-b)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
 * [standardDeviationSample](#standard-deviation-of-a-sample)
 * [sum](#sum)
