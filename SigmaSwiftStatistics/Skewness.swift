@@ -40,28 +40,24 @@ public extension Sigma {
   
   /**
  
-   Computes skewness of a series of numbers.
+  Returns the skewness of the dataset. This implementation is the same as in Wolfram Alpha, SKEW.P in Microsoft Excel and `skewness` function in "moments" R package..
    
-   https://en.wikipedia.org/wiki/Skewness
+  https://en.wikipedia.org/wiki/Skewness
    
-   - parameter values: Array of decimal numbers.
-   - returns: Skewness based on a sample. Returns nil when the array is empty or contains a single value.
+  - parameter values: Array of decimal numbers.
    
-   Formula:
+  - returns: Skewness based on a sample. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
    
-   [XXXX]
+  Formula (LaTeX):
    
-   Where:
+      \frac{1}{n}\sum_{i=1}^{n} \frac{(x_i - \bar{x})^3}{\sigma^3}
    
-   m is the sample mean.
    
-   n is the sample size.
+  Example:
    
-   Example:
+      Sigma.skewnessB([4, 2.1, 8, 21, 1]) // 1.1400009992
    
-   Sigma.skewness([1, 12, 19.5, -5, 3, 8]) // 0.24527910822935245
-   
-   */
+  */
   public static func skewnessB(_ values: [Double]) -> Double? {
     if values.count < 3 { return nil }
     guard let stdDev = standardDeviationPopulation(values) else { return nil }
