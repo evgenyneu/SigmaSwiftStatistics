@@ -380,7 +380,7 @@ Returns the [skewness](https://en.wikipedia.org/wiki/Skewness) of the dataset.
 
   * Returns nil if the dataset contains less than 3 values.
   * Returns nil if all the values in the dataset are the same.
-  * Same as SKEW.P in Microsoft Excel, Wolfram Alpha and `skewness` function in "moments" R package.
+  * Same as in Wolfram Alpha, SKEW.P in Microsoft Excel and `skewness` function in "moments" R package.
 
 #### Formula
 
