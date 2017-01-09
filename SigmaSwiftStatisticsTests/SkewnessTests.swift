@@ -2,7 +2,7 @@ import UIKit
 import XCTest
 import SigmaSwiftStatistics
 
-class SkewnessKurtosisTests: XCTestCase {
+class SkewnessTests: XCTestCase {
   
   // MARK: - skewnessA
   
@@ -36,5 +36,25 @@ class SkewnessKurtosisTests: XCTestCase {
   func testSkewnessB() {
     let result = Sigma.skewnessB([4, 2.1, 8, 21, 1])!
     XCTAssertEqual(1.1400009992, Helpers.round10(result))
+  }
+  
+  func testSkewnessB_twoItems() {
+    let result = Sigma.skewnessB([4, 2.1])
+    XCTAssert(result == nil)
+  }
+  
+  func testSkewnessB_oneItem() {
+    let result = Sigma.skewnessB([4])
+    XCTAssert(result == nil)
+  }
+  
+  func testSkewnessB_empty() {
+    let result = Sigma.skewnessB([])
+    XCTAssert(result == nil)
+  }
+  
+  func testSkewnessB_whenNoDeviation() {
+    let result = Sigma.skewnessB([1, 1, 1])
+    XCTAssert(result == nil)
   }
 }

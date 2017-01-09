@@ -11,7 +11,7 @@ import Foundation
 public extension Sigma {
   /**
    
-  Returns the skewness of the dataset. The skewness is a measure of asymmetry of a distribution around its mean. Symmetrical distributions have skewness close to zero. Distributions with longer tails to the right have positive skewness. Longer left tail is indicated by the negative skewness. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
+  Returns the skewness of the dataset. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
    
   https://en.wikipedia.org/wiki/Skewness
    
@@ -30,7 +30,7 @@ public extension Sigma {
   */
   public static func skewnessA(_ values: [Double]) -> Double? {
     let count: Double = Double(values.count)
-    if values.count < 3 { return nil }
+    if count < 3 { return nil }
     guard let moment3 = moment(values, m: 3) else { return nil }
     guard let stdDev = standardDeviationSample(values) else { return nil }
     if stdDev == 0 { return nil }
@@ -63,34 +63,14 @@ public extension Sigma {
    
    */
   public static func skewnessB(_ values: [Double]) -> Double? {
-//        if values.count > 1 {
-//            let moment3 = moment(values, m: 3)
-//            let moment2 = moment(values, m: 2)
-//            return moment3! / pow(moment2!, 3/2)
-//        }
-//        else if values.count == 1 {
-//            return 0.0
-//        }
-//        else {
-//            return nil
-//        }
+    if values.count < 3 { return nil }
+    guard let stdDev = standardDeviationPopulation(values) else { return nil }
+    if stdDev == 0 { return nil }
+    guard let moment3 = moment(values, m: 3) else { return nil }
     
-      if values.count > 1 {
-        let count: Double = Double(values.count)
-        let moment3 = moment(values, m: 3)
-        let stdev = pow(standardDeviationPopulation(values)!, 3)
-        return moment3! / stdev
-      }
-      else if values.count == 1 {
-          return 0.0
-      }
-      else {
-          return nil
-      }
-
+    return moment3 / pow(stdDev, 3)
   }
 
-  
   
   
   /**
