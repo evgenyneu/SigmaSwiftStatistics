@@ -10,6 +10,7 @@
 This library is a collection of functions that perform statistical calculations in Swift. It can be used in Swift apps for Apple devices and in open source Swift programs on other platforms.
 
 * [average](#average--mean)
+* [centralMoment](#central-moment)
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
 * [max](#max)
@@ -102,6 +103,33 @@ Where:
 Sigma.average([1, 3, 8])
 // Result: 4
 ```
+
+
+
+### Central moment
+
+Computes [central moment](https://en.wikipedia.org/wiki/Central_moment) of the dataset.
+
+Note:
+
+  * Returns nil for an empty array.
+  * Same as in Wolfram Alpha "moments" R package.
+
+#### Formula
+
+> cov(x,y) = Σ(x - m)^k / n
+
+Where:
+
+  * *m* is the sample mean.
+  * *k* is the order of the moment (0, 1, 2, 3, ...).
+  * *n* is the sample size.
+
+```Swift
+Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3)
+// Result: -1.5999259259
+```
+
 
 
 ### Covariance of a sample

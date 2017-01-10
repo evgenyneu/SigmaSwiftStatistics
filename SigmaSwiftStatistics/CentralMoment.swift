@@ -34,13 +34,13 @@ public extension Sigma {
    
    */
 
-  public static func centralMoment(_ values: [Double], m: Int) -> Double? {
+  public static func centralMoment(_ values: [Double], order: Int) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     guard let averageVal = average(values) else { return nil }
     
     let total = values.reduce(0) { sum, value in
-      sum + pow((value - averageVal), Double(m))
+      sum + pow((value - averageVal), Double(order))
     }
     
     return total / count

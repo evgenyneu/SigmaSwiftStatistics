@@ -31,7 +31,7 @@ public extension Sigma {
   public static func skewnessA(_ values: [Double]) -> Double? {
     let count: Double = Double(values.count)
     if count < 3 { return nil }
-    guard let moment3 = centralMoment(values, m: 3) else { return nil }
+    guard let moment3 = centralMoment(values, order: 3) else { return nil }
     guard let stdDev = standardDeviationSample(values) else { return nil }
     if stdDev == 0 { return nil }
   
@@ -62,7 +62,7 @@ public extension Sigma {
     if values.count < 3 { return nil }
     guard let stdDev = standardDeviationPopulation(values) else { return nil }
     if stdDev == 0 { return nil }
-    guard let moment3 = centralMoment(values, m: 3) else { return nil }
+    guard let moment3 = centralMoment(values, order: 3) else { return nil }
     
     return moment3 / pow(stdDev, 3)
   }
@@ -95,8 +95,8 @@ public extension Sigma {
    */
   public static func kurtosis(_ values: [Double]) -> Double? {
     if values.count > 1 {
-      let moment4 = centralMoment(values, m: 4)
-      let moment2 = centralMoment(values, m: 2)
+      let moment4 = centralMoment(values, order: 4)
+      let moment2 = centralMoment(values, order: 2)
       return (moment4! / moment2!) - 3.0
     }
     else if values.count == 1 {
