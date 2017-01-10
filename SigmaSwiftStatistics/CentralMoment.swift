@@ -16,9 +16,7 @@ public extension Sigma {
   https://en.wikipedia.org/wiki/Central_moment
 
   - parameter values: Array of decimal numbers.
-   
   - parameter order: The order of the moment (0, 1, 2, 3 etc.).
-   
   - returns: Central moment. Returns nil when the array is empty.
    
   Formula:
