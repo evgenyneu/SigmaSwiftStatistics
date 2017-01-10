@@ -25,9 +25,9 @@ public extension Sigma {
    
    Example:
    
-   let x = [1, 2, 3.5, 3.7, 8, 12]
-   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-   Sigma.covarianceSample(x: x, y: y) // 5.03
+       let x = [1, 2, 3.5, 3.7, 8, 12]
+       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+       Sigma.covarianceSample(x: x, y: y) // 5.03
    
    */
   public static func covarianceSample(x: [Double], y: [Double]) -> Double? {

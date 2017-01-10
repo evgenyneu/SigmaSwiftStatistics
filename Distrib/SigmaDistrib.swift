@@ -26,29 +26,33 @@ import Foundation
 public extension Sigma {
   /**
    
-   Computes a specified moment based on a sample.
+  Computes central moment of the dataset.
    
-   https://en.wikipedia.org/wiki/Moment_(mathematics)
-   
-   - parameter values: Array of decimal numbers, dimension
-   - returns: Moment based on a sample. Returns nil when the array is empty or contains a single value.
-   
-   Formula:
-   
-   [XXXX]
-   
-   Where:
-   
-   m is the required dimension.
-   
-   n is the sample size.
-   
-   Example:
-   
-   Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
-   
-   */
+  https://en.wikipedia.org/wiki/Central_moment
 
+  - parameter values: Array of decimal numbers.
+   
+  - parameter order: The order of the moment (0, 1, 2, 3 etc.).
+   
+  - returns: Central moment. Returns nil when the array is empty.
+   
+  Formula:
+
+      Σ(x - m)^k / n
+
+  Where:
+
+  m is the sample mean.
+   
+  k is the order of the moment (0, 1, 2, 3, ...).
+   
+  n is the sample size.
+   
+  Example:
+   
+      Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3) // -1.5999259259
+   
+  */
   public static func centralMoment(_ values: [Double], order: Int) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
@@ -80,29 +84,29 @@ import Foundation
 
 public extension Sigma {
     /**
-     
-     Computes coefficient of variation based on a sample.
-     
-     https://en.wikipedia.org/wiki/Coefficient_of_variation
-     
-     - parameter values: Array of decimal numbers.
-     - returns: Coefficient of variation of a sample. Returns nil when the array is empty or contains a single value.
-     
-     Formula:
-     
-     s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
-     
-     Where:
-     
-     m is the sample mean.
-     
-     n is the sample size.
-     
-     Example:
-     
-     Sigma.coefficient_variation([1, 12, 19.5, -5, 3, 8]) // 1.3518226671899016
-     
-     */
+
+    Computes coefficient of variation based on a sample.
+
+    https://en.wikipedia.org/wiki/Coefficient_of_variation
+
+    - parameter values: Array of decimal numbers.
+    - returns: Coefficient of variation of a sample. Returns nil when the array is empty or contains a single value.
+
+    Formula:
+
+        s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
+
+    Where:
+
+    m is the sample mean.
+
+    n is the sample size.
+
+    Example:
+
+        Sigma.coefficient_variation([1, 12, 19.5, -5, 3, 8]) // 1.3518226671899016
+
+    */
     public static func coefficient_variation(_ values: [Double]) -> Double? {
         if values.count > 0 {
             let sampleStdDev = Sigma.standardDeviationSample(values)
@@ -149,9 +153,9 @@ public extension Sigma {
    
    Example:
    
-   let x = [1, 2, 3.5, 3.7, 8, 12]
-   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-   Sigma.covarianceSample(x: x, y: y) // 5.03
+       let x = [1, 2, 3.5, 3.7, 8, 12]
+       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+       Sigma.covarianceSample(x: x, y: y) // 5.03
    
    */
   public static func covarianceSample(x: [Double], y: [Double]) -> Double? {
@@ -615,25 +619,24 @@ import Foundation
 
 public extension Sigma {
   /**
-   
-   Calculates Percentile value for the given dataset.
-   
-   https://en.wikipedia.org/wiki/Percentile
-   
-   - parameter values: Array of decimal numbers in the dataset.
-   - parameter percentile: percentile between 0 and 1 inclusive. For example, value 0.4 corresponds to 40th percentile.
-   - returns: the percentile value.
-   
-   Algorithm:
-   
-   https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method
-   
-   Example:
-   
-   Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
-   // Result: 29
-   
-   */
+
+  Calculates Percentile value for the given dataset.
+
+  https://en.wikipedia.org/wiki/Percentile
+
+  - parameter values: Array of decimal numbers in the dataset.
+  - parameter percentile: percentile between 0 and 1 inclusive. For example, value 0.4 corresponds to 40th percentile.
+  - returns: the percentile value.
+
+  Algorithm:
+
+  https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method
+
+  Example:
+
+      Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4) // Result: 29
+
+  */
   public static func percentile1(values: [Double], percentile: Double) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
