@@ -113,7 +113,7 @@ Computes [central moment](https://en.wikipedia.org/wiki/Central_moment) of the d
 Note:
 
   * Returns nil for an empty array.
-  * Same as in Wolfram Alpha "moments" R package.
+  * Same as in Wolfram Alpha and "moments" R package.
 
 #### Formula
 
