@@ -117,7 +117,7 @@ Note:
 
 #### Formula
 
-> cov(x,y) = Σ(x - m)^k / n
+> Σ(x - m)^k / n
 
 Where:
 
