@@ -9,6 +9,62 @@
 
 // ----------------------------
 //
+// CentralMoment.swift
+//
+// ----------------------------
+
+//
+//  Moment.swift
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+  /**
+   
+   Computes a specified moment based on a sample.
+   
+   https://en.wikipedia.org/wiki/Moment_(mathematics)
+   
+   - parameter values: Array of decimal numbers, dimension
+   - returns: Moment based on a sample. Returns nil when the array is empty or contains a single value.
+   
+   Formula:
+   
+   [XXXX]
+   
+   Where:
+   
+   m is the required dimension.
+   
+   n is the sample size.
+   
+   Example:
+   
+   Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
+   
+   */
+
+  public static func centralMoment(_ values: [Double], m: Int) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    guard let averageVal = average(values) else { return nil }
+    
+    let total = values.reduce(0) { sum, value in
+      sum + pow((value - averageVal), Double(m))
+    }
+    
+    return total / count
+  }
+}
+
+
+// ----------------------------
+//
 // CoefficientVariation.swift
 //
 // ----------------------------
@@ -265,67 +321,6 @@ public extension Sigma {
     let sorted = values.sorted { $0 < $1 }
     return sorted[Int(count / 2)]
   }
-}
-
-
-// ----------------------------
-//
-// Moment.swift
-//
-// ----------------------------
-
-//
-//  Moment.swift
-//
-//  Created by Alan James Salmoni on 19/12/2016.
-//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
-//
-
-
-import Foundation
-
-public extension Sigma {
-    /**
-     
-     Computes a specified moment based on a sample.
-     
-     https://en.wikipedia.org/wiki/Moment_(mathematics)
-     
-     - parameter values: Array of decimal numbers, dimension
-     - returns: Moment based on a sample. Returns nil when the array is empty or contains a single value.
-     
-     Formula:
-     
-     [XXXX]
-     
-     Where:
-     
-     m is the required dimension.
-     
-     n is the sample size.
-     
-     Example:
-     
-     Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
-     
-     */
-
-    public static func moment(_ values: [Double], m: Int ) -> Double? {
-        let average_val = average(values)
-        let count = Double(values.count)
-        var total: Double = 0
-        var delta: Double = 0
-        if values.count > 0 {
-            for value in values {
-                delta = pow((value - average_val!), Double(m))
-                total += delta
-            }
-            return total / count
-        }
-        else {
-            return nil
-        }
-    }
 }
 
 
@@ -948,7 +943,7 @@ public struct Sigma {
 
 // ----------------------------
 //
-// SkewnessKurtosis.swift
+// Skewness.swift
 //
 // ----------------------------
 
@@ -963,83 +958,103 @@ public struct Sigma {
 import Foundation
 
 public extension Sigma {
-    /**
-     
-     Computes skewness of a series of numbers.
-     
-     https://en.wikipedia.org/wiki/Skewness
-     
-     - parameter values: Array of decimal numbers.
-     - returns: Skewness based on a sample. Returns nil when the array is empty or contains a single value.
-     
-     Formula:
-     
-     [XXXX]
-     
-     Where:
-     
-     m is the sample mean.
-     
-     n is the sample size.
-     
-     Example:
-     
-     Sigma.skewness([1, 12, 19.5, -5, 3, 8]) // 0.24527910822935245
-     
-     */
+  /**
+   
+  Returns the skewness of the dataset. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
+   
+  https://en.wikipedia.org/wiki/Skewness
+   
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Skewness based on a sample. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+   
+  Formula (LaTeX):
+   
+      rac{n}{(n-1)(n-2)}\sum_{i=1}^{n} rac{(x_i - ar{x})^3}{s^3}
+   
+  Example:
+   
+      Sigma.skewnessA([4, 2.1, 8, 21, 1]) // 1.6994131524
+   
+  */
+  public static func skewnessA(_ values: [Double]) -> Double? {
+    let count: Double = Double(values.count)
+    if count < 3 { return nil }
+    guard let moment3 = centralMoment(values, m: 3) else { return nil }
+    guard let stdDev = standardDeviationSample(values) else { return nil }
+    if stdDev == 0 { return nil }
+  
+    return pow(count, 2) / ((count - 1) * (count - 2)) * moment3 / pow(stdDev, 3)
+  }
+  
+  /**
+ 
+  Returns the skewness of the dataset. This implementation is the same as in Wolfram Alpha, SKEW.P in Microsoft Excel and `skewness` function in "moments" R package..
+   
+  https://en.wikipedia.org/wiki/Skewness
+   
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Skewness based on a sample. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+   
+  Formula (LaTeX):
+   
+      rac{1}{n}\sum_{i=1}^{n} rac{(x_i - ar{x})^3}{\sigma^3}
+   
+   
+  Example:
+   
+      Sigma.skewnessB([4, 2.1, 8, 21, 1]) // 1.1400009992
+   
+  */
+  public static func skewnessB(_ values: [Double]) -> Double? {
+    if values.count < 3 { return nil }
+    guard let stdDev = standardDeviationPopulation(values) else { return nil }
+    if stdDev == 0 { return nil }
+    guard let moment3 = centralMoment(values, m: 3) else { return nil }
+    
+    return moment3 / pow(stdDev, 3)
+  }
 
-    public static func skewnessPopulation(_ values: [Double]) -> Double? {
-        if values.count > 1 {
-            let moment3 = moment(values, m: 3)
-            let moment2 = moment(values, m: 2)
-            return moment3! / (moment2! * sqrt(moment2!))
-        }
-        else if values.count == 1 {
-            return 0.0
-        }
-        else {
-            return nil
-        }
+  
+  
+  /**
+ 
+   Computes kurtosis of a series of numbers.
+   
+   https://en.wikipedia.org/wiki/Kurtosis
+   
+   - parameter values: Array of decimal numbers.
+   - returns: Kurtosis. Returns nil when the array is empty.
+   
+   Formula:
+   
+   [XXXX]
+   
+   Where:
+   
+   m is the population mean.
+   
+   n is the population size.
+   
+   Example:
+   
+   Sigma.kurtosis([1, 12, 19.5, -5, 3, 8]) // 2.0460654088343166
+   
+   */
+  public static func kurtosis(_ values: [Double]) -> Double? {
+    if values.count > 1 {
+      let moment4 = centralMoment(values, m: 4)
+      let moment2 = centralMoment(values, m: 2)
+      return (moment4! / moment2!) - 3.0
     }
-    
-    
-    /**
-     
-     Computes kurtosis of a series of numbers.
-     
-     https://en.wikipedia.org/wiki/Kurtosis
-     
-     - parameter values: Array of decimal numbers.
-     - returns: Kurtosis. Returns nil when the array is empty.
-     
-     Formula:
-     
-     [XXXX]
-     
-     Where:
-     
-     m is the population mean.
-     
-     n is the population size.
-     
-     Example:
-     
-     Sigma.kurtosis([1, 12, 19.5, -5, 3, 8]) // 2.0460654088343166
-     
-     */
-    public static func kurtosis(_ values: [Double]) -> Double? {
-        if values.count > 1 {
-            let moment4 = moment(values, m: 4)
-            let moment2 = moment(values, m: 2)
-            return (moment4! / moment2!) - 3.0
-        }
-        else if values.count == 1 {
-            return 0.0
-        }
-        else {
-            return nil
-        }
+    else if values.count == 1 {
+      return 0.0
     }
+    else {
+      return nil
+    }
+  }
 }
 
 
