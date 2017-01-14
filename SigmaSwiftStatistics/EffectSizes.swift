@@ -11,7 +11,7 @@ import Foundation
 
 public extension Sigma {
 
-  static func calcEffectSizeControl(data1: [Double], data2: [Double]) -> Double {
+  internal static func calcEffectSizeControl(data1: [Double], data2: [Double]) -> Double {
     let all_data = data1 + data2
     let samp_std_dev = standardDeviationSample(all_data)
     let mean1 = average(data1)
@@ -33,7 +33,7 @@ public extension Sigma {
     return effect_size
   }
 
-  static func calcEffectSize(data1: [Double], data2: [Double]) -> Double {
+  internal static func calcEffectSize(data1: [Double], data2: [Double]) -> Double {
     let sstd1 = standardDeviationSample(data1)
     let sstd2 = standardDeviationSample(data2)
     let Psd = sqrt((pow(sstd1!, 2) + pow(sstd2!, 2)) / 2.0)
