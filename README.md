@@ -13,6 +13,7 @@ This library is a collection of functions that perform statistical calculations 
 * [centralMoment](#central-moment)
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
+* [kurtosisA](#kurtosis-a)
 * [max](#max)
 * [median](#median)
 * [medianHigh](#median-high)
@@ -189,6 +190,28 @@ Sigma.covariancePopulation(x: x, y: y)
 // Result: 4.19166666666667
 ```
 
+
+
+### Kurtosis A
+
+Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of numbers.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 4 values.
+  * Returns nil if all the values in the dataset are the same.
+  * Same as KURT in Microsoft Excel and Google Docs Sheets.
+
+#### Formula
+
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_a.png' width='450' alt='Skewness formula'>
+
+
+```Swift
+Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5])
+// Result: 5.4570693277
+```
 
 
 

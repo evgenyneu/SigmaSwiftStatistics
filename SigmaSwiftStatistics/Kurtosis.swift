@@ -40,7 +40,7 @@ public extension Sigma {
 
   Example:
 
-      Sigma.kurtosis([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
+      Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
 
   */
   public static func kurtosisA(_ values: [Double]) -> Double? {
