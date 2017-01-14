@@ -237,6 +237,82 @@ public extension Sigma {
 
 // ----------------------------
 //
+// Kurtosis.swift
+//
+// ----------------------------
+
+//
+//  SkewnessKurtosis.swift
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+  
+//  public static func kurtosis(_ values: [Double]) -> Double? {
+//    if values.count > 1 {
+//      let moment4 = centralMoment(values, order: 4)
+//      let moment2 = centralMoment(values, order: 2)
+//      return (moment4! / moment2!) - 3.0
+//    }
+//    else if values.count == 1 {
+//      return 0.0
+//    }
+//    else {
+//      return nil
+//    }
+//  }
+  
+  /**
+
+  Computes kurtosis of a series of numbers. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
+
+  https://en.wikipedia.org/wiki/Kurtosis
+
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Kurtosis. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+
+  Formula:
+
+  [XXXX]
+
+  Where:
+
+  m is the population mean.
+
+  n is the population size.
+
+  Example:
+
+  Sigma.kurtosis([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
+
+  */
+  public static func kurtosisA(_ values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count < 4 { return nil }
+    
+    guard let averageVal = average(values) else { return nil }
+    guard let stdev = standardDeviationSample(values) else { return nil }
+    
+    var result = values.reduce(0.0) { sum, value in
+      let value = (value - averageVal) / stdev
+      return sum + pow(value, 4)
+    }
+    
+    result *= (count * (count + 1) / ((count - 1) * (count - 2) * (count - 3)))
+    result -= 3 * pow(count - 1, 2) / ((count - 2) * (count - 3))
+    return result
+  }
+}
+
+
+// ----------------------------
+//
 // Median.swift
 //
 // ----------------------------
@@ -979,7 +1055,7 @@ public extension Sigma {
    
   */
   public static func skewnessA(_ values: [Double]) -> Double? {
-    let count: Double = Double(values.count)
+    let count = Double(values.count)
     if count < 3 { return nil }
     guard let moment3 = centralMoment(values, order: 3) else { return nil }
     guard let stdDev = standardDeviationSample(values) else { return nil }
@@ -1015,46 +1091,6 @@ public extension Sigma {
     guard let moment3 = centralMoment(values, order: 3) else { return nil }
     
     return moment3 / pow(stdDev, 3)
-  }
-
-  
-  
-  /**
- 
-   Computes kurtosis of a series of numbers.
-   
-   https://en.wikipedia.org/wiki/Kurtosis
-   
-   - parameter values: Array of decimal numbers.
-   - returns: Kurtosis. Returns nil when the array is empty.
-   
-   Formula:
-   
-   [XXXX]
-   
-   Where:
-   
-   m is the population mean.
-   
-   n is the population size.
-   
-   Example:
-   
-   Sigma.kurtosis([1, 12, 19.5, -5, 3, 8]) // 2.0460654088343166
-   
-   */
-  public static func kurtosis(_ values: [Double]) -> Double? {
-    if values.count > 1 {
-      let moment4 = centralMoment(values, order: 4)
-      let moment2 = centralMoment(values, order: 2)
-      return (moment4! / moment2!) - 3.0
-    }
-    else if values.count == 1 {
-      return 0.0
-    }
-    else {
-      return nil
-    }
   }
 }
 
