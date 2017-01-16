@@ -29,6 +29,7 @@ This library is a collection of functions that perform statistical calculations 
 * [skewnessB](#skewness-b)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
 * [standardDeviationSample](#standard-deviation-of-a-sample)
+* [standardErrorOfTheMean](#standard-error-of-the-mean)
 * [sum](#sum)
 * [variancePopulation](#variance-of-a-population)
 * [varianceSample](#variance-of-a-sample)
@@ -472,6 +473,31 @@ Sigma.skewnessB([4, 2.1, 8, 21, 1])
 
 
 
+### Standard deviation of a population
+
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
+
+**Note**:
+
+  * Returns nil for an empty array.
+  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
+
+#### Formula
+
+>  σ = sqrt( Σ( (x - m)^2 ) / n )
+
+Where:
+
+  * *m* is the population mean.
+  * *n* is the population size.
+
+```Swift
+Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
+// Result: 7.918420858282849
+```
+
+
+
 ### Standard deviation of a sample
 
 Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
@@ -496,30 +522,27 @@ Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
 ```
 
 
+### Standard error of the mean
 
-### Standard deviation of a population
-
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) of entire population.
+Computes [standard error](http://en.wikipedia.org/wiki/Standard_error) of the mean.
 
 **Note**:
 
-  * Returns nil for an empty array.
-  * Same as STDEVP and STDEV.P in Microsoft Excel and STDEVP in Google Docs Sheets.
+  * Returns nil when the array is empty or contains a single value.
 
 #### Formula
 
->  σ = sqrt( Σ( (x - m)^2 ) / n )
+>  SE = s / sqrt(n)
 
 Where:
 
-  * *m* is the population mean.
-  * *n* is the population size.
+  * *s* is the sample standard deviation.
+  * *n* is the sample size.
 
 ```Swift
-Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
-// Result: 7.918420858282849
+Sigma.standardErrorOfTheMean([1, 12, 19.5, -5, 3, 8])
+// Result: 3.5412254627
 ```
-
 
 
 
