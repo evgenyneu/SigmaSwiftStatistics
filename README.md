@@ -231,7 +231,7 @@ Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of nu
 #### Formula
 
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_b.png' width='480' alt='Kurtosis formula'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_b.png' width='550' alt='Kurtosis formula'>
 
 
 ```Swift
