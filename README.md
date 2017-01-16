@@ -14,6 +14,7 @@ This library is a collection of functions that perform statistical calculations 
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
 * [kurtosisA](#kurtosis-a)
+* [kurtosisB](#kurtosis-b)
 * [max](#max)
 * [median](#median)
 * [medianHigh](#median-high)
@@ -212,6 +213,31 @@ Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of nu
 Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5])
 // Result: 5.4570693277
 ```
+
+
+
+
+### Kurtosis B
+
+Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of numbers.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 2 values.
+  * Returns nil if all the values in the dataset are the same.
+  * Same as in Wolfram Alpha and "moments" R package.
+
+#### Formula
+
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_b.png' width='480' alt='Kurtosis formula'>
+
+
+```Swift
+Sigma.kurtosisB([2, 1, 3, 4.1, 19, 1.5])
+// Result: 4.0138523409
+```
+
 
 
 

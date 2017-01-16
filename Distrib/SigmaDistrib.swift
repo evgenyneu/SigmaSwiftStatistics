@@ -252,21 +252,6 @@ public extension Sigma {
 import Foundation
 
 public extension Sigma {
-  
-//  public static func kurtosis(_ values: [Double]) -> Double? {
-//    if values.count > 1 {
-//      let moment4 = centralMoment(values, order: 4)
-//      let moment2 = centralMoment(values, order: 2)
-//      return (moment4! / moment2!) - 3.0
-//    }
-//    else if values.count == 1 {
-//      return 0.0
-//    }
-//    else {
-//      return nil
-//    }
-//  }
-  
   /**
 
   Computes kurtosis of a series of numbers. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
@@ -275,21 +260,15 @@ public extension Sigma {
 
   - parameter values: Array of decimal numbers.
    
-  - returns: Kurtosis. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+  - returns: Kurtosis. Returns nil if the dataset contains less than 4 values. Returns nil if all the values in the dataset are the same.
 
-  Formula:
+  Formula (LaTeX):
 
-  [XXXX]
-
-  Where:
-
-  m is the population mean.
-
-  n is the population size.
+      rac{n(n + 1)}{(n - 1)(n - 2)(n - 3)}\sum_{i=1}^{n} \Bigg( rac{x_i - ar{x}}{s} \Bigg)^4 - rac{3(n - 1)^2}{(n - 2)(n - 3)}
 
   Example:
 
-  Sigma.kurtosis([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
+      Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
 
   */
   public static func kurtosisA(_ values: [Double]) -> Double? {
@@ -306,7 +285,16 @@ public extension Sigma {
     
     result *= (count * (count + 1) / ((count - 1) * (count - 2) * (count - 3)))
     result -= 3 * pow(count - 1, 2) / ((count - 2) * (count - 3))
+    
     return result
+  }
+  
+  public static func kurtosisB(_ values: [Double]) -> Double? {
+    if values.isEmpty { return nil }
+    guard let moment4 = centralMoment(values, order: 4) else { return nil }
+    guard let moment2 = centralMoment(values, order: 2) else { return nil }
+    if moment2 == 0 { return nil }
+    return (moment4 / pow(moment2, 2))
   }
 }
 
