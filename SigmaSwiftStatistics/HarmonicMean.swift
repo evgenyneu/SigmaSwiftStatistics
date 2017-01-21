@@ -1,3 +1,4 @@
+
 //
 //  HarmonicMean.swift
 //  SigmaSwiftStatistics
@@ -5,11 +6,10 @@
 //  Created by Alan James Salmoni on 30/12/2016.
 //  Copyright © 2016 Evgenii Neumerzhitckii. All rights reserved.
 //
-
 import Foundation
 
 public extension Sigma {
-    
+  
   public static func harmonicMean(data: [Double]) -> Double? {
     let count = data.count
     if count == 0 {
