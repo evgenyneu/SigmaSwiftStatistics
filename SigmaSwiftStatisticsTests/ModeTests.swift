@@ -77,8 +77,8 @@ class ModeTests: XCTestCase {
   
   func testMode_emptyList() {
     let test_data: [Double] = []
-    var mode_value: Double
-    var mode_indices: [Int]
+    var mode_value: Double // This is a dummy. Needed to catch a non-nil result
+    var mode_indices: [Int] // This is a dummy. Needed to catch a non-nil result
     let result = Sigma.mode(test_data)
     if result != nil {
       (mode_value, mode_indices) = result!
