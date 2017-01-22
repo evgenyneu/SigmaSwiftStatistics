@@ -1,5 +1,10 @@
 # SigmaSwiftStatistics version history
 
+## 5.0.0 (2017-01-22)
+
+* Added `centralMoment`, `coefficientOfVariationSample`, `kurtosisA`, `kurtosisB`, `Sigma.quantiles`, `skewnessA`, `skewnessB` and `standardErrorOfTheMean`  functions.
+* Renamed `percentile1` function to `percentile`.
+
 ## 4.0.2 (2016-10-28)
 
 * Added `normalDistribution`, `normalQuantile` and `normalDensity`  functions.

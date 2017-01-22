@@ -48,7 +48,7 @@ Simply add [SigmaDistrib.swift](https://github.com/evgenyneu/SigmaSwiftStatistic
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 4.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 5.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -56,7 +56,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 4.0'
+    pod 'SigmaSwiftStatistics', '~> 5.0'
 
 
 #### Setup with Swift Package Manager
@@ -71,7 +71,7 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(4,0,0)..<Version(5,0,0))
+                 versions: Version(5,0,0)..<Version(6,0,0))
     ]
 )
 ```
@@ -735,10 +735,13 @@ If you need help or want to extend the library feel free to create an issue or s
 
 -- J.K. Rowling, Harry Potter and the Deathly Hallows
 
+
 ## Contributors
 
-* [Thomas Fankhauser](https://github.com/southdesign)
 * [John Clema](https://github.com/JohnClema)
+* [Thomas Fankhauser](https://github.com/southdesign)
+* [Alan J. Salmoni](https://github.com/salmoni)
+
 
 ## License
 
