@@ -484,7 +484,7 @@ This method uses inverted empirical distribution function with averaging.
 
 ```Swift
 Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], probability: 0.5)
-// Result: -5
+// Result: 5.5
 ```
 
 #### Quantile method 3
