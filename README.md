@@ -25,7 +25,8 @@ This library is a collection of functions that perform statistical calculations 
 * [normalDensity](#normal-density)
 * [normalQuantile](#normal-quantile)
 * [pearson](#pearson-correlation-coefficient)
-* [percentile1](#percentile-1)
+* [percentile](#percentile)
+* [quantiles](#quantiles)
 * [skewnessA](#skewness-a)
 * [skewnessB](#skewness-b)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
@@ -435,23 +436,115 @@ Sigma.pearson(x: x, y: y)
 
 
 
-### Percentile 1
+### Percentile
 
-Calculates the
-[Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given dataset.
+Calculates the [Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given dataset.
 
 **Note**:
 
  * Returns nil when the `values` array is empty.
  * Returns nil when supplied `percentile` parameter is negative or greater than 1.
  * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE in Google Docs Sheets.
+ * Same as the 7th sample quantile method from the Hyndman and Fan paper (1996).
 
-See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) documentation for more information.
+See the [Percentile method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) documentation for more information.
 
 ```Swift
 // Calculate 40th percentile
-Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
+Sigma.percentile(values: [35, 20, 50, 40, 15], percentile: 0.4)
 // Result: 29
+// Same as
+Sigma.quantiles.method7([35, 20, 50, 40, 15], probability: 0.4)
+```
+
+### Quantiles
+
+Collection of nine functions that calculate [sample quantiles](https://en.wikipedia.org/wiki/Quantile) corresponding to the given probability. The implementation is the same as in R. The nine functions correspond to the algorithms discussed in [Hyndman and Fan paper (1996)](https://www.jstor.org/stable/2684934).
+
+**Note**:
+
+  * Returns nil if the dataset is empty.
+  * Returns nil if the probability is outside the [0, 1] range.
+  * Same as `quantile` method in R.
+
+
+#### Quantile method 1
+
+This method calculates quantiles using the inverse of the empirical distribution function.
+
+```Swift
+Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], probability: 0.5)
+// Result: 3
+```
+
+#### Quantile method 2
+
+This method uses inverted empirical distribution function with averaging.
+
+```Swift
+Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], probability: 0.5)
+// Result: -5
+```
+
+#### Quantile method 3
+
+```Swift
+Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], probability: 0.5)
+// Result: 3
+```
+
+#### Quantile method 4
+
+The method uses linear interpolation of the empirical distribution function.
+
+```Swift
+Sigma.quantiles.method4([1, 12, 19.5, -5, 3, 8], probability: 0.17)
+// Result: -4.88
+```
+
+#### Quantile method 5
+
+This method uses a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
+
+```Swift
+Sigma.quantiles.method5([1, 12, 19.5, -5, 3, 8], probability: 0.11)
+// Result: -4.04
+```
+
+#### Quantile method 6
+
+This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+
+```Swift
+Sigma.quantiles.method6([1, 12, 19.5, -5, 3, 8], probability: 0.1999)
+// Result: -2.6042
+```
+
+#### Quantile method 7
+
+This method is implemented in S, Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). It uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
+
+```Swift
+Sigma.quantiles.method7([1, 12, 19.5, -5, 3, 8], probability: 0.00001)
+// Result: -4.9997
+```
+
+#### Quantile method 8
+
+The quantiles returned by the method are approximately median-unbiased regardless of the distribution of x.
+
+```Swift
+Sigma.quantiles.method8([1, 12, 19.5, -5, 3, 8], probability: 0.11)
+// Result: -4.82
+```
+
+#### Quantile method 9
+
+The quantiles returned by this method are approximately unbiased for the expected order statistics if x is normally distributed.
+
+```Swift
+Sigma.quantiles.method9([1, 12, 19.5, -5, 3, 8], probability: 0.10001)
+// Result: -4.999625
 ```
 
 

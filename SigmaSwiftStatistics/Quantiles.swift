@@ -47,7 +47,7 @@ public class SigmaQuantiles {
   
   /**
    
-  The second sample quantile method from Hyndman and Fan paper (1996). This is an inverted empirical distribution function with averaging.
+  The second sample quantile method from Hyndman and Fan paper (1996). This method uses inverted empirical distribution function with averaging.
 
   - parameter data: Array of decimal numbers.
   - parameter probability: the probability value between 0 and 1, inclusive.
@@ -107,7 +107,7 @@ public class SigmaQuantiles {
   
   /**
    
-  The 5th sample quantile method from Hyndman and Fan paper (1996). This is a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
+  The 5th sample quantile method from Hyndman and Fan paper (1996). This method uses a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
 
   - parameter data: Array of decimal numbers.
   - parameter probability: the probability value between 0 and 1, inclusive.
@@ -145,7 +145,7 @@ public class SigmaQuantiles {
   
   /**
    
-  The 7th sample quantile method from Hyndman and Fan paper (1996). This method is implemented in S and uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
+  The 7th sample quantile method from Hyndman and Fan paper (1996). This method is implemented in S, Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). It uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
 
   - parameter data: Array of decimal numbers.
   - parameter probability: the probability value between 0 and 1, inclusive.
@@ -164,7 +164,8 @@ public class SigmaQuantiles {
   
   /**
 
-  The 8th sample quantile method from Hyndman and Fan paper (1996). The resulting quantile estimates are approximately median-unbiased regardless of the distribution of x.
+  The 8th sample quantile method from Hyndman and Fan paper (1996). The quantiles returned by the method are approximately median-unbiased regardless of the distribution of x.
+
 
   - parameter data: Array of decimal numbers.
   - parameter probability: the probability value between 0 and 1, inclusive.
@@ -183,7 +184,7 @@ public class SigmaQuantiles {
   
   /**
 
-  The 9th sample quantile method from Hyndman and Fan paper (1996). The resulting quantile estimates are approximately unbiased for the expected order statistics if x is normally distributed.
+  The 9th sample quantile method from Hyndman and Fan paper (1996). The quantiles returned by this method are approximately unbiased for the expected order statistics if x is normally distributed.
    
    - parameter data: Array of decimal numbers.
    - parameter probability: the probability value between 0 and 1, inclusive.
