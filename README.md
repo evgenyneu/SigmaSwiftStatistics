@@ -13,6 +13,7 @@ This library is a collection of functions that perform statistical calculations 
 * [centralMoment](#central-moment)
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
+* [coefficientOfVariationSample](#coefficient-of-variation-sample)
 * [kurtosisA](#kurtosis-a)
 * [kurtosisB](#kurtosis-b)
 * [max](#max)
@@ -135,6 +136,36 @@ Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3)
 
 
 
+### Covariance of a population
+
+Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
+between two variables: x and y.
+
+**Note**:
+
+  * Returns nil if arrays x and y have different number of values.
+  * Returns nil for empty arrays.
+  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets.
+
+#### Formula
+
+> cov(x,y) = Σ(x - mx)(y - my) / n
+
+Where:
+
+  * *mx* is the population mean of the first variable.
+  * *my* is the population mean of the second variable.
+  * *n* is the total number of values.
+
+```Swift
+let x = [1, 2, 3.5, 3.7, 8, 12]
+let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+Sigma.covariancePopulation(x: x, y: y)
+// Result: 4.19166666666667
+```
+
+
+
 ### Covariance of a sample
 
 Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
@@ -163,34 +194,30 @@ Sigma.covarianceSample(x: x, y: y)
 ```
 
 
+### Coefficient of variation of a sample
 
-### Covariance of a population
+Computes [coefficient of variation](https://en.wikipedia.org/wiki/Coefficient_of_variation) based on a sample.
 
-Computes [covariance](http://en.wikipedia.org/wiki/Covariance) of the entire population
-between two variables: x and y.
+Note:
 
-**Note**:
-
-  * Returns nil if arrays x and y have different number of values.
-  * Returns nil for empty arrays.
-  * Same as COVAR and COVARIANCE.P functions in Microsoft Excel and COVAR in Google Docs Sheets.
+  * Returns nil when the array is empty or contains a single value.
+  * Returns `Double.infinity` if the mean is zero.
+  * Same as in Wolfram Alfa and in "raster" R package (expressed as a percentage in "raster").
 
 #### Formula
 
-> cov(x,y) = Σ(x - mx)(y - my) / n
+> CV = s / m
 
 Where:
 
-  * *mx* is the population mean of the first variable.
-  * *my* is the population mean of the second variable.
-  * *n* is the total number of values.
+  * *s* is the sample standard deviation.
+  * *m* is the mean.
 
 ```Swift
-let x = [1, 2, 3.5, 3.7, 8, 12]
-let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Sigma.covariancePopulation(x: x, y: y)
-// Result: 4.19166666666667
+Sigma.coefficientOfVariationSample([1, 12, 19.5, -5, 3, 8])
+// Result: 1.3518226672
 ```
+
 
 
 

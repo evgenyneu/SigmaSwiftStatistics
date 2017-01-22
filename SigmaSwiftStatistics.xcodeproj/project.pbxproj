@@ -12,6 +12,7 @@
 		7E11CD281DC3497C00FDEDB7 /* Normal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11CD251DC3496300FDEDB7 /* Normal.swift */; };
 		7E11CD291DC3497D00FDEDB7 /* Normal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11CD251DC3496300FDEDB7 /* Normal.swift */; };
 		7E11CD2B1DC34D9F00FDEDB7 /* NormalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11CD2A1DC34D9F00FDEDB7 /* NormalTests.swift */; };
+		7E1A884D1E3461190053A0FA /* CoefficientOfVariationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A884C1E3461190053A0FA /* CoefficientOfVariationTests.swift */; };
 		7E1F46681BAE884C001E2164 /* SigmaSwiftStatistics-Watch.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E1F46671BAE884C001E2164 /* SigmaSwiftStatistics-Watch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E1F466D1BAE886A001E2164 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		7E28E4331CBF4930004BE3D5 /* PercentileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E28E4321CBF4930004BE3D5 /* PercentileTests.swift */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		7E11CD251DC3496300FDEDB7 /* Normal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Normal.swift; sourceTree = "<group>"; };
 		7E11CD2A1DC34D9F00FDEDB7 /* NormalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalTests.swift; sourceTree = "<group>"; };
+		7E1A884C1E3461190053A0FA /* CoefficientOfVariationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoefficientOfVariationTests.swift; sourceTree = "<group>"; };
 		7E1F46651BAE884C001E2164 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1F46671BAE884C001E2164 /* SigmaSwiftStatistics-Watch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-Watch.h"; sourceTree = "<group>"; };
 		7E1F46691BAE884C001E2164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				7E568F8F1B19667B007862B3 /* Helpers */,
 				7E568F911B19667B007862B3 /* Info.plist */,
 				7E4618231E1A308E007207DE /* CentralMomentTests.swift */,
+				7E1A884C1E3461190053A0FA /* CoefficientOfVariationTests.swift */,
 				7E8B27A91DC36EE10002C52F /* CovarianceTests.swift */,
 				7ED2A7E61E29CD6C007B7888 /* KurtosisTests.swift */,
 				7E8B27AB1DC36F7A0002C52F /* MedianTests.swift */,
@@ -568,6 +571,7 @@
 			files = (
 				7E8B27AE1DC36FB80002C52F /* PearsonTests.swift in Sources */,
 				7ED2A7E71E29CD6C007B7888 /* KurtosisTests.swift in Sources */,
+				7E1A884D1E3461190053A0FA /* CoefficientOfVariationTests.swift in Sources */,
 				7E568F991B196725007862B3 /* SigmaTests.swift in Sources */,
 				7E8B27AC1DC36F7A0002C52F /* MedianTests.swift in Sources */,
 				7E4618241E1A308E007207DE /* CentralMomentTests.swift in Sources */,

@@ -102,18 +102,14 @@ public extension Sigma {
 
     Example:
 
-        Sigma.coefficient_variation([1, 12, 19.5, -5, 3, 8]) // 1.3518226671899016
+        Sigma.coefficient_variation([1, 12, 19.5, -5, 3, 8]) // 1.3518226672
 
     */
-    public static func coefficient_variation(_ values: [Double]) -> Double? {
-        if values.count > 0 {
-            let sampleStdDev = Sigma.standardDeviationSample(values)
-            let average_val = average(values)
-            return sampleStdDev! / average_val!
-        }
-        else {
-            return nil
-        }
+    public static func coefficientOfVariationSample(_ values: [Double]) -> Double? {
+      if values.count < 2 { return nil }
+      guard let stdDev = Sigma.standardDeviationSample(values) else { return nil }
+      guard let avg = average(values) else { return nil }
+      return stdDev / avg
     }
 }
 
@@ -289,6 +285,25 @@ public extension Sigma {
     return result
   }
   
+  /**
+
+  Computes kurtosis of a series of numbers. This implementation is the same as in Wolfram Alpha and "moments" R package.
+
+  https://en.wikipedia.org/wiki/Kurtosis
+
+  - parameter values: Array of decimal numbers.
+
+  - returns: Kurtosis. Returns nil if the dataset contains less than 2 values. Returns nil if all the values in the dataset are the same.
+
+  Formula (LaTeX):
+
+      rac{\mu_4}{\mu^2_2}
+
+  Example:
+
+      Sigma.kurtosisB([2, 1, 3, 4.1, 19, 1.5]) // 4.0138523409
+
+  */
   public static func kurtosisB(_ values: [Double]) -> Double? {
     if values.isEmpty { return nil }
     guard let moment4 = centralMoment(values, order: 4) else { return nil }
@@ -1160,7 +1175,7 @@ public extension Sigma {
 
 // ----------------------------
 //
-// StandardError.swift
+// StandardErrorOfTheMean.swift
 //
 // ----------------------------
 
@@ -1175,39 +1190,37 @@ public extension Sigma {
 import Foundation
 
 public extension Sigma {
-    /**
-     
-     Computes standard error based on a sample.
-     
-     http://en.wikipedia.org/wiki/Standard_error
-     
-     - parameter values: Array of decimal numbers.
-     - returns: Standard error of a sample. Returns nil when the array is empty or contains a single value.
-     
-     Formula:
-     
-     SE = sqrt( Σ( (x - m)^2 ) / (n - 1) ) / sqrt(n)
-     
-     Where:
-     
-     m is the sample mean.
-     
-     n is the sample size.
-     
-     Example:
-     
-     Sigma.standardError([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
-     
-     */
-    public static func standardError(_ values: [Double]) -> Double? {
-        let count = Double(values.count)
-        if count != 0 {
-            return standardDeviationSample(values)! / sqrt(count)
-        }
-        
-        return nil
-    }
-    
+  /**
+
+  Computes standard error of the mean.
+
+  http://en.wikipedia.org/wiki/Standard_error
+
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Standard error of the mean. Returns nil when the array is empty or contains a single value.
+
+  Formula:
+
+      SE = s / sqrt(n)
+
+  Where:
+
+  s is the sample standard deviation.
+
+  n is the sample size.
+
+  Example:
+
+      Sigma.standardErrorOfTheMean([1, 12, 19.5, -5, 3, 8]) // 3.5412254627
+
+  */
+  public static func standardErrorOfTheMean(_ values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    guard let stdev = standardDeviationSample(values) else { return nil }
+    return stdev / sqrt(count)
+  }
 }
 
 
