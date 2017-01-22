@@ -14,12 +14,9 @@
 // ----------------------------
 
 //
-//  Moment.swift
-//
 //  Created by Alan James Salmoni on 19/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
 //
-
 
 import Foundation
 
@@ -72,8 +69,6 @@ public extension Sigma {
 // ----------------------------
 
 //
-//  CoefficientVariation.swift
-//
 //  Created by Alan James Salmoni on 21/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
 //
@@ -125,34 +120,34 @@ import Foundation
 
 public extension Sigma {
   /**
-   
-   Computes covariance of a sample between two variables: x and y.
-   
-   http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance
-   
-   - parameter x: Array of decimal numbers for the first variable.
-   - parameter y: Array of decimal numbers for the second variable.
-   - returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
-   
-   Formula:
-   
-   cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
-   
-   Where:
-   
-   mx is the sample mean of the first variable.
-   
-   my is the sample mean of the second variable.
-   
-   n is the total number of values.
-   
-   Example:
-   
-       let x = [1, 2, 3.5, 3.7, 8, 12]
-       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-       Sigma.covarianceSample(x: x, y: y) // 5.03
-   
-   */
+
+  Computes covariance of a sample between two variables: x and y.
+
+  http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance
+
+  - parameter x: Array of decimal numbers for the first variable.
+  - parameter y: Array of decimal numbers for the second variable.
+  - returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
+
+  Formula:
+
+      cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+
+  Where:
+
+  mx is the sample mean of the first variable.
+
+  my is the sample mean of the second variable.
+
+  n is the total number of values.
+
+  Example:
+
+      let x = [1, 2, 3.5, 3.7, 8, 12]
+      let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+      Sigma.covarianceSample(x: x, y: y) // 5.03
+
+  */
   public static func covarianceSample(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
@@ -189,7 +184,7 @@ public extension Sigma {
    
    Formula:
    
-   cov(x,y) = Σ(x - mx)(y - my) / n
+       cov(x,y) = Σ(x - mx)(y - my) / n
    
    Where:
    
@@ -201,9 +196,9 @@ public extension Sigma {
    
    Example:
    
-   let x = [1, 2, 3.5, 3.7, 8, 12]
-   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-   Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
+       let x = [1, 2, 3.5, 3.7, 8, 12]
+       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+       Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
    
    */
   public static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
@@ -238,8 +233,6 @@ public extension Sigma {
 //
 // ----------------------------
 
-//
-//  SkewnessKurtosis.swift
 //
 //  Created by Alan James Salmoni on 19/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
@@ -685,20 +678,12 @@ public extension Sigma {
 //
 // ----------------------------
 
-//
-//  Percentile.swift
-//  SigmaSwiftStatistics
-//
-//  Created by Evgenii on 28/10/16.
-//  Copyright © 2016 Evgenii Neumerzhitckii. All rights reserved.
-//
-
 import Foundation
 
 public extension Sigma {
   /**
 
-  Calculates Percentile value for the given dataset.
+  Calculates Percentile value for the given dataset. This method is used same in Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). Same as the 7th sample quantile method from the Hyndman and Fan paper (1996).
 
   https://en.wikipedia.org/wiki/Percentile
 
@@ -715,40 +700,8 @@ public extension Sigma {
       Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4) // Result: 29
 
   */
-  public static func percentile1(values: [Double], percentile: Double) -> Double? {
-    let count = Double(values.count)
-    if count == 0 { return nil }
-    if percentile < 0 { return nil }
-    if percentile > 1 { return nil }
-    
-    // 1. Sort the dataset
-    // ---------------
-    
-    let sortedValues = sort(values)
-    
-    // 2. Find the rank
-    // ---------------
-    
-    let rank = percentile * (count - 1) + 1
-    
-    // 3. Get the integer and fractional part of the rank
-    // ---------------
-    
-    let rankInteger = Int(floor(rank))
-    let rankFraction = Double(rank.truncatingRemainder(dividingBy: 1))
-    
-    // 4. Find the element at rank
-    // ---------------
-    
-    let elementValue = sortedValues[rankInteger - 1]
-    
-    var elementPlusOneValue: Double = 0
-    if rankInteger < Int(count) { elementPlusOneValue = sortedValues[rankInteger] }
-    
-    // 5. Calculate the percentile value
-    // ---------------
-    
-    return elementValue + rankFraction * (elementPlusOneValue - elementValue)
+  public static func percentile(values: [Double], percentile: Double) -> Double? {
+    return Sigma.quantiles.method7(values, probability: percentile)
   }
 }
 
@@ -760,8 +713,6 @@ public extension Sigma {
 // ----------------------------
 
 //
-//  Quantiles.swift
-//
 //  Created by Alan James Salmoni on 21/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
 //
@@ -770,17 +721,15 @@ import Foundation
 
 public extension Sigma {
   /**
-  Contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. The nine functions correspond to the algorithms discussed in Hyndman and Fan paper, 1996:
+   
+  The class contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. This is an implementation of the algorithms described in the Hyndman and Fan paper, 1996:
    
   https://www.jstor.org/stable/2684934
   https://www.amherst.edu/media/view/129116/original/Sample+Quantiles.pdf
    
-  Reference:
+  The documentation of the functions is based on R and Wikipedia:
    
   https://en.wikipedia.org/wiki/Quantile
-
-  The function documentation was based on documenation from R:
-   
   http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html
 
   */
@@ -790,171 +739,178 @@ public extension Sigma {
 public class SigmaQuantiles {
   /*
   
-  The first sample quantile method from Hyndman and Fan paper, 1996. This calculates quantiles using the inverse of the empirical distribution function. γ = 0 if g = 0, and 1 otherwise.
+  This method calculates quantiles using the inverse of the empirical distribution function.
   
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
   */
-  public func method1(_ data: [Double], alpha: Double) -> Double? {
+  public func method1(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
-    let count = data.count
-    let k = Int((alpha * Double(count)))
-    let g = (alpha * Double(count)) - Double(k)
-    var new_alpha = 1.0
-    if g == 0.0 {
-      new_alpha = 0.0
-    }
-    let Q = qDef(data, k: k, alpha: new_alpha)
-    return Q
-  }
-  
-  /**
-  
-  Similar to type 1 but with averaging at discontinuities. γ = 0.5 if g = 0, and 1 otherwise.
-  
-  */
-  public func method2(_ data: [Double], alpha: Double) -> Double? {
-    let data = data.sorted(by: <)
-    let count = data.count
-    let k = Int(alpha * Double(count))
-    let g = (alpha * Double(count)) - Double(k)
-    var new_alpha = 1.0
-    if g == 0.0 {
-      new_alpha = 0.5
-    }
-    let Q = qDef(data, k: k, alpha: new_alpha)
-    return Q
+    let count = Double(data.count)
+    let k = Int((probability * count))
+    let g = (probability * count) - Double(k)
+    var new_probability = 1.0
+    if g == 0.0 { new_probability = 0.0 }
+    return qDef(data, k: k, probability: new_probability)
   }
   
   /**
    
-   The 3rd sample quantile method from Hyndman and Fan paper (1996).
+  This method uses inverted empirical distribution function with averaging.
+
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
    
-   - parameter data: Array of decimal numbers.
-   - parameter alpha: the probability value between 0 and 1, inclusive.
-   - returns: sample quantile.
+  */
+  public func method2(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let k = Int(probability * count)
+    let g = (probability * count) - Double(k)
+    var new_probability = 1.0
+    if g == 0.0 { new_probability = 0.5 }
+    return qDef(data, k: k, probability: new_probability)
+  }
+  
+  /**
    
-   */
-  public func method3(_ data: [Double], alpha: Double) -> Double? {
+  The 3rd sample quantile method from Hyndman and Fan paper (1996).
+   
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
+  */
+  public func method3(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = -0.5
-    let k = Int((alpha * count) + m)
-    let g = (alpha * count) + m - Double(k)
-    var new_alpha = 1.0
-    
-    if g == 0.0 && Double(k).truncatingRemainder(dividingBy: 2.0) != 0.0 {
-      if g == 0.0 && k % 2 != 0 {
-        new_alpha = 0.0
-      }
-    }
-    return qDef(data, k: k, alpha: new_alpha)
+    let k = Int((probability * count) + m)
+    let g = (probability * count) + m - Double(k)
+    var new_probability = 1.0
+    if g <= 0 && k % 2 == 0 { new_probability = 0.0 }
+    return qDef(data, k: k, probability: new_probability)
   }
   
   /**
    
-  The 4th sample quantile method from Hyndman and Fan paper (1996). It uses linear interpolation of the empirical distribution function.
+  It uses linear interpolation of the empirical distribution function.
 
   - parameter data: Array of decimal numbers.
-  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - parameter probability: the probability value between 0 and 1, inclusive.
   - returns: sample quantile.
    
   */
-  public func method4(_ data: [Double], alpha: Double) -> Double? {
+  public func method4(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = 0.0
-    let k = Int((alpha * count) + m)
-    let alpha = (alpha * count) + m - Double(k)
-    return qDef(data, k: k, alpha: alpha)
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
   }
   
   /**
    
-  The 5th sample quantile method from Hyndman and Fan paper (1996). This is a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
+  This method uses a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
 
   - parameter data: Array of decimal numbers.
-  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - parameter probability: the probability value between 0 and 1, inclusive.
   - returns: sample quantile.
 
   */
-  public func method5(_ data: [Double], alpha: Double) -> Double? {
+  public func method5(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = 0.5
-    let k = Int((alpha * count) + m)
-    let alpha = (alpha * count) + m - Double(k)
-    return qDef(data, k: k, alpha: alpha)
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
   }
   
   /**
 
-  The 6th sample quantile method from Hyndman and Fan paper (1996). This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+  This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
    
   - parameter data: Array of decimal numbers.
-  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - parameter probability: the probability value between 0 and 1, inclusive.
   - returns: sample quantile.
 
   */
-  public func method6(_ data: [Double], alpha: Double) -> Double? {
+  public func method6(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
-    let m = alpha
-    let k = Int((alpha * count) + m)
-    let alpha = (alpha * count) + m - Double(k)
-    return qDef(data, k: k, alpha: alpha)
+    let m = probability
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
   }
   
   /**
    
-  The 7th sample quantile method from Hyndman and Fan paper (1996). This method is implemented in S and uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
+  This method is implemented in S, Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). It uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
 
   - parameter data: Array of decimal numbers.
-  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - parameter probability: the probability value between 0 and 1, inclusive.
   - returns: sample quantile.
 
   */
-  public func method7(_ data: [Double], alpha: Double) -> Double? {
+  public func method7(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
-    let m = 1.0 - alpha
-    let k = Int((alpha * count) + m)
-    let alpha = (alpha * count) + m - Double(k)
-    return qDef(data, k: k, alpha: alpha)
+    let m = 1.0 - probability
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
   }
   
   /**
 
-  The 8th sample quantile method from Hyndman and Fan paper (1996). The resulting quantile estimates are approximately median-unbiased regardless of the distribution of x.
+  The quantiles returned by the method are approximately median-unbiased regardless of the distribution of x.
+
 
   - parameter data: Array of decimal numbers.
-  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - parameter probability: the probability value between 0 and 1, inclusive.
   - returns: sample quantile.
 
   */
-  public func method8(_ data: [Double], alpha: Double) -> Double? {
+  public func method8(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
-    let m = (alpha + 1.0) / 3.0
-    let k = Int((alpha * count) + m)
-    let alpha = (alpha * count) + m - Double(k)
-    return qDef(data, k: k, alpha: alpha)
+    let m = (probability + 1.0) / 3.0
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
   }
   
   /**
 
-  The 9th sample quantile method from Hyndman and Fan paper (1996). The resulting quantile estimates are approximately unbiased for the expected order statistics if x is normally distributed.
+  The quantiles returned by this method are approximately unbiased for the expected order statistics if x is normally distributed.
    
    - parameter data: Array of decimal numbers.
-   - parameter alpha: the probability value between 0 and 1, inclusive.
+   - parameter probability: the probability value between 0 and 1, inclusive.
    - returns: sample quantile.
    
   */
-  public func method9(_ data: [Double], alpha: Double) -> Double? {
+  public func method9(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
-    let m = (0.25 * alpha) + (3.0 / 8.0)
-    let k = Int((alpha * count) + m)
-    let alpha = (alpha * count) + m - Double(k)
-    return qDef(data, k: k, alpha: alpha)
+    let m = (0.25 * probability) + (3.0 / 8.0)
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
   }
   
   /**
@@ -963,15 +919,15 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter k: the position of the element in the dataset.
-  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - parameter probability: the probability value between 0 and 1, inclusive.
   - returns: sample quantile.
 
   */
-  private func qDef(_ data: [Double], k: Int, alpha: Double) -> Double? {
+  private func qDef(_ data: [Double], k: Int, probability: Double) -> Double? {
     if data.isEmpty { return nil }
     if k < 1 { return data[0] }
     if k >= data.count { return data.last }
-    return ((1.0 - alpha) * data[k - 1]) + (alpha * data[k])
+    return ((1.0 - probability) * data[k - 1]) + (probability * data[k])
   }
 }
 
@@ -1088,8 +1044,6 @@ public struct Sigma {
 //
 // ----------------------------
 
-//
-//  SkewnessKurtosis.swift
 //
 //  Created by Alan James Salmoni on 19/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
@@ -1240,8 +1194,6 @@ public extension Sigma {
 //
 // ----------------------------
 
-//
-//  StandardError.swift
 //
 //  Created by Alan James Salmoni on 18/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
