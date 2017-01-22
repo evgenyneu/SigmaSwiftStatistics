@@ -453,6 +453,7 @@ See the [Percentile method](https://github.com/evgenyneu/SigmaSwiftStatistics/wi
 // Calculate 40th percentile
 Sigma.percentile([35, 20, 50, 40, 15], percentile: 0.4)
 // Result: 29
+
 // Same as
 Sigma.quantiles.method7([35, 20, 50, 40, 15], probability: 0.4)
 ```
