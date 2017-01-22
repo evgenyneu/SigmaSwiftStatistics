@@ -10,7 +10,7 @@ import Foundation
 public extension Sigma {
   /**
    
-  The class contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. The nine functions correspond to the algorithms discussed in Hyndman and Fan paper, 1996:
+  The class contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. This is an implementation of the algorithms described in Hyndman and Fan paper, 1996:
    
   https://www.jstor.org/stable/2684934
   https://www.amherst.edu/media/view/129116/original/Sample+Quantiles.pdf
