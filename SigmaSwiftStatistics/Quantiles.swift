@@ -116,29 +116,26 @@ public class SigmaQuantiles {
   }
   
   /**
-  
-  m = p. p[k] = k / (n + 1). Thus p[k] = E[F(x[k])]. This is used by Minitab and by SPSS.
-  
+
+  The 6th sample quantile method from Hyndman and Fan paper (1996). This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+   
+  - parameter data: Array of decimal numbers.
+  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - returns:  sample quantile.
+
   */
   public func Q6(_ data: [Double], alpha: Double) -> Double? {
     let data = data.sorted(by: <)
-    let count = data.count
+    let count = Double(data.count)
     let m = alpha
-    let k = Int((alpha * Double(count)) + m)
-    let alpha = (alpha * Double(count)) + m - Double(k)
-    let Q = QDef(data, k: k, alpha: alpha)
-    return Q
+    let k = Int((alpha * count) + m)
+    let alpha = (alpha * count) + m - Double(k)
+    return QDef(data, k: k, alpha: alpha)
   }
   
   /**
-
-  m = 1-p. p[k] = (k - 1) / (n - 1). In this case, p[k] = mode[F(x[k])]. This is used by S.
- 
-  */
-  
-  /**
    
-  The 7th sample quantile method from Hyndman and Fan paper (1996). Uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1]. Used in S.
+  The 7th sample quantile method from Hyndman and Fan paper (1996). This method is implemented in S and uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.

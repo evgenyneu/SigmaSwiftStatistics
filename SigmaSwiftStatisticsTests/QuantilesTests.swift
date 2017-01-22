@@ -2,6 +2,50 @@ import XCTest
 import SigmaSwiftStatistics
 
 class QuantilesTests: XCTestCase {
+  
+  // MARK: - Q6
+  
+  func testQuantiles_q6() {
+    let result = Sigma.quantiles.Q6([1, 12, 19.5, -5, 3, 8], alpha: 0.125)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_q6_probabilityFiftyPercent() {
+    let result = Sigma.quantiles.Q6([1, 12, 19.5, -5, 3, 8], alpha: 0.5)
+    XCTAssertEqual(5.5, result)
+  }
+  
+  func testQuantiles_q6_probablityCloseToZero() {
+    let result = Sigma.quantiles.Q6([1, 12, 19.5, -5, 3, 8], alpha: 0.1999)
+    XCTAssertEqual(-2.6042, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_q6_probablityZero() {
+    let result = Sigma.quantiles.Q6([1, 12, 19.5, -5, 3, 8], alpha: 0)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_q6_probablityCloseToOne() {
+    let result = Sigma.quantiles.Q6([1, 12, 19.5, -5, 3, 8], alpha: 0.849)
+    XCTAssertEqual(19.0725, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_q6_probablityOne() {
+    let result = Sigma.quantiles.Q6([1, 12, 19.5, -5, 3, 8], alpha: 1)
+    XCTAssertEqual(19.5, result)
+  }
+  
+  func testQuantiles_q6_oneValue() {
+    let result = Sigma.quantiles.Q6([1.234], alpha: 0.44)
+    XCTAssertEqual(1.234, result)
+  }
+  
+  func testQuantiles_q6_empty() {
+    let result = Sigma.quantiles.Q6([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  
   // MARK: - Q7
   
   func testQuantiles_q7() {
