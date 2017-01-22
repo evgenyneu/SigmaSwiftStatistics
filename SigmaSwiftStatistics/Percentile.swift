@@ -21,6 +21,6 @@ public extension Sigma {
 
   */
   public static func percentile(values: [Double], percentile: Double) -> Double? {
-    return Sigma.quantiles.method7(values, alpha: percentile)
+    return Sigma.quantiles.method7(values, probability: percentile)
   }
 }
