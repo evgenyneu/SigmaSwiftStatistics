@@ -451,7 +451,7 @@ See the [Percentile method](https://github.com/evgenyneu/SigmaSwiftStatistics/wi
 
 ```Swift
 // Calculate 40th percentile
-Sigma.percentile(values: [35, 20, 50, 40, 15], percentile: 0.4)
+Sigma.percentile([35, 20, 50, 40, 15], percentile: 0.4)
 // Result: 29
 // Same as
 Sigma.quantiles.method7([35, 20, 50, 40, 15], probability: 0.4)
@@ -513,7 +513,7 @@ Sigma.quantiles.method5([1, 12, 19.5, -5, 3, 8], probability: 0.11)
 
 #### Quantile method 6
 
-This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+This method is implemented in Microsoft Excel (PERCENTILE.EXC), Minitab and SPSS. It uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
 
 ```Swift
 Sigma.quantiles.method6([1, 12, 19.5, -5, 3, 8], probability: 0.1999)

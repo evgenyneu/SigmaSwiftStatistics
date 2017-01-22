@@ -124,7 +124,7 @@ public class SigmaQuantiles {
   
   /**
 
-  This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+  This method is implemented in Microsoft Excel (PERCENTILE.EXC), Minitab and SPSS. It uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
    
   - parameter data: Array of decimal numbers.
   - parameter probability: the probability value between 0 and 1, inclusive.

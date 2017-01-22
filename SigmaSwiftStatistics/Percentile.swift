@@ -7,7 +7,7 @@ public extension Sigma {
 
   https://en.wikipedia.org/wiki/Percentile
 
-  - parameter values: Array of decimal numbers in the dataset.
+  - parameter data: Array of decimal numbers in the dataset.
   - parameter percentile: percentile between 0 and 1 inclusive. For example, value 0.4 corresponds to 40th percentile.
   - returns: the percentile value.
 
@@ -20,7 +20,7 @@ public extension Sigma {
       Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4) // Result: 29
 
   */
-  public static func percentile(values: [Double], percentile: Double) -> Double? {
-    return Sigma.quantiles.method7(values, probability: percentile)
+  public static func percentile(_ data: [Double], percentile: Double) -> Double? {
+    return Sigma.quantiles.method7(data, probability: percentile)
   }
 }
