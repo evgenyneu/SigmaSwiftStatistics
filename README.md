@@ -459,7 +459,7 @@ Sigma.quantiles.method7([35, 20, 50, 40, 15], probability: 0.4)
 
 ### Quantiles
 
-Collection of nine functions that calculate [sample quantiles](https://en.wikipedia.org/wiki/Quantile) corresponding to the given probability. This is an implementation of the algorithms described in the [Hyndman and Fan paper (1996)](https://www.jstor.org/stable/2684934).
+Collection of nine functions that calculate [sample quantiles](https://en.wikipedia.org/wiki/Quantile) corresponding to the given probability. This is an implementation of the algorithms described in the [Hyndman and Fan paper (1996)](https://www.jstor.org/stable/2684934). The documentation of the functions is based on R ([source](http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html)) and Wikipedia.
 
 **Note**:
 

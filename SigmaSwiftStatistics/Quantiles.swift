@@ -15,7 +15,7 @@ public extension Sigma {
   https://www.jstor.org/stable/2684934
   https://www.amherst.edu/media/view/129116/original/Sample+Quantiles.pdf
    
-  The function documentation was based on R and Wikipedia:
+  The documentation of the functions is based on R and Wikipedia:
    
   https://en.wikipedia.org/wiki/Quantile
   http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html
