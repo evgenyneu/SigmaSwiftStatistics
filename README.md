@@ -734,7 +734,7 @@ If you need help or want to extend the library feel free to create an issue or s
 
 > Help will always be given at Hogwarts to those who ask for it.
 
--- J.K. Rowling, Harry Potter and the Deathly Hallows
+-- J.K. Rowling, Harry Potter
 
 
 ## Contributors
