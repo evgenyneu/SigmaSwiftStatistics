@@ -135,14 +135,23 @@ public class SigmaQuantiles {
   m = 1-p. p[k] = (k - 1) / (n - 1). In this case, p[k] = mode[F(x[k])]. This is used by S.
  
   */
+  
+  /**
+   
+  The 7th sample quantile method from Hyndman and Fan paper (1996). Uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1]. Used in S.
+
+  - parameter data: Array of decimal numbers.
+  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - returns:  sample quantile.
+
+  */
   public func Q7(_ data: [Double], alpha: Double) -> Double? {
     let data = data.sorted(by: <)
-    let count = data.count
+    let count = Double(data.count)
     let m = 1.0 - alpha
-    let k = Int((alpha * Double(count)) + m)
-    let alpha = (alpha * Double(count)) + m - Double(k)
-    let Q = QDef(data, k: k, alpha: alpha)
-    return Q
+    let k = Int((alpha * count) + m)
+    let alpha = (alpha * count) + m - Double(k)
+    return QDef(data, k: k, alpha: alpha)
   }
   
   /**
