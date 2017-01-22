@@ -13,7 +13,7 @@ This library is a collection of functions that perform statistical calculations 
 * [centralMoment](#central-moment)
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
-* [coefficientOfVariationSample](#coefficient-of-variation-sample)
+* [coefficientOfVariationSample](#coefficient-of-variation-of-a-sample)
 * [kurtosisA](#kurtosis-a)
 * [kurtosisB](#kurtosis-b)
 * [max](#max)
@@ -197,6 +197,7 @@ Sigma.covarianceSample(x: x, y: y)
 ### Coefficient of variation of a sample
 
 Computes [coefficient of variation](https://en.wikipedia.org/wiki/Coefficient_of_variation) based on a sample.
+
 
 Note:
 
