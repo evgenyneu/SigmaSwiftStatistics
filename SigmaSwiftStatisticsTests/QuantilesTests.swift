@@ -2,6 +2,120 @@ import XCTest
 import SigmaSwiftStatistics
 
 class QuantilesTests: XCTestCase {
+  // MARK: - method2
+  
+  func testQuantiles_method2() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0.125)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_method2_probabilityFiftyPercent() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0.5)
+    XCTAssertEqual(5.5, result)
+  }
+  
+  func testQuantiles_method2_probablityCloseToZero1() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0.166)
+    XCTAssertEqual(-5, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method2_probablityCloseToZero2() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0.167)
+    XCTAssertEqual(1, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method2_probablityZero() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_method2_probablityCloseToOne1() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0.833)
+    XCTAssertEqual(12, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method2_probablityCloseToOne2() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 0.834)
+    XCTAssertEqual(19.5, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method2_probablityOne() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 1)
+    XCTAssertEqual(19.5, result)
+  }
+  
+  func testQuantiles_method2_oneValue() {
+    let result = Sigma.quantiles.method2([1.234], alpha: 0.44)
+    XCTAssertEqual(1.234, result)
+  }
+  
+  func testQuantiles_method2_empty() {
+    let result = Sigma.quantiles.method2([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  
+  // MARK: - method3
+  
+  func testQuantiles_method3() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.125)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_method3_probabilityFiftyPercent() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.5)
+    XCTAssertEqual(3, result)
+  }
+  
+  func testQuantiles_method3_probablityCloseToZero() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.25)
+    XCTAssertEqual(1, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method3_probablityZero() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_method3_Rtest1() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.416)
+    XCTAssertEqual(1, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method3_Rtest2() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.417)
+    XCTAssertEqual(3, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method3_Rtest3() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.583)
+    XCTAssertEqual(3, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method3_Rtest4() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.584)
+    XCTAssertEqual(8, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method3_probablityCloseToOne() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 0.91)
+    XCTAssertEqual(12, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method3_probablityOne() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 1)
+    XCTAssertEqual(19.5, result)
+  }
+  
+  func testQuantiles_method3_oneValue() {
+    let result = Sigma.quantiles.method3([1.234], alpha: 0.44)
+    XCTAssertEqual(1.234, result)
+  }
+  
+  func testQuantiles_method3_empty() {
+    let result = Sigma.quantiles.method3([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
   
   // MARK: - method4
   

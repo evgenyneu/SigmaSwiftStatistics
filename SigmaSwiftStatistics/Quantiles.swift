@@ -46,51 +46,51 @@ public class SigmaQuantiles {
   }
   
   /**
-  
-  Similar to type 1 but with averaging at discontinuities. γ = 0.5 if g = 0, and 1 otherwise.
-  
+   
+  The second sample quantile method from Hyndman and Fan paper (1996). This is an inverted empirical distribution function with averaging.
+
+  - parameter data: Array of decimal numbers.
+  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
   */
   public func method2(_ data: [Double], alpha: Double) -> Double? {
     let data = data.sorted(by: <)
-    let count = data.count
-    let k = Int(alpha * Double(count))
-    let g = (alpha * Double(count)) - Double(k)
+    let count = Double(data.count)
+    let k = Int(alpha * count)
+    let g = (alpha * count) - Double(k)
     var new_alpha = 1.0
-    if g == 0.0 {
-      new_alpha = 0.5
-    }
-    let Q = qDef(data, k: k, alpha: new_alpha)
-    return Q
-  }
-  
-  /**
-  
-  SAS definition: nearest even order statistic. γ = 0 if g = 0 and j is even, and 1 otherwise.
-  
-  */
-  public func method3(_ data: [Double], alpha: Double) -> Double? {
-    
-    let data = data.sorted(by: <)
-    let count = data.count
-    let m = -0.5
-    let k = Int((alpha * Double(count)) + m)
-    let g = (alpha * Double(count)) + m - Double(k)
-    var new_alpha = 1.0
-    /* if g == 0.0 && k.truncatingRemainder(dividingBy: 2.0) != 0.0 { */
-    if g == 0.0 && k % 2 != 0 {
-      new_alpha = 0.0
-    }
-    let Q = qDef(data, k: k, alpha: new_alpha)
-    return Q
+    if g == 0.0 { new_alpha = 0.5 }
+    return qDef(data, k: k, alpha: new_alpha)
   }
   
   /**
    
-  The 4th sample quantile method from Hyndman and Fan paper (1996). Linear interpolation of the empirical distribution function.
+  The 3rd sample quantile method from Hyndman and Fan paper (1996).
+   
+  - parameter data: Array of decimal numbers.
+  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
+  */
+  public func method3(_ data: [Double], alpha: Double) -> Double? {
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = -0.5
+    let k = Int((alpha * count) + m)
+    let g = (alpha * count) + m - Double(k)
+    var new_alpha = 1.0
+    if g <= 0 && k % 2 == 0 { new_alpha = 0.0 }
+    return qDef(data, k: k, alpha: new_alpha)
+  }
+  
+  /**
+   
+  The 4th sample quantile method from Hyndman and Fan paper (1996). It uses linear interpolation of the empirical distribution function.
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
    
   */
   public func method4(_ data: [Double], alpha: Double) -> Double? {
@@ -108,7 +108,7 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method5(_ data: [Double], alpha: Double) -> Double? {
@@ -126,7 +126,7 @@ public class SigmaQuantiles {
    
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method6(_ data: [Double], alpha: Double) -> Double? {
@@ -144,7 +144,7 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method7(_ data: [Double], alpha: Double) -> Double? {
@@ -162,7 +162,7 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method8(_ data: [Double], alpha: Double) -> Double? {
@@ -180,7 +180,7 @@ public class SigmaQuantiles {
    
    - parameter data: Array of decimal numbers.
    - parameter alpha: the probability value between 0 and 1, inclusive.
-   - returns:  sample quantile.
+   - returns: sample quantile.
    
   */
   public func method9(_ data: [Double], alpha: Double) -> Double? {

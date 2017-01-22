@@ -802,7 +802,7 @@ public class SigmaQuantiles {
     if g == 0.0 {
       new_alpha = 0.0
     }
-    let Q = QDef(data, k: k, alpha: new_alpha)
+    let Q = qDef(data, k: k, alpha: new_alpha)
     return Q
   }
   
@@ -820,44 +820,51 @@ public class SigmaQuantiles {
     if g == 0.0 {
       new_alpha = 0.5
     }
-    let Q = QDef(data, k: k, alpha: new_alpha)
+    let Q = qDef(data, k: k, alpha: new_alpha)
     return Q
   }
   
   /**
-  
-  SAS definition: nearest even order statistic. γ = 0 if g = 0 and j is even, and 1 otherwise.
-  
-  */
+   
+   The 3rd sample quantile method from Hyndman and Fan paper (1996).
+   
+   - parameter data: Array of decimal numbers.
+   - parameter alpha: the probability value between 0 and 1, inclusive.
+   - returns: sample quantile.
+   
+   */
   public func method3(_ data: [Double], alpha: Double) -> Double? {
-    
     let data = data.sorted(by: <)
-    let count = data.count
+    let count = Double(data.count)
     let m = -0.5
-    let k = Int((alpha * Double(count)) + m)
-    let g = (alpha * Double(count)) + m - Double(k)
+    let k = Int((alpha * count) + m)
+    let g = (alpha * count) + m - Double(k)
     var new_alpha = 1.0
-    /* if g == 0.0 && k.truncatingRemainder(dividingBy: 2.0) != 0.0 { */
-    if g == 0.0 && k % 2 != 0 {
-      new_alpha = 0.0
+    
+    if g == 0.0 && Double(k).truncatingRemainder(dividingBy: 2.0) != 0.0 {
+      if g == 0.0 && k % 2 != 0 {
+        new_alpha = 0.0
+      }
     }
-    let Q = QDef(data, k: k, alpha: new_alpha)
-    return Q
+    return qDef(data, k: k, alpha: new_alpha)
   }
   
   /**
-  
-  m = 0. p[k] = k / n. That is, linear interpolation of the empirical cdf.
-  
+   
+  The 4th sample quantile method from Hyndman and Fan paper (1996). It uses linear interpolation of the empirical distribution function.
+
+  - parameter data: Array of decimal numbers.
+  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
   */
   public func method4(_ data: [Double], alpha: Double) -> Double? {
     let data = data.sorted(by: <)
-    let count = data.count
+    let count = Double(data.count)
     let m = 0.0
-    let k = Int((alpha * Double(count)) + m)
-    let alpha = (alpha * Double(count)) + m - Double(k)
-    let Q = QDef(data, k: k, alpha: alpha)
-    return Q
+    let k = Int((alpha * count) + m)
+    let alpha = (alpha * count) + m - Double(k)
+    return qDef(data, k: k, alpha: alpha)
   }
   
   /**
@@ -866,7 +873,7 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method5(_ data: [Double], alpha: Double) -> Double? {
@@ -875,7 +882,7 @@ public class SigmaQuantiles {
     let m = 0.5
     let k = Int((alpha * count) + m)
     let alpha = (alpha * count) + m - Double(k)
-    return QDef(data, k: k, alpha: alpha)
+    return qDef(data, k: k, alpha: alpha)
   }
   
   /**
@@ -884,7 +891,7 @@ public class SigmaQuantiles {
    
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method6(_ data: [Double], alpha: Double) -> Double? {
@@ -893,7 +900,7 @@ public class SigmaQuantiles {
     let m = alpha
     let k = Int((alpha * count) + m)
     let alpha = (alpha * count) + m - Double(k)
-    return QDef(data, k: k, alpha: alpha)
+    return qDef(data, k: k, alpha: alpha)
   }
   
   /**
@@ -902,7 +909,7 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method7(_ data: [Double], alpha: Double) -> Double? {
@@ -911,7 +918,7 @@ public class SigmaQuantiles {
     let m = 1.0 - alpha
     let k = Int((alpha * count) + m)
     let alpha = (alpha * count) + m - Double(k)
-    return QDef(data, k: k, alpha: alpha)
+    return qDef(data, k: k, alpha: alpha)
   }
   
   /**
@@ -920,7 +927,7 @@ public class SigmaQuantiles {
 
   - parameter data: Array of decimal numbers.
   - parameter alpha: the probability value between 0 and 1, inclusive.
-  - returns:  sample quantile.
+  - returns: sample quantile.
 
   */
   public func method8(_ data: [Double], alpha: Double) -> Double? {
@@ -929,7 +936,7 @@ public class SigmaQuantiles {
     let m = (alpha + 1.0) / 3.0
     let k = Int((alpha * count) + m)
     let alpha = (alpha * count) + m - Double(k)
-    return QDef(data, k: k, alpha: alpha)
+    return qDef(data, k: k, alpha: alpha)
   }
   
   /**
@@ -938,7 +945,7 @@ public class SigmaQuantiles {
    
    - parameter data: Array of decimal numbers.
    - parameter alpha: the probability value between 0 and 1, inclusive.
-   - returns:  sample quantile.
+   - returns: sample quantile.
    
   */
   public func method9(_ data: [Double], alpha: Double) -> Double? {
@@ -947,7 +954,7 @@ public class SigmaQuantiles {
     let m = (0.25 * alpha) + (3.0 / 8.0)
     let k = Int((alpha * count) + m)
     let alpha = (alpha * count) + m - Double(k)
-    return QDef(data, k: k, alpha: alpha)
+    return qDef(data, k: k, alpha: alpha)
   }
   
   /**
@@ -960,7 +967,7 @@ public class SigmaQuantiles {
   - returns: sample quantile.
 
   */
-  private func QDef(_ data: [Double], k: Int, alpha: Double) -> Double? {
+  private func qDef(_ data: [Double], k: Int, alpha: Double) -> Double? {
     if data.isEmpty { return nil }
     if k < 1 { return data[0] }
     if k >= data.count { return data.last }
