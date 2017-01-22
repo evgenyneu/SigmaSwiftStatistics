@@ -10,8 +10,12 @@
 This library is a collection of functions that perform statistical calculations in Swift. It can be used in Swift apps for Apple devices and in open source Swift programs on other platforms.
 
 * [average](#average--mean)
+* [centralMoment](#central-moment)
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
+* [coefficientOfVariationSample](#coefficient-of-variation-of-a-sample)
+* [kurtosisA](#kurtosis-a)
+* [kurtosisB](#kurtosis-b)
 * [max](#max)
 * [median](#median)
 * [medianHigh](#median-high)
@@ -21,9 +25,13 @@ This library is a collection of functions that perform statistical calculations 
 * [normalDensity](#normal-density)
 * [normalQuantile](#normal-quantile)
 * [pearson](#pearson-correlation-coefficient)
-* [percentile1](#percentile-1)
+* [percentile](#percentile)
+* [quantiles](#quantiles)
+* [skewnessA](#skewness-a)
+* [skewnessB](#skewness-b)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
 * [standardDeviationSample](#standard-deviation-of-a-sample)
+* [standardErrorOfTheMean](#standard-error-of-the-mean)
 * [sum](#sum)
 * [variancePopulation](#variance-of-a-population)
 * [varianceSample](#variance-of-a-sample)
@@ -40,7 +48,7 @@ Simply add [SigmaDistrib.swift](https://github.com/evgenyneu/SigmaSwiftStatistic
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 4.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 5.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -48,7 +56,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 4.0'
+    pod 'SigmaSwiftStatistics', '~> 5.0'
 
 
 #### Setup with Swift Package Manager
@@ -63,7 +71,7 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(4,0,0)..<Version(5,0,0))
+                 versions: Version(5,0,0)..<Version(6,0,0))
     ]
 )
 ```
@@ -102,31 +110,29 @@ Sigma.average([1, 3, 8])
 ```
 
 
-### Covariance of a sample
 
-Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
+### Central moment
+
+Computes [central moment](https://en.wikipedia.org/wiki/Central_moment) of the dataset.
 
 Note:
 
-  * Returns nil if arrays x and y have different number of values.
-  * Returns nil for empty arrays or arrays containing a single element.
-  * Same as COVARIANCE.S function in Microsoft Excel.
+  * Returns nil for an empty array.
+  * Same as in Wolfram Alpha and "moments" R package.
 
 #### Formula
 
-> cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+> Σ(x - m)^k / n
 
 Where:
 
-  * *mx* is the sample mean of the first variable.
-  * *my* is the sample mean of the second variable.
-  * *n* is the total number of values.
+  * *m* is the sample mean.
+  * *k* is the order of the moment (0, 1, 2, 3, ...).
+  * *n* is the sample size.
 
 ```Swift
-let x = [1, 2, 3.5, 3.7, 8, 12]
-let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-Sigma.covarianceSample(x: x, y: y)
-// Result: 5.03
+Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3)
+// Result: -1.5999259259
 ```
 
 
@@ -157,6 +163,109 @@ let x = [1, 2, 3.5, 3.7, 8, 12]
 let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
 Sigma.covariancePopulation(x: x, y: y)
 // Result: 4.19166666666667
+```
+
+
+
+### Covariance of a sample
+
+Computes [sample covariance](http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance) between two variables: x and y.
+
+Note:
+
+  * Returns nil if arrays x and y have different number of values.
+  * Returns nil for empty arrays or arrays containing a single element.
+  * Same as COVARIANCE.S function in Microsoft Excel.
+
+#### Formula
+
+> cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+
+Where:
+
+  * *mx* is the sample mean of the first variable.
+  * *my* is the sample mean of the second variable.
+  * *n* is the total number of values.
+
+```Swift
+let x = [1, 2, 3.5, 3.7, 8, 12]
+let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+Sigma.covarianceSample(x: x, y: y)
+// Result: 5.03
+```
+
+
+### Coefficient of variation of a sample
+
+Computes [coefficient of variation](https://en.wikipedia.org/wiki/Coefficient_of_variation) based on a sample.
+
+
+Note:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Returns `Double.infinity` if the mean is zero.
+  * Same as in Wolfram Alfa and in "raster" R package (expressed as a percentage in "raster").
+
+#### Formula
+
+> CV = s / m
+
+Where:
+
+  * *s* is the sample standard deviation.
+  * *m* is the mean.
+
+```Swift
+Sigma.coefficientOfVariationSample([1, 12, 19.5, -5, 3, 8])
+// Result: 1.3518226672
+```
+
+
+
+
+### Kurtosis A
+
+Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of numbers.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 4 values.
+  * Returns nil if all the values in the dataset are the same.
+  * Same as KURT in Microsoft Excel and Google Docs Sheets.
+
+#### Formula
+
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_a.png' width='480' alt='Kurtosis formula'>
+
+
+```Swift
+Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5])
+// Result: 5.4570693277
+```
+
+
+
+
+### Kurtosis B
+
+Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of numbers.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 2 values.
+  * Returns nil if all the values in the dataset are the same.
+  * Same as in Wolfram Alpha and "moments" R package.
+
+#### Formula
+
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_b.png' width='550' alt='Kurtosis formula'>
+
+
+```Swift
+Sigma.kurtosisB([2, 1, 3, 4.1, 19, 1.5])
+// Result: 4.0138523409
 ```
 
 
@@ -327,47 +436,160 @@ Sigma.pearson(x: x, y: y)
 
 
 
-### Percentile 1
+### Percentile
 
-Calculates the
-[Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given dataset.
+Calculates the [Percentile value](https://en.wikipedia.org/wiki/Percentile) for the given dataset.
 
 **Note**:
 
  * Returns nil when the `values` array is empty.
  * Returns nil when supplied `percentile` parameter is negative or greater than 1.
  * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE in Google Docs Sheets.
+ * Same as the 7th sample quantile method from the Hyndman and Fan paper (1996).
 
-See the [Percentile 1 method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) documentation for more information.
+See the [Percentile method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) documentation for more information.
 
 ```Swift
 // Calculate 40th percentile
-Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
+Sigma.percentile(values: [35, 20, 50, 40, 15], percentile: 0.4)
 // Result: 29
+// Same as
+Sigma.quantiles.method7([35, 20, 50, 40, 15], probability: 0.4)
 ```
 
+### Quantiles
 
-### Standard deviation of a sample
-
-Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
+Collection of nine functions that calculate [sample quantiles](https://en.wikipedia.org/wiki/Quantile) corresponding to the given probability. This is an implementation of the algorithms described in the [Hyndman and Fan paper (1996)](https://www.jstor.org/stable/2684934). The documentation of the functions is based on R ([source](http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html)) and Wikipedia.
 
 **Note**:
 
-  * Returns nil when the array is empty or contains a single value.
-  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
+  * Returns nil if the dataset is empty.
+  * Returns nil if the probability is outside the [0, 1] range.
+  * Same as `quantile` function in R.
+
+
+#### Quantile method 1
+
+This method calculates quantiles using the inverse of the empirical distribution function.
+
+```Swift
+Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], probability: 0.5)
+// Result: 3
+```
+
+#### Quantile method 2
+
+This method uses inverted empirical distribution function with averaging.
+
+```Swift
+Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], probability: 0.5)
+// Result: -5
+```
+
+#### Quantile method 3
+
+```Swift
+Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], probability: 0.5)
+// Result: 3
+```
+
+#### Quantile method 4
+
+The method uses linear interpolation of the empirical distribution function.
+
+```Swift
+Sigma.quantiles.method4([1, 12, 19.5, -5, 3, 8], probability: 0.17)
+// Result: -4.88
+```
+
+#### Quantile method 5
+
+This method uses a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
+
+```Swift
+Sigma.quantiles.method5([1, 12, 19.5, -5, 3, 8], probability: 0.11)
+// Result: -4.04
+```
+
+#### Quantile method 6
+
+This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+
+```Swift
+Sigma.quantiles.method6([1, 12, 19.5, -5, 3, 8], probability: 0.1999)
+// Result: -2.6042
+```
+
+#### Quantile method 7
+
+This method is implemented in S, Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). It uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
+
+```Swift
+Sigma.quantiles.method7([1, 12, 19.5, -5, 3, 8], probability: 0.00001)
+// Result: -4.9997
+```
+
+#### Quantile method 8
+
+The quantiles returned by the method are approximately median-unbiased regardless of the distribution of x.
+
+```Swift
+Sigma.quantiles.method8([1, 12, 19.5, -5, 3, 8], probability: 0.11)
+// Result: -4.82
+```
+
+#### Quantile method 9
+
+The quantiles returned by this method are approximately unbiased for the expected order statistics if x is normally distributed.
+
+```Swift
+Sigma.quantiles.method9([1, 12, 19.5, -5, 3, 8], probability: 0.10001)
+// Result: -4.999625
+```
+
+
+### Skewness A
+
+Returns the [skewness](https://en.wikipedia.org/wiki/Skewness) of the dataset.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 3 values.
+  * Returns nil if all the values in the dataset are the same.
+  * Same as SKEW in Microsoft Excel and Google Docs Sheets.
 
 #### Formula
 
->  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
 
-Where:
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/skewness_a.png' width='450' alt='Skewness formula'>
 
-  * *m* is the sample mean.
-  * *n* is the sample size.
 
 ```Swift
-Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
-// Result: 8.674195447801869
+Sigma.skewnessA([4, 2.1, 8, 21, 1])
+// Result: 1.6994131524
+```
+
+
+
+### Skewness B
+
+Returns the [skewness](https://en.wikipedia.org/wiki/Skewness) of the dataset.
+
+**Note**:
+
+  * Returns nil if the dataset contains less than 3 values.
+  * Returns nil if all the values in the dataset are the same.
+  * Same as in Wolfram Alpha, SKEW.P in Microsoft Excel and `skewness` function in "moments" R package.
+
+#### Formula
+
+
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/skewness_b.png' width='450' alt='Skewness formula'>
+
+
+```Swift
+Sigma.skewnessB([4, 2.1, 8, 21, 1])
+// Result: 1.1400009992
 ```
 
 
@@ -395,6 +617,53 @@ Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8])
 // Result: 7.918420858282849
 ```
 
+
+
+### Standard deviation of a sample
+
+Computes [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation) based on a sample.
+
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as STDEV and STDEV.S in Microsoft Excel and STDEV in Google Docs Sheets.
+
+#### Formula
+
+>  s = sqrt( Σ( (x - m)^2 ) / (n - 1) )
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8])
+// Result: 8.674195447801869
+```
+
+
+### Standard error of the mean
+
+Computes [standard error](http://en.wikipedia.org/wiki/Standard_error) of the mean.
+
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+
+#### Formula
+
+>  SE = s / sqrt(n)
+
+Where:
+
+  * *s* is the sample standard deviation.
+  * *n* is the sample size.
+
+```Swift
+Sigma.standardErrorOfTheMean([1, 12, 19.5, -5, 3, 8])
+// Result: 3.5412254627
+```
 
 
 
@@ -466,10 +735,13 @@ If you need help or want to extend the library feel free to create an issue or s
 
 -- J.K. Rowling, Harry Potter and the Deathly Hallows
 
+
 ## Contributors
 
-* [Thomas Fankhauser](https://github.com/southdesign)
 * [John Clema](https://github.com/JohnClema)
+* [Thomas Fankhauser](https://github.com/southdesign)
+* [Alan J. Salmoni](https://github.com/salmoni)
+
 
 ## License
 

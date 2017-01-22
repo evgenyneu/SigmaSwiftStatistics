@@ -9,6 +9,109 @@
 
 // ----------------------------
 //
+// CentralMoment.swift
+//
+// ----------------------------
+
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+import Foundation
+
+public extension Sigma {
+  /**
+   
+  Computes central moment of the dataset.
+   
+  https://en.wikipedia.org/wiki/Central_moment
+
+  - parameter values: Array of decimal numbers.
+  - parameter order: The order of the moment (0, 1, 2, 3 etc.).
+  - returns: Central moment. Returns nil when the array is empty.
+   
+  Formula:
+
+      Σ(x - m)^k / n
+
+  Where:
+
+  m is the sample mean.
+   
+  k is the order of the moment (0, 1, 2, 3, ...).
+   
+  n is the sample size.
+   
+  Example:
+   
+      Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3) // -1.5999259259
+   
+  */
+  public static func centralMoment(_ values: [Double], order: Int) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    guard let averageVal = average(values) else { return nil }
+    
+    let total = values.reduce(0) { sum, value in
+      sum + pow((value - averageVal), Double(order))
+    }
+    
+    return total / count
+  }
+}
+
+
+// ----------------------------
+//
+// CoefficientVariation.swift
+//
+// ----------------------------
+
+//
+//  Created by Alan James Salmoni on 21/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+import Foundation
+
+public extension Sigma {
+  /**
+
+  Computes coefficient of variation based on a sample.
+
+  https://en.wikipedia.org/wiki/Coefficient_of_variation
+
+  - parameter values: Array of decimal numbers.
+  - returns: Coefficient of variation of a sample. Returns nil when the array is empty or contains a single value. Returns Double.infinity if the mean is zero.
+
+  Formula:
+
+      CV = s / m
+ 
+  Where:
+
+  s is the sample standard deviation.
+
+  m is the mean.
+
+  Example:
+
+      Sigma.coefficientOfVariationSample([1, 12, 19.5, -5, 3, 8]) // 1.3518226672
+
+  */
+  public static func coefficientOfVariationSample(_ values: [Double]) -> Double? {
+    if values.count < 2 { return nil }
+    guard let stdDev = Sigma.standardDeviationSample(values) else { return nil }
+    guard let avg = average(values) else { return nil }
+    if avg == 0 { return stdDev >= 0 ? Double.infinity : -Double.infinity }
+    return stdDev / avg
+  }
+}
+
+
+// ----------------------------
+//
 // Covariance.swift
 //
 // ----------------------------
@@ -17,34 +120,34 @@ import Foundation
 
 public extension Sigma {
   /**
-   
-   Computes covariance of a sample between two variables: x and y.
-   
-   http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance
-   
-   - parameter x: Array of decimal numbers for the first variable.
-   - parameter y: Array of decimal numbers for the second variable.
-   - returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
-   
-   Formula:
-   
-   cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
-   
-   Where:
-   
-   mx is the sample mean of the first variable.
-   
-   my is the sample mean of the second variable.
-   
-   n is the total number of values.
-   
-   Example:
-   
-   let x = [1, 2, 3.5, 3.7, 8, 12]
-   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-   Sigma.covarianceSample(x: x, y: y) // 5.03
-   
-   */
+
+  Computes covariance of a sample between two variables: x and y.
+
+  http://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance
+
+  - parameter x: Array of decimal numbers for the first variable.
+  - parameter y: Array of decimal numbers for the second variable.
+  - returns: Covariance of a sample between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays or arrays containing a single element.
+
+  Formula:
+
+      cov(x,y) = Σ(x - mx)(y - my) / (n - 1)
+
+  Where:
+
+  mx is the sample mean of the first variable.
+
+  my is the sample mean of the second variable.
+
+  n is the total number of values.
+
+  Example:
+
+      let x = [1, 2, 3.5, 3.7, 8, 12]
+      let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+      Sigma.covarianceSample(x: x, y: y) // 5.03
+
+  */
   public static func covarianceSample(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
@@ -81,7 +184,7 @@ public extension Sigma {
    
    Formula:
    
-   cov(x,y) = Σ(x - mx)(y - my) / n
+       cov(x,y) = Σ(x - mx)(y - my) / n
    
    Where:
    
@@ -93,9 +196,9 @@ public extension Sigma {
    
    Example:
    
-   let x = [1, 2, 3.5, 3.7, 8, 12]
-   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-   Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
+       let x = [1, 2, 3.5, 3.7, 8, 12]
+       let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+       Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
    
    */
   public static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
@@ -120,6 +223,87 @@ public extension Sigma {
     }
     
     return nil
+  }
+}
+
+
+// ----------------------------
+//
+// Kurtosis.swift
+//
+// ----------------------------
+
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+  /**
+
+  Computes kurtosis of a series of numbers. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
+
+  https://en.wikipedia.org/wiki/Kurtosis
+
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Kurtosis. Returns nil if the dataset contains less than 4 values. Returns nil if all the values in the dataset are the same.
+
+  Formula (LaTeX):
+
+      rac{n(n + 1)}{(n - 1)(n - 2)(n - 3)}\sum_{i=1}^{n} \Bigg( rac{x_i - ar{x}}{s} \Bigg)^4 - rac{3(n - 1)^2}{(n - 2)(n - 3)}
+
+  Example:
+
+      Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
+
+  */
+  public static func kurtosisA(_ values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count < 4 { return nil }
+    
+    guard let averageVal = average(values) else { return nil }
+    guard let stdev = standardDeviationSample(values) else { return nil }
+    
+    var result = values.reduce(0.0) { sum, value in
+      let value = (value - averageVal) / stdev
+      return sum + pow(value, 4)
+    }
+    
+    result *= (count * (count + 1) / ((count - 1) * (count - 2) * (count - 3)))
+    result -= 3 * pow(count - 1, 2) / ((count - 2) * (count - 3))
+    
+    return result
+  }
+  
+  /**
+
+  Computes kurtosis of a series of numbers. This implementation is the same as in Wolfram Alpha and "moments" R package.
+
+  https://en.wikipedia.org/wiki/Kurtosis
+
+  - parameter values: Array of decimal numbers.
+
+  - returns: Kurtosis. Returns nil if the dataset contains less than 2 values. Returns nil if all the values in the dataset are the same.
+
+  Formula (LaTeX):
+
+      rac{\mu_4}{\mu^2_2}
+
+  Example:
+
+      Sigma.kurtosisB([2, 1, 3, 4.1, 19, 1.5]) // 4.0138523409
+
+  */
+  public static func kurtosisB(_ values: [Double]) -> Double? {
+    if values.isEmpty { return nil }
+    guard let moment4 = centralMoment(values, order: 4) else { return nil }
+    guard let moment2 = centralMoment(values, order: 2) else { return nil }
+    if moment2 == 0 { return nil }
+    return (moment4 / pow(moment2, 2))
   }
 }
 
@@ -300,12 +484,12 @@ public extension Sigma {
    
    - parameter σ: The standard deviation. Default: 1.
    
-   - returns: the quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
+   - returns: The quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
    
    
    Example:
    
-       Sigma.normalQuantile(probability: 0.025, μ: 0, σ: 1) // -1.9599639845400538
+       Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1) // -1.9599639845400538
    
   */
   public static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
@@ -369,7 +553,7 @@ public extension Sigma {
    
    - parameter σ: The standard deviation.
    
-   - returns: the quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
+   - returns: The quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
    
   */
   static func qnorm(p: Double, mu: Double, sigma: Double) -> Double? {
@@ -447,32 +631,32 @@ import Foundation
 
 public extension Sigma {
   /**
-   
-   Calculates the Pearson product-moment correlation coefficient between two variables: x and y.
-   
-   http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
-   
-   - parameter x: Array of decimal numbers for the first variable.
-   - parameter y: Array of decimal numbers for the second variable.
-   - returns: The Pearson product-moment correlation coefficient between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
-   
-   Formula:
-   
-   p(x,y) = cov(x,y) / (σx * σy)
-   
-   Where:
-   
-   cov is the population covariance.
-   
-   σx is the population standard deviation of x.
-   
-   Example:
-   
-   let x = [1, 2, 3.5, 3.7, 8, 12]
-   let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
-   Sigma.pearson(x: x, y: y) // 0.843760859352745
-   
-   */
+
+  Calculates the Pearson product-moment correlation coefficient between two variables: x and y.
+
+  http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
+
+  - parameter x: Array of decimal numbers for the first variable.
+  - parameter y: Array of decimal numbers for the second variable.
+  - returns: The Pearson product-moment correlation coefficient between two variables: x and y. Returns nil if arrays x and y have different number of values. Returns nil for empty arrays.
+
+  Formula:
+
+      p(x,y) = cov(x,y) / (σx * σy)
+
+  Where:
+
+  cov is the population covariance.
+
+  σx is the population standard deviation of x.
+
+  Example:
+
+      let x = [1, 2, 3.5, 3.7, 8, 12]
+      let y = [0.5, 1, 2.1, 3.4, 3.4, 4]
+      Sigma.pearson(x: x, y: y) // 0.843760859352745
+
+  */
   public static func pearson(x: [Double], y: [Double]) -> Double? {
     if let cov = Sigma.covariancePopulation(x: x, y: y),
       let σx = Sigma.standardDeviationPopulation(x),
@@ -494,12 +678,43 @@ public extension Sigma {
 //
 // ----------------------------
 
+import Foundation
+
+public extension Sigma {
+  /**
+
+  Calculates Percentile value for the given dataset. This method is used same in Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). Same as the 7th sample quantile method from the Hyndman and Fan paper (1996).
+
+  https://en.wikipedia.org/wiki/Percentile
+
+  - parameter values: Array of decimal numbers in the dataset.
+  - parameter percentile: percentile between 0 and 1 inclusive. For example, value 0.4 corresponds to 40th percentile.
+  - returns: the percentile value.
+
+  Algorithm:
+
+  https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method
+
+  Example:
+
+      Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4) // Result: 29
+
+  */
+  public static func percentile(values: [Double], percentile: Double) -> Double? {
+    return Sigma.quantiles.method7(values, probability: percentile)
+  }
+}
+
+
+// ----------------------------
 //
-//  Percentile.swift
-//  SigmaSwiftStatistics
+// Quantiles.swift
 //
-//  Created by Evgenii on 28/10/16.
-//  Copyright © 2016 Evgenii Neumerzhitckii. All rights reserved.
+// ----------------------------
+
+//
+//  Created by Alan James Salmoni on 21/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
 //
 
 import Foundation
@@ -507,58 +722,212 @@ import Foundation
 public extension Sigma {
   /**
    
-   Calculates Percentile value for the given dataset.
+  The class contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. This is an implementation of the algorithms described in the Hyndman and Fan paper, 1996:
    
-   https://en.wikipedia.org/wiki/Percentile
+  https://www.jstor.org/stable/2684934
+  https://www.amherst.edu/media/view/129116/original/Sample+Quantiles.pdf
    
-   - parameter values: Array of decimal numbers in the dataset.
-   - parameter percentile: percentile between 0 and 1 inclusive. For example, value 0.4 corresponds to 40th percentile.
-   - returns: the percentile value.
+  The documentation of the functions is based on R and Wikipedia:
    
-   Algorithm:
+  https://en.wikipedia.org/wiki/Quantile
+  http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html
+
+  */
+  public static let quantiles = SigmaQuantiles()
+}
+
+public class SigmaQuantiles {
+  /*
+  
+  This method calculates quantiles using the inverse of the empirical distribution function.
+  
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
    
-   https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method
+  */
+  public func method1(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let k = Int((probability * count))
+    let g = (probability * count) - Double(k)
+    var new_probability = 1.0
+    if g == 0.0 { new_probability = 0.0 }
+    return qDef(data, k: k, probability: new_probability)
+  }
+  
+  /**
    
-   Example:
+  This method uses inverted empirical distribution function with averaging.
+
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
    
-   Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4)
-   // Result: 29
+  */
+  public func method2(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let k = Int(probability * count)
+    let g = (probability * count) - Double(k)
+    var new_probability = 1.0
+    if g == 0.0 { new_probability = 0.5 }
+    return qDef(data, k: k, probability: new_probability)
+  }
+  
+  /**
    
-   */
-  public static func percentile1(values: [Double], percentile: Double) -> Double? {
-    let count = Double(values.count)
-    if count == 0 { return nil }
-    if percentile < 0 { return nil }
-    if percentile > 1 { return nil }
-    
-    // 1. Sort the dataset
-    // ---------------
-    
-    let sortedValues = sort(values)
-    
-    // 2. Find the rank
-    // ---------------
-    
-    let rank = percentile * (count - 1) + 1
-    
-    // 3. Get the integer and fractional part of the rank
-    // ---------------
-    
-    let rankInteger = Int(floor(rank))
-    let rankFraction = Double(rank.truncatingRemainder(dividingBy: 1))
-    
-    // 4. Find the element at rank
-    // ---------------
-    
-    let elementValue = sortedValues[rankInteger - 1]
-    
-    var elementPlusOneValue: Double = 0
-    if rankInteger < Int(count) { elementPlusOneValue = sortedValues[rankInteger] }
-    
-    // 5. Calculate the percentile value
-    // ---------------
-    
-    return elementValue + rankFraction * (elementPlusOneValue - elementValue)
+  The 3rd sample quantile method from Hyndman and Fan paper (1996).
+   
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
+  */
+  public func method3(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = -0.5
+    let k = Int((probability * count) + m)
+    let g = (probability * count) + m - Double(k)
+    var new_probability = 1.0
+    if g <= 0 && k % 2 == 0 { new_probability = 0.0 }
+    return qDef(data, k: k, probability: new_probability)
+  }
+  
+  /**
+   
+  It uses linear interpolation of the empirical distribution function.
+
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
+  */
+  public func method4(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = 0.0
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
+  }
+  
+  /**
+   
+  This method uses a piecewise linear function where the knots are the values midway through the steps of the empirical distribution function.
+
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+
+  */
+  public func method5(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = 0.5
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
+  }
+  
+  /**
+
+  This method is implemented by Minitab and SPSS and uses linear interpolation of the expectations for the order statistics for the uniform distribution on [0,1].
+   
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+
+  */
+  public func method6(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = probability
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
+  }
+  
+  /**
+   
+  This method is implemented in S, Microsoft Excel (PERCENTILE or PERCENTILE.INC) and Google Docs Sheets (PERCENTILE). It uses linear interpolation of the modes for the order statistics for the uniform distribution on [0, 1].
+
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+
+  */
+  public func method7(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = 1.0 - probability
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
+  }
+  
+  /**
+
+  The quantiles returned by the method are approximately median-unbiased regardless of the distribution of x.
+
+
+  - parameter data: Array of decimal numbers.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+
+  */
+  public func method8(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = (probability + 1.0) / 3.0
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
+  }
+  
+  /**
+
+  The quantiles returned by this method are approximately unbiased for the expected order statistics if x is normally distributed.
+   
+   - parameter data: Array of decimal numbers.
+   - parameter probability: the probability value between 0 and 1, inclusive.
+   - returns: sample quantile.
+   
+  */
+  public func method9(_ data: [Double], probability: Double) -> Double? {
+    if probability < 0 || probability > 1 { return nil }
+    let data = data.sorted(by: <)
+    let count = Double(data.count)
+    let m = (0.25 * probability) + (3.0 / 8.0)
+    let k = Int((probability * count) + m)
+    let probability = (probability * count) + m - Double(k)
+    return qDef(data, k: k, probability: probability)
+  }
+  
+  /**
+  
+  Shared function for all quantile methods.
+
+  - parameter data: Array of decimal numbers.
+  - parameter k: the position of the element in the dataset.
+  - parameter probability: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+
+  */
+  private func qDef(_ data: [Double], k: Int, probability: Double) -> Double? {
+    if data.isEmpty { return nil }
+    if k < 1 { return data[0] }
+    if k >= data.count { return data.last }
+    return ((1.0 - probability) * data[k - 1]) + (probability * data[k])
   }
 }
 
@@ -671,6 +1040,81 @@ public struct Sigma {
 
 // ----------------------------
 //
+// Skewness.swift
+//
+// ----------------------------
+
+//
+//  Created by Alan James Salmoni on 19/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+  /**
+   
+  Returns the skewness of the dataset. This implementation is the same as the SKEW function in Excel and Google Docs Sheets.
+   
+  https://en.wikipedia.org/wiki/Skewness
+   
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Skewness based on a sample. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+   
+  Formula (LaTeX):
+   
+      rac{n}{(n-1)(n-2)}\sum_{i=1}^{n} rac{(x_i - ar{x})^3}{s^3}
+   
+  Example:
+   
+      Sigma.skewnessA([4, 2.1, 8, 21, 1]) // 1.6994131524
+   
+  */
+  public static func skewnessA(_ values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count < 3 { return nil }
+    guard let moment3 = centralMoment(values, order: 3) else { return nil }
+    guard let stdDev = standardDeviationSample(values) else { return nil }
+    if stdDev == 0 { return nil }
+  
+    return pow(count, 2) / ((count - 1) * (count - 2)) * moment3 / pow(stdDev, 3)
+  }
+  
+  /**
+ 
+  Returns the skewness of the dataset. This implementation is the same as in Wolfram Alpha, SKEW.P in Microsoft Excel and `skewness` function in "moments" R package..
+   
+  https://en.wikipedia.org/wiki/Skewness
+   
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Skewness based on a sample. Returns nil if the dataset contains less than 3 values. Returns nil if all the values in the dataset are the same.
+   
+  Formula (LaTeX):
+   
+      rac{1}{n}\sum_{i=1}^{n} rac{(x_i - ar{x})^3}{\sigma^3}
+   
+   
+  Example:
+   
+      Sigma.skewnessB([4, 2.1, 8, 21, 1]) // 1.1400009992
+   
+  */
+  public static func skewnessB(_ values: [Double]) -> Double? {
+    if values.count < 3 { return nil }
+    guard let stdDev = standardDeviationPopulation(values) else { return nil }
+    if stdDev == 0 { return nil }
+    guard let moment3 = centralMoment(values, order: 3) else { return nil }
+    
+    return moment3 / pow(stdDev, 3)
+  }
+}
+
+
+// ----------------------------
+//
 // StandardDeviation.swift
 //
 // ----------------------------
@@ -740,6 +1184,55 @@ public extension Sigma {
     }
     
     return nil
+  }
+}
+
+
+// ----------------------------
+//
+// StandardErrorOfTheMean.swift
+//
+// ----------------------------
+
+//
+//  Created by Alan James Salmoni on 18/12/2016.
+//  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
+//
+
+
+import Foundation
+
+public extension Sigma {
+  /**
+
+  Computes standard error of the mean.
+
+  http://en.wikipedia.org/wiki/Standard_error
+
+  - parameter values: Array of decimal numbers.
+   
+  - returns: Standard error of the mean. Returns nil when the array is empty or contains a single value.
+
+  Formula:
+
+      SE = s / sqrt(n)
+
+  Where:
+
+  s is the sample standard deviation.
+
+  n is the sample size.
+
+  Example:
+
+      Sigma.standardErrorOfTheMean([1, 12, 19.5, -5, 3, 8]) // 3.5412254627
+
+  */
+  public static func standardErrorOfTheMean(_ values: [Double]) -> Double? {
+    let count = Double(values.count)
+    if count == 0 { return nil }
+    guard let stdev = standardDeviationSample(values) else { return nil }
+    return stdev / sqrt(count)
   }
 }
 

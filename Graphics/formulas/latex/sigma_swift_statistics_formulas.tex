@@ -1,0 +1,63 @@
+\documentclass[a4paper,twoside, 11pt]{article}
+
+% Packages
+% ---------------------
+
+\usepackage{amsmath} % Needed for command eqref
+\usepackage{amssymb} % For math symbols like R \mathbb{R}
+\usepackage{siunitx} % Physical numbers and units
+\usepackage{mathtools}
+
+% Page settings
+% ---------------------
+
+\usepackage[top=2cm, bottom=1.8cm,left=2.5cm,right=2.5cm]{geometry} %  Page margins
+\setlength{\parskip}{\baselineskip} % Add space between paragraphs
+\parindent=0cm % Remove the paragraph indent of the first line
+\addtolength{\jot}{2\jot} % Double the line between equations
+
+% Set vertical space around equations.
+\AtBeginDocument{%
+ \abovedisplayskip=10pt plus 3pt minus 9pt
+ \abovedisplayshortskip=6pt plus 3pt
+ \belowdisplayskip=10pt plus 3pt minus 9pt
+ \belowdisplayshortskip=5pt plus 3pt minus 4pt
+}
+
+
+\begin{document}
+
+\subsection*{Skewness A}
+
+\begin{flalign*}
+&\frac{n}{(n-1)(n-2)}\sum_{i=1}^{n} \frac{(x_i - \bar{x})^3}{s^3},&
+\end{flalign*}
+where $n$ is the sample size, $\bar{x}$ is the sample mean and\\$s$ is the sample standard deviation.
+
+
+\subsection*{Skewness B}
+
+\begin{flalign*}
+&\frac{1}{n}\sum_{i=1}^{n} \frac{(x_i - \bar{x})^3}{\sigma^3},&
+\end{flalign*}
+where $n$ is the sample size, $\bar{x}$ is the sample mean and\\$\sigma$ is the population standard deviation.
+
+
+\subsection*{Kurtosis A}
+
+\begin{flalign*}
+&\frac{n(n + 1)}{(n - 1)(n - 2)(n - 3)}\sum_{i=1}^{n} \Bigg( \frac{x_i - \bar{x}}{s} \Bigg)^4 - \frac{3(n - 1)^2}{(n - 2)(n - 3)},&
+\end{flalign*}
+where $n$ is the sample size, $\bar{x}$ is the sample mean and\\$s$ is the sample standard deviation.
+
+
+\subsection*{Kurtosis B}
+
+\begin{flalign*}
+&\frac{\mu_4}{\mu^2_2},&
+\end{flalign*}
+where $\mu_4$ and $\mu_2$ are the central moments of the 4th and 2nd order.
+
+
+
+\end{document}

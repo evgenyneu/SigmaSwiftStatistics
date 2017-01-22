@@ -12,9 +12,31 @@
 		7E11CD281DC3497C00FDEDB7 /* Normal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11CD251DC3496300FDEDB7 /* Normal.swift */; };
 		7E11CD291DC3497D00FDEDB7 /* Normal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11CD251DC3496300FDEDB7 /* Normal.swift */; };
 		7E11CD2B1DC34D9F00FDEDB7 /* NormalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11CD2A1DC34D9F00FDEDB7 /* NormalTests.swift */; };
+		7E1A884D1E3461190053A0FA /* CoefficientOfVariationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A884C1E3461190053A0FA /* CoefficientOfVariationTests.swift */; };
+		7E1A884F1E346A300053A0FA /* QuantilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A884E1E346A300053A0FA /* QuantilesTests.swift */; };
+		7E1A88501E349EEB0053A0FA /* CentralMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED21E10713700520306 /* CentralMoment.swift */; };
+		7E1A88511E349EEC0053A0FA /* CentralMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED21E10713700520306 /* CentralMoment.swift */; };
+		7E1A88521E349EED0053A0FA /* CentralMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED21E10713700520306 /* CentralMoment.swift */; };
+		7E1A88531E349EEF0053A0FA /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
+		7E1A88541E349EF00053A0FA /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
+		7E1A88551E349EF00053A0FA /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
+		7E1A88561E349EF40053A0FA /* Kurtosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */; };
+		7E1A88571E349EF40053A0FA /* Kurtosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */; };
+		7E1A88581E349EF50053A0FA /* Kurtosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */; };
+		7E1A88591E349EFC0053A0FA /* Quantiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED31E10713700520306 /* Quantiles.swift */; };
+		7E1A885A1E349EFD0053A0FA /* Quantiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED31E10713700520306 /* Quantiles.swift */; };
+		7E1A885B1E349EFE0053A0FA /* Quantiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED31E10713700520306 /* Quantiles.swift */; };
+		7E1A885C1E349F010053A0FA /* Skewness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED41E10713700520306 /* Skewness.swift */; };
+		7E1A885D1E349F020053A0FA /* Skewness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED41E10713700520306 /* Skewness.swift */; };
+		7E1A885E1E349F020053A0FA /* Skewness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED41E10713700520306 /* Skewness.swift */; };
+		7E1A885F1E349F060053A0FA /* StandardErrorOfTheMean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */; };
+		7E1A88601E349F070053A0FA /* StandardErrorOfTheMean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */; };
+		7E1A88611E349F070053A0FA /* StandardErrorOfTheMean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */; };
 		7E1F46681BAE884C001E2164 /* SigmaSwiftStatistics-Watch.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E1F46671BAE884C001E2164 /* SigmaSwiftStatistics-Watch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E1F466D1BAE886A001E2164 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		7E28E4331CBF4930004BE3D5 /* PercentileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E28E4321CBF4930004BE3D5 /* PercentileTests.swift */; };
+		7E4618241E1A308E007207DE /* CentralMomentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4618231E1A308E007207DE /* CentralMomentTests.swift */; };
+		7E4618261E1A31E5007207DE /* SkewnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4618251E1A31E5007207DE /* SkewnessTests.swift */; };
 		7E559AB11DC3703600BFE45D /* StandardDeviationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E559AB01DC3703600BFE45D /* StandardDeviationTests.swift */; };
 		7E559AB31DC3708800BFE45D /* VarianceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E559AB21DC3708800BFE45D /* VarianceTests.swift */; };
 		7E568F941B19667B007862B3 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
@@ -49,10 +71,18 @@
 		7E8B27AC1DC36F7A0002C52F /* MedianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B27AB1DC36F7A0002C52F /* MedianTests.swift */; };
 		7E8B27AE1DC36FB80002C52F /* PearsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B27AD1DC36FB80002C52F /* PearsonTests.swift */; };
 		7EBDACD81AFDA18A0089B815 /* SigmaSwiftStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */; };
+		7EC2DCA31E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2DCA21E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift */; };
 		7EC48C821B63673C002F3278 /* SigmaSwiftStatistics-Mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EC48C811B63673C002F3278 /* SigmaSwiftStatistics-Mac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EC48C961B636824002F3278 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
+		7ED2A7E51E29CD40007B7888 /* Kurtosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */; };
+		7ED2A7E71E29CD6C007B7888 /* KurtosisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E61E29CD6C007B7888 /* KurtosisTests.swift */; };
 		7EE9D04D1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9D0521C1CCAE900601982 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
+		E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
+		E7B9FED71E10713700520306 /* CentralMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED21E10713700520306 /* CentralMoment.swift */; };
+		E7B9FED81E10713700520306 /* Quantiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED31E10713700520306 /* Quantiles.swift */; };
+		E7B9FED91E10713700520306 /* Skewness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED41E10713700520306 /* Skewness.swift */; };
+		E7B9FEDA1E10713700520306 /* StandardErrorOfTheMean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +98,14 @@
 /* Begin PBXFileReference section */
 		7E11CD251DC3496300FDEDB7 /* Normal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Normal.swift; sourceTree = "<group>"; };
 		7E11CD2A1DC34D9F00FDEDB7 /* NormalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalTests.swift; sourceTree = "<group>"; };
+		7E1A884C1E3461190053A0FA /* CoefficientOfVariationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoefficientOfVariationTests.swift; sourceTree = "<group>"; };
+		7E1A884E1E346A300053A0FA /* QuantilesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantilesTests.swift; sourceTree = "<group>"; };
 		7E1F46651BAE884C001E2164 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1F46671BAE884C001E2164 /* SigmaSwiftStatistics-Watch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-Watch.h"; sourceTree = "<group>"; };
 		7E1F46691BAE884C001E2164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E28E4321CBF4930004BE3D5 /* PercentileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentileTests.swift; sourceTree = "<group>"; };
+		7E4618231E1A308E007207DE /* CentralMomentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralMomentTests.swift; sourceTree = "<group>"; };
+		7E4618251E1A31E5007207DE /* SkewnessTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkewnessTests.swift; sourceTree = "<group>"; };
 		7E559AB01DC3703600BFE45D /* StandardDeviationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardDeviationTests.swift; sourceTree = "<group>"; };
 		7E559AB21DC3708800BFE45D /* VarianceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarianceTests.swift; sourceTree = "<group>"; };
 		7E568F8B1B19667B007862B3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,12 +127,20 @@
 		7E8B27AD1DC36FB80002C52F /* PearsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PearsonTests.swift; sourceTree = "<group>"; };
 		7EBDACCD1AFDA18A0089B815 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDACD71AFDA18A0089B815 /* SigmaSwiftStatisticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SigmaSwiftStatisticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EC2DCA21E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorOfTheMeanTests.swift; sourceTree = "<group>"; };
 		7EC48C7D1B63673C002F3278 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC48C801B63673C002F3278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EC48C811B63673C002F3278 /* SigmaSwiftStatistics-Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-Mac.h"; sourceTree = "<group>"; };
+		7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kurtosis.swift; sourceTree = "<group>"; };
+		7ED2A7E61E29CD6C007B7888 /* KurtosisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KurtosisTests.swift; sourceTree = "<group>"; };
 		7EE9D04A1C1CCAC500601982 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-tvOS.h"; sourceTree = "<group>"; };
 		7EE9D04E1C1CCAC500601982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7B9FED11E10713700520306 /* CoefficientVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoefficientVariation.swift; sourceTree = "<group>"; };
+		E7B9FED21E10713700520306 /* CentralMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralMoment.swift; sourceTree = "<group>"; };
+		E7B9FED31E10713700520306 /* Quantiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quantiles.swift; sourceTree = "<group>"; };
+		E7B9FED41E10713700520306 /* Skewness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skewness.swift; sourceTree = "<group>"; };
+		E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorOfTheMean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,14 +195,20 @@
 		7E568F8A1B19667B007862B3 /* SigmaSwiftStatistics */ = {
 			isa = PBXGroup;
 			children = (
+				E7B9FED21E10713700520306 /* CentralMoment.swift */,
+				E7B9FED11E10713700520306 /* CoefficientVariation.swift */,
 				7E568F8B1B19667B007862B3 /* Info.plist */,
 				7E8B278D1DC36CC30002C52F /* Covariance.swift */,
+				7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */,
 				7E8B278B1DC36BD40002C52F /* Median.swift */,
 				7E11CD251DC3496300FDEDB7 /* Normal.swift */,
 				7E8B27A41DC36E920002C52F /* Pearson.swift */,
 				7E8B279F1DC36E420002C52F /* Percentile.swift */,
+				E7B9FED31E10713700520306 /* Quantiles.swift */,
 				7E568F8C1B19667B007862B3 /* Sigma.swift */,
+				E7B9FED41E10713700520306 /* Skewness.swift */,
 				7E8B278F1DC36D150002C52F /* StandardDeviation.swift */,
+				E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */,
 				7E8B27911DC36DD60002C52F /* Variance.swift */,
 				7E568F8D1B19667B007862B3 /* SwiftStatistics.h */,
 			);
@@ -172,13 +220,19 @@
 			children = (
 				7E568F8F1B19667B007862B3 /* Helpers */,
 				7E568F911B19667B007862B3 /* Info.plist */,
+				7E4618231E1A308E007207DE /* CentralMomentTests.swift */,
+				7E1A884C1E3461190053A0FA /* CoefficientOfVariationTests.swift */,
 				7E8B27A91DC36EE10002C52F /* CovarianceTests.swift */,
+				7ED2A7E61E29CD6C007B7888 /* KurtosisTests.swift */,
 				7E8B27AB1DC36F7A0002C52F /* MedianTests.swift */,
 				7E11CD2A1DC34D9F00FDEDB7 /* NormalTests.swift */,
 				7E8B27AD1DC36FB80002C52F /* PearsonTests.swift */,
 				7E568F921B19667B007862B3 /* SigmaTests.swift */,
+				7E4618251E1A31E5007207DE /* SkewnessTests.swift */,
 				7E28E4321CBF4930004BE3D5 /* PercentileTests.swift */,
+				7E1A884E1E346A300053A0FA /* QuantilesTests.swift */,
 				7E559AB01DC3703600BFE45D /* StandardDeviationTests.swift */,
+				7EC2DCA21E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift */,
 				7E559AB21DC3708800BFE45D /* VarianceTests.swift */,
 			);
 			path = SigmaSwiftStatisticsTests;
@@ -405,7 +459,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Evgenii Neumerzhitckii";
 				TargetAttributes = {
 					7E1F46641BAE884C001E2164 = {
@@ -501,13 +555,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8B27A71DC36EA30002C52F /* Pearson.swift in Sources */,
+				7E1A88541E349EF00053A0FA /* CoefficientVariation.swift in Sources */,
 				7E8B279D1DC36E230002C52F /* Variance.swift in Sources */,
 				7E8B279A1DC36E200002C52F /* StandardDeviation.swift in Sources */,
+				7E1A885D1E349F020053A0FA /* Skewness.swift in Sources */,
+				7E1A88601E349F070053A0FA /* StandardErrorOfTheMean.swift in Sources */,
 				7E8B27941DC36E180002C52F /* Covariance.swift in Sources */,
 				7E8B27971DC36E1B0002C52F /* Median.swift in Sources */,
 				7E8B27A21DC36E850002C52F /* Percentile.swift in Sources */,
 				7E11CD281DC3497C00FDEDB7 /* Normal.swift in Sources */,
+				7E1A885A1E349EFD0053A0FA /* Quantiles.swift in Sources */,
 				7E1F466D1BAE886A001E2164 /* Sigma.swift in Sources */,
+				7E1A88511E349EEC0053A0FA /* CentralMoment.swift in Sources */,
+				7E1A88571E349EF40053A0FA /* Kurtosis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +578,12 @@
 				7E8B27A51DC36E920002C52F /* Pearson.swift in Sources */,
 				7E8B27921DC36DD60002C52F /* Variance.swift in Sources */,
 				7E8B27901DC36D150002C52F /* StandardDeviation.swift in Sources */,
+				E7B9FEDA1E10713700520306 /* StandardErrorOfTheMean.swift in Sources */,
+				E7B9FED71E10713700520306 /* CentralMoment.swift in Sources */,
+				7ED2A7E51E29CD40007B7888 /* Kurtosis.swift in Sources */,
+				E7B9FED91E10713700520306 /* Skewness.swift in Sources */,
+				E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */,
+				E7B9FED81E10713700520306 /* Quantiles.swift in Sources */,
 				7E8B278E1DC36CC30002C52F /* Covariance.swift in Sources */,
 				7E8B278C1DC36BD40002C52F /* Median.swift in Sources */,
 				7E8B27A01DC36E420002C52F /* Percentile.swift in Sources */,
@@ -531,11 +597,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8B27AE1DC36FB80002C52F /* PearsonTests.swift in Sources */,
+				7ED2A7E71E29CD6C007B7888 /* KurtosisTests.swift in Sources */,
+				7E1A884D1E3461190053A0FA /* CoefficientOfVariationTests.swift in Sources */,
 				7E568F991B196725007862B3 /* SigmaTests.swift in Sources */,
 				7E8B27AC1DC36F7A0002C52F /* MedianTests.swift in Sources */,
+				7E4618241E1A308E007207DE /* CentralMomentTests.swift in Sources */,
+				7E4618261E1A31E5007207DE /* SkewnessTests.swift in Sources */,
 				7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */,
 				7E11CD2B1DC34D9F00FDEDB7 /* NormalTests.swift in Sources */,
+				7EC2DCA31E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift in Sources */,
 				7E8B27AA1DC36EE10002C52F /* CovarianceTests.swift in Sources */,
+				7E1A884F1E346A300053A0FA /* QuantilesTests.swift in Sources */,
 				7E559AB31DC3708800BFE45D /* VarianceTests.swift in Sources */,
 				7E559AB11DC3703600BFE45D /* StandardDeviationTests.swift in Sources */,
 				7E28E4331CBF4930004BE3D5 /* PercentileTests.swift in Sources */,
@@ -547,13 +619,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8B27A61DC36EA30002C52F /* Pearson.swift in Sources */,
+				7E1A88531E349EEF0053A0FA /* CoefficientVariation.swift in Sources */,
 				7E8B279E1DC36E230002C52F /* Variance.swift in Sources */,
 				7E8B27991DC36E1F0002C52F /* StandardDeviation.swift in Sources */,
+				7E1A885C1E349F010053A0FA /* Skewness.swift in Sources */,
+				7E1A885F1E349F060053A0FA /* StandardErrorOfTheMean.swift in Sources */,
 				7E8B27931DC36E170002C52F /* Covariance.swift in Sources */,
 				7E8B27961DC36E1A0002C52F /* Median.swift in Sources */,
 				7E8B27A11DC36E840002C52F /* Percentile.swift in Sources */,
 				7E11CD271DC3497C00FDEDB7 /* Normal.swift in Sources */,
+				7E1A88591E349EFC0053A0FA /* Quantiles.swift in Sources */,
 				7EC48C961B636824002F3278 /* Sigma.swift in Sources */,
+				7E1A88501E349EEB0053A0FA /* CentralMoment.swift in Sources */,
+				7E1A88561E349EF40053A0FA /* Kurtosis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,13 +640,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8B27A81DC36EA40002C52F /* Pearson.swift in Sources */,
+				7E1A88551E349EF00053A0FA /* CoefficientVariation.swift in Sources */,
 				7E8B279C1DC36E220002C52F /* Variance.swift in Sources */,
 				7E8B279B1DC36E200002C52F /* StandardDeviation.swift in Sources */,
+				7E1A885E1E349F020053A0FA /* Skewness.swift in Sources */,
+				7E1A88611E349F070053A0FA /* StandardErrorOfTheMean.swift in Sources */,
 				7E8B27951DC36E180002C52F /* Covariance.swift in Sources */,
 				7E8B27981DC36E1B0002C52F /* Median.swift in Sources */,
 				7E8B27A31DC36E850002C52F /* Percentile.swift in Sources */,
 				7E11CD291DC3497D00FDEDB7 /* Normal.swift in Sources */,
+				7E1A885B1E349EFE0053A0FA /* Quantiles.swift in Sources */,
 				7EE9D0521C1CCAE900601982 /* Sigma.swift in Sources */,
+				7E1A88521E349EED0053A0FA /* CentralMoment.swift in Sources */,
+				7E1A88581E349EF50053A0FA /* Kurtosis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +671,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -612,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -679,8 +765,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -725,8 +813,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -745,6 +835,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -754,6 +845,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -780,6 +872,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -882,6 +975,7 @@
 		7EE9D04F1C1CCAC500601982 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -906,6 +1000,7 @@
 		7EE9D0501C1CCAC500601982 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
