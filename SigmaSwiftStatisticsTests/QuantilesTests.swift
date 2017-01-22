@@ -1,7 +1,69 @@
 import XCTest
 import SigmaSwiftStatistics
 
-class QuantilesTests: XCTestCase {
+class QuantilesTests: XCTestCase {  
+  // MARK: - method1
+  
+  func testQuantiles_method1() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0.125)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_method1_probabilityFiftyPercent() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0.5)
+    XCTAssertEqual(3, result)
+  }
+  
+  func testQuantiles_method1_probablityCloseToZero1() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0.166)
+    XCTAssertEqual(-5, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method1_probablityCloseToZero2() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0.167)
+    XCTAssertEqual(1, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method1_probablityZero() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0)
+    XCTAssertEqual(-5, result)
+  }
+  
+  func testQuantiles_method1_probablityCloseToOne1() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0.833)
+    XCTAssertEqual(12, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method1_probablityCloseToOne2() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 0.834)
+    XCTAssertEqual(19.5, Helpers.round10(result!))
+  }
+  
+  func testQuantiles_method1_probablityOne() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 1)
+    XCTAssertEqual(19.5, result)
+  }
+  
+  func testQuantiles_method1_oneValue() {
+    let result = Sigma.quantiles.method1([1.234], alpha: 0.44)
+    XCTAssertEqual(1.234, result)
+  }
+  
+  func testQuantiles_method1_empty() {
+    let result = Sigma.quantiles.method1([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method1_probabilityNegative() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method1_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method1([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
+    XCTAssertNil(result)
+  }
+  
   // MARK: - method2
   
   func testQuantiles_method2() {
@@ -51,6 +113,16 @@ class QuantilesTests: XCTestCase {
   
   func testQuantiles_method2_empty() {
     let result = Sigma.quantiles.method2([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method2_probabilityNegative() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method2_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method2([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
     XCTAssertNil(result)
   }
   
@@ -117,6 +189,16 @@ class QuantilesTests: XCTestCase {
     XCTAssertNil(result)
   }
   
+  func testQuantiles_method3_probabilityNegative() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method3_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method3([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
+    XCTAssertNil(result)
+  }
+  
   // MARK: - method4
   
   func testQuantiles_method4() {
@@ -156,6 +238,16 @@ class QuantilesTests: XCTestCase {
   
   func testQuantiles_method4_empty() {
     let result = Sigma.quantiles.method4([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method4_probabilityNegative() {
+    let result = Sigma.quantiles.method4([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method4_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method4([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
     XCTAssertNil(result)
   }
   
@@ -201,6 +293,17 @@ class QuantilesTests: XCTestCase {
     XCTAssertNil(result)
   }
   
+  func testQuantiles_method5_probabilityNegative() {
+    let result = Sigma.quantiles.method5([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method5_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method5([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
+    XCTAssertNil(result)
+  }
+  
+  
   // MARK: - method6
   
   func testQuantiles_method6() {
@@ -240,6 +343,16 @@ class QuantilesTests: XCTestCase {
   
   func testQuantiles_method6_empty() {
     let result = Sigma.quantiles.method6([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method6_probabilityNegative() {
+    let result = Sigma.quantiles.method6([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method6_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method6([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
     XCTAssertNil(result)
   }
   
@@ -286,6 +399,16 @@ class QuantilesTests: XCTestCase {
     XCTAssertNil(result)
   }
   
+  func testQuantiles_method7_probabilityNegative() {
+    let result = Sigma.quantiles.method7([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method7_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method7([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
+    XCTAssertNil(result)
+  }
+  
   // MARK: - method8
   
   func testQuantiles_method8() {
@@ -328,6 +451,16 @@ class QuantilesTests: XCTestCase {
     XCTAssertNil(result)
   }
   
+  func testQuantiles_method8_probabilityNegative() {
+    let result = Sigma.quantiles.method8([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method8_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method8([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
+    XCTAssertNil(result)
+  }
+  
   // MARK: - method9
   
   func testQuantiles_method9() {
@@ -367,6 +500,16 @@ class QuantilesTests: XCTestCase {
   
   func testQuantiles_method9_empty() {
     let result = Sigma.quantiles.method9([], alpha: 0.125)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method9_probabilityNegative() {
+    let result = Sigma.quantiles.method9([1, 12, 19.5, -5, 3, 8], alpha: -0.1)
+    XCTAssertNil(result)
+  }
+  
+  func testQuantiles_method9_probabilityGreaterThanOne() {
+    let result = Sigma.quantiles.method9([1, 12, 19.5, -5, 3, 8], alpha: 1.1)
     XCTAssertNil(result)
   }
 }

@@ -9,17 +9,15 @@ import Foundation
 
 public extension Sigma {
   /**
-  Contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. The nine functions correspond to the algorithms discussed in Hyndman and Fan paper, 1996:
+   
+  The class contains nine functions that calculate sample quantiles corresponding to the given probability. The implementation is the same as in R. The nine functions correspond to the algorithms discussed in Hyndman and Fan paper, 1996:
    
   https://www.jstor.org/stable/2684934
   https://www.amherst.edu/media/view/129116/original/Sample+Quantiles.pdf
    
-  Reference:
+  The function documentation was based on R and Wikipedia:
    
   https://en.wikipedia.org/wiki/Quantile
-
-  The function documentation was based on documenation from R:
-   
   http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html
 
   */
@@ -29,20 +27,22 @@ public extension Sigma {
 public class SigmaQuantiles {
   /*
   
-  The first sample quantile method from Hyndman and Fan paper, 1996. This calculates quantiles using the inverse of the empirical distribution function. γ = 0 if g = 0, and 1 otherwise.
+  The first sample quantile method from Hyndman and Fan paper (1996). This method calculates quantiles using the inverse of the empirical distribution function.
   
+  - parameter data: Array of decimal numbers.
+  - parameter alpha: the probability value between 0 and 1, inclusive.
+  - returns: sample quantile.
+   
   */
   public func method1(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
-    let count = data.count
-    let k = Int((alpha * Double(count)))
-    let g = (alpha * Double(count)) - Double(k)
+    let count = Double(data.count)
+    let k = Int((alpha * count))
+    let g = (alpha * count) - Double(k)
     var new_alpha = 1.0
-    if g == 0.0 {
-      new_alpha = 0.0
-    }
-    let Q = qDef(data, k: k, alpha: new_alpha)
-    return Q
+    if g == 0.0 { new_alpha = 0.0 }
+    return qDef(data, k: k, alpha: new_alpha)
   }
   
   /**
@@ -55,6 +55,7 @@ public class SigmaQuantiles {
    
   */
   public func method2(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let k = Int(alpha * count)
@@ -74,6 +75,7 @@ public class SigmaQuantiles {
    
   */
   public func method3(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = -0.5
@@ -94,6 +96,7 @@ public class SigmaQuantiles {
    
   */
   public func method4(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = 0.0
@@ -112,6 +115,7 @@ public class SigmaQuantiles {
 
   */
   public func method5(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = 0.5
@@ -130,6 +134,7 @@ public class SigmaQuantiles {
 
   */
   public func method6(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = alpha
@@ -148,6 +153,7 @@ public class SigmaQuantiles {
 
   */
   public func method7(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = 1.0 - alpha
@@ -166,6 +172,7 @@ public class SigmaQuantiles {
 
   */
   public func method8(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = (alpha + 1.0) / 3.0
@@ -184,6 +191,7 @@ public class SigmaQuantiles {
    
   */
   public func method9(_ data: [Double], alpha: Double) -> Double? {
+    if alpha < 0 || alpha > 1 { return nil }
     let data = data.sorted(by: <)
     let count = Double(data.count)
     let m = (0.25 * alpha) + (3.0 / 8.0)
