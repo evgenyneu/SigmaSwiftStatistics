@@ -1,6 +1,4 @@
 //
-//  CoefficientVariation.swift
-//
 //  Created by Alan James Salmoni on 21/12/2016.
 //  Copyright © 2016 Thought Into Design Ltd. All rights reserved.
 //
