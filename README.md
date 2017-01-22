@@ -445,7 +445,7 @@ Calculates the [Percentile value](https://en.wikipedia.org/wiki/Percentile) for 
  * Returns nil when the `values` array is empty.
  * Returns nil when supplied `percentile` parameter is negative or greater than 1.
  * Same as PERCENTILE or PERCENTILE.INC in Microsoft Excel and PERCENTILE in Google Docs Sheets.
- * Same as the 7th sample quantile method from the Hyndman and Fan paper (1996).
+ * Same as the 7th sample quantile method from the [Hyndman and Fan paper (1996)](https://www.jstor.org/stable/2684934).
 
 See the [Percentile method](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Percentile-1-method) documentation for more information.
 
