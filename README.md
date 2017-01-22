@@ -465,7 +465,7 @@ Collection of nine functions that calculate [sample quantiles](https://en.wikipe
 
   * Returns nil if the dataset is empty.
   * Returns nil if the probability is outside the [0, 1] range.
-  * Same as `quantile` method in R.
+  * Same as `quantile` function in R.
 
 
 #### Quantile method 1
