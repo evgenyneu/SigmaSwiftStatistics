@@ -12,9 +12,9 @@ import SigmaSwiftStatistics
 class ModeTests: XCTestCase {
   
   func testMode_normalList() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([1, 12, 9.5, 3, -5, 12]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (12, [1,5])
       XCTAssertEqual(12, mode_value)
@@ -26,9 +26,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_negativeList() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([-0.000001, -4, -5, -10, -1.43242, -0.0001]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (-0.000001, [0])
       XCTAssertEqual(-0.000001, mode_value)
@@ -40,9 +40,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_singleItemList() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([1]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (1, [0])
       XCTAssertEqual(1, mode_value)
@@ -54,9 +54,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_singleZeroItem() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([0]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (0, [0])
       XCTAssertEqual(0, mode_value)
@@ -78,9 +78,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_positiveNegativeList() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([-1, 12, -9.5, 3, -5, -12]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (12, [1])
       XCTAssertEqual(12, mode_value)
@@ -92,9 +92,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_allModes() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([12, 12, 12, 12, 12, 12, 12, 12, 12]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (12, [0,1,2,3,4,5,6,7,8])
       XCTAssertEqual(12, mode_value)
@@ -106,9 +106,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_allZeroModes() {
-    var mode_value: Double
-    var mode_indices: [Int]
     if let result = Sigma.mode([0, 0, 0, 0, 0, 0, 0, 0]) {
+      var mode_value: Double
+      var mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (0, [0,0,0,0,0,0,0,0])
       XCTAssertEqual(0, mode_value)
@@ -120,9 +120,9 @@ class ModeTests: XCTestCase {
   }
   
   func testMode_slightDifference() {
-    let mode_value: Double
-    let mode_indices: [Int]
     if let result = Sigma.mode([4, 7.7777777, 5, 6, -33, 7.777777, 0, 7.7777777]) {
+      let mode_value: Double
+      let mode_indices: [Int]
       (mode_value, mode_indices) = result
       // (7.7777777, [1,7])
       XCTAssertEqual(7.7777777, mode_value)
