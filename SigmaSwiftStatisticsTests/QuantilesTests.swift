@@ -23,9 +23,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 1)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7165671, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 1) {
+      XCTAssertEqualWithAccuracy(0.7165671, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -41,9 +43,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 2)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7175512, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 2) {
+      XCTAssertEqualWithAccuracy(0.7175512, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -59,9 +63,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 3)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7165671, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 3) {
+      XCTAssertEqualWithAccuracy(0.7165671, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -77,9 +83,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 4)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7165671, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 4) {
+      XCTAssertEqualWithAccuracy(0.7165671, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -95,9 +103,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 5)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7175512, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 5) {
+      XCTAssertEqualWithAccuracy(0.7175512, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -113,9 +123,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 6)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7181416, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 6) {
+      XCTAssertEqualWithAccuracy(0.7181416, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -131,9 +143,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 7)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7169607, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 7) {
+      XCTAssertEqualWithAccuracy(0.7169607, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -149,9 +163,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 8)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.717748, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 8) {
+      XCTAssertEqualWithAccuracy(0.717748, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
   
@@ -167,10 +183,11 @@ class QuantilesTests: XCTestCase {
                       0.61979169,  0.43286263,  0.42874006,  0.1784381 ,  0.51625026,
                       0.74231264,  0.34506245,  0.70310094,  0.09531878,  0.02909812]
     let alpha_value = 0.80
-    let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 9)
-    if result != nil {
-      XCTAssertEqualWithAccuracy(0.7176988, result!, accuracy: 0.0000001)
+    if let result = Sigma.quantile(data: data_array, alpha: alpha_value, qtype: 9) {
+      XCTAssertEqualWithAccuracy(0.7176988, result, accuracy: 0.0000001)
+    }
+    else {
+      XCTAssertNil(nil)
     }
   }
-  
 }
