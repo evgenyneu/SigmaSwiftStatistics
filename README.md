@@ -236,7 +236,7 @@ Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of nu
 #### Formula
 
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_a.png' width='480' alt='Kurtosis formula'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/master/Graphics/formulas/kurtosis_a.png' width='480' alt='Kurtosis formula'>
 
 
 ```Swift
@@ -260,7 +260,7 @@ Returns the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis) of a series of nu
 #### Formula
 
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/kurtosis_b.png' width='550' alt='Kurtosis formula'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/master/Graphics/formulas/kurtosis_b.png' width='550' alt='Kurtosis formula'>
 
 
 ```Swift
@@ -562,7 +562,7 @@ Returns the [skewness](https://en.wikipedia.org/wiki/Skewness) of the dataset.
 #### Formula
 
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/skewness_a.png' width='450' alt='Skewness formula'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/master/Graphics/formulas/skewness_a.png' width='450' alt='Skewness formula'>
 
 
 ```Swift
@@ -585,7 +585,7 @@ Returns the [skewness](https://en.wikipedia.org/wiki/Skewness) of the dataset.
 #### Formula
 
 
-<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/salmoni-master/Graphics/formulas/skewness_b.png' width='450' alt='Skewness formula'>
+<img src='https://github.com/evgenyneu/SigmaSwiftStatistics/raw/master/Graphics/formulas/skewness_b.png' width='450' alt='Skewness formula'>
 
 
 ```Swift
