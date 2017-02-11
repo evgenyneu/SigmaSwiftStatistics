@@ -687,6 +687,7 @@ Returns an unsorted array containing all values that occur within the input arra
 ```Swift
 Sigma.uniqueValues([2, 1, 3, 4, 5, 4, 3, 5])
 // Result: [2, 3, 4, 5, 1]
+```
 
 
 ### Variance of a population
