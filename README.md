@@ -33,6 +33,7 @@ This library is a collection of functions that perform statistical calculations 
 * [standardDeviationSample](#standard-deviation-of-a-sample)
 * [standardErrorOfTheMean](#standard-error-of-the-mean)
 * [sum](#sum)
+* [uniqueValues](#unique-values)
 * [variancePopulation](#variance-of-a-population)
 * [varianceSample](#variance-of-a-sample)
 
@@ -678,29 +679,14 @@ Sigma.sum([1, 3, 8])
 ```
 
 
+### Unique values
 
-### Variance of a sample
+Returns an unsorted array containing all values that occur within the input array without the duplicates.
 
-Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
-
-**Note**:
-
-  * Returns nil when the array is empty or contains a single value.
-  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
-
-#### Formula
-
->  s^2 = Σ( (x - m)^2 ) / (n - 1)
-
-Where:
-
-  * *m* is the sample mean.
-  * *n* is the sample size.
 
 ```Swift
-Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
-// Result: 75.24166667
-```
+Sigma.uniqueValues([2, 1, 3, 4, 5, 4, 3, 5])
+// Result: [2, 3, 4, 5, 1]
 
 
 ### Variance of a population
@@ -725,6 +711,31 @@ Where:
 Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8])
 // Result: 62.70138889
 ```
+
+
+### Variance of a sample
+
+Computes [variance](http://en.wikipedia.org/wiki/Variance) based on a sample.
+
+**Note**:
+
+  * Returns nil when the array is empty or contains a single value.
+  * Same as VAR, VAR.S or VARA in Microsoft Excel and VAR or VARA in Google Docs Sheets.
+
+#### Formula
+
+>  s^2 = Σ( (x - m)^2 ) / (n - 1)
+
+Where:
+
+  * *m* is the sample mean.
+  * *n* is the sample size.
+
+```Swift
+Sigma.varianceSample([1, 12, 19.5, -5, 3, 8])
+// Result: 75.24166667
+```
+
 
 
 
