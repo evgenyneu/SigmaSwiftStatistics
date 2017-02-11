@@ -9,25 +9,21 @@
 import Foundation
 
 public extension Sigma {
-  
-  /*
-   This returns a list of the values within a vector without regard to frequency
-   
-   Parameter values:
-   - Array of doubles to be analysed
-   
-   Return values:
-   - An unsorted array containing all values that occur within the parameter array. All duplicates are returned as a single value
-   
-   Example:
-   Sigma.uniqueValues([1,2,3,4,5,4,3,5]) // [1,2,3,4,5]
-   
-   */
-  
-  public static func uniqueValues(values: [Double]) -> [Double]? {
-    let count = Double(values.count)
-    if count == 0 { return nil }
-    let unique = Array(Set(values))
-    return unique
+
+  /**
+
+  Returns an unsorted array containing all values that occur within the input array without the duplicates.
+
+  - parameter values: Array of numbers.
+
+  - returns: An unsorted array containing all values that occur within the input array without the duplicates.
+
+  Example:
+
+      Sigma.uniqueValues([2, 1, 3, 4, 5, 4, 3, 5]) // [2, 3, 4, 5, 1]
+
+  */
+  public static func uniqueValues(_ values: [Double]) -> [Double] {
+    return Array(Set(values))
   }
 }
