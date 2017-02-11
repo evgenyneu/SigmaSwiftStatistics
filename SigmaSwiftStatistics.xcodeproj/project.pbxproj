@@ -86,11 +86,11 @@
 		7EDBA4C91E4EBF8100AE4806 /* Frequencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4C61E4EBF7C00AE4806 /* Frequencies.swift */; };
 		7EDBA4CA1E4EBF8200AE4806 /* Frequencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4C61E4EBF7C00AE4806 /* Frequencies.swift */; };
 		7EDBA4CC1E4EBF8D00AE4806 /* FrequenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CB1E4EBF8D00AE4806 /* FrequenciesTests.swift */; };
-		7EDBA4CE1E4EC5ED00AE4806 /* Ranks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Ranks.swift */; };
-		7EDBA4CF1E4EC61400AE4806 /* Ranks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Ranks.swift */; };
-		7EDBA4D01E4EC61400AE4806 /* Ranks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Ranks.swift */; };
-		7EDBA4D11E4EC61500AE4806 /* Ranks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Ranks.swift */; };
-		7EDBA4D31E4EC62600AE4806 /* RanksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4D21E4EC62600AE4806 /* RanksTests.swift */; };
+		7EDBA4CE1E4EC5ED00AE4806 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Rank.swift */; };
+		7EDBA4CF1E4EC61400AE4806 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Rank.swift */; };
+		7EDBA4D01E4EC61400AE4806 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Rank.swift */; };
+		7EDBA4D11E4EC61500AE4806 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4CD1E4EC5ED00AE4806 /* Rank.swift */; };
+		7EDBA4D31E4EC62600AE4806 /* RankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4D21E4EC62600AE4806 /* RankTests.swift */; };
 		7EE9D04D1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9D0521C1CCAE900601982 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
@@ -152,8 +152,8 @@
 		7EDBA4C11E4EB8C800AE4806 /* UniqueValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueValuesTests.swift; sourceTree = "<group>"; };
 		7EDBA4C61E4EBF7C00AE4806 /* Frequencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequencies.swift; sourceTree = "<group>"; };
 		7EDBA4CB1E4EBF8D00AE4806 /* FrequenciesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequenciesTests.swift; sourceTree = "<group>"; };
-		7EDBA4CD1E4EC5ED00AE4806 /* Ranks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranks.swift; sourceTree = "<group>"; };
-		7EDBA4D21E4EC62600AE4806 /* RanksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RanksTests.swift; sourceTree = "<group>"; };
+		7EDBA4CD1E4EC5ED00AE4806 /* Rank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		7EDBA4D21E4EC62600AE4806 /* RankTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTests.swift; sourceTree = "<group>"; };
 		7EE9D04A1C1CCAC500601982 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-tvOS.h"; sourceTree = "<group>"; };
 		7EE9D04E1C1CCAC500601982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				7E8B27A41DC36E920002C52F /* Pearson.swift */,
 				7E8B279F1DC36E420002C52F /* Percentile.swift */,
 				E7B9FED31E10713700520306 /* Quantiles.swift */,
-				7EDBA4CD1E4EC5ED00AE4806 /* Ranks.swift */,
+				7EDBA4CD1E4EC5ED00AE4806 /* Rank.swift */,
 				7E568F8C1B19667B007862B3 /* Sigma.swift */,
 				E7B9FED41E10713700520306 /* Skewness.swift */,
 				7E8B278F1DC36D150002C52F /* StandardDeviation.swift */,
@@ -252,7 +252,7 @@
 				7E8B27AB1DC36F7A0002C52F /* MedianTests.swift */,
 				7E11CD2A1DC34D9F00FDEDB7 /* NormalTests.swift */,
 				7E8B27AD1DC36FB80002C52F /* PearsonTests.swift */,
-				7EDBA4D21E4EC62600AE4806 /* RanksTests.swift */,
+				7EDBA4D21E4EC62600AE4806 /* RankTests.swift */,
 				7E568F921B19667B007862B3 /* SigmaTests.swift */,
 				7E4618251E1A31E5007207DE /* SkewnessTests.swift */,
 				7E28E4321CBF4930004BE3D5 /* PercentileTests.swift */,
@@ -590,7 +590,7 @@
 				7EDBA4C91E4EBF8100AE4806 /* Frequencies.swift in Sources */,
 				7E8B27941DC36E180002C52F /* Covariance.swift in Sources */,
 				7E8B27971DC36E1B0002C52F /* Median.swift in Sources */,
-				7EDBA4D01E4EC61400AE4806 /* Ranks.swift in Sources */,
+				7EDBA4D01E4EC61400AE4806 /* Rank.swift in Sources */,
 				7E8B27A21DC36E850002C52F /* Percentile.swift in Sources */,
 				7E11CD281DC3497C00FDEDB7 /* Normal.swift in Sources */,
 				7E1A885A1E349EFD0053A0FA /* Quantiles.swift in Sources */,
@@ -614,7 +614,7 @@
 				7EDBA4C71E4EBF7C00AE4806 /* Frequencies.swift in Sources */,
 				E7B9FED91E10713700520306 /* Skewness.swift in Sources */,
 				E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */,
-				7EDBA4CE1E4EC5ED00AE4806 /* Ranks.swift in Sources */,
+				7EDBA4CE1E4EC5ED00AE4806 /* Rank.swift in Sources */,
 				E7B9FED81E10713700520306 /* Quantiles.swift in Sources */,
 				7E8B278E1DC36CC30002C52F /* Covariance.swift in Sources */,
 				7E8B278C1DC36BD40002C52F /* Median.swift in Sources */,
@@ -636,7 +636,7 @@
 				7E8B27AC1DC36F7A0002C52F /* MedianTests.swift in Sources */,
 				7E4618241E1A308E007207DE /* CentralMomentTests.swift in Sources */,
 				7E4618261E1A31E5007207DE /* SkewnessTests.swift in Sources */,
-				7EDBA4D31E4EC62600AE4806 /* RanksTests.swift in Sources */,
+				7EDBA4D31E4EC62600AE4806 /* RankTests.swift in Sources */,
 				7E568F9A1B196729007862B3 /* TestHelpers.swift in Sources */,
 				7E11CD2B1DC34D9F00FDEDB7 /* NormalTests.swift in Sources */,
 				7EC2DCA31E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift in Sources */,
@@ -663,7 +663,7 @@
 				7EDBA4C81E4EBF8100AE4806 /* Frequencies.swift in Sources */,
 				7E8B27931DC36E170002C52F /* Covariance.swift in Sources */,
 				7E8B27961DC36E1A0002C52F /* Median.swift in Sources */,
-				7EDBA4CF1E4EC61400AE4806 /* Ranks.swift in Sources */,
+				7EDBA4CF1E4EC61400AE4806 /* Rank.swift in Sources */,
 				7E8B27A11DC36E840002C52F /* Percentile.swift in Sources */,
 				7E11CD271DC3497C00FDEDB7 /* Normal.swift in Sources */,
 				7E1A88591E349EFC0053A0FA /* Quantiles.swift in Sources */,
@@ -687,7 +687,7 @@
 				7EDBA4CA1E4EBF8200AE4806 /* Frequencies.swift in Sources */,
 				7E8B27951DC36E180002C52F /* Covariance.swift in Sources */,
 				7E8B27981DC36E1B0002C52F /* Median.swift in Sources */,
-				7EDBA4D11E4EC61500AE4806 /* Ranks.swift in Sources */,
+				7EDBA4D11E4EC61500AE4806 /* Rank.swift in Sources */,
 				7E8B27A31DC36E850002C52F /* Percentile.swift in Sources */,
 				7E11CD291DC3497D00FDEDB7 /* Normal.swift in Sources */,
 				7E1A885B1E349EFE0053A0FA /* Quantiles.swift in Sources */,

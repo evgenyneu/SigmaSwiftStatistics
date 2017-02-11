@@ -977,7 +977,7 @@ public class SigmaQuantiles {
 
 // ----------------------------
 //
-// Ranks.swift
+// Rank.swift
 //
 // ----------------------------
 
@@ -992,44 +992,79 @@ public class SigmaQuantiles {
 import Foundation
 
 public extension Sigma {
+
+  /// Determines how the ranks for the equal values ('ties') are calculated.
+  public enum RankTieMethod {
+    /**
+
+    Calculates the average rank:
+
+        Sigma.average([100, 100, 100, 100], ties: .average) // [2.5, 2.5, 2.5, 2.5]
+
+    */
+    case average
+
+    /**
+
+    Uses the mininum rank:
+
+        Sigma.rank([100, 100, 100, 100], ties: .min) // [1, 1, 1, 1]
+
+    */
+    case min
+
+    /**
+
+    Uses the maximum rank:
+
+        Sigma.rank([100, 100, 100, 100], ties: .max) // [4, 4, 4, 4]
+
+    */
+    case max
+
+    /**
+
+    Ranks are incremented:
+
+        Sigma.rank([100, 100, 100, 100], ties: .first) // [1, 2, 3, 4]
+
+    */
+    case first
+
+    /**
+
+    Ranks are decremented:
+
+        Sigma.rank([100, 100, 100, 100], ties: .last) // [4, 3, 2, 1]
+
+    */
+    case last
+  }
   
-  /*
-   this ranks a vector (single dimensional array) of floats.
+  /**
    
-   Parameter values:
-   - Array of doubles to be ranked
-   - Start value for ranking (defaults to 1)
-   - How to deal with ties. Defaults to "mean"
-   - "mean" uses the arithmetic mean,
-   - "max" uses the maximum possible rank for all ties
-   - "min" uses the minimum rank for all ties
-   - "first" awards a descending rank starting so first occurence gets the highest rank down to the last
-   - "last" awards an ascending rank starting so the last occurance gets the highest rank down to the first
-   
-   Returns:
-   - Array of floats with the rank of each item
-   
-   Examples:
-   Sigma.rank([2,3,6,5,3]) // [1.0, 2.5, 5.0, 4.0, 2.5]
-   Sigma.rank([100,100,100,100], start: 10) // [11.5, 11.5, 11.5, 11.5]
-   Sigma.rank([100,100,100,100], ties: "max") // [1.0, 1.0, 1.0, 1.0]
-   Sigma.rank([100,100,100,100], ties: "min") // [4.0, 4.0, 4.0, 4.0]
-   Sigma.rank([100,100,100,100], ties: "first") // [1.0, 2.0, 3.0, 4.0]
-   Sigma.rank([100,100,100,100], ties: "last") // [4.0, 3.0, 2.0, 1.0]
-   
-   */
-  
-  public static func rank(_ values: [Double], start: Double = 1.0, ties: String = "mean") -> [Double] {
+  Returns the ranks of the values in the array.
+
+  - parameter values: Array of decimal numbers.
+
+  - parameter ties: determines how the ranks for the equal values ('ties') are calculated. Default: .average.
+
+  - returns: Returns the ranks of the values in the array.
+
+  Examples:
+
+      Sigma.rank([2, 3, 6, 5, 3]) // [1.0, 2.5, 5.0, 4.0, 2.5]
+
+  */
+  public static func rank(_ values: [Double], ties: RankTieMethod = .average) -> [Double] {
     var rank: Double
+    let start = 1.0
     
-    if ties == "mean" {
+    switch ties {
+    case .average:
       rank = start - 0.5
-    }
-    else if ties == "max" || ties == "min" || ties == "first" || ties == "last" {
+    default:
       rank = start - 1.0
-    }
-    else {
-      return []
     }
     
     var increment: Double
@@ -1038,26 +1073,23 @@ public extension Sigma {
     
     var ranks = [Double](repeating: 0, count: values.count)
     
-    for (value, frequency) in frequencies {
-      increment = Double(frequency)
+    for value in frequencies.keys.sorted() {
+      increment = Double(frequencies[value] ?? 1)
       tiny_increment = 1.0
       
       for idx in 0...(values.count - 1) {
         if value == values[idx] {
-          if ties == "mean" {
+          switch ties {
+          case .average:
             ranks[idx] = rank + (increment / 2.0)
-          }
-          else if ties == "min" {
+          case .min:
             ranks[idx] = rank + 1
-          }
-          else if ties == "max" {
+          case .max:
             ranks[idx] = rank + increment
-          }
-          else if ties == "first" {
+          case .first:
             ranks[idx] = rank + tiny_increment
             tiny_increment += 1
-          }
-          else if ties == "last" {
+          case .last:
             ranks[idx] = rank + increment - tiny_increment + 1.0
             tiny_increment += 1
           }
