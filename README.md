@@ -28,6 +28,7 @@ This library is a collection of functions that perform statistical calculations 
 * [pearson](#pearson-correlation-coefficient)
 * [percentile](#percentile)
 * [quantiles](#quantiles)
+* [rank](#rank)
 * [skewnessA](#skewness-a)
 * [skewnessB](#skewness-b)
 * [standardDeviationPopulation](#standard-deviation-of-a-population)
@@ -558,6 +559,30 @@ The quantiles returned by this method are approximately unbiased for the expecte
 Sigma.quantiles.method9([1, 12, 19.5, -5, 3, 8], probability: 0.10001)
 // Result: -4.999625
 ```
+
+
+### Rank
+
+Returns the [ranks](https://en.wikipedia.org/wiki/Ranking) of the values in the dataset.
+
+**Note**:
+
+  * Receives an optional `ties` parameter that determines how the ranks for the equal values ('ties') are calculated. Default value is `.average`. Possible values:
+
+    * `.average`: uses the average rank. Same as RANK.AVG in Microsoft Excel and Google Docs Sheets.
+
+    * `.min`, `.max`: uses the minimum/maximum rank. Same as RANK and RANK.EQ in Microsoft Excel and Google Docs Sheets.
+
+    * `.first`, `.last`: the ranks incremented/decremented.
+
+  * Same as rank function in R.
+
+
+```Swift
+Sigma.rank([2, 3, 6, 5, 3], ties: .average)
+// [1.0, 2.5, 5.0, 4.0, 2.5]
+```
+
 
 
 ### Skewness A
