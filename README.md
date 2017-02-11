@@ -571,7 +571,7 @@ Returns the [ranks](https://en.wikipedia.org/wiki/Ranking) of the values in the 
 
     * `.average`: uses the average rank. Same as RANK.AVG in Microsoft Excel and Google Docs Sheets.
 
-    * `.min`, `.max`: uses the minimum/maximum rank. Same as RANK and RANK.EQ in Microsoft Excel and Google Docs Sheets.
+    * `.min`, `.max`: uses the minimum/maximum rank. The value `.min` is the same as RANK and RANK.EQ in Microsoft Excel and Google Docs Sheets.
 
     * `.first`, `.last`: the ranks incremented/decremented.
 
