@@ -578,7 +578,7 @@ Returns the [ranks](https://en.wikipedia.org/wiki/Ranking) of the values in the 
 
 ```Swift
 Sigma.rank([2, 3, 6, 5, 3], ties: .average)
-// [1.0, 2.5, 5.0, 4.0, 2.5]
+// Result: [1.0, 2.5, 5.0, 4.0, 2.5]
 ```
 
 
