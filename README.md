@@ -570,10 +570,8 @@ Returns the [ranks](https://en.wikipedia.org/wiki/Ranking) of the values in the 
   * Receives an optional `ties` parameter that determines how the ranks for the equal values ('ties') are calculated. Default value is `.average`. Possible values:
 
     * `.average`: uses the average rank. Same as RANK.AVG in Microsoft Excel and Google Docs Sheets.
-
     * `.min`, `.max`: uses the minimum/maximum rank. The value `.min` is the same as RANK and RANK.EQ in Microsoft Excel and Google Docs Sheets.
-
-    * `.first`, `.last`: the ranks incremented/decremented.
+    * `.first`, `.last`: the ranks are incremented/decremented.
 
   * Same as rank function in R.
 
