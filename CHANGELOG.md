@@ -1,5 +1,11 @@
 # SigmaSwiftStatistics version history
 
+
+## 5.0.1 (2017-02-11)
+
+* Added `uniqueValues` function.
+
+
 ## 5.0.0 (2017-01-22)
 
 * Added `centralMoment`, `coefficientOfVariationSample`, `kurtosisA`, `kurtosisB`, `Sigma.quantiles`, `skewnessA`, `skewnessB` and `standardErrorOfTheMean`  functions.

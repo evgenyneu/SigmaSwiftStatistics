@@ -76,6 +76,11 @@
 		7EC48C961B636824002F3278 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		7ED2A7E51E29CD40007B7888 /* Kurtosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */; };
 		7ED2A7E71E29CD6C007B7888 /* KurtosisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A7E61E29CD6C007B7888 /* KurtosisTests.swift */; };
+		7EDBA4C01E4EB8BB00AE4806 /* UniqueValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4BF1E4EB8BB00AE4806 /* UniqueValues.swift */; };
+		7EDBA4C21E4EB8C800AE4806 /* UniqueValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4C11E4EB8C800AE4806 /* UniqueValuesTests.swift */; };
+		7EDBA4C31E4EB8CF00AE4806 /* UniqueValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4BF1E4EB8BB00AE4806 /* UniqueValues.swift */; };
+		7EDBA4C41E4EB8CF00AE4806 /* UniqueValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4BF1E4EB8BB00AE4806 /* UniqueValues.swift */; };
+		7EDBA4C51E4EB8D000AE4806 /* UniqueValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDBA4BF1E4EB8BB00AE4806 /* UniqueValues.swift */; };
 		7EE9D04D1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9D0521C1CCAE900601982 /* Sigma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E568F8C1B19667B007862B3 /* Sigma.swift */; };
 		E7B9FED61E10713700520306 /* CoefficientVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9FED11E10713700520306 /* CoefficientVariation.swift */; };
@@ -133,6 +138,8 @@
 		7EC48C811B63673C002F3278 /* SigmaSwiftStatistics-Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-Mac.h"; sourceTree = "<group>"; };
 		7ED2A7E41E29CD40007B7888 /* Kurtosis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kurtosis.swift; sourceTree = "<group>"; };
 		7ED2A7E61E29CD6C007B7888 /* KurtosisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KurtosisTests.swift; sourceTree = "<group>"; };
+		7EDBA4BF1E4EB8BB00AE4806 /* UniqueValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueValues.swift; sourceTree = "<group>"; };
+		7EDBA4C11E4EB8C800AE4806 /* UniqueValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueValuesTests.swift; sourceTree = "<group>"; };
 		7EE9D04A1C1CCAC500601982 /* SigmaSwiftStatistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SigmaSwiftStatistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE9D04C1C1CCAC500601982 /* SigmaSwiftStatistics-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SigmaSwiftStatistics-tvOS.h"; sourceTree = "<group>"; };
 		7EE9D04E1C1CCAC500601982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +216,7 @@
 				E7B9FED41E10713700520306 /* Skewness.swift */,
 				7E8B278F1DC36D150002C52F /* StandardDeviation.swift */,
 				E7B9FED51E10713700520306 /* StandardErrorOfTheMean.swift */,
+				7EDBA4BF1E4EB8BB00AE4806 /* UniqueValues.swift */,
 				7E8B27911DC36DD60002C52F /* Variance.swift */,
 				7E568F8D1B19667B007862B3 /* SwiftStatistics.h */,
 			);
@@ -233,6 +241,7 @@
 				7E1A884E1E346A300053A0FA /* QuantilesTests.swift */,
 				7E559AB01DC3703600BFE45D /* StandardDeviationTests.swift */,
 				7EC2DCA21E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift */,
+				7EDBA4C11E4EB8C800AE4806 /* UniqueValuesTests.swift */,
 				7E559AB21DC3708800BFE45D /* VarianceTests.swift */,
 			);
 			path = SigmaSwiftStatisticsTests;
@@ -568,6 +577,7 @@
 				7E1F466D1BAE886A001E2164 /* Sigma.swift in Sources */,
 				7E1A88511E349EEC0053A0FA /* CentralMoment.swift in Sources */,
 				7E1A88571E349EF40053A0FA /* Kurtosis.swift in Sources */,
+				7EDBA4C41E4EB8CF00AE4806 /* UniqueValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +599,7 @@
 				7E8B27A01DC36E420002C52F /* Percentile.swift in Sources */,
 				7E11CD261DC3496300FDEDB7 /* Normal.swift in Sources */,
 				7E568F941B19667B007862B3 /* Sigma.swift in Sources */,
+				7EDBA4C01E4EB8BB00AE4806 /* UniqueValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +619,7 @@
 				7EC2DCA31E2CA062003A58CB /* StandardErrorOfTheMeanTests.swift in Sources */,
 				7E8B27AA1DC36EE10002C52F /* CovarianceTests.swift in Sources */,
 				7E1A884F1E346A300053A0FA /* QuantilesTests.swift in Sources */,
+				7EDBA4C21E4EB8C800AE4806 /* UniqueValuesTests.swift in Sources */,
 				7E559AB31DC3708800BFE45D /* VarianceTests.swift in Sources */,
 				7E559AB11DC3703600BFE45D /* StandardDeviationTests.swift in Sources */,
 				7E28E4331CBF4930004BE3D5 /* PercentileTests.swift in Sources */,
@@ -632,6 +644,7 @@
 				7EC48C961B636824002F3278 /* Sigma.swift in Sources */,
 				7E1A88501E349EEB0053A0FA /* CentralMoment.swift in Sources */,
 				7E1A88561E349EF40053A0FA /* Kurtosis.swift in Sources */,
+				7EDBA4C31E4EB8CF00AE4806 /* UniqueValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +666,7 @@
 				7EE9D0521C1CCAE900601982 /* Sigma.swift in Sources */,
 				7E1A88521E349EED0053A0FA /* CentralMoment.swift in Sources */,
 				7E1A88581E349EF50053A0FA /* Kurtosis.swift in Sources */,
+				7EDBA4C51E4EB8D000AE4806 /* UniqueValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
