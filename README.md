@@ -14,6 +14,7 @@ This library is a collection of functions that perform statistical calculations 
 * [covariancePopulation](#covariance-of-a-population)
 * [covarianceSample](#covariance-of-a-sample)
 * [coefficientOfVariationSample](#coefficient-of-variation-of-a-sample)
+* [frequencies](#frequencies)
 * [kurtosisA](#kurtosis-a)
 * [kurtosisB](#kurtosis-b)
 * [max](#max)
@@ -222,6 +223,15 @@ Sigma.coefficientOfVariationSample([1, 12, 19.5, -5, 3, 8])
 ```
 
 
+### Frequencies
+
+Returns a dictionary with the keys containing the numbers from the input array and the values corresponding to the frequencies of those numbers.
+
+
+```Swift
+Sigma.frequencies([1, 2, 3, 4, 5, 4, 4, 3, 5])
+// Result: [2:1, 3:2, 4:3, 5:2, 1:1]
+```
 
 
 ### Kurtosis A

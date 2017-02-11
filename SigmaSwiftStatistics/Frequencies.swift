@@ -9,37 +9,27 @@
 import Foundation
 
 public extension Sigma {
-  
-  public static func frequencies(values: [Double]) -> ([Double], [Int])? {
-    /*
-     This returns two lists from an array, the first containing the unique values and the second containing how often each value occurs.
-     
-     Parameter values:
-     - Array of doubles to be analysed
-     
-     Return values:
-     - Two arrays as a tuple:
-     - An array containing all the values that occur within the parameter's array (see uniqueValues)
-     - An array containing how often each value occurs in the parameter's array
-     
-     Example:
-     Sigma.frequencies([1,2,3,4,5,4,3,5]) // ([1,2,3,4,5], [1, 1, 2, 2, 2])
-     
-     Would this be better returned as a dictionary with each unique value a key and the frequency the value?
-     
-     */
-    let count = values.count
-    if count == 0 { return nil }
-    let unique_vals = Sigma.uniqueValues(values: values)!.sorted(by: <)
-    let count_uniques = unique_vals.count
-    var frequencies = [Int](repeating: 0, count: count_uniques)
-    for (idx_uniques, unique_val) in unique_vals.enumerated() {
-      for datum in values {
-        if unique_val == datum {
-          frequencies[idx_uniques] += 1
-        }
-      }
+  /*
+
+  Returns a dictionary with the keys containing the numbers from the input array and the values corresponding to the frequencies of those numbers.
+
+  - parameter values: Array of decimal numbers.
+
+  - returns: dictionary with the keys containing numbers from the input array and the values corresponding to the frequency of those numbers.
+
+
+  Example:
+
+      Sigma.frequencies([1, 2, 3, 4, 5, 4, 4, 3, 5]) // [2:1, 3:2, 4:3, 5:2, 1:1]
+
+  */
+  public static func frequencies(_ values: [Double]) -> ([Double: Int]) {
+    var counts: [Double: Int] = [:]
+
+    for item in values {
+      counts[item] = (counts[item] ?? 0) + 1
     }
-    return (unique_vals, frequencies)
+
+    return counts
   }
 }
