@@ -1068,30 +1068,30 @@ public extension Sigma {
     }
     
     var increment: Double
-    var tiny_increment: Double
+    var tinyIncrement: Double
     let frequencies =  Sigma.frequencies(values)
     
     var ranks = [Double](repeating: 0, count: values.count)
     
     for value in frequencies.keys.sorted() {
       increment = Double(frequencies[value] ?? 1)
-      tiny_increment = 1.0
+      tinyIncrement = 1.0
       
-      for idx in 0...(values.count - 1) {
-        if value == values[idx] {
+      for index in 0...(values.count - 1) {
+        if value == values[index] {
           switch ties {
           case .average:
-            ranks[idx] = rank + (increment / 2.0)
+            ranks[index] = rank + (increment / 2.0)
           case .min:
-            ranks[idx] = rank + 1
+            ranks[index] = rank + 1
           case .max:
-            ranks[idx] = rank + increment
+            ranks[index] = rank + increment
           case .first:
-            ranks[idx] = rank + tiny_increment
-            tiny_increment += 1
+            ranks[index] = rank + tinyIncrement
+            tinyIncrement += 1
           case .last:
-            ranks[idx] = rank + increment - tiny_increment + 1.0
-            tiny_increment += 1
+            ranks[index] = rank + increment - tinyIncrement + 1.0
+            tinyIncrement += 1
           }
         }
       }
