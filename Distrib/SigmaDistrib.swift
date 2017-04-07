@@ -475,7 +475,7 @@ public extension Sigma {
   public static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
     if σ <= 0 { return nil }
     let z = (x - μ) / σ
-    return  0.5 * erfc(-z * M_SQRT1_2)
+    return  0.5 * erfc(-z * 0.5.squareRoot())
   }
   
   /**
@@ -512,7 +512,7 @@ public extension Sigma {
   */
   public static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {
     if σ <= 0 { return nil }
-    return (1 / sqrt(2 * pow(σ,2) * M_PI)) * pow(M_E, (-( pow(x - μ, 2) / (2 * pow(σ, 2)) )))
+    return (1 / sqrt(2 * pow(σ,2) * Double.pi)) * pow(M_E, (-( pow(x - μ, 2) / (2 * pow(σ, 2)) )))
   }
   
   /**

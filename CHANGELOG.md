@@ -1,5 +1,9 @@
 # SigmaSwiftStatistics version history
 
+## 6.0.0 (2017-04-08)
+
+* Updated to Swift 3.1.
+
 
 ## 5.0.1 (2017-02-11)
 
