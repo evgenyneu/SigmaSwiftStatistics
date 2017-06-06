@@ -39,7 +39,7 @@ This library is a collection of functions that perform statistical calculations 
 
 <img src='https://raw.githubusercontent.com/evgenyneu/SwiftStatistics/master/Graphics/logo.png' width='256' alt='Statistical library for Swift'>
 
-## Setup (Swift 3.0)
+## Setup
 
 There are four ways you can add Sigma to your project.
 
@@ -76,6 +76,15 @@ let package = Package(
     ]
 )
 ```
+
+
+#### Swift 4.0 / Xcode 9.0 beta version
+
+*Branch:* swift-4.0
+
+* *File:* [SigmaSwiftStatistics.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/swift-4.0/Distrib/SigmaDistrib.swift)
+* *Carthage:* `github "evgenyneu/SigmaSwiftStatistics" "swift-4.0"`
+* *CocoaPods:* `pod 'SigmaSwiftStatistics', git: 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', branch: 'swift-4.0'`
 
 
 ### Legacy Swift versions
