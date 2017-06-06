@@ -86,6 +86,15 @@ let package = Package(
 * *CocoaPods:* `pod 'SigmaSwiftStatistics', git: 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', branch: 'swift-4.0'`
 
 
+#### Swift 4.0 / Xcode 9.0 beta version
+
+*Branch:* swift-4.0
+
+* *File:* [SigmaSwiftStatistics.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/swift-4.0/Distrib/SigmaDistrib.swift)
+* *Carthage:* `github "evgenyneu/SigmaSwiftStatistics" "swift-4.0"`
+* *CocoaPods:* `pod 'SigmaSwiftStatistics', git: 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', branch: 'swift-4.0'`
+
+
 ### Legacy Swift versions
 
 Setup a [previous version](https://github.com/evgenyneu/SigmaSwiftStatistics/wiki/Legacy-Swift-versions) of the library if you use an older version of Swift.
