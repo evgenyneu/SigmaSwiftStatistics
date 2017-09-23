@@ -49,7 +49,7 @@ Simply add [SigmaDistrib.swift](https://github.com/evgenyneu/SigmaSwiftStatistic
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 6.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 7.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -57,7 +57,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 6.0'
+    pod 'SigmaSwiftStatistics', '~> 7.0'
 
 
 #### Setup with Swift Package Manager
@@ -72,18 +72,11 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(6,0,0)..<Version(7,0,0))
+                 versions: Version(7,0,0)..<Version(8,0,0))
     ]
 )
 ```
 
-#### Swift 4.0 / Xcode 9.0 beta version
-
-*Branch:* swift-4.0
-
-* *File:* [SigmaSwiftStatistics.swift](https://github.com/evgenyneu/SigmaSwiftStatistics/blob/swift-4.0/Distrib/SigmaDistrib.swift)
-* *Carthage:* `github "evgenyneu/SigmaSwiftStatistics" "swift-4.0"`
-* *CocoaPods:* `pod 'SigmaSwiftStatistics', git: 'https://github.com/evgenyneu/SigmaSwiftStatistics.git', branch: 'swift-4.0'`
 
 
 ### Legacy Swift versions
