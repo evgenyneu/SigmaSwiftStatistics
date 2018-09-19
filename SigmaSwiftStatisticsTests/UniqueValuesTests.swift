@@ -14,7 +14,7 @@ class UniqueValuesTests: XCTestCase {
   
   func testUniqueValues_arrayPositive() {
     let result = Sigma.uniqueValues([2, 1, 3, 4, 5, 4, 3, 5])
-    XCTAssertEqual([2, 3, 4, 5, 1], result)
+    XCTAssertEqual([1, 2, 3, 4, 5], result.sorted())
   }
   
   func testUniqueValues_arrayNegative() {
