@@ -19,7 +19,7 @@ public extension Sigma {
   http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html
 
   */
-  public static let quantiles = SigmaQuantiles()
+  static let quantiles = SigmaQuantiles()
 }
 
 public class SigmaQuantiles {

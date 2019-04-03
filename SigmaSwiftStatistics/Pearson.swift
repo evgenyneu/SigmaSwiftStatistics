@@ -28,7 +28,7 @@ public extension Sigma {
       Sigma.pearson(x: x, y: y) // 0.843760859352745
 
   */
-  public static func pearson(x: [Double], y: [Double]) -> Double? {
+  static func pearson(x: [Double], y: [Double]) -> Double? {
     if let cov = Sigma.covariancePopulation(x: x, y: y),
       let σx = Sigma.standardDeviationPopulation(x),
       let σy = Sigma.standardDeviationPopulation(y) {

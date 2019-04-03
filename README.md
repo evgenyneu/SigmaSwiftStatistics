@@ -49,7 +49,7 @@ Simply add [SigmaDistrib.swift](https://github.com/evgenyneu/SigmaSwiftStatistic
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 8.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/SigmaSwiftStatistics" ~> 9.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -57,7 +57,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'SigmaSwiftStatistics', '~> 8.0'
+    pod 'SigmaSwiftStatistics', '~> 9.0'
 
 
 #### Setup with Swift Package Manager
@@ -72,7 +72,7 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(8,0,0)..<Version(9,0,0))
+                 versions: Version(9,0,0)..<Version(10,0,0))
     ]
 )
 ```

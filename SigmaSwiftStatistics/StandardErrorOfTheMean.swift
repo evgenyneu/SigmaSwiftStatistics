@@ -32,7 +32,7 @@ public extension Sigma {
       Sigma.standardErrorOfTheMean([1, 12, 19.5, -5, 3, 8]) // 3.5412254627
 
   */
-  public static func standardErrorOfTheMean(_ values: [Double]) -> Double? {
+  static func standardErrorOfTheMean(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     guard let stdev = standardDeviationSample(values) else { return nil }

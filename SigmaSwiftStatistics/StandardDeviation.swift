@@ -25,7 +25,7 @@ public extension Sigma {
    Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
    
    */
-  public static func standardDeviationSample(_ values: [Double]) -> Double? {
+  static func standardDeviationSample(_ values: [Double]) -> Double? {
     if let varianceSample = varianceSample(values) {
       return sqrt(varianceSample)
     }
@@ -57,7 +57,7 @@ public extension Sigma {
    Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
    
    */
-  public static func standardDeviationPopulation(_ values: [Double]) -> Double? {
+  static func standardDeviationPopulation(_ values: [Double]) -> Double? {
     if let variancePopulation = variancePopulation(values) {
       return sqrt(variancePopulation)
     }

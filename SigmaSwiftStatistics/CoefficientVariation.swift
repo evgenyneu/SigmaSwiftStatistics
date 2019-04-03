@@ -30,7 +30,7 @@ public extension Sigma {
       Sigma.coefficientOfVariationSample([1, 12, 19.5, -5, 3, 8]) // 1.3518226672
 
   */
-  public static func coefficientOfVariationSample(_ values: [Double]) -> Double? {
+  static func coefficientOfVariationSample(_ values: [Double]) -> Double? {
     if values.count < 2 { return nil }
     guard let stdDev = Sigma.standardDeviationSample(values) else { return nil }
     guard let avg = average(values) else { return nil }

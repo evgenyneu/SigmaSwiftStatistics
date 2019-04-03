@@ -30,7 +30,7 @@ public extension Sigma {
       Sigma.covarianceSample(x: x, y: y) // 5.03
 
   */
-  public static func covarianceSample(x: [Double], y: [Double]) -> Double? {
+  static func covarianceSample(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     
@@ -83,7 +83,7 @@ public extension Sigma {
        Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
    
    */
-  public static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
+  static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     

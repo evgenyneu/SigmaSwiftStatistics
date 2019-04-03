@@ -15,7 +15,7 @@ public extension Sigma {
    Sigma.median([1, 12, 19.5, 3, -5]) // 3
    
    */
-  public static func median(_ values: [Double]) -> Double? {
+  static func median(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = Sigma.sort(values)
@@ -46,7 +46,7 @@ public extension Sigma {
    Sigma.medianLow([1, 12, 19.5, 10, 3, -5]) // 3
    
    */
-  public static func medianLow(_ values: [Double]) -> Double? {
+  static func medianLow(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = values.sorted { $0 < $1 }
@@ -74,7 +74,7 @@ public extension Sigma {
    Sigma.medianHigh([1, 12, 19.5, 10, 3, -5]) // 10
    
    */
-  public static func medianHigh(_ values: [Double]) -> Double? {
+  static func medianHigh(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = values.sorted { $0 < $1 }

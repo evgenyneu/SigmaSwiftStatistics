@@ -25,7 +25,7 @@ public extension Sigma {
    Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
    
    */
-  public static func varianceSample(_ values: [Double]) -> Double? {
+  static func varianceSample(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 2 { return nil }
     
@@ -64,7 +64,7 @@ public extension Sigma {
    Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8]) // 62.70138889
    
    */
-  public static func variancePopulation(_ values: [Double]) -> Double? {
+  static func variancePopulation(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     

@@ -11,7 +11,7 @@ import Foundation
 public extension Sigma {
 
   /// Determines how the ranks for the equal values ('ties') are calculated.
-  public enum RankTieMethod {
+  enum RankTieMethod {
     /**
 
     Calculates the average rank:
@@ -73,7 +73,7 @@ public extension Sigma {
       Sigma.rank([2, 3, 6, 5, 3]) // [1.0, 2.5, 5.0, 4.0, 2.5]
 
   */
-  public static func rank(_ values: [Double], ties: RankTieMethod = .average) -> [Double] {
+  static func rank(_ values: [Double], ties: RankTieMethod = .average) -> [Double] {
     var rank: Double
     let start = 1.0
     

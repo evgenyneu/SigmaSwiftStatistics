@@ -47,7 +47,7 @@ public extension Sigma {
       Sigma.standardErrorOfTheMean([1, 12, 19.5, -5, 3, 8]) // 3.5412254627
 
   */
-  public static func standardErrorOfTheMean(_ values: [Double]) -> Double? {
+  static func standardErrorOfTheMean(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     guard let stdev = standardDeviationSample(values) else { return nil }
@@ -90,7 +90,7 @@ public extension Sigma {
       Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
 
   */
-  public static func kurtosisA(_ values: [Double]) -> Double? {
+  static func kurtosisA(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 4 { return nil }
     
@@ -127,7 +127,7 @@ public extension Sigma {
       Sigma.kurtosisB([2, 1, 3, 4.1, 19, 1.5]) // 4.0138523409
 
   */
-  public static func kurtosisB(_ values: [Double]) -> Double? {
+  static func kurtosisB(_ values: [Double]) -> Double? {
     if values.isEmpty { return nil }
     guard let moment4 = centralMoment(values, order: 4) else { return nil }
     guard let moment2 = centralMoment(values, order: 2) else { return nil }
@@ -156,7 +156,7 @@ import Foundation
 public extension Sigma {
 
   /// Determines how the ranks for the equal values ('ties') are calculated.
-  public enum RankTieMethod {
+  enum RankTieMethod {
     /**
 
     Calculates the average rank:
@@ -218,7 +218,7 @@ public extension Sigma {
       Sigma.rank([2, 3, 6, 5, 3]) // [1.0, 2.5, 5.0, 4.0, 2.5]
 
   */
-  public static func rank(_ values: [Double], ties: RankTieMethod = .average) -> [Double] {
+  static func rank(_ values: [Double], ties: RankTieMethod = .average) -> [Double] {
     var rank: Double
     let start = 1.0
     
@@ -293,7 +293,7 @@ public extension Sigma {
   http://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html
 
   */
-  public static let quantiles = SigmaQuantiles()
+  static let quantiles = SigmaQuantiles()
 }
 
 public class SigmaQuantiles {
@@ -525,7 +525,7 @@ public extension Sigma {
    Sigma.standardDeviationSample([1, 12, 19.5, -5, 3, 8]) // 8.674195447801869
    
    */
-  public static func standardDeviationSample(_ values: [Double]) -> Double? {
+  static func standardDeviationSample(_ values: [Double]) -> Double? {
     if let varianceSample = varianceSample(values) {
       return sqrt(varianceSample)
     }
@@ -557,7 +557,7 @@ public extension Sigma {
    Sigma.standardDeviationPopulation([1, 12, 19.5, -5, 3, 8]) // 8.67419544780187
    
    */
-  public static func standardDeviationPopulation(_ values: [Double]) -> Double? {
+  static func standardDeviationPopulation(_ values: [Double]) -> Double? {
     if let variancePopulation = variancePopulation(values) {
       return sqrt(variancePopulation)
     }
@@ -597,7 +597,7 @@ public extension Sigma {
        Sigma.normalDistribution(x: -1, μ: 0, σ: 1) // 0.1586552539314570
    
    */
-  public static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+  static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
     if σ <= 0 { return nil }
     let z = (x - μ) / σ
     return  0.5 * erfc(-z * 0.5.squareRoot())
@@ -635,7 +635,7 @@ public extension Sigma {
       Sigma.normalDensity(x: 0, μ: 0, σ: 1) // 0.3989422804014327
 
   */
-  public static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {
+  static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {
     if σ <= 0 { return nil }
     return (1 / sqrt(2 * pow(σ,2) * Double.pi)) * pow(M_E, (-( pow(x - μ, 2) / (2 * pow(σ, 2)) )))
   }
@@ -660,7 +660,7 @@ public extension Sigma {
        Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1) // -1.9599639845400538
    
   */
-  public static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+  static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
     return qnorm(p: p, mu: μ, sigma: σ)
   }
   
@@ -830,7 +830,7 @@ public extension Sigma {
       Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3) // -1.5999259259
    
   */
-  public static func centralMoment(_ values: [Double], order: Int) -> Double? {
+  static func centralMoment(_ values: [Double], order: Int) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     guard let averageVal = average(values) else { return nil }
@@ -882,7 +882,7 @@ public extension Sigma {
       Sigma.covarianceSample(x: x, y: y) // 5.03
 
   */
-  public static func covarianceSample(x: [Double], y: [Double]) -> Double? {
+  static func covarianceSample(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     
@@ -935,7 +935,7 @@ public extension Sigma {
        Sigma.covariancePopulation(x: x, y: y) // 4.19166666666667
    
    */
-  public static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
+  static func covariancePopulation(x: [Double], y: [Double]) -> Double? {
     let xCount = Double(x.count)
     let yCount = Double(y.count)
     
@@ -994,7 +994,7 @@ public extension Sigma {
    Sigma.varianceSample([1, 12, 19.5, -5, 3, 8]) // 75.24166667
    
    */
-  public static func varianceSample(_ values: [Double]) -> Double? {
+  static func varianceSample(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 2 { return nil }
     
@@ -1033,7 +1033,7 @@ public extension Sigma {
    Sigma.variancePopulation([1, 12, 19.5, -5, 3, 8]) // 62.70138889
    
    */
-  public static func variancePopulation(_ values: [Double]) -> Double? {
+  static func variancePopulation(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     
@@ -1086,7 +1086,7 @@ public extension Sigma {
       Sigma.pearson(x: x, y: y) // 0.843760859352745
 
   */
-  public static func pearson(x: [Double], y: [Double]) -> Double? {
+  static func pearson(x: [Double], y: [Double]) -> Double? {
     if let cov = Sigma.covariancePopulation(x: x, y: y),
       let σx = Sigma.standardDeviationPopulation(x),
       let σy = Sigma.standardDeviationPopulation(y) {
@@ -1139,7 +1139,7 @@ public extension Sigma {
       Sigma.coefficientOfVariationSample([1, 12, 19.5, -5, 3, 8]) // 1.3518226672
 
   */
-  public static func coefficientOfVariationSample(_ values: [Double]) -> Double? {
+  static func coefficientOfVariationSample(_ values: [Double]) -> Double? {
     if values.count < 2 { return nil }
     guard let stdDev = Sigma.standardDeviationSample(values) else { return nil }
     guard let avg = average(values) else { return nil }
@@ -1172,7 +1172,7 @@ public extension Sigma {
    Sigma.median([1, 12, 19.5, 3, -5]) // 3
    
    */
-  public static func median(_ values: [Double]) -> Double? {
+  static func median(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = Sigma.sort(values)
@@ -1203,7 +1203,7 @@ public extension Sigma {
    Sigma.medianLow([1, 12, 19.5, 10, 3, -5]) // 3
    
    */
-  public static func medianLow(_ values: [Double]) -> Double? {
+  static func medianLow(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = values.sorted { $0 < $1 }
@@ -1231,7 +1231,7 @@ public extension Sigma {
    Sigma.medianHigh([1, 12, 19.5, 10, 3, -5]) // 10
    
    */
-  public static func medianHigh(_ values: [Double]) -> Double? {
+  static func medianHigh(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     let sorted = values.sorted { $0 < $1 }
@@ -1271,7 +1271,7 @@ public extension Sigma {
       Sigma.frequencies([1, 2, 3, 4, 5, 4, 4, 3, 5]) // [2:1, 3:2, 4:3, 5:2, 1:1]
 
   */
-  public static func frequencies(_ values: [Double]) -> ([Double: Int]) {
+  static func frequencies(_ values: [Double]) -> ([Double: Int]) {
     var counts: [Double: Int] = [:]
 
     for item in values {
@@ -1317,7 +1317,7 @@ public extension Sigma {
       Sigma.skewnessA([4, 2.1, 8, 21, 1]) // 1.6994131524
    
   */
-  public static func skewnessA(_ values: [Double]) -> Double? {
+  static func skewnessA(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 3 { return nil }
     guard let moment3 = centralMoment(values, order: 3) else { return nil }
@@ -1347,7 +1347,7 @@ public extension Sigma {
       Sigma.skewnessB([4, 2.1, 8, 21, 1]) // 1.1400009992
    
   */
-  public static func skewnessB(_ values: [Double]) -> Double? {
+  static func skewnessB(_ values: [Double]) -> Double? {
     if values.count < 3 { return nil }
     guard let stdDev = standardDeviationPopulation(values) else { return nil }
     if stdDev == 0 { return nil }
@@ -1492,7 +1492,7 @@ public extension Sigma {
       Sigma.percentile1(values: [35, 20, 50, 40, 15], percentile: 0.4) // Result: 29
 
   */
-  public static func percentile(_ data: [Double], percentile: Double) -> Double? {
+  static func percentile(_ data: [Double], percentile: Double) -> Double? {
     return Sigma.quantiles.method7(data, probability: percentile)
   }
 }
@@ -1529,7 +1529,7 @@ public extension Sigma {
       Sigma.uniqueValues([2, 1, 3, 4, 5, 4, 3, 5]) // [2, 3, 4, 5, 1]
 
   */
-  public static func uniqueValues(_ values: [Double]) -> [Double] {
+  static func uniqueValues(_ values: [Double]) -> [Double] {
     return Array(Set(values))
   }
 }

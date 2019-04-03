@@ -33,7 +33,7 @@ public extension Sigma {
       Sigma.centralMoment([3, -1, 1, 4.1, 4.1, 0.7], order: 3) // -1.5999259259
    
   */
-  public static func centralMoment(_ values: [Double], order: Int) -> Double? {
+  static func centralMoment(_ values: [Double], order: Int) -> Double? {
     let count = Double(values.count)
     if count == 0 { return nil }
     guard let averageVal = average(values) else { return nil }

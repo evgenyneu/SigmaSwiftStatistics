@@ -23,7 +23,7 @@ public extension Sigma {
       Sigma.uniqueValues([2, 1, 3, 4, 5, 4, 3, 5]) // [2, 3, 4, 5, 1]
 
   */
-  public static func uniqueValues(_ values: [Double]) -> [Double] {
+  static func uniqueValues(_ values: [Double]) -> [Double] {
     return Array(Set(values))
   }
 }

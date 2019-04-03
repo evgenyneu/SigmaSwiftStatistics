@@ -26,7 +26,7 @@ public extension Sigma {
       Sigma.skewnessA([4, 2.1, 8, 21, 1]) // 1.6994131524
    
   */
-  public static func skewnessA(_ values: [Double]) -> Double? {
+  static func skewnessA(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 3 { return nil }
     guard let moment3 = centralMoment(values, order: 3) else { return nil }
@@ -56,7 +56,7 @@ public extension Sigma {
       Sigma.skewnessB([4, 2.1, 8, 21, 1]) // 1.1400009992
    
   */
-  public static func skewnessB(_ values: [Double]) -> Double? {
+  static func skewnessB(_ values: [Double]) -> Double? {
     if values.count < 3 { return nil }
     guard let stdDev = standardDeviationPopulation(values) else { return nil }
     if stdDev == 0 { return nil }

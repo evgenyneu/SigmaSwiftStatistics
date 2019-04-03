@@ -26,7 +26,7 @@ public extension Sigma {
       Sigma.kurtosisA([2, 1, 3, 4.1, 19, 1.5]) // 5.4570693277
 
   */
-  public static func kurtosisA(_ values: [Double]) -> Double? {
+  static func kurtosisA(_ values: [Double]) -> Double? {
     let count = Double(values.count)
     if count < 4 { return nil }
     
@@ -63,7 +63,7 @@ public extension Sigma {
       Sigma.kurtosisB([2, 1, 3, 4.1, 19, 1.5]) // 4.0138523409
 
   */
-  public static func kurtosisB(_ values: [Double]) -> Double? {
+  static func kurtosisB(_ values: [Double]) -> Double? {
     if values.isEmpty { return nil }
     guard let moment4 = centralMoment(values, order: 4) else { return nil }
     guard let moment2 = centralMoment(values, order: 2) else { return nil }

@@ -22,7 +22,7 @@ public extension Sigma {
        Sigma.normalDistribution(x: -1, μ: 0, σ: 1) // 0.1586552539314570
    
    */
-  public static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+  static func normalDistribution(x: Double, μ: Double = 0, σ: Double = 1) -> Double? {
     if σ <= 0 { return nil }
     let z = (x - μ) / σ
     return  0.5 * erfc(-z * 0.5.squareRoot())
@@ -60,7 +60,7 @@ public extension Sigma {
       Sigma.normalDensity(x: 0, μ: 0, σ: 1) // 0.3989422804014327
 
   */
-  public static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {
+  static func normalDensity(x: Double, μ: Double = 0, σ: Double = 1) -> Double?  {
     if σ <= 0 { return nil }
     return (1 / sqrt(2 * pow(σ,2) * Double.pi)) * pow(M_E, (-( pow(x - μ, 2) / (2 * pow(σ, 2)) )))
   }
@@ -85,7 +85,7 @@ public extension Sigma {
        Sigma.normalQuantile(p: 0.025, μ: 0, σ: 1) // -1.9599639845400538
    
   */
-  public static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
+  static func normalQuantile(p: Double, μ: Double = 0, σ: Double = 1) -> Double? {
     return qnorm(p: p, mu: μ, sigma: σ)
   }
   
