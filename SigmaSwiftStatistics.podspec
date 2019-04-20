@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "SigmaSwiftStatistics"
-  s.version     = "9.0.0"
+  s.version     = "9.0.2"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/evgenyneu/SigmaSwiftStatistics"
   s.summary     = "A collection of functions for statistical calculation written Swift for iOS, macOS, watchOS and tvOS."
