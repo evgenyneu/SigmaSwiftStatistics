@@ -65,14 +65,19 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 Add the following text to your Package.swift file and run `swift build`.
 
 ```Swift
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
-    name: "YourPackageName",
-    targets: [],
+    name: "MyApp",
     dependencies: [
-        .Package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git",
-                 versions: Version(9,0,0)..<Version(10,0,0))
+        .package(url: "https://github.com/evgenyneu/SigmaSwiftStatistics.git", from: "9.0.0")
+    ],
+    targets: [
+        .target(
+            name: "MyApp",
+            dependencies: ["SigmaSwiftStatistics"],
+            path: "Sources")
     ]
 )
 ```
