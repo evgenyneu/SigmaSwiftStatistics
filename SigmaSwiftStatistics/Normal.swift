@@ -77,7 +77,7 @@ public extension Sigma {
    
    - parameter σ: The standard deviation. Default: 1.
    
-   - returns: The quantile function for the normal distribution. Returns nil if σ is zero or negative. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
+   - returns: The quantile function for the normal distribution. Returns nil if p is negative or greater than one. Returns (-Double.infinity) if p is zero. Returns Double.infinity if p is one.
    
    
    Example:
